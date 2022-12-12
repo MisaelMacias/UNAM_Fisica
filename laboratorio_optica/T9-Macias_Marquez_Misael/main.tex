@@ -1,0 +1,228 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+%%%1%%%
+
+
+
+\item Luz incide en agua ($n_{\text{agua}}=1.33$) desde el aire ($n_{\text{aire}}=1$). ¿Cuál es el valor del ángulo de Brewster?
+
+\textbf{Sol}:
+
+Sustituyendo en la ecuación 9.9:
+
+\begin{equation*}
+    \theta_B = \tan^{-1}{\left(\frac{n_{\text{agua}}}{n_{\text{aire}}}\right)} = \tan^{-1}{\left(\frac{1.33}{1}\right)} = 53.06 ^{\circ}
+\end{equation*}
+
+
+
+%%%2%%%
+
+
+
+
+\item ¿Qué ocurre cuando la luz con PCI incide en un polarizador lineal con ET a un ángulo $\theta$ arbitrario?, Físicamente, ¿qué significa esto para la intensidad cuando se gira un polarizador? (Utilizar matrices para justificar).
+
+\textbf{Sol}:
+
+Pues creo que solo la componente sobre el ET pasará y oscilará sobre el mismo.
+
+La matriz de polarización lineal PL es:
+
+\begin{equation*}
+    PL=E_0 \left(\begin{array}{cc}
+         \cos{\alpha}  \\
+         \sin{\alpha} 
+    \end{array}\right)
+\end{equation*}
+
+y la matriz de rotación en el plano es:
+
+\begin{equation*}
+    \left(\begin{array}{cc}
+         \cos{\theta} & -\sin{\theta}  \\
+         \sin{\theta} & \cos{\theta}
+    \end{array}\right)
+\end{equation*}
+
+que al multiplicarse:
+
+\begin{equation*}
+    E_0 \cdot \left(\begin{array}{cc}
+         \cos{\theta} & -\sin{\theta}  \\
+         \sin{\theta} & \cos{\theta}\end{array}\right) \cdot \left(\begin{array}{cc}
+         \cos{\alpha}  \\
+         \sin{\alpha} \end{array}\right) = E_0 \left(\begin{array}{cc}
+         \cos{\theta}\cos{\alpha}-\sin{\theta}\sin{\alpha}  \\
+         \sin{\theta}\cos{\alpha}+\cos{\theta}\sin{\alpha}   \end{array}\right) 
+\end{equation*}
+
+\begin{equation*}
+    = E_0 \left(\begin{array}{cc}
+         \cos{(\theta +\alpha)}  \\
+         \sin{(\theta +\alpha)} \end{array}\right)
+\end{equation*}
+
+
+
+
+
+
+
+%%%3%%%
+
+
+
+\item Luz PL a $45^{\circ}$ e intensidad $I_0$ incide en un polarizador lineal con ET a $0^{\circ}$ seguido de un analizador con ET a $45^{\circ}$. ¿Cuál es la polarización e intensidad de la luz de salida?(Usar matrices).
+
+\textbf{Sol}:
+
+\begin{equation*}
+    \left(\begin{array}{cc}
+        \cos^{2}{\theta} & \sin{\theta} \cos{\theta}  \\
+        \sin{\theta}\cos{\theta} & \sin^{2}{\theta} 
+    \end{array}\right) \cdot E_0  \left(\begin{array}{c}
+          \cos{\beta} \\
+          \sin{\beta}
+    \end{array}\right)=E_0 \cos{(\theta - \beta)} \left(\begin{array}{c}
+         \cos{\theta} \\
+         \sin{\theta} 
+    \end{array}\right)
+\end{equation*}
+
+sustituyendo $\theta= 45^{\circ}$ y $\beta = 0^{\circ}$:
+
+\begin{equation*}
+    E_{0} \cos{(45^{\circ} - 0 ^{\circ})}\left(\begin{array}{c}
+         \cos{45^{\circ}}  \\
+         \sin{45^{\circ}}
+    \end{array}\right)=\frac{E_0}{2} \left(\begin{array}{c}
+         1  \\
+          1
+    \end{array}\right)
+\end{equation*}
+
+
+
+
+
+%%%4%%%
+
+
+
+\item Si dos polarizadores tienen sus ejes a $90^{\circ}$ (ortogonales), la ley de Malus predice que la luz a la salida será cero. ¿Qué ocurriría si un tercer polarizador se coloca entre los dos polarizadores ortogonales con su eje a $45^{\circ}$ del primer polarizador? (Utilizar matrices para justificar la respuesta y luz PL paralela al primer polarizador).
+
+\textbf{Sol}:
+
+por la ley de Malus sabemos que para el primer polarizador la intensidad de salida es $\frac{I_0}{2}$ o bien: 
+
+\begin{equation*}
+    I_{0} \cos{(45^{\circ} - 0 ^{\circ})}\left(\begin{array}{c}
+         \cos{45^{\circ}}  \\
+         \sin{45^{\circ}}
+    \end{array}\right)=\frac{I_0}{2} \left(\begin{array}{c}
+         1  \\
+          1
+    \end{array}\right)
+\end{equation*}
+
+entonces aplicando de nuevo la ley de malus 2 veces:
+
+\begin{equation*}
+    \frac{I_{0}}{2} \cos{(45^{\circ} - 0 ^{\circ})}\left(\begin{array}{c}
+         \cos{45^{\circ}}  \\
+         \sin{45^{\circ}}
+    \end{array}\right)=\frac{I_0}{4} \left(\begin{array}{c}
+         1  \\
+          1
+    \end{array}\right)
+\end{equation*}
+
+
+\begin{equation*}
+    \frac{I_{0}}{4} \cos{(45^{\circ} - 0 ^{\circ})}\left(\begin{array}{c}
+         \cos{45^{\circ}}  \\
+         \sin{45^{\circ}}
+    \end{array}\right)=\frac{I_0}{8} \left(\begin{array}{c}
+         1  \\
+          1
+    \end{array}\right)
+\end{equation*}
+    
+    
+\end{enumerate}
+
+\end{document}

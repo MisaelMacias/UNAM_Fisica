@@ -1,0 +1,431 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Dos partículas de masa $m$ están sujetas a los extremos de una barra rígida sin masa de longitud $a$. El sistema puede rotar libremente en tres dimensiones respecto al centro de la barra. Encuentre las funciones propias normalizadas y muestre que el espectro de energía tiene el aspecto
+
+\begin{equation*}
+    E_n = \frac{\hbar^2 n (n+1)}{ma^2}
+\end{equation*}
+
+con $n$ un entero no negativo.
+
+\textbf{Sol:}
+
+
+
+%%%2%%%
+
+
+
+\item \begin{enumerate}
+    \item  Pruebe que para una partícula en un potencial $V(x)$, la ecuación de movimiento para el valor esperado del momento angular es
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{L}>_{\psi} = <\hat{N}>_{\psi}
+    \end{equation*}
+    
+    Con $\hat{N} = x \times (- \nabla V)$ en la representación  de posiciones.
+    
+    \textbf{Sol:}
+    
+    \begin{equation*}
+        L_i = \epsilon_{ijk} \hat{x}_{j} \hat{p}_{k}
+    \end{equation*}
+    
+    Primero veamos que
+    
+    \begin{equation*}
+        [\hat{L}_{i}, \hat{H}] = [\hat{L}_{i} , \frac{\hat{p}^2}{2m} + \hat{V}] = \frac{1}{2m} [\hat{L}_{i},\hat{p}^2] + [\hat{L}_{i}, \hat{V}] = [\hat{L}_{i}, \hat{V}]
+    \end{equation*}
+    
+    donde $[\hat{L}_{i},\hat{p}^2] = 0$ ya que $\hat{p}$ es vectorial y por tanto el operador escalar $\hat{p}^2$ conmuta con $\hat{L}_{i}$
+    
+    \begin{equation*}
+        [\hat{L}_{i}, \hat{H}] = [\epsilon_{ijk}\hat{x}_{j}\hat{p}_{k}, \hat{V}] = \epsilon_{ijk} [\hat{x}_{j}\hat{p}_{k}, \hat{V}]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \epsilon_{ijk} \left(\hat{x}_{j}[\hat{p}_{k}, \hat{V}] + [\hat{x}_{j}, \hat{V}] \hat{p}_{k}\right) = \epsilon_{ijk} \hat{x}_{j}[\hat{p}_{k}, \hat{V}]
+    \end{equation*}
+    
+    con $[\hat{p}_{k}, \hat{V}]=0$ debido a que $\hat{V}$ depende de las componentes de la posición y $[\hat{x}_{i},\hat{x}_{i} ] = 0$, entonces la ecuación de movimiento para el valor esperado del momento angular es
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{L}>_{\psi} = \frac{1}{i \hbar} <[\hat{L}, \hat{H}]>_{\psi} +\cancel{<\frac{\partial \hat{L}}{\partial t}>_{\psi}}
+    \end{equation*}
+    
+    \begin{equation*}
+        = <\epsilon_{ijk}\hat{x}_{j} \frac{\partial \hat{V}}{\partial \hat{x}_{i}}>_{\psi}= <\epsilon_{kji}\hat{x}_{j} (-\frac{\partial \hat{V}}{\partial \hat{x}_{i}})>_{\psi} = <x \times (- \nabla V)>_{\psi}
+    \end{equation*}
+    
+    donde se usó que $[p_{j}, \hat{F}(\hat{x})] = i \hbar \frac{\partial \hat{F}}{\partial \hat{x_{i}}}$ y la definición del producto cruz en notación de índices.
+    
+    
+    \item Con esto, muestre que para un potencial esféricamente simétrico se cumple
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{L}> = 0
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    por el a) tenemos que
+    
+    \begin{equation*}
+          \frac{d}{dt} <\hat{L}>_{\psi} = \frac{1}{i \hbar} <[\hat{L}, \hat{H}]>_{\psi} +\cancel{<\frac{\partial \hat{L}}{\partial t}>_{\psi}}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{i\hbar}<[\hat{L}_{i}, \hat{V}]>_{\psi}
+    \end{equation*}
+    
+    que por definición $[\hat{V},\hat{L}_{i}] = 0$ entonces
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{L}>_{\psi} = 0
+    \end{equation*}
+    
+    
+    \end{enumerate}
+    
+    
+    
+%%%3%%%
+
+
+
+\item Suponga que $\hat{A}$ es un operador vectorial.
+
+\begin{enumerate}
+    \item Encuentre las ecuaciones de Heisenberg de cada una de sus componentes para un sistema que esté descrito por el hamiltoniano de un rotor rígido
+    
+    \begin{equation*}
+        \hat{H} = \frac{\hat{L}^2}{mr^2}
+    \end{equation*}
+    
+    con $m$ y $r$ constantes positivas.
+    
+    \textbf{Sol:}
+    
+    Supongamos que $\hat{A}$ no depende explícitamente del tiempo, entonces las ecuaciones de Heisenberg quedan como
+    
+    \begin{equation*}
+        \frac{d \hat{A}_{H}}{d t} = \frac{1}{i \hbar} [\hat{A}_{H}_{i}, \hat{H}_{H}_j] + \cancel{\left(\frac{\partial \hat{A}_{H}_{i}}{\partial t}\right)}
+    \end{equation*}
+    
+    con $\hat{A}_{H} = \hat{U}^{\dagger} \hat{A} \hat{U}$ y $\hat{H}_{H} = \hat{U}^{\dagger} \hat{H} \hat{U}$
+    
+    \begin{equation*}
+        \frac{d \hat{A}_{Hi}}{d t} = \frac{1}{i\hbar} (\hat{U}^{\dagger} \hat{A}_{i} \cancel{\hat{U} \hat{U}^{\dagger}} \hat{H}_{j} \hat{U} - \hat{U}^{\dagger} \hat{H} \cancel{\hat{U} \hat{U}^{\dagger}} \hat{A} \hat{U}) = \frac{1}{i \hbar} \hat{U}^{\dagger} (\hat{A}_{i}\hat{H}_{j} - \hat{H}_{j} \hat{A}_{i}) \hat{U}
+    \end{equation*}
+    
+    y como $\hat{A}$ es un operador vectorial, se tiene
+    
+    
+    \begin{equation*}
+        \frac{d \hat{A}_{Hi}}{d t} = \frac{1}{i \hbar m r^2} \hat{U}^{\dagger} [\hat{A}_{i}, \hat{L}_{j}^{2}] \hat{U} = \frac{1}{i \hbar m r^2} (\hat{L}_{j}[\hat{A}_{i}, \hat{L}_{j}] + [\hat{A}_{i},\hat{L}_{j}]\hat{L_{j}}) \hat{U}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{i \hbar m r^2}\hat{U}^{\dagger} (\hat{L}_{j} \epsilon_{ijk} i \hbar \hat{A}_{k} - \epsilon_{ijk} i \hbar \hat{A}_{k} \hat{L}_{j}) \hat{U}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\epsilon_{ijk}}{mr^2} \hat{U}^{\dagger} (\hat{L}_{j}\hat{A}_{k} + \hat{A}_{k} \hat{L}_{j}) \hat{U}
+    \end{equation*}
+    
+    por lo tanto
+    
+    
+    \begin{equation*}
+        \frac{d \hat{A}_{Hi}}{d t} = \frac{\epsilon_{ijk}}{m r^2} (\hat{L}_{j} \hat{A}_{k} + \hat{A}_{k} \hat{L}_{j})_{H}
+    \end{equation*}
+    
+    
+    
+    
+    \item Definiendo $\hat{A}_{\pm} = \hat{A}_1 \pm i \hat{A}_{2}$, demuestre 
+    
+    \begin{equation*}
+        [\hat{L}_{+}, \hat{A}_{+}] = 0 \hspace{1cm} [\hat{L}_{+}, \hat{A}_{-}] = 2 \hbar \hat{A}_{3}
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Recordemos que para un operador vectorial $\hat{V}$ se tiene $[\hat{V}_{i}, \hat{L}_{j}] = \epsilon_{ijk}i \hbar \hat{V}_{k}$, entonces
+    
+    \begin{equation*}
+        [\hat{L}_{+}, \hat{A}_{+}] = (\hat{L}_{x} + i \hat{L}_{y})(\hat{A}_{1} + i \hat{A}_{2}) - (\hat{A}_{1} + i \hat{A}_{2})(\hat{L}_{x} + i \hat{L}_{y}) 
+    \end{equation*}
+    
+    \begin{equation*}
+        = (\hat{A}_{2}\hat{L}_{y} - \hat{L}_{y} \hat{A}_{2})  - i (\hat{A}_{2}\hat{L}_{x} - \hat{L}_{x}\hat{A}_{2}) - i (\hat{A}_{1} \hat{L}_{y} - \hat{L}_{y}\hat{A}_{1}) - (\hat{A}_{1} \hat{L}_{x} - \hat{L}_{x} \hat{A}_{1})
+    \end{equation*}
+    
+    \begin{equation*}
+        = [\hat{A}_{2}, \hat{L}_{y}] - [\hat{A}_{1}, \hat{L}_{x}] - i [\hat{A}_{2} ,\hat{L}_{x}] - i [\hat{A}_{1}, \hat{L}_{y}]
+    \end{equation*}
+    
+    \begin{equation*}
+         =\cancel{\epsilon_{22k} i \hbar \hat{A}_{k}} -\cancel{\epsilon_{11k} i \hbar  \hat{A}_{k}}-i \cancel{(\epsilon_{123} + \epsilon_{213})} i \hbar \hat{A}_{3} = 0
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        [\hat{L}_{+}, \hat{A}_{-}] = (\hat{L}_{x} + i \hat{L}_{y}) (\hat{A}_{1} - i \hat{A}_{2}) - (\hat{A}_{1} - i \hat{A}_{2})(\hat{L}_{x} + i \hat{L}_{y})
+    \end{equation*}
+    
+    \begin{equation*}
+        = i (\hat{A}_2 \hat{L}_{x}- \hat{L}_{x}\hat{A}_{2}) - (\hat{A}_{1} \hat{L}_{x}- \hat{L}_{x}\hat{A}_{1}) - i(\hat{A}_{1}\hat{L}_{y} - \hat{L}_{y} \hat{A}_{1}) - (\hat{A}_{2} \hat{L}_{y} -\hat{L}_{y}\hat{A}_{2})
+    \end{equation*}
+    
+    \begin{equation*}
+        = i[\hat{A}_{2}, \hat{L}_{x}] - [\hat{A}_{1}, \hat{L}_{x}]-i [\hat{A}_{1},\hat{L}_{y}] - [\hat{A}_{2},\hat{L}_{y}]
+    \end{equation*}
+    
+    \begin{equation*}
+        = i \epsilon_{213} i \hbar \hat{A}_{2} - \cancel{\epsilon_{11k}i \hbar \hat{A}_{k}} - i \epsilon_{123}i\hbar \hat{A}_{3} - \cancel{\epsilon_{22k}i \hbar \hat{A}_{k}} = 2 \hbar \hat{A}_{3}
+    \end{equation*}
+    
+\end{enumerate}
+
+
+
+%%%4%%%
+
+
+
+\item Las funciones $\phi_{1}$, $\phi_0$ y $\phi_{-1}$ son funciones propias, normalizadas, del operador $\hat{L}^2$ con valor propio $l(l+1)\hbar^2= 2 \hbar^2$, y del operador $\hat{L}_{z}$con valores propios $\hbar$, $0$ y $- \hbar$ respectivamente. Encuentre las funciones propias de $\hat{L}_{x}$, con sus respectivos valores propios, en términos de las funciones $\phi_{1}$, $\phi_{0}$ y $\phi_{-1}$.
+
+\textbf{Sol:}
+
+
+
+%%%5%%%
+
+
+
+\item Considere el operador $e^{i \pi \hat{L}_{y} / 2 \hbar}$. Si lo aplica a un estado propio de $\hat{L}^2$ y $\hat{L}_{x}$ con $l = 1$, pruebe que el estado resultante es estado propio de $\hat{L}_{z}$. ¿Qué interpretación tiene el operador $e^{i\pi \hat{L}_{y}/2 \hbar}$? Además pruebe las siguientes identidades
+
+\begin{equation*}
+    e^{i\pi \hat{L}_{y}/2 \hbar} \hat{L}_{z} e^{-i\pi \hat{L}_{y}/2\hbar} = - \hat{L}_{x}
+\end{equation*}
+
+\begin{equation*}
+    e^{i\pi \hat{L}_{y}/2 \hbar} \hat{L}_{x} e^{-i\pi \hat{L}_{y}/2 \hbar} = \hat{L}_{z}
+\end{equation*}
+
+\textbf{Sol:} 
+
+Primero probemos las identidades, Sea $A(\theta) =e^{i\theta \hat{L}_{y}/ \hbar} \hat{L}_{x} e^{-i\theta \hat{L}_{y}/ \hbar}$ y $B = e^{i\theta \hat{L}_{y}/ \hbar} \hat{L}_{z} e^{-i\theta \hat{L}_{y}/\hbar} $, entonces
+
+\begin{equation*}
+    \frac{d A}{d \theta} = \frac{i}{\hbar} (e^{i\theta \hat{L}_{y}/\hbar}(\hat{L}_{y}\hat{L}_{x} - \hat{L}_{x}\hat{L}_{y})e^{-i\theta \hat{L}_{y}/\hbar}) = - \epsilon_{213} e^{i\theta \hat{L}_{y}/\hbar} \hat{L}_{z}e^{-i\theta \hat{L}_{y}/\hbar} = B
+\end{equation*}
+
+\begin{equation*}
+    \frac{d B}{d \theta} = \frac{i}{\hbar} (e^{i\theta \hat{L}_{y}/\hbar}(\hat{L}_{y}\hat{L}_{z} - \hat{L}_{z}\hat{L}_{y})e^{-i\theta \hat{L}_{y}/\hbar}) = - \epsilon_{231} e^{i\theta \hat{L}_{y}/\hbar} \hat{L}_{x}e^{-i\theta \hat{L}_{y}/\hbar} = -A
+\end{equation*}
+
+ y por las condiciones iniciales para $\theta = 0$, las soluciones son
+ 
+ \begin{equation*}
+     A = \hat{L}_{x} \cos{\theta} + \hat{L}_{z} \sin{\theta} \hspace{1cm}  B = -\hat{L}_{x} \sin{\theta} + \hat{L}_{z} \cos{\theta}
+ \end{equation*}
+ 
+ \begin{equation*}
+     \therefore \hspace{1cm} e^{i\pi \hat{L}_{y}/2 \hbar} \hat{L}_{z} e^{-i\pi \hat{L}_{y}/2\hbar} = - \hat{L}_{x}
+ \end{equation*}
+ 
+ \begin{equation*}
+    e^{i\pi \hat{L}_{y}/2 \hbar} \hat{L}_{x} e^{-i\pi \hat{L}_{y}/2 \hbar} = \hat{L}_{z}
+\end{equation*}
+
+para $\theta = \pi/2$.
+ 
+ 
+
+
+
+Ahora para el primer problema, por hipótesis se tiene que
+
+\begin{equation*}
+    \hat{L}^2 \psi_{m} = 2 \hbar \psi_{m}
+\end{equation*}
+
+\begin{equation*}
+    \hat{L}_{x} \psi_{m} = m \hbar \psi_{m}
+\end{equation*}
+
+aplicando $e^{i\pi \hat{L}_{y}/2\hbar}$, $e^{-i\pi \hat{L}_{y}/2\hbar}$ y reagrupando
+
+\begin{equation*}
+    e^{i\pi \hat{L}_{y}/2\hbar} \hat{L}^2e^{-i\pi \hat{L}_{y}/2\hbar}(e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m}) = 2 \hbar (e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m})
+\end{equation*}
+
+\begin{equation*}
+    e^{i\pi \hat{L}_{y}/2\hbar} \hat{L}_{x}e^{-i\pi \hat{L}_{y}/2\hbar}(e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m} )= m \hbar (e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m})
+\end{equation*}
+
+como $\hat{L}^2$ conmuta con las componentes de $\hat{L}$ y por la propiedad demostrada anteriormente
+
+\begin{equation*}
+    \hat{L}^2(e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m}) = 2 \hbar (e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m})
+\end{equation*}
+
+\begin{equation*}
+    \hat{L}_{z}(e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m} )= m \hbar (e^{i\pi \hat{L}_{y}/2\hbar} \psi_{m})
+\end{equation*}
+
+por lo tanto el estado propio resultando es función propia de $\hat{L}_{z}$, $e^{i\pi \hat{L}_{y}/2 \hbar}$ es una rotación de $\pi/2$ respecto al eje $y$.
+
+%%%6%%%
+
+
+
+\item Para un vector unitario $\mathbf{n}$ que apunta en una dirección general, muestre las siguientes propiedades
+
+\begin{equation*}
+    [\mathbf{n} \cdot \mathbf{\hat{L}} , \mathbf{x}] = i \hbar (\mathbf{n} \times \mathbf{x})
+\end{equation*}
+
+\textbf{Sol:}
+
+Sea $\mathbf{n} = \sum n_i \hat{e}_{i}$, entonces
+
+\begin{equation*}
+    [n_i \hat{L}_i,\hat{p}_{j}] = - i \hbar n_i \epsilon_{ijk} x_j \left(\frac{\partial}{\partial x_k} x_l - x_l \frac{\partial}{\partial x_k}\right)
+\end{equation*}
+
+
+
+\begin{equation*}
+    = - i \hbar \epsilon_{ijk} n_i x_j = - i \hbar (\mathbf{n} \times \mathbf{x})_j
+\end{equation*}
+
+y así
+
+\begin{equation*}
+    [\mathbf{n} \cdot \mathbf{\hat{L}} , \mathbf{x}] = i \hbar (\mathbf{n} \times \mathbf{x})
+\end{equation*}
+
+\begin{equation*}
+    [\mathbf{n} \cdot \mathbf{L}, \mathbf{p}] = - i \hbar (\mathbf{n} \times \mathbf{p})
+\end{equation*}
+
+\textbf{Sol:}
+
+\begin{equation*}
+    [n_i \hat{L}_i, \hat{p_j}] = - i \hbar n_i \left(\hat{L}_i \frac{\partial}{\partial x_j} - \frac{\partial}{\partial x_j} \hat{L}_i \right)
+\end{equation*}
+
+\begin{equation*}
+    = - \hbar^2 \epsilon_{jik} n_i \frac{\partial}{\partial x_k} = - \hbar \epsilon_{jik} n_i \hat{p}_{k} = - i \hbar (\mathbf{n} \times \mathbf{\hat{L}})_j
+\end{equation*}
+
+por lo tanto
+
+\begin{equation*}
+    [\mathbf{n} \cdot \mathbf{L}, \mathbf{p}] = - i \hbar (\mathbf{n} \times \mathbf{p})
+\end{equation*}
+
+\begin{equation*}
+    [\mathbf{n} \cdot \mathbf{\hat{L}}, \mathbf{\hat{L}}] = - i \hbar (\mathbf{n} \times \mathbf{\hat{L}})
+\end{equation*}
+
+\textbf{Sol:}
+
+\begin{equation*}
+    n_i[\hat{L}_i, \hat{L}_j] = - i \hbar \epsilon_{jik} n_i \hat{L}_k = - i \hbar (\mathbf{n} \times \mathbf{\hat{L}})_j
+\end{equation*}
+
+por lo tanto
+
+\begin{equation*}
+    [\mathbf{n} \cdot \mathbf{\hat{L}}, \mathbf{\hat{L}}] = - i \hbar (\mathbf{n} \times \mathbf{\hat{L}})
+\end{equation*}
+
+
+
+
+
+    
+    
+\end{enumerate}
+
+\end{document}

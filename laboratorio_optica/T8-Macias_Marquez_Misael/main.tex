@@ -1,0 +1,287 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Una lente doble cóncava tiene un índice de refracción de 1.5 y radios de curvatura de $15cm$ y $10cm$, ¿Cuáles son su longitud focal ($f$) y su potencia ($D$)?
+
+\textbf{Sol}:
+
+El foco de esta lente está determinada por:
+
+\begin{equation*}
+    f = \frac{n_1}{n_2 - n_1} \frac{1}{\frac{1}{R_1}- \frac{1}{R_2}}
+\end{equation*}
+
+sustituyendo $n_1 = 1$, $n_2 =1.5$, $R_1 = 15 cm$ y $R_2 = 10cm$
+
+\begin{equation*}
+    f = \frac{1}{1.5- 1} \frac{1}{\frac{1}{15 cm} - \frac{1}{10cm}}= -60cm
+\end{equation*}
+
+y la potencia por:
+
+\begin{equation*}
+    D = (n-1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)
+\end{equation*}
+
+\begin{equation*}
+    = (1.5 - 1) \left(\frac{1}{0.15m}- \frac{1}{0.1m}\right)= -\frac{5}{3} D
+\end{equation*}
+
+
+
+
+
+
+
+
+
+%%%2%%%
+
+
+
+
+\item Un objeto $1.2cm$ de alto está a $6cm$ de una lente doble convexa con $f=4cm$. Localizar la posición de la imagen y su tamaño. ¿Qué tipo de imagen es?
+
+\textbf{Sol}:
+
+Usando la ecuación del constructor de lentes:
+
+\begin{equation*}
+    \frac{1}{o} + \frac{1}{i} = \frac{1}{f}
+\end{equation*}
+
+despejando $i$ y sustituyendo:
+
+\begin{equation*}
+    i = \frac{1}{\frac{1}{f} - \frac{1}{o}} = \frac{1}{\frac{1}{4cm} - \frac{1}{6cm}} = 12cm > 0
+\end{equation*}
+
+
+El tamaño de la imagen es:
+
+\begin{equation*}
+    M = -\frac{i}{o} = -\frac{12}{6} = -2 < 0
+\end{equation*}
+
+por lo tanto es una imagen real e invertida.
+
+
+
+
+%%%3%%%
+
+
+
+\item Dos lentes convergentes de longitudes focales $f_1 = 10.0cm$ y $f_2 = 20.0cm$ están separadas $20.0cm$ Un objeto de $1cm$ de alto se sitúa a $15cm$ al frente (izquierda) de la primer lente. Determinar posición y tamaño de la imagen intermedia y de la final.
+
+\textbf{Sol}:
+
+usando la ecuación 8.8 para la primera lente:
+\begin{equation*}
+    \frac{1}{i_1} +  \frac{1}{o_1} = \frac{1}{f_1} \hspace{1cm} \rightarrow \hspace{1cm} i_1 = \frac{1}{\frac{1}{f_1}- \frac{1}{o_1}} = \frac{1}{\frac{1}{10cm} - \frac{1}{15cm}}= 30cm
+\end{equation*}
+
+con una magnificación de:
+
+\begin{equation*}
+    M_1= -\frac{i_1}{o_1} = -\frac{30cm}{15cm}=-2
+\end{equation*}
+
+ahora para la lente 2:
+
+\begin{equation*}
+    o_2 = 20cm-30cm=-10cm
+\end{equation*}
+
+\begin{equation*}
+    i_2 = \frac{1}{\frac{1}{f_2} - \frac{1}{o_2}} = \frac{1}{\frac{1}{20cm} - \frac{1}{-10cm}} = 6.67 cm
+\end{equation*}
+
+con una magnificación de:
+
+\begin{equation*}
+    M_2 = -\frac{i_2}{o_2} = -\frac{6.67cm}{-10cm}= 0.67
+\end{equation*}
+
+
+
+%%%4%%%
+
+
+
+\item Asumiendo que las distancias objeto ($o$) e imagen ($i$) en la ecuación 8.8 son mediciones experimentales con incertidumbres $\Delta o$ y $\Delta i$ respectivamente, calcular la propagación de incertidumbre de la distancia focal. ¿Cómo se podría linealizar esta ecuación para encontrar $f$ en una gráfica?
+
+\textbf{Sol}:
+
+Despejando f de la ecuación 8.8:
+
+\begin{equation*}
+    f = \frac{1}{\frac{1}{o}+\frac{1}{i}}
+\end{equation*}
+
+y propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta f =\sqrt{\left(\frac{\partial f}{\partial o} \Delta o \right)^{2} + \left(\frac{\partial f}{\partial i} \Delta i \right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(-\frac{\Delta o}{o^2(\frac{1}{o}+\frac{1}{i})^2}\right)^{2}+\left(-\frac{\Delta i}{i^2 (\frac{1}{o}+\frac{1}{i})^2}\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{1}{i^2 o^2(\frac{1}{o}+\frac{1}{i})^2} \sqrt{(i\Delta o)^2 + (o \Delta i)^2}
+\end{equation*}
+
+Una posible linealización de la ecuación 8.8 es:
+
+\begin{equation*}
+    \frac{1}{o} = -\frac{1}{i} + \frac{1}{f}
+\end{equation*}
+
+que es de la forma $y= ax+b$ con $y= \frac{1}{o}$, $a = -1$, $x= \frac{1}{i}$ y $b = \frac{1}{b}$.
+
+
+
+
+%%%5%%%
+
+
+
+\item Cuál sería la incertidumbre de la magnificación dada por la ecuación 8.10, si se tienen incertidumbres $\Delta o$ y $\Delta i$ en las mediciones de $o$ y $i$ respectivamente.
+
+\textbf{Sol}:
+
+La ecuación 8.10 es:
+
+\begin{equation*}
+    M = -\frac{i}{o}
+\end{equation*}
+
+y propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta M = \sqrt{\left(\frac{\partial M}{\partial i} \Delta i\right)^{2} + \left(\frac{\partial M}{\partial o} \Delta o\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(-\frac{\Delta i}{o}\right)^{2}+ \left(\frac{i\Delta o}{o^2}\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    \frac{1}{o}\sqrt{\Delta i^2 + \left(\frac{i\Delta o}{o}\right)^2}
+\end{equation*}
+
+
+
+
+%%%6%%%
+
+
+
+\item En el método de Bessel, si conocemos las distancias $a$ y $b$ con sus respectivas incertidumbres, ¿Cuál será la incertidumbre de la distancia focal dada por la ecuación 8.11?
+
+\textbf{Sol}:
+
+La ecuación 8.11 es:
+
+\begin{equation*}
+    f = \frac{b^2-a^2}{4b}
+\end{equation*}
+
+y propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta f = \sqrt{\left(\frac{\partial f}{\partial a} \Delta a\right)^2 + \left(\frac{\partial f}{\partial b}\Delta b\right)^2}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(-\frac{2a\Delta a}{4b}\right)^{2}+\left(\frac{2b(4b)-4(b^2-a^2)}{16b^2}\Delta b\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    =\frac{1}{2b}\sqrt{\left(-a\Delta a\right)^{2}+\left(\frac{b^2+a^2}{2b}\Delta b\right)^{2}}
+\end{equation*}
+
+    
+    
+\end{enumerate}
+
+\end{document}

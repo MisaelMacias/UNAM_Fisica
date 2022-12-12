@@ -1,0 +1,136 @@
+\documentclass[DIV=calc, paper=a4, fontsize=11pt]{scrartcl}
+
+
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{flushend}
+
+\usepackage{lmodern}
+\usepackage[left=1.5cm,right=1.5cm,top=2.5cm,bottom=2cm]{geometry}
+\usepackage{float}		
+\bibliographystyle{plain} 
+\pagestyle{plain} 
+\pagenumbering{arabic}
+\usepackage{fancyhdr} 	
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\usepackage{lipsum}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[svgnames]{xcolor}
+\usepackage[svgnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{fix-cm}
+\usepackage{multicol}
+\newenvironment{Figura}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\usepackage{sectsty}
+\allsectionsfont{\usefont{OT1}{phv}{b}{n}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{siunitx}
+\usepackage{lastpage}
+
+\lhead{}
+\chead{}
+\rhead{}
+
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{lettrine}
+\newcommand{\initial}[1]{\lettrine[lines=3,lhang=0.3,nindent=0em]{
+\color{DarkGoldenrod}{\textsf{#1}}}{}}
+
+\usepackage{titling}
+
+\newcommand{\HorRule}{\color{DarkGoldenrod} \rule{\linewidth}{1pt}}
+
+\pretitle{\vspace{-120pt} \begin{flushleft} \HorRule \fontsize{22}{35} \usefont{OT1}{phv}{b}{n} \color{DarkRed} \selectfont}
+
+\title{Principio de Arquímedes\\ %Aquí va el nombre de la práctica 
+Práctica 7} %Numero de la práctica 
+
+\posttitle{\par\end{flushleft}\vskip 0.5em}
+
+\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{DarkRed}}
+
+\author{Misael Iván Macías Márquez\\
+misaelmacias@ciencias.unam.mx}
+
+\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black}
+
+\vspace*{0.1cm} Facultad de Ciencias, UNAM
+
+\par\end{flushleft}\HorRule}
+
+\date{Fecha\\Semestre 2022-2}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+\textbf{Resumen:} 
+
+
+jlj
+\end{abstract}
+
+\begin{multicols}{2}
+
+
+
+
+\section*{Introducción}
+
+
+
+
+
+\section*{Desarrollo experimental}
+\begin{enumerate}
+\item Con ayuda del dens\'imetro obtener la densidad del fluido de la primer probeta.
+\item Usando el vernier, medir los diámetros de las 3 pelotas y con ayuda de la báscula digital pesar cada una de ellas.
+\item Graduar la probeta con ayuda de cinta adhesiva cada 5 cm.
+\item Dejar caer cada una de las pelotas en el fluido de la probeta, y con un cronómetro medir el tiempo que tarda en recorrer cada marca, repetir este procedimiento 5 veces para cada una de las pelotas, figura (2).
+\item Repetir el paso anterior con las otras dos pelotas.
+\item Repetir todos los pasos anteriores para cada probeta.
+\end{enumerate}
+
+
+\section*{Resultados y Análisis}
+\begin{itemize}
+\item Hacer una tabla mostrando: cada pelota, su di\'ametro, su radio, su masa, su volumen y su densidad.
+\item Hacer una gr\'afica de distancia vs tiempo para poder apreciar y obtener la velocidad final de cada pelota en cada fluido (de preferencia un esquema por pelota, donde se aprecien todos los fluidos).
+\item Obtener y comparar con los valores de la literatura el coeficiente de viscosidad para cada fluido.
+\item \textbf{PUNTO EXTRA} ¿C\'omo cambia la ley de Stokes si en lugar de ser una esfera el objeto que se sumerge, fuera un disco?
+\end{itemize}
+
+\section*{Conclusiones}
+  
+\begin{thebibliography}{99}
+\bibitem{1} Sears, Zemansky \emph{Física universitaria} Vol. 1, Gpo. Edit. Pearson Educación, 12 ed.l, México, 2009.
+
+\end{thebibliography}
+
+\section*{Apéndices}
+
+
+\end{multicols}
+\end{document}

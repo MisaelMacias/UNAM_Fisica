@@ -1,0 +1,797 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+    
+%Técnicas de solución%
+
+
+
+%%%1%%%
+
+
+
+\begin{enumerate}
+    \item \textbf{Describe el tipo de ecuación y las regiones en las que es de tipo hiperbólica, parabólica y/o elíptica. Recuerda que debes de justificar el por qué de tu respuesta (calcular el discriminante).}
+    
+    \begin{enumerate}
+        \item $u_{xx} - u_{xy} - 2u_{yy} = 0$
+        
+        \item $u_{xx} + 2 u_{xy} + u_{yy} = 0$
+        
+        \item $2u_{xx} + 4u_{xy} + 3u_{yy} - 5u = 0$
+        
+        \item $e^{xy} u_{xx} + (\sinh{x}) u_{yy} + u = 0$
+    \end{enumerate}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Todas las EDP's son de segundo orden, lineales y homogéneas, ahora para calcular sus discriminantes tomemos en cuenta que
+    
+    \begin{equation*}
+        Au_{xx}+ B u_{xy} + C u_{yy} + D u_{x} + E u_{y} + F u = G
+    \end{equation*}
+    
+    y entonces sus discriminantes son:
+    
+    \begin{enumerate}
+        \item $A = 1 \hspace{1cm} B = -1 \hspace{1cm} C = -2$ $\rightarrow$ $B^2 -4AC = (-1)^2 - (1)(-2) = 3$ $\therefore$ es hiperbólica
+        \item $A = 1 \hspace{1cm} B = 2 \hspace{1cm} C = 1$ $\rightarrow$ $B^2 - 4AC = (2)^2 - (1)(1)= 3$ $\therefore$ es hiperbólica
+        \item $A = 2 \hspace{1cm} B = 4 \hspace{1cm} C= 3$ $\rightarrow$ $B^2 -4AC = (4)^2 - (2)(3) = 10$ $\therefore$ es hiperbólica
+        \item $A = e^{xy} \hspace{1cm} B = 0 \hspace{1cm} C = \sinh{x}$ $\rightarrow$ $B^2-4AC = (0)^2 - (e^{xy})(\sinh{x}) = e^{xy}\sinh{x}$ como $e^{xy} > 0 \hspace{0.5cm} \forall x,y $ entonces solo depende de $\sinh{x}$ que es mayor a 0 con $x> 0$, menor a 0 con $x<0$ e igual a 0 con $x=0$ $\therefore$ es hiperbólica con $x> 0$, elíptica con $x <0$ y parabólica con $x= 0$ ($\forall y$)
+    \end{enumerate}
+    
+    
+    
+%%%2%%%
+
+
+
+    \item \textbf{Para la siguiente ecuación diferencial parcial, ¿a qué ecuaciones diferenciales ordinarias llegamos cuando se ocupa el método de separación de variables?}
+    
+    \begin{equation*}
+        \frac{\partial u}{\partial t} = \frac{k}{r}\frac{\partial}{\partial r}\left(r \frac{\partial u}{\partial r}\right)
+    \end{equation*}
+    
+    Primero supongamos que existe una solución del tipo $u(r,t) = R(r)T(t)$, ahora sustituyamos
+    
+    \begin{equation*}
+        \frac{\partial u}{\partial t} = \frac{k}{r}\frac{\partial}{\partial r}\left(r \frac{\partial u}{\partial r}\right) \rightarrow R(r)T'(t) = \frac{k}{r} \frac{\partial}{\partial r} (r R'(r)T(t))
+    \end{equation*}
+    
+    y por regla de la cadena
+    
+    \begin{equation*}
+        R(r)T'(t)= \frac{k T(t)}{r}(R'(r)+ rR''(r))
+    \end{equation*}
+    
+    que multiplicando por $\frac{1}{R(r)T(t)}$ y reordenando
+    
+    \begin{equation*}
+        \frac{1}{k} \frac{T'(t)}{T(t)} = \frac{1}{r} (\frac{R'(r)}{R(r)} + r\frac{R''(r)}{R(r)}) 
+    \end{equation*}
+    
+    dado que $r$ y $t$ son independientes entre sí, cada lado debe ser una constante fija (digamos $-\lambda$ con $\lambda \neq 0$), entonces
+    
+    \begin{equation*}
+        \frac{1}{k} \frac{T'(t)}{T(t)} = \frac{1}{r} (\frac{R'(r)}{R(r)} + r\frac{R''(r)}{R(r)}) = -\lambda
+    \end{equation*}
+    
+    o de manera equivalente
+    
+    \begin{equation*}
+        T'(t)+k\lambda T(t) = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        rR''(r) + R'(r) + r\lambda R(r) = 0
+    \end{equation*}
+    
+    
+    
+%%%3%%%
+    
+    
+    
+    \item\textbf{Con el método de separación de variables resuelve la siguiente EDP:}
+    
+    \begin{equation*}
+        u_t = 17 u_{xx} \hspace{2cm} 0<x<\pi, \hspace{1cm} t>0
+    \end{equation*}
+    
+    \textbf{con las condiciones de frontera:}
+    
+    \begin{equation*}
+        u(0,t) = u(\pi,t)= 0 \hspace{2cm} t \geq 0
+    \end{equation*}
+    
+    \textbf{y las condiciones iniciales:}
+    
+    \begin{equation*}
+        u(x,0) = \left\{ \begin{array}{lcc}
+             0 &   si  & 0 < x \leq \frac{\pi}{2}\\
+             \\ 2 &  si & \frac{\pi}{2}< x \leq \pi \\
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Supongamos que existe una solución de la forma $u(x,t) = X(x)T(t)$ y sustituyamos
+    
+    \begin{equation*}
+        u_t = 17 u_{xx} \rightarrow X(x)T'(t) = 17X''(x)T(t)
+    \end{equation*}
+    
+    si multiplicamos por $\frac{1}{X(x)T(t)}$ y reordenamos, entonces
+    
+    \begin{equation*}
+        \frac{T'(t)}{17T(t)} = \frac{X''(x)}{X(x)}
+    \end{equation*}
+    
+    dado que $x$ y $t$ son independientes entre sí, cada lado debe ser una constante fija (digamos $-\lambda$ con $\lambda \neq 0$), entonces
+    
+    \begin{equation*}
+        \frac{T'(t)}{17T(t)} =\frac{X''(x)}{X(x)} = - \lambda
+    \end{equation*}
+    
+    o equivalentemente
+    
+    \begin{equation*}
+        T'(t) +17\lambda T(t) = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        X''(x) +\lambda X(x) = 0
+    \end{equation*}
+    
+    ahora solo hay que resolver un par de EDO, empecemos por la segunda
+    
+    Supongamos que la solución es de la forma $X(x) = e^{\beta x}$ con $\beta$ una constante y sustituyamos
+    
+    \begin{equation*}
+         \beta^2 e^{\beta x} +\lambda e^{\beta x}  = 0
+    \end{equation*}
+    
+    que factorizando
+    
+    \begin{equation*}
+        (\beta^2 + \lambda ) e^{\beta x} = 0
+    \end{equation*}
+    
+    y dado que $e^{\lambda x}$ es mayor a 0 para cualquier x y $\beta$
+    
+    \begin{equation*}
+        \beta^2 + \lambda = 0 \rightarrow \beta = \pm i\sqrt{\lambda}
+    \end{equation*}
+    
+    por lo que las soluciones son
+    
+    \begin{equation*}
+        X_1 (x) = c_1 e^{i\sqrt{\lambda} x} \hspace{2cm} X_2(x) = c_2 e^{-i \sqrt{\lambda} x}
+    \end{equation*}
+    
+    donde $c_1$ y $c_2$ son constantes de integración, y así la  solución general es
+    
+    \begin{equation*}
+        X(x) = X_1(x) + X_2(x) = c_1 e^{i\sqrt{\lambda} x} + c_2 e^{-i \sqrt{\lambda} x}
+    \end{equation*}
+    
+    ahora aplicando la identidad de Euler ($e^{a\pm ib} = e^{a} \cos{b}\pm i e^{a} \sin{b}$)
+    
+    \begin{equation*}
+        X(x) = c_1 (e^{0} \cos{\sqrt{\lambda}x}+ i e^{0} \sin{\sqrt{\lambda}x}) + c_2 (e^{0} \cos{\sqrt{\lambda }x} - i e^{0} \sin{\sqrt{\lambda}x})
+    \end{equation*}
+    
+    y reordenando
+    
+    \begin{equation*}
+        X(x) = c_1 (\cos{\sqrt{\lambda}x}+ i\sin{\sqrt{\lambda}x}) + c_2 (\cos{\sqrt{\lambda }x} - i \sin{\sqrt{\lambda}x})
+    \end{equation*}
+    
+    \begin{equation*}
+        = c_1\cos{\sqrt{\lambda}x}+c_1 i\sin{\sqrt{\lambda}x} + c_2\cos{\sqrt{\lambda }x} - c_2 i \sin{\sqrt{\lambda}x}
+    \end{equation*}
+    
+    \begin{equation*}
+        = (c_1+c_2)\cos{\sqrt{\lambda}x}+(c_1-c_2) i\sin{\sqrt{\lambda}x}
+    \end{equation*}
+    
+    que se puede escribir como
+    
+    \begin{equation*}
+        X(x)= C_1\cos{\sqrt{\lambda}x}+C_2\sin{\sqrt{\lambda}x}
+    \end{equation*}
+    
+    donde $C_1 = c_1 + c_2$ y $C_2 = i(c_1-c_2)$, ahora resolvamos la primera, basta con reordenar un poco para resolverla
+    
+    \begin{equation*}
+        \frac{T'(t)}{T(t)}= -17\lambda
+    \end{equation*}
+    
+    integrando
+    
+    \begin{equation*}
+        \int \frac{T'(t)}{T(t)} dt= -\int 17\lambda dt \rightarrow \ln{T(t)} = -17 \lambda t + c
+    \end{equation*}
+    
+    por lo que la solución general es
+    
+    \begin{equation*}
+        T(t) = C_1 e^{-17\lambda t}
+    \end{equation*}
+    
+    ya con las soluciones, solo falta usar las condiciones iniciales y de frontera para definir las constante, por lo mientras la solución general es
+    
+    \begin{equation*}
+        u(x,t) = (C_1\cos{\sqrt{\lambda}x}+C_2\sin{\sqrt{\lambda}x}) e^{-17\lambda t}
+    \end{equation*}
+    
+    por las condiciones de frontera, se tiene que
+    
+    \begin{equation*}
+        u(0,t) = (C_1\cos{\sqrt{\lambda}0}+\cancel{C_2\sin{\sqrt{\lambda}0}}) e^{-17\lambda t} = C_1 e^{-17\lambda t} = 0 \rightarrow C_1 = 0 \hspace{1cm} (\text{esto implica }  C_2 \neq 0)
+    \end{equation*}
+    
+    \begin{equation*}
+        u(\pi ,t) =(\cancel{C_1\cos{\sqrt{\lambda}\pi}}+C_2\sin{\sqrt{\lambda}\pi}) e^{-17\lambda t} = C_2 \sin{\sqrt{\lambda}\pi} e^{-17\lambda t} = 0 \rightarrow \sin{\sqrt{\lambda}\pi} = 0
+    \end{equation*}
+    
+    lo ultimo significa que
+    
+    \begin{equation*}
+        \sqrt{\lambda} \pi = n \pi \hspace{ 2cm} n \in Z
+    \end{equation*}
+    
+    Sin embargo para no tomar en cuenta la misma solución 2 veces, se toma n positivo, es decir
+    
+    \begin{equation*}
+        \lambda = n^2
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore u_n(x,t) = C_n sin{(nx)} e^{-17n^2 t}
+    \end{equation*}
+    
+    y por el principio de superposición
+    
+    \begin{equation*}
+        u(x,t) = \sum_{n = 1}^{\infty} C_n sin{(nx)} e^{-17n^2 t}
+    \end{equation*}
+    
+    \begin{equation*}
+        C_n = \frac{2}{\pi} \int_{0}^{\pi} u(x,0) \sin{nx}dx = \frac{2}{\pi}\left[\int_{0}^{\frac{\pi}{2}} (0) \sin{nx}dx + \int_{\frac{\pi}{2}}^{\pi} 2 \sin{nx}dx \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{4}{\pi} \int_{\frac{\pi}{2}}^{\pi} \sin{nx}dx = \frac{4}{n\pi} (\cos{\frac{n\pi}{2}}-\cos{n \pi})
+    \end{equation*}
+    
+    por lo que la solución general es
+    
+    \begin{equation*}
+        u(x,t) =  \sum_{n = 1}^{\infty} C_n sin{(nx)} e^{-17n^2 t}= \sum_{n = 1}^{\infty}\frac{4}{n\pi} (\cos{\frac{n\pi}{2}}-\cos{n \pi}) sin{(nx)} e^{-17n^2 t}
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+%%%4%%%
+
+
+
+    \item \textbf{Clasifica los puntos singulares de las siguientes EDO, es decir, identifica si son puntos singulares regulares o irregulares.}
+    
+    \begin{enumerate}
+        \item $x^3 y'' + 4x^2 y' + 3y = 0$
+        
+        \item $xy'' - (x+3)^{-2} y = 0$
+        
+        \item $(x^2 - 9)^2 y'' + (x + 3) y' + 2y = 0$
+        
+        \item $y'' - \frac{1}{x}y' + \frac{1}{(x-1)^3}y = 0$
+    \end{enumerate}
+    
+    \textbf{SOLUCIÓN:}
+    
+    \begin{enumerate}
+        \item Primero despejando $y''$
+        \begin{equation*}
+            y'' + \frac{4 x^2}{x^3} y' + \frac{3}{x^3} y =0
+        \end{equation*}
+        
+        entonces
+        
+        \begin{equation*}
+            P(x) = \frac{4 \cancel{x^2}}{x\cancel{^3}} = \frac{4}{x} \text{;    } Q(x) = \frac{3}{x^3}
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}P(x) = \lim_{x \rightarrow 0} \frac{4}{x} = \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}Q(x) = \lim_{x \rightarrow 0} \frac{3}{x^3} = \infty
+        \end{equation*}
+        
+        por lo que esta EDP solo tiene un punto singular, $x_0 = 0$
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0)P(x) = \lim_{x \rightarrow 0} \frac{4\cancel{x}}{\cancel{x}} = 4
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0)^2Q(x) = \lim_{x \rightarrow 0} \frac{3\cancel{x^2}}{x\cancel{^3}} = \lim_{x \rightarrow 0} \frac{3}{x}  = \infty
+        \end{equation*}
+        
+        por lo tanto $x_0$ es una singularidad irregular
+        
+        
+        \item despejando $y''$
+        
+        \begin{equation*}
+            y'' - \frac{1}{x(x+3)^2} y = 0
+        \end{equation*}
+        
+        entonces
+        
+        \begin{equation*}
+            P(x) = 0 \text{; } Q(x) =- \frac{1}{x(x+3)^2} 
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0} P(x) = \lim_{x \rightarrow 0} 0 = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1} P(x) = \lim_{x \rightarrow -3} 0 = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0} Q(x) = \lim_{x \rightarrow 0} - \frac{1}{x(x+3)^2} = \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1} Q(x) = \lim_{x \rightarrow -3} - \frac{1}{x(x+3)^2} = \infty
+        \end{equation*}
+        
+        por lo que esta EDP tiene 2 puntos singulares, $x_0 = 0$ y $x_1 = -3$
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0) P(x) = \lim_{x \rightarrow 0}(x) 0 = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1}(x-x_1) P(x) = \lim_{x \rightarrow -3}(x+3) 0 = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0)^2 Q(x) = \lim_{x \rightarrow 0} - \frac{x\cancel{^2}}{\cancel{x}(x+3)^2} =\lim_{x \rightarrow 0} \frac{-x}{(x+3)^2} = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1}(x-x_1)^2 Q(x) = \lim_{x \rightarrow -3} - \frac{\cancel{(x+3)^2}}{x\cancel{(x+3)^2}} = \lim_{x \rightarrow -3} -\frac{1}{x} = \frac{1}{3}
+        \end{equation*}
+        
+        por lo tanto $x_0$ y $x_1$ son puntos singulares regulares
+        
+        
+        
+        \item Despejando $y''$
+        \begin{equation*}
+            y'' + \frac{x+3}{(x^2-9)^2} y' + \frac{2}{(x^2-9)^2} y = 0
+        \end{equation*}
+        
+        entonces
+        
+        \begin{equation*}
+            P(x)= \frac{x+3}{(x^2-9)^2} \text{; } Q(x) = \frac{2}{(x^2-9)^2}
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0} P(x) =\lim_{x \rightarrow 3}\frac{x+3}{(x^2-9)^2}= \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1} P(x) =\lim_{x \rightarrow -3}\frac{x+3}{(x^2-9)^2}= \pm \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0} Q(x) =\lim_{x \rightarrow 3}\frac{2}{(x^2-9)^2}= \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1} Q(x) =\lim_{x \rightarrow -3}\frac{2}{(x^2-9)^2}= \infty
+        \end{equation*}
+        
+        
+        
+        por lo que esta EDP tiene 2 puntos singulares, $x_0 = 3$ y $x_1 = -3$  
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0) P(x) = \lim_{x \rightarrow 3}(x) \frac{(x-3)(x+3)}{(x^2-9)^2} =\lim_{x \rightarrow 3} \frac{\cancel{(x^2-9)}}{(x^2-9)\cancel{^2}}= \lim_{x \rightarrow 3} \frac{1}{x^2-9} = \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1}(x-x_1) P(x) = \lim_{x \rightarrow -3} \frac{\cancel{(x+3)^2}}{(x-3)^2\cancel{(x+3)^2}} = \lim_{x \rightarrow -3} \frac{1}{(x-3)^2}= \frac{1}{36}
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0)^2 Q(x) = \lim_{x \rightarrow 3} \frac{2\cancel{(x-3)^2}}{\cancel{(x-3)^2}(x+3)^2}  =\lim_{x \rightarrow 3}\frac{2}{(x+3)^2} = \frac{1}{18}
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1}(x-x_1)^2 Q(x) = \lim_{x \rightarrow -3} 
+            \frac{2\cancel{(x+3)^2}}{(x-3)^2\cancel{(x+3)^2}} = \lim_{x \rightarrow -3} \frac{2}{(x-3)^2} = \frac{2}{36}
+        \end{equation*}
+        
+        por lo tanto $x_0$ es un punto singular irregular y $x_1$ es un punto singular regular
+        
+        \item
+        \begin{equation*}
+            y'' - \frac{1}{x}y' + \frac{1}{(x-1)^3}y = 0
+        \end{equation*}
+        
+        entonces
+        
+        \begin{equation*}
+            P(x)= - \frac{1}{x} \text{; } Q(x) = \frac{1}{(x-1)^3}
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0} P(x) =\lim_{x \rightarrow 0}- \frac{1}{x}= \infty
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1} P(x) =\lim_{x \rightarrow 1}- \frac{1}{x}= -1
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0} Q(x) =\lim_{x \rightarrow 0}\frac{1}{(x-1)^3}= -1
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1} Q(x) =\lim_{x \rightarrow 1}\frac{1}{(x-1)^3}= \infty
+        \end{equation*}
+        
+        por lo que esta EDP tiene 2 puntos singulares, $x_0 = 0$ y $x_1 = 1$
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0) P(x) = \lim_{x \rightarrow 0}- \cancel{\frac{x}{x}} = -1
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1}(x-x_1) P(x) = \lim_{x \rightarrow 1} - \frac{(x-1)}{x} = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_0}(x-x_0)^2 Q(x) = \lim_{x \rightarrow 0} \frac{x^2}{(x-1)^3} = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \lim_{x \rightarrow x_1}(x-x_1)^2 Q(x) = \lim_{x \rightarrow 1} \frac{\cancel{(x-1)^2}}{(x-1)\cancel{^3}} = \lim_{x \rightarrow 1} \frac{1}{x-1} = \infty
+        \end{equation*}
+        
+        por lo tanto $x_0$ es singular regular y $x_1$ es singular irregular
+    \end{enumerate}
+    
+    
+    
+%%%5%%%
+
+
+
+    \item \textbf{Con el método de Frobenius resuelve la ecuación de Legendre:}
+    
+    \begin{equation*}
+        (1 - x^2) y'' - 2xy' + n(n+1)y = 0
+    \end{equation*}
+    
+    \textbf{A modo de guía para este ejercicio, los siguientes elementos te indicarán si vas por el camino correcto para la solución.}
+    
+    $\star$La ecuación de índices es: r(r-1) = 0
+    
+    $\star$ Que con la raíz $r_1 = 0$, la relación de recurrencia es:
+    
+    \begin{equation*}
+        a_{n+2} = \frac{n(n+1)- n(n+1)}{(n+1)(n+2)} a_n
+    \end{equation*}
+    
+    $\star$ La solución con esta raíz $r_1$, nos genera exponentes pares de x (haciendo que $a_1 = 0$), es:
+    
+    \begin{equation*}
+        y_{par} = a_0 \left[1 - \frac{n(n+1)}{2!}x^2 + \frac{n(n-2)(n+1)(n+3)}{4!} x^4 + ... \right]
+    \end{equation*}
+    
+    $\star$ Que con la raíz $r_2 = 1$, la relación de recurrencia es:
+    
+    \begin{equation*}
+        a_{n+2} = \frac{(n+1)(n+2)-n(n+1)}{(n+2)(n+3)} a_n
+    \end{equation*}
+    
+    $\star$ La solución con esta raíz $r_2$, nos genera exponentes impares de x (haciendo que $a_1 = 1$), es:
+    
+    \begin{equation*}
+        y_{impar}= a_1 \left[x - \frac{n(n-1)(n+2)}{3!} x^3 + \frac{n(n-1)(n-3)(n+2)(n+4)}{5!}x^5 + ... \right]
+    \end{equation*}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Primero veamos si las singularidades son regulares
+    
+    \begin{equation*}
+        P(x) = \frac{-2x}{1-x^2} \text{;} \hspace{1cm} Q(x) = \frac{n(n+1)}{1-x^2}
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_0} P(x) = \lim_{x \rightarrow 1} \frac{-2x}{1-x^2} = \infty 
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_1} P(x) = \lim_{x \rightarrow -1} \frac{-2x}{1-x^2} = \infty 
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_0} Q(x) = \lim_{x \rightarrow 1} \frac{n(n+1)}{1-x^2} = \infty 
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_1} Q(x) = \lim_{x \rightarrow -1} \frac{n(n+1)}{1-x^2} = \infty 
+    \end{equation*}
+    
+    entonces
+    
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_0}(x-x_0) P(x) = \lim_{x \rightarrow 1} \frac{-2x\cancel{(x-1)}}{-\cancel{(x-1)}(x+1)} = \lim_{x \rightarrow 1} \frac{2x}{(x+1)}= 1
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_1}(x-x_1) P(x) = \lim_{x \rightarrow -1} \frac{-2x\cancel{(x+1)}}{-(x-1)\cancel{(x+1)}} =  \lim_{x \rightarrow -1} \frac{2x}{(x-1)} = 1
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_0}(x-x_0)^2 Q(x) = \lim_{x \rightarrow 1} \frac{n(n+1)(x-1)\cancel{^2}}{-(x+1)\cancel{(x-1)}} = \lim_{x \rightarrow 1}\frac{n(n+1)(x-1)}{-(x+1)} = 0 
+    \end{equation*}
+    
+    \begin{equation*}
+        \lim_{x \rightarrow x_1}(x-x_1)^2 Q(x) = \lim_{x \rightarrow -1} \frac{n(n+1)(x+1)\cancel{^2}}{-(x-1)\cancel{(x+1)}} = \lim_{x \rightarrow -1}\frac{n(n+1)(x+1)}{-(x-1)}= 0
+    \end{equation*}
+    
+    Solo tiene singularidades regulares, por lo tanto podemos usar el método de Frobenius
+    
+    Supongamos que la solución es de la forma   $y = \sum_{k= 0}^{\infty} a_k x^{k+r} \hspace{2cm} a_0 \neq 0$
+    
+    Ahora derivemos y sustituyamos 
+    
+    \begin{equation*}
+        y' = \sum_{k=0}^{\infty} (k+r)a_nx^{k+r-1}
+    \end{equation*}
+    
+    \begin{equation*}
+        y'' = \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}
+    \end{equation*}
+    
+    \begin{equation*}
+        (1 - x^2) \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2} - 2x\sum_{k=0}^{\infty} (k+r)a_kx^{k+r-1} + n(n+1)\sum_{k= 0}^{\infty} a_k x^{k+r} = 0
+    \end{equation*}
+    
+    que simplificando 
+    
+    \begin{equation*}
+        \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}- x^2 \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2} - 2x\sum_{k=0}^{\infty} (k+r)a_kx^{k+r-1}
+    \end{equation*}
+    
+    \begin{equation*}
+         + n(n+1)\sum_{k= 0}^{\infty} a_k x^{k+r} = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}-\sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r} - 2\sum_{k=0}^{\infty} (k+r)a_kx^{k+r}
+    \end{equation*}
+    
+    \begin{equation*}
+         + n(n+1)\sum_{k= 0}^{\infty} a_k x^{k+r} = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}+\sum_{k=0}^{\infty}[ n(n+1)a_k-2(k+r)a_k-(k+r)(k+r-1)a_k]x^{k+r}= 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}+\sum_{k=0}^{\infty}[ (n(n+1)-2(k+r)-(k+r)(k+r-1))a_k]x^{k+r}= 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \sum_{k=0}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}+\sum_{k=0}^{\infty} (n(n+1)-(k^2+(1+2r)k+r(1+r)))a_kx^{k+r}= 0
+    \end{equation*}
+    
+    \begin{equation*}
+        r(r-1)a_0 x^{r-2} +(1+r)ra_1 x^{r-1}+\sum_{k=2}^{\infty} (k+r)(k+r-1)a_kx^{k+r-2}
+    \end{equation*}
+    
+    \begin{equation*}
+        +\sum_{k=0}^{\infty}(n(n+1)-(k^2+(1+2r)k+r(1+r)))a_kx^{k+r}= 0
+    \end{equation*}
+    
+    \begin{equation*}
+        r(r-1)a_0 x^{r-2} +(1+r)ra_1 x^{r-1}+\sum_{k=0}^{\infty} (k+r+2)(k+r+1)a_{k+2}x^{k+r}
+    \end{equation*}
+    
+    \begin{equation*}
+        +\sum_{k=0}^{\infty}(n(n+1)-(k^2+(1+2r)k+r(1+r)))a_kx^{k+r}= 0
+    \end{equation*}
+    
+    \begin{equation*}
+        r(r-1)a_0 x^{r-2} +(1+r)ra_1 x^{r-1}
+    \end{equation*}
+    
+    \begin{equation*}
+        +\sum_{k=0}^{\infty}[ (k+r+2)(k+r+1)a_{k+2}+(n(n+1)-(k^2+(1+2r)k+r(1+r)))a_n]x^{k+r}= 0
+    \end{equation*}
+    
+    
+    como $a_0 \neq 0$, entonces
+    
+    \begin{equation*}
+        r(r-1)=0
+    \end{equation*}
+    
+    \begin{equation*}
+        (k+r+2)(k+r+1)a_{k+2}+(n(n+1)-(k^2+(1+2r)k+r(1+r)))a_k = 0
+    \end{equation*}
+    
+    Entonces la ecuación de índices
+    
+    \begin{equation*}
+        r^2-r = 0
+    \end{equation*}
+    
+    con raíces
+    
+    \begin{equation*}
+        r_1 = 0 \hspace{1cm} r_2 = 1
+    \end{equation*}
+    
+    y relación de recurrencia
+    
+    \begin{equation*}
+        a_{k+2} = \frac{-(n(n+1)-(k^2+(1+2r)k+r(1+r)))}{(k+r+2)(k+r+1)}a_k
+    \end{equation*}
+
+     y entonces, con $r_1$ se tiene
+     
+     \begin{equation*}
+         a_{k+2} = \frac{-(n(n+1)-k(k+1))}{(k+2)(k+1)}a_k
+     \end{equation*}
+     
+     \begin{equation*}
+          a_0 \hspace{2cm}  a_1 = 0 
+     \end{equation*}
+     
+     \begin{equation*}
+         a_2 =-\frac{n(n+1)- 0(0+1)}{(0+2)(0+1)}a_0=-\frac{n(n+1)}{2!}a_0  \hspace{2cm} a_3 = a_1
+     \end{equation*}
+     
+     \begin{equation*}
+         a_4 = -\frac{n(n+1)-2(2+1)}{(4)(3)}a_2 = \frac{(n(n+1)-6)(n(n+1))}{4!}a_0
+     \end{equation*}
+     
+     \begin{equation*}
+         = \frac{(n^2+n-6)(n^2+n)}{4!}a_0 = \frac{n^4 +n^3 + n^3 +n^2 -6n}{4!} a_0= \frac{n^4 +4n^3+3n^2 -2n^3-8n^2-6n}{4!}a_0
+     \end{equation*}
+     
+     \begin{equation*}
+         =\frac{n(n-2)(n+1)(n+3)}{4!}a_0
+     \end{equation*}
+     
+     con $r_2$
+     
+     \begin{equation*}
+         a_{k+2} = \frac{k^2+3k+2-n(n+1)}{(k+3)(k+2)}a_k = \frac{(k+2)(k+1)-n(n+1)}{(k+3)(k+2)}a_k
+     \end{equation*}
+     
+     \begin{equation*}
+        a_0 \hspace{2cm} a_1 = 0 
+     \end{equation*}
+     
+     \begin{equation*}
+         a_2 =n \frac{-n(n+1)+2}{(3)(2)}a_0= -\frac{n(n-1)(n+2)}{3!}a_0 \hspace{2cm} a_3 = 0
+     \end{equation*}
+     
+     \begin{equation*}
+         a_4 = -\frac{(4)(3)-n(n+1)}{(5)(4)}a_2 = \frac{(12-n(n+1))n(n-1)(n+2)}{5!}a_0 
+     \end{equation*}
+     
+     \begin{equation*}
+         = n\frac{-n^4-2n^3+13n^2+14n-24}{5!}a_0 = \frac{n(n-1)(n-3)(n+2)(n+4)}{5!} a_0
+     \end{equation*}
+     
+     
+     así, sustituyendo en las soluciones
+     
+     \begin{equation*}
+         y_1 = \sum_{n= 0}^{\infty} a_n(r_1) x^{n+r_1} = a_0 \left[1 - \frac{n(n+1)}{2!}x^2 + \frac{n(n-2)(n+1)(n+3)}{4!} x^4 + ... \right]
+     \end{equation*}
+     
+     \begin{equation*}
+         y_2 = \sum_{n= 0}^{\infty} a_n(r_1) x^{n+r_2} = a_0 \left[x - \frac{n(n-1)(n+2)}{3!} x^3 + \frac{n(n-1)(n-3)(n+2)(n+4)}{5!}x^5 + ... \right]
+     \end{equation*}
+     
+     por lo tanto la solución general es
+     
+     \begin{equation*}
+         y = y_1 +y_2 = a_0 \left[1+x - \frac{n(n+1)}{2!}x^2- \frac{n(n-1)(n+2)}{3!} x^3 + \frac{n(n-2)(n+1)(n+3)}{4!} x^4 \right.
+     \end{equation*}
+     
+     \begin{equation*}
+         \left.+ \frac{n(n-1)(n-3)(n+2)(n+4)}{5!}x^5 ... \right]
+     \end{equation*}
+
+
+
+
+\end{enumerate}
+
+\end{document}

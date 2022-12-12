@@ -1,0 +1,664 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+    \item \textbf{Demuestra que las componentes de velocidad y aceleración en un sistema coordenado esférico son las siguientes:}
+    
+    \begin{equation*}
+        v_r = \dot{r}
+    \end{equation*}
+    
+     \begin{equation*}
+         v_\theta = r \dot{\theta}
+     \end{equation*}
+     
+     \begin{equation*}
+         v_\varphi = r \sin{\theta} \dot{\varphi}
+     \end{equation*}
+     
+     \begin{equation*}
+         a_r = \ddot{r} - r \dot{\theta^2} - r \sin^2{\theta}\dot{\varphi^2}
+     \end{equation*}
+     
+     \begin{equation*}
+         a_\theta = r\ddot{\theta} - 2\dot{r}\dot{\theta} - r \sin{\theta} \cos{\theta} \dot{\varphi^2}
+     \end{equation*}
+     
+     \begin{equation*}
+         a_\varphi = r \sin{\theta} \ddot{\varphi}+ 2 \dot{r}\sin{\theta}\dot{\varphi} + 2 r \cos{\theta} \dot{\theta} \dot{\varphi}
+     \end{equation*}
+     
+     \textbf{Considera que:}
+     
+     \begin{equation*}
+         \mathbf{r}(t) = \hat{\mathbf{r}}(t) r(t) = [\boldsymbol{\hat{\imath}} \sin{\theta(t)} \cos{\varphi(t)}+ \boldsymbol{\hat{\jmath}} \sin{\theta(t)} \sin{\varphi(t)} + \hat{\mathbf{k}} \cos{\theta(t)}]r(t) = \hat{\mathbf{e}}_r r(t)
+     \end{equation*}
+     
+     \textbf{SOLUCIÓN:}
+     
+     La velocidad se describe como:
+     
+     \begin{equation*}
+         \mathbf{v} = \frac{d \mathbf{r}}{dt} = \frac{d}{dt}(r(t)\hat{\mathbf{e}}_r)
+     \end{equation*}
+     
+     y por la regla de la cadena
+     
+     \begin{equation*}
+         \mathbf{v} = \dot{r} \hat{\mathbf{e}}_r + r \dot{\hat{\mathbf{e}}}_r
+     \end{equation*}
+     
+     entonces como la derivada total del vector unitario de $r$ es
+     
+     \begin{equation*}
+         \dot{\hat{\mathbf{e}}}_r = \frac{\partial \hat{\mathbf{e}}_r}{\partial r} \dot{r} + \frac{\partial \hat{\mathbf{e}}_r}{\partial \theta} \dot{\theta} + \frac{\partial \hat{\mathbf{e}}_r}{\partial \varphi} \dot{\varphi}
+     \end{equation*}
+     
+     recordando que 
+     
+     \begin{equation*}
+         \hat{\mathbf{e}}_r = \sin{\theta} \cos{\varphi} \boldsymbol{\hat{\imath}} + \sin{\theta} \sin{\varphi} \boldsymbol{\hat{\jmath}} + \cos{\theta} \mathbf{\hat{k}}
+     \end{equation*}
+     
+     \begin{equation*}
+         \hat{\mathbf{e}}_\theta = \cos{\theta} \cos{\varphi} \boldsymbol{\hat{\imath}} + \cos{\theta} \sin{\varphi} \boldsymbol{\hat{\jmath}} - \sin{\theta} \mathbf{\hat{k}}
+     \end{equation*}
+     
+     \begin{equation*}
+         \hat{\mathbf{e}}_\varphi = - \sin{\varphi} \boldsymbol{\hat{\imath}} + \cos{\varphi} \boldsymbol{\hat{\jmath}}
+     \end{equation*}
+     
+     tenemos
+     
+     \begin{equation*}
+         \dot{\hat{\mathbf{e}}}_r = (0) \dot{r} + (\cos{\theta}\cos{\varphi} \boldsymbol{\hat{\imath}} + \cos{\theta} \sin{\varphi} \boldsymbol{\hat{\jmath}} - \sin{\theta} \mathbf{\hat{k}}) \dot{\theta} + (-\sin{\theta} \sin{\varphi} \boldsymbol{\hat{\imath}} + \sin{\theta} \cos{\varphi} \boldsymbol{\hat{\jmath}}) \dot{\varphi}
+     \end{equation*}
+     
+     que reordenando términos y usando lo anteriormente recordado
+     
+     \begin{equation*}
+         = (\cos{\theta}\cos{\varphi} \boldsymbol{\hat{\imath}} + \cos{\theta} \sin{\varphi} \boldsymbol{\hat{\jmath}} - \sin{\theta} \mathbf{\hat{k}}) \dot{\theta} + \sin{\theta} (- \sin{\varphi} \boldsymbol{\hat{\imath}} + \cos{\varphi} \boldsymbol{\hat{\jmath}}) \dot{\varphi}
+     \end{equation*}
+     
+     \begin{equation*}
+         = \dot{\theta} \hat{\mathbf{e}}_\theta + \sin{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi
+     \end{equation*}
+     
+     y así
+     
+     \begin{equation*}
+         \mathbf{v} = \dot{r} \mathbf{\hat{e}}_r + r [\dot{\theta} \hat{\mathbf{e}}_\theta + \sin{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi] = \dot{r} \mathbf{\hat{e}}_r + r \dot{\theta} \hat{\mathbf{e}}_\theta + r \sin{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi
+     \end{equation*}
+     
+     \begin{equation*}
+         \therefore \hspace{2cm} v_r = \dot{r} \hspace{2cm} v_\theta = r \dot{\theta} \hspace{2cm} v_\varphi = r \sin{\theta} \dot{\varphi} \hspace{2cm} \blacksquare
+      \end{equation*}
+      
+      ahora para la aceleración, se tiene que
+      
+      \begin{equation*}
+          \mathbf{a} = \dot{\mathbf{v}}= \dot{(\dot{r}\mathbf{\hat{e}}_r)} + \dot{(r\dot{\theta} \mathbf{\hat{e}}_\theta)} + \dot{(r\sin{\theta} \dot{\varphi}\mathbf{\hat{e}}_\varphi)}
+      \end{equation*}
+      
+      y de nuevo por la regla de la cadena
+      
+      \begin{equation*}
+          = \ddot{r}\mathbf{\hat{e}}_r + \dot{r}\mathbf{\dot{\hat{e}}}_r + \dot{r} \dot{\theta} \mathbf{\hat{e}}_\theta + r \ddot{\theta} \mathbf{\hat{e}}_\theta + r \dot{\theta} \dot{\mathbf{\hat{e}}}_\theta + \dot{r}\sin{\theta}\dot{\varphi}\mathbf{\hat{e}}_\varphi+ r \cos{\theta} \dot{\theta} \dot{\varphi} \mathbf{\hat{e}}_\varphi + r \sin{\theta} \ddot{\varphi} \mathbf{\hat{e}}_\varphi + r \sin{\theta} \dot{\varphi} \dot{\mathbf{\hat{e}}}_\varphi
+      \end{equation*}
+      
+      por lo que necesitamos $\dot{\mathbf{\hat{e}}}_\theta$ y $\dot{\mathbf{\hat{e}}}_\phi$
+      
+      \begin{equation*}
+          \dot{\mathbf{\hat{e}}}_\theta = \frac{\partial \hat{\mathbf{e}}_\theta}{\partial r} \dot{r} + \frac{\partial \hat{\mathbf{e}}_\theta}{\partial \theta} \dot{\theta} + \frac{\partial \hat{\mathbf{e}}_\theta}{\partial \varphi} \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          = (0) \dot{r} + (-\sin{\theta}\cos{\varphi} \boldsymbol{\hat{\imath}} + - \sin{\theta} \sin{\varphi} \boldsymbol{\hat{\jmath}} - \cos{\theta} \mathbf{\hat{k}}) \dot{\theta} + (-\cos{\theta}\sin{\varphi} \boldsymbol{\hat{\imath}} + \cos{\theta} \cos{\varphi} \boldsymbol{\hat{\jmath}}) \dot{\varphi}
+      \end{equation*}
+      
+      que reordenando
+      
+      \begin{equation*}
+          = -(\sin{\theta}\cos{\varphi} \boldsymbol{\hat{\imath}} + \sin{\theta} \sin{\varphi} \boldsymbol{\hat{\jmath}} + \cos{\theta} \mathbf{\hat{k}}) \dot{\theta} +\cos{\theta} (-\sin{\varphi} \boldsymbol{\hat{\imath}} + \cos{\varphi} \boldsymbol{\hat{\jmath}}) \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          = - \dot{\theta} \hat{\mathbf{e}}_r + \cos{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi
+      \end{equation*}
+      
+      \begin{equation*}
+          \dot{\mathbf{\hat{e}}}_\phi = \frac{\partial \hat{\mathbf{e}}_\varphi}{\partial r} \dot{r} + \frac{\partial \hat{\mathbf{e}}_\varphi}{\partial \theta} \dot{\theta} + \frac{\partial \hat{\mathbf{e}}_\varphi}{\partial \varphi} \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          = (0) \dot{r} + (0) \dot{\theta} + (-\cos{\varphi} \boldsymbol{\hat{\imath}} - \sin{\varphi} \boldsymbol{\hat{\jmath}}) \dot{\varphi}
+      \end{equation*}
+      
+      \newpage
+      
+      y recordando que
+      
+      \begin{equation*}
+        \boldsymbol{\hat{\imath}} = \sin{\theta} \cos{\varphi} \boldsymbol{\hat{e}}_r + \cos{\theta} \cos{\varaphi} \mathbf{\hat{e}}_\theta - \sin{\varphi}\boldsymbol{\hat{e}}_\varphi
+      \end{equation*}
+      
+      \begin{equation*}
+          \boldsymbol{\hat{\jmath}} = \sin{\theta} \sin{\varphi} \mathbf{\hat{e}}_r + \cos{\theta} \sin{\varaphi} \mathbf{\hat{e}}_\theta + \cos{\varphi} \mathbf{\hat{e}}_\varphi 
+      \end{equation*}
+      
+      \begin{equation*}
+          \boldsymbol{\hat{k}} = \cos{\theta} \mathbf{\hat{e}}_r - \sin{\theta} \mathbf{\hat{e}}_\theta
+      \end{equation*}
+      
+      entonces
+      
+      \begin{equation*}
+          \dot{\mathbf{\hat{e}}}_\phi = (-\cos{\varphi}  (\sin{\theta} \cos{\varphi} \mathbf{\hat{e}}_r + \cos{\theta} \cos{\varaphi} \mathbf{\hat{e}}_\theta - \sin{\varphi}\boldsymbol{\hat{e}}_\varphi) - \sin{\varphi} (\sin{\theta} \sin{\varphi} \mathbf{\hat{e}}_r + \cos{\theta} \sin{\varaphi} \mathbf{\hat{e}}_\theta + \cos{\varphi} \mathbf{\hat{e}}_\varphi)) \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          = (-\sin{\theta} \cos^2{\varphi} \mathbf{\hat{e}}_r + \cos{\theta} \cos^2{\varphi} \mathbf{\hat{e}}_\theta - \cancel{\sin{\varphi} \cos{\varphi}\boldsymbol{\hat{e}}_\varphi} - \sin{\theta} \sin^2{\varphi} \mathbf{\hat{e}}_r + \cos{\theta} \sin^2{\varaphi} \mathbf{\hat{e}}_\theta +\cancel{\sin{\varphi} \cos{\varphi} \mathbf{\hat{e}}_\varphi}) \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          = (-\sin{\theta} \cancel{(\cos^2{\varphi} + \sin^2{\varphi})} \mathbf{\hat{e}}_r + \cos{\theta} \cancel{(\cos^2{\varphi} + \sin^2{\varphi})} \mathbf{\hat{e}}_\theta) \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          = (-\sin{\theta}  \mathbf{\hat{e}}_r + \cos{\theta} \mathbf{\hat{e}}_\theta) \dot{\varphi}
+      \end{equation*}
+      
+      
+      por fin sustituyendo
+      
+      \begin{equation*}
+          = \ddot{r}\mathbf{\hat{e}}_r + \dot{r}[\dot{\theta} \hat{\mathbf{e}}_\theta + \sin{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi] + \dot{r} \dot{\theta} \mathbf{\hat{e}}_\theta + r \ddot{\theta} \mathbf{\hat{e}}_\theta + r \dot{\theta} [- \dot{\theta} \hat{\mathbf{e}}_r + \cos{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi] + \dot{r}\sin{\theta}\dot{\varphi}\mathbf{\hat{e}}_\varphi+ r \cos{\theta} \dot{\theta} \dot{\varphi} \mathbf{\hat{e}}_\varphi + r \sin{\theta} \ddot{\varphi} \mathbf{\hat{e}}_\varphi 
+      \end{equation*}
+      
+      \begin{equation*}
+          + r \sin{\theta} \dot{\varphi} [(-\sin{\theta}  \mathbf{\hat{e}}_r + \cos{\theta} \mathbf{\hat{e}}_\theta) \dot{\varphi}]
+      \end{equation*}
+      
+      \begin{equation*}
+          =\ddot{r}\mathbf{\hat{e}}_r + \dot{r}\dot{\theta} \hat{\mathbf{e}}_\theta + \dot{r}\sin{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi + \dot{r} \dot{\theta} \mathbf{\hat{e}}_\theta + r \ddot{\theta} \mathbf{\hat{e}}_\theta   -r \dot{\theta} \dot{\theta} \hat{\mathbf{e}}_r +r \dot{\theta} \cos{\theta} \dot{\varphi} \hat{\mathbf{e}}_\varphi + \dot{r}\sin{\theta}\dot{\varphi}\mathbf{\hat{e}}_\varphi+ r \cos{\theta} \dot{\theta} \dot{\varphi} \mathbf{\hat{e}}_\varphi + r \sin{\theta} \ddot{\varphi} \mathbf{\hat{e}}_\varphi
+      \end{equation*}
+      
+      \begin{equation*}
+          - r \sin{\theta} \dot{\varphi} \sin{\theta}  \mathbf{\hat{e}}_r \dot{\varphi} +r \sin{\theta} \dot{\varphi} \cos{\theta} \dot{\varphi} \mathbf{\hat{e}}_\theta 
+      \end{equation*}
+      
+      \begin{equation*}
+          [\ddot{r}-r \dot{\theta}^2- r \sin{\theta} \dot{\varphi}^2 \sin{\theta}] \mathbf{\hat{e}}_r + [2\dot{r}\dot{\theta}+r \ddot{\theta}+r \sin{\theta} \dot{\varphi}^2 \cos{\theta}] \mathbf{\hat{e}}_\theta + [2\dot{r}\sin{\theta} \dot{\varphi} + 2r \dot{\theta} \cos{\theta} \dot{\varphi}+r \sin{\theta} \ddot{\varphi}]\mathbf{\hat{e}}_\varphi
+      \end{equation*}
+      
+      \begin{equation*}
+          \therefore \hspace{0.5cm} a_r = \ddot{r} - r \dot{\theta^2} - r \sin^2{\theta}\dot{\varphi^2} \hspace{0.5cm} a_\theta = r\ddot{\theta} - 2\dot{r}\dot{\theta} - r \sin{\theta} \cos{\theta} \dot{\varphi^2} \hspace{0.5cm} a_\varphi = r \sin{\theta} \ddot{\varphi}+ 2 \dot{r}\sin{\theta}\dot{\varphi} + 2 r \cos{\theta} \dot{\theta} \dot{\varphi}
+      \end{equation*}
+      
+      \begin{equation*}
+          \hspace{16cm} \blacksquare
+      \end{equation*}
+     
+     
+     
+%%%2%%%
+     
+     
+     
+     \item\textbf{Evalúa las siguientes expresiones en un sistema de coordenadas cilíndrico:}
+
+     \begin{equation*}
+         \nabla \times \ln{r} \hat{\mathbf{e}}_z \hspace{2cm} \nabla \ln{r} \hspace{2cm} \nabla \cdot (r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z)
+     \end{equation*}
+     
+     \textbf{SOLUCIÓN:}
+     
+     Primero debemos recordar que
+     
+         \begin{equation*}
+        \textbf{r} = \boldsymbol{\hat{\imath}} r \cos{\varphi} + \boldsymbol{\hat{\jmath}} r \sen{\varphi} + \mathbf{\hat{k}} z
+    \end{equation*}
+    
+    y usando lo siguiente
+    
+    \begin{equation*}
+        \frac{\partial \textbf{r}}{\partial r} = \boldsymbol{\hat{\imath}} \cos{\varphi} + \boldsymbol{\hat{\jmath}} \sen{\varphi}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial \textbf{r}}{\partial \varphi} = - \boldsymbol{\hat{\imath}} r \sen{\varphi} + \boldsymbol{\hat{\jmath}} r \cos{\varphi}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial \textbf{r}}{\partial z} = \mathbf{\hat{k}}
+    \end{equation*}
+    
+    tenemos que
+     
+    \begin{equation*}
+        h_r = \norm{\frac{\partial \textbf{r}}{\partial \rho}} = \sqrt{\cos^2{\psi} + \sen^2{\psi}} = 1
+    \end{equation*}
+    
+    \begin{equation*}
+        h_\varphi = \norm{\frac{\partial \textbf{r}}{\partial \varphi}} = \sqrt{r^2 \sen^2{\varphi} + r^2 \cos^2{\varphi}} = r \sqrt{\sen^2{\varphi} + \cos^2{\varphi}} = r
+    \end{equation*}
+    
+    \begin{equation*}
+        h_z = \norm{\frac{\partial \textbf{r}}{\partial z}} = \sqrt{1} = 1
+    \end{equation*}
+     
+    Lo que usaremos en todo este ejercicio, ahora, por definición
+     
+     \begin{equation*}
+         \nabla \times \ln{r} \hat{\mathbf{e}}_z = \frac{1}{h}
+            \begin{vmatrix}
+                h_r \hat{e}_r & h_\varphi \hat{e}_\varphi & h_z \hat{e}_z\\
+                \frac{\partial}{\partial r} & \frac{\partial }{\partial \varphi} & \frac{\partial}{\partial u_z}\\
+                (0) h_r & (0) h_\varphi & \ln{r} h_z
+            \end{vmatrix}
+     \end{equation*}
+     
+     \begin{equation*}
+         = \frac{h_r \mathbf{\hat{e}}_r}{h} \frac{\partial}{\partial \varphi} \left(\ln{r} h_z\right) - \frac{h_\varphi \mathbf{\hat{e}}_\varphi}{h} \frac{\partial}{\partial r}(\ln{r}h_z)
+     \end{equation*}
+     
+     \begin{equation*}
+         = \frac{\mathbf{\hat{e}}_r}{h_\varphi h_z} \frac{\partial}{\partial \varphi} \left(\ln{r} h_z\right) - \frac{\mathbf{\hat{e}}_\varphi}{h_r h_z} \frac{\partial}{\partial r}(\ln{r}h_z)
+     \end{equation*}
+     
+     sustituyendo
+     
+     \begin{equation*}
+         = \frac{\mathbf{\hat{e}}_r}{r} \cancel{\frac{\partial}{\partial \varphi} \left(\ln{r}\right)} - \frac{\mathbf{\hat{e}}_\varphi}{1} \frac{\partial}{\partial r}(\ln{r})
+     \end{equation*}
+     
+     \begin{equation*}
+         =- \frac{\mathbf{\hat{e}}_\varphi}{r}
+     \end{equation*}
+     
+     de nuevo por definición
+     
+     \begin{equation*}
+         \nabla \ln{r} = \sum \frac{\mathbf{\hat{e}}_i}{h_i} \frac{\partial}{\partial u_i} (\ln{r}) = \frac{\mathbf{\hat{e}}_r}{h_r}\frac{\partial}{\partial r} (\ln{r}) + \frac{\mathbf{\hat{e}}_\varphi}{h_\varphi}\cancel{\frac{\partial}{\partial \varphi} (\ln{r})} + \frac{\mathbf{\hat{e}}_z}{h_z}\cancel{\frac{\partial}{\partial z} (\ln{r})}
+     \end{equation*}
+     
+     \begin{equation*}
+         = \mathbf{\hat{e}}_r\frac{\partial}{\partial r} (\ln{r}) = \frac{\mathbf{\hat{e}}_r}{r}
+     \end{equation*}
+     
+     y ya por último
+     
+     \begin{equation*}
+         \nabla \cdot (r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) = \frac{1}{h} \frac{\partial}{\partial r} \left(\frac{(r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) h}{h_r}\right) + \frac{1}{h} \frac{\partial}{\partial \varphi} \left(\frac{(r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) h}{h_\varphi}\right) + \frac{1}{h} \frac{\partial}{\partial z} \left(\frac{(r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) h}{h_z}\right) 
+     \end{equation*}
+     
+     sustituyendo
+     
+     \begin{equation*}
+         = \frac{1}{r} \frac{\partial}{\partial r} \left(\frac{(r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) r}{1}\right) + \frac{1}{r} \cancel{\frac{\partial}{\partial \varphi} \left(\frac{(r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) \cancel{r}}{\cancel{r}}\right)} + \frac{1}{\cancel{r}} \frac{\partial}{\partial z} \left(\frac{(r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z) \cancel{r}}{1}\right)
+     \end{equation*}
+     
+     \begin{equation*}
+         = \frac{1}{r} \frac{\partial}{\partial r} \left((r^2 \hat{\mathbf{e}}_r + zr \hat{\mathbf{e}}_z)\right) +  \frac{\partial}{\partial z} \left((r \hat{\mathbf{e}}_r + z \hat{\mathbf{e}}_z)\right) = \frac{1}{r} (2r\mathbf{\hat{e}}_r + z \mathbf{\hat{e}}_z) + \mathbf{\hat{e}}_z  
+     \end{equation*}
+     
+     \begin{equation*}
+         2\mathbf{\hat{e}}_r + (\frac{z}{r} + 1) \mathbf{\hat{e}}_z
+     \end{equation*}
+     
+     
+     
+     \begin{equation*}
+     \end{equation*}
+     
+     
+     
+     
+%%%3%%%
+
+
+
+    \item \textbf{Para una esfera de radio $r$, calcula el volumen en un sistema de coordenadas oblatas. Considera que $a = 1$.}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Primero recordemos las reglas de transformación de este sistema
+    
+        \begin{equation*}
+        x = a \cosh{\xi} \cos{\eta} \cos{\phi} 
+    \end{equation*}
+    \begin{equation*}
+        y = a \cosh{\xi} \cos{\eta} \sin{\phi}
+    \end{equation*}
+    \begin{equation*}
+        z = a \sinh{\xi} \sin{\eta} 
+    \end{equation*}
+    
+    y de una vez calculemos los factores de escala
+    
+    \begin{equation*}
+            h_\xi = \norm{\frac{\partial \textbf{r}}{\partial \xi}} = \sqrt{a^2 \cos^2{\eta} \cos^2{\phi}\sinh^2{\xi}+ a^2 \cos^2{\eta}\sin^2{\phi} \sinh^2{\xi} + a^2 \sin^2{\eta} \cosh^2{\xi}}
+        \end{equation*}
+        
+        \begin{equation*}
+            = a\sqrt{\cos^2{\eta} \sinh^2{\xi}(\cancel{\cos^2{\phi} + \sin^2{\phi}}) + \sin^2{\eta} \cosh^2{\xi}}
+        \end{equation*}
+        
+        \begin{equation*}
+            = a \sqrt{\cos^2{\eta}\sinh^2{\xi} + \sin^2{\eta} (\sinh^2{\xi} + 1)}
+        \end{equation*}
+        
+        \begin{equation*}
+            = a \sqrt{\sinh^2{\xi}\cancel{(\sin^2{\eta}+ \cos^2{\eta})}+ \sin^2{\eta}}= a\sqrt{\sinh^2{\xi} + \sin^2{\eta}}
+        \end{equation*}
+        
+        \begin{equation*}
+            h_\eta = \norm{\frac{\partial \textbf{r}}{\partial \eta}} =\sqrt{a^2 \cosh^2{\xi}\sin^2{\eta}\cos^2{\phi} + a^2 \cosh^2{\xi}\sin^2{\eta}\sin^2{\phi} + a^2 \sinh^2{\xi}\cos^2{\eta}}
+        \end{equation*}
+        
+        \begin{equation*}
+           =a\sqrt{\cosh^2{\xi}\sin^2{\eta}(\cancel{\cos^2{\phi} + \sin^2{\phi}}) + \sinh^2{\xi} \cos^2{\eta}}
+        \end{equation*}
+        
+        \begin{equation*}
+            = a \sqrt{\sin^2{\eta} (\sinh^2{\xi} + 1) + \sinh^2{\xi} \cos^2{\eta}}
+        \end{equation*}
+        
+        \begin{equation*}
+            = a\sqrt{\sinh^2{\xi}\cancel{(\sin^2{\eta} + \cos^2{\eta})}+\sin^2{\eta}} = h_\xi
+        \end{equation*}
+        
+        \begin{equation*}
+            h_\phi = \norm{\frac{\partial \textbf{r}}{\partial \phi}} = \sqrt{a^2\cosh^2{\xi}\cos^2{\eta}\sen^2{\phi} + a^2 \cosh^2{\xi}\cos^2{\eta}\cos^2{\phi}}
+        \end{equation*}
+        
+        \begin{equation*}
+            = a \sqrt{\cosh^2{\xi}\cos^2{\eta}(\cancel{\sen^2{\phi} + \cos^2{\phi}})} = a \cosh{\xi}\cos{\eta}
+        \end{equation*}
+        
+    o resumiendo
+    
+    \begin{equation*}
+        h_\xi = a \sqrt{\sinh^2{\xi}+ \sin^2{\eta}} = h_\eta   \hspace{2cm} h_\phi = a \cosh{\xi}\cos{\eta}
+    \end{equation*}
+        
+    
+    ahora para obtener el volumen 
+    
+    \begin{equation*}
+        \iiint F(x,y,z) dV = \iiint F(\xi,\eta,\phi)  dV' 
+    \end{equation*}
+    
+    donde $dV = h_x h_y h_z dxdydz = dxdydz$, $dV= h_\xi h_\eta h_\phi d\xi d\eta d\phi$ (diferencial de volumen construidas en las notas) y $F = 1$ para integrar sobre la superficie y así obtener su volumen 
+    
+    
+    para obtener los límites de integración, sustituyamos las reglas de transformación en la esfera de radio $r$ con $a= 1$
+    
+    \begin{equation*}
+        x^2 + y^2 + z^2 = r^2
+    \end{equation*}
+    
+    \begin{equation*}
+        \cosh^2{\xi}\cos^2{\eta}\cos^2{\phi}+ \cosh^2{\xi}\cos^2{\eta}\sin^2{\phi}+ \sinh^2{\xi}\sin^2{\eta} = r^2
+    \end{equation*}
+    
+    \begin{equation*}
+        \cosh^2{\xi}\cos^2{\eta}\cancel{(\sin^2{\phi}+\cos^2{\phi})} + \sinh^2{\xi}\sin^2{\eta} = r^2
+    \end{equation*}
+    
+    \begin{equation*}
+        (\sinh^2{\xi}+1)\cos^2{\eta}+\sinh^2{\eta}\sin^2{\eta} = r^2
+    \end{equation*}
+    
+    \begin{equation*}
+    \sinh^2{\xi}\cos^2{\eta}+\cos^2{\eta}+\sinh^2{\eta}\sin^2{\eta} = r^2
+    \end{equation*}
+    
+    \begin{equation*}
+        \sinh^2{\xi}\cancel{(\cos^2{\eta}+\sin^2{\eta})}+\cos^2{\eta} = r^2
+    \end{equation*}
+    
+    \begin{equation*}
+        \sinh^2{\xi}+ \cos^2{\eta} = r^2
+    \end{equation*}
+    
+    y despejando $\xi$
+    
+    \begin{equation*}
+        \xi = \sinh^{-1}{\sqrt{r^2-\cos^2{\eta}}}
+    \end{equation*}
+    
+    y entonces usando esto en los limites de integración, tenemos
+    
+    \begin{equation*}
+        \int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\int_{-\pi /2}^{\pi/2}\int_{0}^{2\pi} (\sinh^2{\xi}+\sin^2{\eta})\cosh{\xi}\cos{\eta} d\phi d\eta d\xi
+    \end{equation*}
+    
+    \begin{equation*}
+        \int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\int_{-\pi /2}^{\pi/2}\int_{0}^{2\pi} \sinh^2{\xi}\cosh{\xi}\cos{\eta} d\phi d\eta d\xi d\xi+\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\int_{-\pi /2}^{\pi/2}\int_{0}^{2\pi}\sin^2{\eta}\cosh{\xi}\cos{\eta}d\phi d\eta d\xi
+    \end{equation*}
+    
+    \begin{equation*}
+        2\pi\left[\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\sinh^2{\xi}\cosh{\xi} d\xi \int_{-\pi /2}^{\pi/2} \cos{\eta} d\eta +\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\cosh{\xi} d \xi\int_{-\pi /2}^{\pi/2}\sin^2{\eta}\cos{\eta} d\eta\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        2\pi\left[2\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\sinh^2{\xi}\cosh{\xi} d\xi +\frac{2}{3}\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\cosh{\xi} d \xi \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        4\pi\left[\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\sinh^2{\xi}\cosh{\xi} d\xi +\frac{1}{3}\int_{\sinh^{-1}{(-r)}}^{\sinh^{-1}{(r)}}\cosh{\xi} d \xi \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        4\pi\left[\frac{\sinh^3{(\sinh^{-1}{r})}- \sinh^3{(\sinh^{-1}{r})}}{3} +\cancel{\frac{\sinh{(\sinh^{-1}{r})}- \sinh{(\sinh^{-1}{r})}}{3}}\right]= \frac{4\pi}{3}r^3
+    \end{equation*}
+    
+    
+    
+%%%4%%%
+
+
+
+    \item \textbf{La inductancia magnética $\hat{\mathbf{B}}$ es el rotacional del potencial magnético$\hat{\mathbf{A}}$. Supongamos que en un sistema coordenado bipolar, $\hat{\mathbf{A}} = - c \eta \hat{\mathbf{e}}_z$. Calcula $\hat{\mathbf{B}}$. Este problema describe el caso de dos alambres que conducen el mismo valor de corriente en direcciones paralelas y opuestas al eje z.}
+    
+    \textbf{SOLUCIÓN:}
+    
+    la transformación cartesiana del sistema coordenado cilíndrico bipolar es
+    
+    \begin{equation*}
+        x = \frac{a \sinh{\eta}}{\cosh{\eta}- \cos{\xi}}
+    \end{equation*}
+    
+    \begin{equation*}
+        y = \frac{a \sin{\xi}}{\cosh{\eta}- \cos{\xi}}
+    \end{equation*}
+    
+    \begin{equation*}
+        z = z
+    \end{equation*}
+    
+    \begin{equation*}
+        h_\xi = \norm{\frac{\partial \mathbf{r}}{\partial \xi}} = \sqrt{\left(\frac{\partial x}{\partial \xi}\right)^2 + \left(\frac{\partial y}{\partial \xi}\right)^2 + \left(\frac{\partial z}{\partial \xi}\right)^2} 
+    \end{equation*}
+    
+    y por regla de la cadena
+    
+    \begin{equation*}
+        = \sqrt{\frac{a^2\sinh^2{\eta} \sin^2{\xi}}{(\cosh{\eta}- \cos{\xi})^4}+ \frac{(a \cos{\xi}(\cosh{\eta}- \cos{\xi})- a\sin^2{\xi})^2}{(\cosh{\eta}- \cos{\xi})^4}}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{\sinh^2{\eta}\sin^2{\xi}+(\cosh{\eta}\cos{\xi}-(\cancel{\cos^2{\xi}+ \sin^2{\xi}}))^2}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{\sinh^2{\eta}\sin^2{\xi}+(\cosh{\eta}\cos{\xi}-1)^2}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{\sinh^2{\eta}\sin^2{\xi}+\cosh^2{\eta}\cos^2{\xi}-2\cosh{\eta}\cos{\xi}+1}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{(\cosh^2{\eta}-1)\sin^2{\xi}+\cosh^2{\eta}\cos^2{\xi}-2\cosh{\eta}\cos{\xi}+1}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{\cosh^2{\eta}\cancel{(\sin^2{\xi}+\cos^2{\xi})} -\sin^2{\xi}-2\cosh{\eta}\cos{\xi}+1}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{\cosh^2{\eta}-2\cosh{\eta}\cos{\xi}+ (-\sin^2{\xi}+1)}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})^2} \sqrt{\cosh^2{\eta}-2\cosh{\eta}\cos{\xi}+ \cos^2{\xi}}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a}{(\cosh{\eta}- \cos{\xi})\cancel{^2}} \cancel{\sqrt{(\cosh{\eta}- \cos{\xi})^2}}= \frac{a}{\cosh{\eta}- \cos{\xi}}
+    \end{equation*}
+    
+    \begin{equation*}
+        h_\eta = \norm{\frac{\partial \mathbf{r}}{\partial \eta}} = \sqrt{\left(\frac{\partial x}{\partial \eta}\right)^2 + \left(\frac{\partial y}{\partial \eta}\right)^2 + \left(\frac{\partial z}{\partial \eta}\right)^2}
+    \end{equation*}
+    
+    \begin{equation*}
+         = \sqrt{\frac{(a\cosh{\eta}(\cosh{\eta}-\cos{\xi})- a\sinh{\eta}\cosh{\eta})^2}{(\cosh{\eta}- \cos{\xi})^4} + \frac{a^2 \sin^2{\xi}\sinh^2{\eta}}{(\cosh{\eta}- \cos{\xi})^4}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{a}{(\cosh{\eta}- \cos{\xi})^2}  \sqrt{(\cosh{\eta}(\cosh{\eta}-\cos{\xi})- \sinh{\eta}\cosh{\eta})^2 +\sin^2{\xi}\sinh^2{\eta}}
+    \end{equation*}
+    
+    \begin{equation*}
+        .
+    \end{equation*}
+    
+    \begin{equation*}
+        .
+    \end{equation*}
+    
+    no supe como llegar a esto :(
+    
+    \begin{equation*}
+        .
+    \end{equation*}
+    
+    \begin{equation*}
+        .
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{a}{\cosh{\eta}- \cos{\xi}} = h_\xi
+    \end{equation*}
+    
+    
+    
+    \begin{equation*}
+        h_z = \norm{\frac{\partial \mathbf{r}}{\partial z}} = \sqrt{\left(\frac{\partial x}{\partial z}\right)^2 + \left(\frac{\partial y}{\partial z}\right)^2 + \left(\frac{\partial z}{\partial z}\right)^2} = \sqrt{1} = 1
+    \end{equation*}
+    
+    \begin{equation*}
+        \nabla \times \mathbf{A} = \frac{1}{h}
+            \begin{vmatrix}
+                h_\xi \hat{e}_\xi & h_\eta \hat{e}_\eta & h_z \hat{e}_z\\
+                \frac{\partial}{\partial \xi} & \frac{\partial }{\partial \eta} & \frac{\partial}{\partial z}\\
+                (0) h_r & (0) h_\varphi & -c\eta h_z
+            \end{vmatrix}
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{(\cosh{\eta}- \cos{\xi})^2}{a^2} [h_\xi \frac{\partial}{\partial \eta}(-c\eta h_z)\mathbf{\hat{e}}_\xi-h_\eta \cancel{\frac{\partial}{\partial \xi}(-c\eta h_z)}\mathbf{\hat{e}}_\eta]
+    \end{equation*}
+    
+    \begin{equation*}
+        =-\frac{(\cosh{\eta}- \cos{\xi})\cancel{^2}}{a\cancel{^2}} \cancel{\frac{a}{\cosh{\eta}- \cos{\xi}}} c\mathbf{\hat{e}}_\xi = \frac{c(\cos{\xi}-\cosh{\eta})}{a} \mathbf{\hat{e}}_\xi
+    \end{equation*}
+    
+    
+    
+%%%5%%%
+
+
+
+    \item \textbf{A partir de la definición de la función Beta $B(m,n)$, demuestra que:}
+    
+    \begin{equation*}
+        B(m,n)B(m+n,k) = B(n,k)B(n+k,m)
+    \end{equation*}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Usando la indentidad $B(x,y)= \frac{\Gamma(x) \Gamma(y)}{\Gamma(x+y)}$, multiplicando por $\frac{\Gamma(n+k)}{\Gamma(n+k)}$ y reordenando 
+    
+    \begin{equation*}
+        B(m,n)B(m+n,k) = \frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)} \frac{\Gamma(m+n) \Gamma(k)}{\Gamma(m+n+k)}= \frac{\Gamma(n+k)}{\Gamma(n+k)} \frac{\Gamma(m)\Gamma(n)}{\cancel{\Gamma(m+n)}} \frac{\cancel{\Gamma(m+n)} \Gamma(k)}{\Gamma(m+n+k)}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{\Gamma(n)\Gamma(k)}{\Gamma(n+k)} \frac{\Gamma(n+k)\Gamma(m)}{\Gamma((n+k)+m)} = B(n,k)B(n+k,m) \hspace{1cm} \blacksquare
+    \end{equation*}
+\end{enumerate}
+
+\end{document}

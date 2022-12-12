@@ -1,0 +1,483 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item Antes de publicar la ecuación que lleva su nombre, Schrodinger consideró la ecuación
+    
+    \begin{equation*}
+        \frac{1}{c^2} \frac{\partial^2 \Psi}{\partial t^2} = \frac{\partial^2 \Psi}{\partial x^2} - \frac{m^2 c^2}{\hbar ^2} \Psi
+    \end{equation*}
+    
+    para describir una partícula de masa m. Muestre que la energía asociada a una solución de tipo onda plana de esta ecuación es consistente con la relación de dispersión para una partícula relativista
+    
+    \begin{equation*}
+        E^2 = m^2 c^4 + p^2 c^2
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Primero desarrollemos la ecuación para una partícula de masa m
+    
+    \begin{equation*}
+        \frac{1}{c^2} \frac{\partial^2 \Psi}{\partial t^2} = \frac{\partial^2 \Psi}{\partial x^2} - \frac{m^2 c^2}{\hbar ^2} \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial^2 \Psi}{\partial t^2} = c^2\frac{\partial^2 \Psi}{\partial x^2} - \frac{m^2 c^4}{\hbar ^2} \Psi
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        (i \hbar)^2\frac{\partial^2 \Psi}{\partial t^2} = (i\hbar c)^2\frac{\partial^2 \Psi}{\partial x^2} + (-i^2) \frac{\cancel{\hbar^2}m^2 c^4}{\cancel{\hbar ^2}} \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        (i \hbar)^2\frac{\partial^2 \Psi}{\partial t^2} = \left(i\hbar c\right)^2\frac{\partial^2 \Psi}{\partial x^2} + m^2 c^4 \Psi
+    \end{equation*}
+    
+    ahora la solución para una onda plana está descrita como
+    
+    \begin{equation*}
+        \Psi (x,t) = \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) e^{-\frac{i}{\hbar}(Et-px)}
+    \end{equation*}
+    
+    por lo tanto
+    
+    \begin{equation*}
+        (i \hbar)^2\frac{\partial^2 }{\partial t^2} \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) e^{-\frac{i}{\hbar}(Et-px)} = \left(i\hbar c\right)^2\frac{\partial^2}{\partial x^2} \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) e^{-\frac{i}{\hbar}(Et-px)} + m^2 c^4 \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        (i \hbar)^2 \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi(p)} \frac{\partial^2 }{\partial t^2}(e^{-\frac{i}{\hbar}(Et-px)}) = \left(i\hbar c\right)^2 \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) \frac{\partial^2}{\partial x^2}(e^{-\frac{i}{\hbar}(Et-px)}) + m^2 c^4 \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        (i \hbar)^2 \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p)\left(\frac{i^2E^2}{\hbar^2}\right) e^{-\frac{i}{\hbar}(Et-px)} = \left(i\hbar c\right)^2 \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) \left(\frac{i^2p^2}{\hbar^2}\right)e^{-\frac{i}{\hbar}(Et-px)} + m^2 c^4 \Psi
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        \cancel{(i \hbar)^2 \left(\frac{i^2}{\hbar^2}\right)}\int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) E^2 e^{-\frac{i}{\hbar}(Et-px)} = \cancel{\left(i\hbar \right)^2\left(\frac{i^2}{\hbar^2}\right)} \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p)p^2c^2 e^{-\frac{i}{\hbar}(Et-px)} + m^2 c^4 \Psi
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) E^2 e^{-\frac{i}{\hbar}(Et-px)} = \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p)p^2c^2 e^{-\frac{i}{\hbar}(Et-px)} +  \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) m^2 c^4 e^{-\frac{i}{\hbar}(Et-px)}
+    \end{equation*}
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p) E^2 e^{-\frac{i}{\hbar}(Et-px)} = \int_{-\infty}^{\infty} \frac{dp}{\sqrt{2 \pi \hbar}} \tilde{\Psi}(p)(p^2c^2+m^2 c^4) e^{-\frac{i}{\hbar}(Et-px)} 
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore E^2 = p^2c^2  + m^2 c^4
+    \end{equation*}
+    
+    por lo que la energía asociada es consistente con la relación de dispersión relativista
+    
+    
+    
+    
+%%%2%%%
+
+
+    
+    \item Suponga que $ \psi (x,t)$ es una solución de la ecuación de Schrodinger libre en una dimensión, tal que
+    
+    \begin{equation*}
+        \psi(x,0) = A e^{x^2/2a^2}
+    \end{equation*}
+    
+    con A y a constantes reales
+    
+    \begin{enumerate}
+        \item  Encuentre $\tilde{\psi}(k,0)$
+        
+        \textbf{Sol:}
+        
+        \begin{equation*}
+            \tilde{\psi}(k,0) = \left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-\infty}^{\infty} dx \psi (x,0) e^{ikx} =A\left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-\infty}^{\infty} dx  e^{(x^2/2a^2) + ikx} 
+        \end{equation*}
+        
+        \begin{equation*}
+            = A\left(\frac{\hbar}{2\pi}\right)^{1/2} e^{2a^2k^2} \int_{-\infty}^{\infty} dx e^{(1/2a^2)(x^2+ 4a^2ikx+ 4a^4i^2k^2)} = A\left(\frac{\hbar}{2\pi}\right)^{1/2} e^{2a^2k^2} \int_{-\infty}^{\infty} dx e^{(1/2a^2)(x + 2a^2ik)^2}
+        \end{equation*}
+        
+        si hacemos el cambio de variable $\sqrt{2}az =x+ 2a^2ik $ y por la integral de Gauss 
+        
+        \begin{equation*}
+            \tilde{\psi}(k,0) = \left(\frac{\hbar}{\pi}\right)^{{1/2}} Aae^{2a^2k^2} \int_{-\infty}^{\infty} dz e^{z^2}= \left(\frac{\hbar}{\pi}\right)^{1/2} Aae^{2a^2k^2} \sqrt{\pi} =Aa\sqrt{\hbar}e^{2a^2k^2} 
+        \end{equation*}
+        
+        
+        \item Encuentre $\tilde{\psi}(k,t)$
+        
+        \textbf{Sol:}
+        
+        \begin{equation*}
+            \tilde{\psi}(k,t) = \left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-\infty}^{\infty} dx \psi (x,0) e^{ikx} e^{-i\omega t}
+        \end{equation*}
+        
+         
+         \begin{equation*}
+             = \left(\frac{\hbar}{2\pi}\right)^{1/2}Ae^{i \omega t+ a^2k^2/2} \int_{-\infty}^{\infty} dx  e^{(1/2a^2)(x^2 +2a^2ikx+a^4i^2k^2)}
+         \end{equation*}
+         
+         \begin{equation*}
+             = \left(\frac{\hbar}{2\pi}\right)^{1/2}Ae^{i \omega t+ a^2k^2/2} \int_{-\infty}^{\infty} dx  e^{(1/2a^2)(x+ a^2 i k)^2}
+         \end{equation*}
+         
+         sea $\sqrt{2}az =  x+ a^2ik$
+         
+         \begin{equation*}
+             = \left(\frac{a^2\hbar}{\pi}\right)^{1/2}Ae^{i \omega t+ a^2k^2/2} \int_{-\infty}^{\infty} dz  e^{z^2} = \left(\frac{a^2\hbar}{\pi}\right)^{1/2}Ae^{i \omega t+ a^2k^2/2} \sqrt{\pi} 
+         \end{equation*}
+         
+         \begin{equation*}
+             = \left(a^2\hbar\right)^{1/2}Ae^{i \omega t+ a^2k^2/2} 
+         \end{equation*}
+                 
+        
+        
+        \item Encuentre $\psi(x,t)$
+        
+        \textbf{Sol:}
+        
+        \begin{equation*}
+            \psi(x,t) = \frac{1}{\sqrt{2\pi \hbar}} \int_{-\infty}^{\infty} dk \tilde{\psi}(k,0) e^{-ikx} e^{-i \omega t}
+        \end{equation*}
+        
+        y usando $ \omega = \frac{\hbar k^2}{2m}$
+        
+        \begin{equation*}
+            = \frac{1}{\sqrt{2\pi}} Aa  \int_{-\infty}^{\infty} dk e^{2a^2k^2 - ikx} e^{-i \frac{\hbar k^2}{2m}t}
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{1}{\sqrt{2\pi}} Aa e^{x^2 /(2a^2-\frac{i\hbar t}{2m})^2} \int_{-\infty}^{\infty} dk e^{(2a^2-\frac{i\hbar t}{2m})(k^2 (2ikx/(2a^2-\frac{i\hbar t}{2m})) + i^2x^2/(2a^2-\frac{i\hbar t}{2m})^2)}
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{1}{\sqrt{2\pi}} Aa e^{-i\omega t} e^{x^2 / (2a^2-\frac{i\hbar t}{2m})^2} \int_{-\infty}^{\infty} dk e^{(2a^2)(x-(ik/(2a^2-\frac{i\hbar t}{2m})))^2}
+        \end{equation*}
+        
+        y usando $z =\sqrt{2}a(x-ik/(2a^2-\frac{i\hbar t}{2m})) $
+        
+        \begin{equation*}
+            \psi(x,t) = -\frac{(2a^2- \frac{i \hbar t}{2m})}{2i\sqrt{\pi}} A e^{(x^2 / (2a^2-\frac{i\hbar t}{2m})^2)} \int_{-\infty}^{\infty} dz e^{z^2} =  -\frac{(2a^2- \frac{i \hbar t}{2m})}{2i\sqrt{\pi}} A e^{(x^2 / (2a^2-\frac{i\hbar t}{2m})^2)} \sqrt{\pi}
+        \end{equation*}
+        
+        \begin{equation*}
+            = -\frac{(2a^2- \frac{i \hbar t}{2m})}{2i} A e^{(x^2 / (2a^2-\frac{i\hbar t}{2m})^2)} = (\frac{ \hbar t}{4m}+ia^2 ) A e^{(x^2 / (2a^2-\frac{i\hbar t}{2m})^2)}
+        \end{equation*}
+        
+        
+        \item Encuentre el valor de A para que la función $\psi(x,t)$ esté normalizada, es decir, para que se satisfaga la expresión 
+        
+        \begin{equation*}
+            \int_{-\infty}^{\infty} dx |\psi(x,t)|^2 = 1
+        \end{equation*}
+        
+        \textbf{Sol:}
+        
+        sea $a_1 = 4a^2 - \frac{ \hbar^2 t^2}{4m^2} + i \frac{\hbar t}{m}$ y $a_2 = |a_1|^2$
+        
+        \begin{equation*}
+            \int_{-\infty}^{\infty} dx |\psi(x,t)|^2  = \int_{-\infty}^{\infty} dx  \left(\frac{\hbar A t}{4m}\right)^2 e^{2x^2a_1/a_2} = \left(\frac{\hbar A t}{4m}\right)^2 \sqrt{\frac{a_2}{2 a_1}} \sqrt{\pi} = 1
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore \hspace{1cm} A  = \left(\frac{2 a_1}{ a_2 \pi}\right)^{1/4} \frac{4m}{\hbar t}
+        \end{equation*}
+        
+        sé que estoy mal pero no me dio tiempo de encontrar el error :C
+        
+    \end{enumerate}
+    
+    
+    
+%%%3%%%
+    
+    
+    
+    \item Muestre que dadas dos soluciones normalizables, generales en lo demás, de la ecuación de Schrodinger en una dimensión, $\Psi_1 (x,t)$ y $\Psi_2 (x,t)$, se cumple
+    
+    \begin{equation*}
+        \frac{d}{dt} \int_{-\infty}^{\infty} dx \Psi_{1}^{*} (x,t) \Psi_2 (x,t) = 0
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Como son soluciones de la ecuación de Schrodinger, se debe cumplir
+    
+    \begin{equation*}
+        -i \hbar \frac{\partial}{\partial t} \Psi_1^* (x,t) = - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \Psi_1^* (x,t) + V \Psi_1^* (x,t) 
+    \end{equation*}
+    
+    \begin{equation*}
+        i \hbar \frac{\partial}{\partial t} \Psi_2 (x,t) = - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \Psi_2 (x,t) + V \Psi_2 (x,t) 
+    \end{equation*}
+    
+    ahora desarrollando la integral
+    
+    \begin{equation*}
+        \frac{d}{d t} \int_{-\infty}^{\infty} dx \Psi_{1}^{*} (x,t) \Psi_2 (x,t) = \int_{-\infty}^{\infty} dx \frac{\partial}{\partial t} (\Psi_{1}^{*} (x,t) \Psi_2 (x,t))
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{-\infty}^{\infty} dx \frac{\partial}{\partial t} (\Psi_{1}^{*} (x,t)) \Psi_2 (x,t) + \int_{-\infty}^{\infty} dx \Psi_{1}^{*} (x,t) \frac{\partial}{\partial t} (\Psi_2 (x,t))
+    \end{equation*}
+    
+    y sustituyendo 
+    
+    \begin{equation*}
+        = \int_{-\infty}^{\infty} dx (\frac{\hbar}{2mi} \frac{\partial^2}{\partial x^2} \Psi_1^* (x,t)- \frac{V}{i\hbar} \Psi_1^*(x,t)) \Psi_2 (x,t) + \int_{-\infty}^{\infty} dx \Psi_{1}^{*} (x,t) (-\frac{\hbar}{2mi} \frac{\partial^2}{\partial x^2} \Psi_2 (x,t) + \frac{V}{i \hbar} \Psi_2^* (x,t)
+        )
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{i\hbar} \left[ \int_{-\infty}^{\infty} dx \frac{\hbar^2}{2m}\left( \frac{\partial^2}{\partial x^2} (\Psi^*_1(x,t)) \Psi_2 (x,t)- \frac{\partial^2}{\partial x^2} (\Psi_2 (x,t)) \Psi^*_1 (x,t)\right) \right.
+    \end{equation*}
+    
+    \begin{equation*}
+        \left. + \cancel{ \int_{-\infty}^{\infty} dx V \Psi_2 (x,t) \Psi^*_1(x,t) - V \Psi_2 (x,t) \Psi^*_1(x,t)}\right]
+    \end{equation*}
+    
+    ahora sustituyendo lo siguiente
+    
+    \begin{equation*}
+        \frac{\partial }{\partial x} (\frac{\partial}{\partial x}(\Psi^*_1(x,t))\Psi_2(x,t))= \frac{\partial^2}{\partial x^2} (\Psi^*_1(x,t)) \Psi_2 (x,t) + \frac{\partial}{\partial x} \Psi^*_1 (x,t) \frac{\partial}{\partial x} \Psi_2
+     \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial }{\partial x} (\frac{\partial}{\partial x}(\Psi_2(x,t))\Psi^*_1(x,t)) = \frac{\partial^2}{\partial x^2} (\Psi_2(x,t)) \Psi^*_1 (x,t) + \frac{\partial}{\partial x} \Psi_2 (x,t) \frac{\partial}{\partial x} \Psi^*_1
+    \end{equation*}
+    
+    se tiene
+    
+    \begin{equation*}
+        \frac{d}{d t} \int_{-\infty}^{\infty} dx \Psi_{1}^{*} (x,t) \Psi_2 (x,t) = \frac{\hbar}{2mi}  \int_{-\infty}^{\infty} dx \left((\frac{\partial }{\partial x} (\frac{\partial}{\partial x}(\Psi^*_1(x,t))\Psi_2(x,t)) - \frac{\partial}{\partial x} \Psi^*_1 (x,t) \frac{\partial}{\partial x} \Psi_2)  \Psi_2 (x,t)\right.
+    \end{equation*}
+    
+    \begin{equation*}
+        \left. - (\frac{\partial }{\partial x} (\frac{\partial}{\partial x}(\Psi_2(x,t))\Psi^*_1(x,t)) - \frac{\partial}{\partial x} \Psi_2 (x,t) \frac{\partial}{\partial x} \Psi^*_1) \Psi^*_1 (x,t)\right)
+    \end{equation*}
+    
+    y de aquí ya no supe como seguir 
+    
+    
+    
+%%%4%%%
+    
+    
+    
+    \item Muestre que dadas dos soluciones de la ecuación de Schrodinger, $\Psi_1 (\overline{x},t)$ y $\Psi_2(\overline{x},t)$, la relación
+    
+    \begin{equation*}
+        \frac{\partial}{\partial t} \Psi_{1}^{*} \Psi_2 + \frac{\hbar}{2mi} \nabla \cdot (\Psi_{1}^{*} \Psi_2 - \Psi_2\nabla \Psi_{1}^{*}) = 0
+    \end{equation*}
+    
+    se satisface
+    
+    \textbf{Sol:}
+    
+    Como $\Psi_1$ y $\Psi_2$ son soluciones, se debe tener que
+    
+    \begin{equation}
+        -i\hbar \frac{\partial}{\partial t} \Psi_1^* = -\frac{\hbar^2}{2m} \nabla^2 \Psi_1^* + V \Psi_1^*
+    \end{equation}
+    
+    \begin{equation}
+        i\hbar \frac{\partial}{\partial t} \Psi_2 = -\frac{\hbar^2}{2m} \nabla^2 \Psi_2 + V \Psi_2
+    \end{equation}
+    
+    ahora multiplicando (1) por $\Psi_2$ y (2) por $\Psi_1^*$ y restando ambas
+    
+    \begin{equation*}
+       i\hbar\Psi_1^* \frac{\partial}{\partial t} \Psi_2 + i\hbar \Psi_2\frac{\partial}{\partial t} \Psi_1^* = -\frac{\hbar^2}{2m}\Psi_1^* \nabla^2 \Psi_2 \cancel{+ V\Psi_1^* \Psi_2}+\frac{\hbar^2}{2m} \Psi_2 \nabla^2 \Psi_1^*\cancel{ - V \Psi_2 \Psi_1^*}
+    \end{equation*}
+    
+    que factorizando y por regla de la cadena es
+    
+    \begin{equation}
+        i\cancel{\hbar} \frac{\partial}{\partial t} (\Psi_1^* \Psi_2) = -\frac{\hbar\cancel{^2}}{2m}(\Psi_1^* \nabla^2 \Psi_2 - \Psi_2 \nabla^2 \Psi_1^*)
+    \end{equation}
+    
+    por regla de la cadena para el producto punto se tiene
+    
+    \begin{equation*}
+        \Psi_1^* \nabla^2 \Psi_2 =  \Psi_1^* \nabla^2 \Psi_2 + (\nabla \Psi_1^*) \cdot (\nabla \Psi_2) - (\nabla \Psi_1^*) \cdot (\nabla \Psi_2)
+    \end{equation*}
+    
+    \begin{equation*}
+        = \nabla \cdot (\Psi_1^* \nabla \Psi_2) - (\nabla \Psi_1^*) \cdot (\nabla \Psi_2)
+    \end{equation*}
+    
+    \begin{equation*}
+         \Psi_2 \nabla^2 \Psi_1^* = \nabla \cdot (\Psi_2 \nabla \Psi_1^*) - (\nabla \Psi_2) \cdot (\nabla \Psi_1^*)
+    \end{equation*}
+    
+    por lo tanto (1) queda como
+    
+    \begin{equation*}
+         i\hbar \frac{\partial}{\partial t} (\Psi_1^* \Psi_2) = -\frac{\hbar}{2m}(\nabla \cdot (\Psi_1^* \nabla \Psi_2) \cancel{- (\nabla \Psi_1^*) \cdot (\nabla \Psi_2) }- \nabla \cdot (\Psi_2 \nabla \Psi_1^*) \cancel{+ (\nabla \Psi_2) \cdot (\nabla \Psi_1^*)})
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial}{\partial t} (\Psi_1^* \Psi_2) = -\frac{\hbar}{2im}\nabla \cdot (\Psi_1^* \nabla \Psi_2 - \Psi_2 \nabla \Psi_1^*)
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial}{\partial t} (\Psi_1^* \Psi_2) + \frac{\hbar}{2im}\nabla \cdot (\Psi_1^* \nabla \Psi_2 - \Psi_2 \nabla \Psi_1^*) = 0
+    \end{equation*}
+    
+    
+    
+    
+    
+%%%5%%%
+    
+    
+    
+    \item Dada la solución a la ecuación de Schrodinger en una dimensión $\psi(x,t)$, muestre que la probabilidad definida 
+    
+    \begin{equation*}
+        P(a,b) = \int_{a}^{b} dx \psi^{*} (x,t) \psi(x,t)
+    \end{equation*}
+    
+    con $a<b$ reales, es una cantidad que en general no se conserva. Escriba una expresión para $\frac{d}{d t} P(a,b)$ en términos de la corriente de probabilidad
+    
+    \textbf{Sol:}
+    
+    \begin{equation}
+        \frac{d}{d t} P(a,b) = \frac{d}{d t} \int_{a}^{b} dx \psi^{*} (x,t) \psi(x,t) =\int_{a}^{b} dx \frac{\partial \psi^{*} (x,t)}{\partial t} \psi(x,t) + \int_{a}^{b} dx \psi^{*} (x,t) \frac{\partial \psi(x,t)}{\partial t}
+    \end{equation}
+    
+    ahora como $\psi$ es solución de la ec. de  libre entonces se debe satisfacer
+    
+    \begin{equation*}
+        i \hbar \frac{\partial}{\partial t} \psi (x,t) = - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \psi(x,t)
+    \end{equation*}
+    
+    \begin{equation*}
+        -i \hbar \frac{\partial}{\partial t} \psi^* (x,t) = - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \psi^*(x,t)
+    \end{equation*}
+    
+    y sustituyendo en (4)
+    
+    \begin{equation*}
+        \frac{d}{d t} P(a,b) = \int_{a}^{b} dx \frac{\hbar}{2im} \frac{\partial^2}{\partial x^2} (\psi^*(x,t)) \psi(x,t) - \int_{a}^{b} dx \psi^{*} (x,t) \frac{\hbar}{2im} \frac{\partial^2}{\partial x^2} (\psi(x,t))
+    \end{equation*}
+    
+    por la regla del producto se tiene
+     
+    \begin{equation*}
+        \frac{\partial}{\partial x}(\psi^*(x,t) \frac{\partial}{\partial x} \psi(x,t)) =  \frac{\partial}{\partial x} \psi^* (x,t)\frac{\partial}{\partial x} \psi(x,t) + \psi^*(x,t)\frac{\partial^2}{\partial x^2} \psi(x,t)
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial}{\partial x}(\psi(x,t) \frac{\partial}{\partial x} \psi^*(x,t)) =  \frac{\partial}{\partial x} \psi (x,t)\frac{\partial}{\partial x} \psi^*(x,t) + \psi(x,t)\frac{\partial^2}{\partial x^2} \psi^*(x,t)
+    \end{equation*}
+    
+    que sustituyendo nuevamente
+    
+    \begin{equation*}
+        \frac{d}{d t} P(a,b) = \frac{\hbar}{2im} \left[ \int_{a}^{b} dx  (\frac{\partial}{\partial x}(\psi(x,t) \frac{\partial}{\partial x} \psi^*(x,t)) \cancel{-  \frac{\partial}{\partial x} \psi (x,t)\frac{\partial}{\partial x} \psi^*(x,t)})\right.
+    \end{equation*}
+    
+    \begin{equation*}
+        \left. - \int_{a}^{b} dx (\frac{\partial}{\partial x}(\psi^*(x,t) \frac{\partial}{\partial x} \psi(x,t)) \cancel{-  \frac{\partial}{\partial x} \psi^* (x,t)\frac{\partial}{\partial x} \psi(x,t))} \right]
+    \end{equation*}
+    
+    \begin{equation*}
+         = \frac{\hbar}{2im} \left[\int_{a}^{b} dx\left(  (\frac{\partial}{\partial x}(\psi(x,t) \frac{\partial}{\partial x} \psi^*(x,t)) - \frac{\partial}{\partial x}(\psi^*(x,t) \frac{\partial}{\partial x} \psi(x,t))\right) \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{\hbar}{2im} \left(  \psi(x,t) \frac{\partial}{\partial x} \psi^*(x,t)) - \psi^*(x,t) \frac{\partial}{\partial x} \psi(x,t)\right)|_{a}^{b}
+    \end{equation*}
+    
+    como esta expresi'on no se anula para cualquier solución de la ecuación de Schrodinger evaluada de $-\infty$ a $\infty$ entonces 
+    
+    \begin{equation*}
+        \frac{d}{d t} P(a,b) \neq 0
+    \end{equation*}
+    
+    
+    
+    
+    
+
+    
+    
+\end{enumerate}
+
+\end{document}

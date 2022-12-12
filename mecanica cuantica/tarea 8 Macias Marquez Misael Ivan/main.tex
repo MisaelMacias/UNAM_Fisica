@@ -1,0 +1,503 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item El observable $\hat{A}$ tiene los estados propios $\ket{a_1}$ y $\ket{a_2}$, con valores propios $a_1$ y $a_2$ respectivamente (considere que este estado observable sólo tiene estos estados propios). un sistema se describe con el hamiltoniano
+
+\begin{equation*}
+    \hat{H} = r \ket{a_1} \bra{a_2} + r \ket{a_2} \bra{a_1}
+\end{equation*}
+
+con $r$ un número real.
+
+\begin{enumerate}
+    \item Escriba los estados propios de este sistema en términos de los estados $\ket{a_1}$ y $\ket{a_2}$. Encuentre también las energías propias.
+    
+    \textbf{Sol:}
+    
+    \item Suponga que el sistema se encuentra en el estado $\ket{a_1}$ al tiempo $t = 0$. Escriba el estado del sistema para cualquier $t$.
+    
+    \textbf{Sol:}
+\end{enumerate}
+
+
+
+%%%2%%%
+
+
+
+\item Considere los observables $\hat{A}$ y $\hat{B}$
+
+\begin{enumerate}
+    \item Suponga que los estados propios comunes de $\hat{A}$ y $\hat{B}$ forman una base completa ortonormal ¿Se puede concluir que $[\hat{A}, \hat{B}] =0$? Argumente su respuesta.
+    
+    \textbf{Sol:}
+    
+    La ecuaciones de valores propios para los observables son
+    
+    \begin{equation*}
+        \hat{A} \ket{\phi_{\alpha}^{\beta}} = a_{\alpha} \ket{\phi_{\alpha}^{\beta}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \hat{B} \ket{\phi_{\alpha}^{\beta}} = b_{\alpha} \ket{\phi_{\alpha}^{\beta}} 
+    \end{equation*}
+    
+    por hipotesis forman una base  del espacio de estado, entonces $\forall \ket{\psi} \in \xi$ tenemos
+    
+    \begin{equation*}
+        \ket{\psi} = \sum_{\alpha, \beta} c_{\alpha \beta} \ket{\phi_{\alpha}^{\beta}}
+    \end{equation*}
+    
+    \begin{equation*}
+        [\hat{A},\hat{B}] \ket{\psi} = [\hat{A}, \hat{B}] \sum_{\alpha, \beta} c_{\alpha \beta} \ket{\phi_{\alpha}^{\beta}} = \sum_{\alpha, \beta}(\hat{A}\hat{B}- \hat{B}\hat{A}) c_{\alpha \beta} \ket{\phi_{\alpha}^{\beta}}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \sum_{\alpha, \beta}c_{\alpha \beta} \hat{A}(\hat{B}  \ket{\phi_{\alpha}^{\beta}}) -c_{\alpha \beta}   \hat{B}(\hat{A}  \ket{\phi_{\alpha}^{\beta}})
+    \end{equation*}
+    
+    que usando las ecuaciones de valores propios
+    
+    \begin{equation*}
+        = \sum_{\alpha, \beta}c_{\alpha \beta} a b  \ket{\phi_{\alpha}^{\beta}} -c_{\alpha \beta}   b a  \ket{\phi_{\alpha}^{\beta}} = \sum_{\alpha, \beta}\cancel{(ab-ba)}c_{\alpha \beta} \ket{\phi_{\alpha}^{\beta}} = 0
+    \end{equation*}
+    
+    como es $\forall \ket{\psi} \in \xi$, entonces
+    
+    \begin{equation*}
+        [\hat{A}, \hat{B}] = 0
+    \end{equation*}
+    
+    
+    
+    \item Si los observables anticonmutan ¿Es posible tener estados propios comunes a ambos? Argumente su respuesta
+    
+    \textbf{Sol:}
+    
+    Recordemos que dos observables anticonmutan si $\hat{A}\hat{B} = - \hat{B}\hat{A}$, ahora usemos las mismas ecuaciones de valores propios para los observables, entonces
+    
+    \begin{equation*}
+        \hat{A}\hat{B} \ket{\phi_{\alpha}^{\beta}} = ab \ket{\phi_{\alpha}^{\beta}} = - \hat{B} \hat{A} \ket{\phi_{\alpha}^{\beta}} = -ba \ket{\phi_{\alpha}^{\beta}}
+    \end{equation*}
+    
+    y así
+    
+    \begin{equation*}
+        2 a b \ket{\phi_{\alpha}^{\beta}} = 0
+    \end{equation*}
+    
+    por lo tanto $a = 0$ o $b =0$ o $\ket{\phi_{\alpha}^{\beta}} = 0$, lo que significa que o no existen vectores propios comunes o  alguno/ambos de los valores propios es cero, así que no.
+    
+    
+    
+    
+\end{enumerate}
+
+
+
+%%%3%%%
+
+
+
+\item \begin{enumerate}
+    \item Usando la expresión $\braket{x}{p} = \frac{e^{ipx/\hbar}}{\sqrt{2 \pi \hbar}}$, pruebe que
+    
+    \begin{equation*}
+        \braket{p |\hat{x}}{\phi} = i \hbar \frac{\partial}{\partial p} \braket{p}{\phi}
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    \begin{equation*}
+        \braket{p|\hat{x}}{\phi} = \braket{p | \hat{x}\int_{-\infty}^{\infty} dx\ket{x}\bra{x} }{\phi}
+    \end{equation*}
+    
+    Gracias a la relación de completez ($\int_{-\infty}^{\infty} dx \ket{x}\bra{x} = 1$)
+    
+    \begin{equation*}
+        \braket{p|\hat{x}}{\phi} = \int_{-\infty}^{\infty} dx \braket{p|\hat{x}}{x} \braket{x}{\phi} = \int_{-\infty}^{\infty} dx x \braket{p}{x} \braket{x}{\phi}
+    \end{equation*}
+    
+    pero por definición $\braket{x}{\phi} = \phi (x)$ y pot hipotesis $\braket{x}{p}^{*}= \braket{p}{x} = \frac{e^{-ipx/\hbar}}{\sqrt{2\pi \hbar}}$
+    
+    \begin{equation*}
+        \braket{p|\hat{x}}{\phi} = \int_{-\infty}^{\infty} dx x \frac{e^{-ipx/\hbar}}{\sqrt{2\pi \hbar}} \phi (x) = i \hbar \int_{-\infty}^{\infty} \frac{\partial}{\partial p} \frac{e^{-ipx/\hbar}}{\sqrt{2\pi \hbar}} \phi (x)
+    \end{equation*}
+    
+    \begin{equation*}
+        = i \hbar  \frac{\partial}{\partial p} \int_{-\infty}^{\infty} dx \braket{p}{x} \braket{x}{\phi} = i \hbar \frac{\partial}{\partial p} \braket{p|\int_{-\infty}^{\infty}dx\ket{x}\bra{x}}{\phi} = i \hbar \frac{\partial}{\partial p} \braket{p}{\phi}
+    \end{equation*}
+    
+    
+    
+    \item Considere el problema del oscilador armónico unidimensional. A partir de la ecuación de Schrodinger para el vector de estado $\ket{\Psi (t)}$, deduzca la ecuación de Schrodinger en la representación de ímpetus.
+    
+    \textbf{Sol:}
+    
+    Sabemos que
+    
+    \begin{equation*}
+        i \hbar \frac{\partial}{\partial t} \ket{\psi} = \frac{\hat{p}^2}{2m} \ket{\psi} + \frac{m \omega^2 \hat{x}^2}{2} \ket{\psi}
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \braket{p|i\hbar \frac{\partial}{\partial t}}{\psi} = \braket{p| \frac{\hat{p}^2}{2m}}{\psi} + \braket{p | \frac{m\omega^2 \hat{x}^2}{2}}{\psi}
+    \end{equation*}
+    
+    \begin{equation*}
+        i \hbar \frac{\partial}{\partial t} \braket{p}{\psi} =\frac{1}{2m} \braket{p |\hat{p}^2}{\psi} +  \frac{m \omega^2}{2} \braket{p | \hat{x}^2}{\psi}
+    \end{equation*}
+    
+    por definición $\bra{p}\hat{p}^2 = p^2 \bra{p}$, y por el inciso anterior y  $\ket{\psi ' } = \hat{x} \ket{\psi}$
+    
+    \begin{equation*}
+        \braket{p | \hat{x}^2}{\psi} = \braket{p | \hat{x}}{\psi'} = i \hbar \frac{\partial}{\partial p} \braket{p}{\psi'}
+    \end{equation*}
+    
+    \begin{equation*}
+        = i \hbar \frac{\partial}{\partial p} \braket{p|\hat{x}}{\psi} = i \hbar \frac{\partial}{\partial p} (i \hbar \frac{\partial}{\partial p} \braket{p}{\psi})
+    \end{equation*}
+    
+    \begin{equation*}
+        (i \hbar \frac{\partial}{\partial p})^2 \braket{p}{\psi}
+    \end{equation*}
+    
+    y así
+    \begin{equation*}
+    i\hbar \frac{\partial}{\partial t} \braket{p}{\psi} = \frac{p^2}{2m} \braket{p}{\psi} + \frac{m \omega^2}{2} (i \hbar \frac{\partial}{\partial p})^2 \braket{p}{\psi}
+    \end{equation*}
+    
+    \begin{equation*}
+        i\hbar \frac{\partial}{\partial t} \tilde{\psi}(p) = \frac{p^2}{2m} \tilde{\psi}(p) + \frac{m \omega^2}{2} (i \hbar \frac{\partial}{\partial p})^2 \tilde{\psi}(p)
+    \end{equation*}
+    
+    
+    
+    
+    
+    \item En un sistema existe una cantidad física representada por el operador $\hat{A}$ que no conmuta con el hamiltoniano, $\hat{A}$ tiene valores propios $a_1$ y $a_2$ correspondientes a los estados propios
+    
+    \begin{equation*}
+        \ket{\phi_1} = \frac{\ket{u_1} + \ket{u_2}}{\sqrt{2}} \hspace{3cm} \ket{\phi_2} = \frac{\ket{u_1} - \ket{u_2}}{\sqrt{2}}
+    \end{equation*}
+    
+    donde $\ket{u_1}$ y $\ket{u_2}$ son estados propios, normalizados, del hamiltoniano con energías propias $E_1$ y $E_2$ respectivamente. Si el sistema se encuentra al tiempo $t =0$ en el estado $\ket{\psi (0)} = \ket{\phi_1}$, muestre que el valor esperado de $\hat{A}$ para cualquier valor de $t$ esta dado por
+    
+    \begin{equation*}
+        <\hat{A}>_{\psi} = \frac{a_1 + a_2}{2} + \frac{a_1 - a_2}{2} \cos{\frac{(E_1 - E_2)t}{\hbar}}
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Dado que
+    
+    \begin{equation*}
+        \hat{H} \ket{u_i} = E_i \ket{u_i}
+    \end{equation*}
+    
+    con $\braket{u_i}{u_j} = \delta_{ij}$ y
+    
+    \begin{equation*}
+        \hat{A} \ket{\phi_i} = a_i \ket{\phi_i}
+    \end{equation*}
+    
+    por hipótesis y despejando
+    
+    
+    \begin{equation*}
+        \ket{u_1} = \frac{\ket{\phi_1} + \ket{\phi_2}}{\sqrt{2}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \ket{u_2} = \frac{\ket{\phi_1} - \ket{\phi_2}}{\sqrt{2}}
+    \end{equation*}
+    
+    entonces por el postulado de desarrollo
+    
+    \begin{equation*}
+        \ket{\Psi} = \sum_{i} e^{\frac{-iE_i t}{\hbar}} c_i \ket{u_i}
+    \end{equation*}
+    
+    y por la condición inicial
+    
+    \begin{equation*}
+        c_1 = \braket{u_1}{\phi_1}= \frac{1}{\sqrt{2}} \hspace{2cm} c_2 = \braket{u_2}{\phi_1} = \frac{1}{\sqrt{2}}
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \ket{\Psi} = \frac{1}{\sqrt{2}} (e^{\frac{-iE_i t}{\hbar}} \ket{u_1} + e^{\frac{-iE_i t}{\hbar}} \ket{u_2})
+    \end{equation*}
+    
+    o bien
+    
+    \begin{equation*}
+        \braket{\Psi|\hat{A}}{\Psi} = \frac{1}{2} (e^{\frac{iE_i t}{\hbar}} \bra{u_1} + e^{\frac{iE_i t}{\hbar}} \bra{u_2})(\hat{A}e^{\frac{-iE_i t}{\hbar}} \ket{u_1} +\hat{A} e^{\frac{-iE_i t}{\hbar}} \ket{u_2})
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{2} (\braket{u_1|\hat{A}}{u_1} + e^{\frac{-i(E_1 - E_2)t}{\hbar}}\braket{u_2|\hat{A}}{u_1} + e^{\frac{i (E_1 -E_2)t}{\hbar}} \braket{u_1 |\hat{A}}{u_2} + \braket{u_2|\hat{A}}{u_2})
+    \end{equation*}
+    
+    ahora veamos estos valores
+    
+    \begin{equation*}
+        \hat{A} \ket{u_1} = \frac{\hat{A}\ket{\phi_1} + \ket{\phi_2}}{\sqrt{2}} = \frac{a_1 \ket{\phi_1} + a_2 \ket{\phi_2}}{\sqrt{2}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \hat{A} \ket{u_2} = \frac{\hat{A} \ket{\phi_1} - \hat{A} \ket{\phi_2}}{\sqrt{2}} = \frac{a_1 \ket{\phi_1} - a_2 \ket{\phi_2}}{\sqrt{2}}
+    \end{equation*}
+    
+    y así
+    
+    \begin{equation*}
+        \braket{u_1| \hat{A}}{u_1} = \frac{\bra{(\phi_1} + \bra{\phi_2})(a_1 \ket{\phi_1} + a_2 \ket{\phi_2})}{\sqrt{2}\sqrt{2}} = \frac{a_1 + a_2}{2}
+    \end{equation*}
+    
+    \begin{equation*}
+        \braket{u_2|\hat{A}}{u_2} = \frac{\ket{(\phi_1} - \ket{\phi_2})(a_1\ket{\phi_1}- a_2 \ket{\phi_2})}{\sqrt{2}\sqrt{2}} = \frac{a_1 + a_2}{2}
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        \braket{u_2|\hat{A}}{u_1} = \frac{\bra{(\phi_1} - \bra{\phi_2})(a_1 \ket{\phi_1} + a_2 \ket{\phi_2})}{\sqrt{2}\sqrt{2}} = \frac{a_1 - a_2}{2}
+    \end{equation*}
+    
+    \begin{equation*}
+        \braket{u_1 | \hat{A}}{u_2} = \frac{(\bra{\phi_1} + \bra{\phi_2})(a_1\ket{\phi_1} - a_2 \ket{\phi_2})}{\sqrt{2}\sqrt{2}} = \frac{a_1 - a_2}{2} 
+    \end{equation*}
+    
+    por lo tanto
+    
+    
+    
+    
+    
+    \begin{equation*}
+      <\hat{A}>_{\Psi}  = \frac{1}{2}(\frac{a_1+a_2}{2} + e^{\frac{-i(E_1-E_2)t}{\hbar}}\frac{a_1 - a_2}{2} + e^{\frac{i(E_1 - E_2)t}{\hbar}}\frac{a_1 - a_2}{2} + \frac{a_1 + a_2}{2})
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{a_1 +a_2}{2} + \frac{a_1 - a_2}{2} \cos{\frac{(E_1 - E_2)t}{\hbar}}
+    \end{equation*}
+    
+    
+    
+\end{enumerate}
+
+
+
+%%%4%%%
+
+
+
+\item A partir de los postulados de la Mecánica Cuántica, muestre que si un observable está representado por medio del operador $\hat{A}$, con estados propios discretos no degenerados $\ket{A_n}$, entonces 
+
+\begin{enumerate}
+    \item El valor esperado de $\hat{A}$ se puede escribir como
+    
+    \begin{equation*}
+        <\hat{A}>_{\Psi} = \braket{\Psi|\hat{A}}{\Psi}
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    \begin{equation*}
+        <\hat{A}>_{\psi} = \sum_{n} A_n |c_n|^2 = \sum_{n} A_n |\braket{A_n}{\psi}|^2
+    \end{equation*}
+    
+    \begin{equation*}
+        = \sum_{n} A_n \braket{\psi}{A_n} \braket{A_n}{\psi} = \braket{\psi | (\sum_{n} A_n \ket{A_n} \bra{A_n})}{\psi}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \braket{\psi | \hat{A}}{\psi}
+    \end{equation*}
+    
+    \item El operador $\hat{A}$ tiene la representación
+    
+    \begin{equation*}
+        \hat{A} = \sum_{n} A_n \ket{A_n} \bra{A_n}
+    \end{equation*}
+    
+    donde $A_n$ son los posibles valores que se pueden obtener al medir $\hat{A}$ cuando el sistema se encuentra en el estado general $\ket{\Psi}$
+    
+    \textbf{Sol:}
+    
+    Por hipótesis $\forall \ket{\psi} \in \xi$, $\ket{\psi} = \sum_{n} c_n \ket{A_n}$, con $c_n = \braket{A_n}{\psi}$, por lo que
+    
+    \begin{equation*}
+        \ket{\psi} = \sum_{n} \braket{A_n}{\psi} \ket{A_n}= \sum_{n} \ket{A_n} \braket{A_n}{\psi}
+    \end{equation*}
+    
+    o bien
+    
+    \begin{equation*}
+        \hat{A} \ket{\psi} = \hat{A} \sum_{n} \ket{A_n} \braket{A_n}{\psi} = (\sum_{n} A \ket{A_n}\bra{A_n}) \ket{\psi}
+    \end{equation*}
+    
+    por lo tanto
+    
+    \begin{equation*}
+        \hat{A} = \sum_{n} A_n \ket{A_n} \bra{A_n}
+    \end{equation*}
+    
+    \item Esta representación es un operador hermitiano si todos los números $A_n$ son reales
+    
+    \textbf{Sol:}
+    
+    Por hipótesis $A_{n}^{*}= A_{n}$, entonces
+    
+    \begin{equation*}
+        \hat{A}^{\dagger} = \sum_{n} (A_n \ket{A_n}\bra{A_n})^{\dagger} = \sum_{n} A_{n}^{*} \ket{A_n} \bra{A_n} = \sum_{n} A_n \ket{A_n} \bra{A_n} = \hat{A}
+    \end{equation*}
+    
+\end{enumerate}
+
+
+
+%%%5%%%
+
+
+
+\item Suponga que $\hat{H}$ es un operador hermitiano, con funciones propias no degeneradas normalizadas $\psi_{n}(x)$ con valores propios $\lambda_n$. Demuestre que la solución a la ecuación diferencial
+
+\begin{equation*}
+    (\hat{H} - \Lambda) \Psi (x) = F(x)
+\end{equation*}
+
+con $F(x)$ una función conocida y $\Lambda$ una constante real, se puede expresar de la forma
+
+\begin{equation*}
+    \Psi (x) = \int_{-\infty}^{\infty} dy \sum_{n} \frac{\psi_{n}^{*}(y)\psi_{n}(x)}{\lambda_{n} - \Lambda} F(y)
+\end{equation*}
+
+Con este resultado muestre que la función de Green para este problema se puede escribir en notación de Dirac como
+
+\begin{equation*}
+    \hat{G} = \sum_{n} \frac{\ket{\psi_n}\bra{\psi_n}}{\lambda_n - \Lambda}
+\end{equation*}
+
+\textbf{Sol:}
+
+Tenemos que $\Psi (x) = \sum_{n} a_n \psi_{n} $ y $F(x) = \sum_{n} b_{n} \psi_{n}$, entonces
+
+\begin{equation*}
+    (\hat{H} - \lambda) \Psi (x) = \sum_{n} a_n (\hat{H}- \Lambda) \psi_{n} = \sum_{n} a_{n} (\lambda_{n} - \Lambda) \psi_{n} = F(x) = \sum_{n} b_{n} \psi_{n}
+\end{equation*}
+
+o bien
+
+\begin{equation*}
+    \sum_{n} a_{n} (\lambda_{n} - \Lambda) \psi_{n} - b_{n} \psi_{n} = 0
+\end{equation*}
+
+por la independencia lineal de $\psi_{n}$
+
+\begin{equation*}
+    a_{n} = \frac{b_{n}}{\lambda_{n} - \Lambda}
+\end{equation*}
+
+que sustituyendo
+
+\begin{equation*}
+    \Psi (x) = \sum_{n} \frac{b_{n}}{\lambda_n - \Lambda} \psi_n (x) = \sum_{n} \int_{-\infty}^{\infty} dy \psi_{n}^{*} (y) F(y) \psi_{n} (x) = \int_{-\infty}^{\infty} dy  \sum_{n} \frac{\psi_{n}^{*}(y)\psi_{n} (x)}{\lambda_{n} - \Lambda} F(y)
+\end{equation*}
+
+\begin{equation*}
+    = \int_{-\infty}^{\infty} dy G(x,y) F(y)
+\end{equation*}
+
+\begin{equation*}
+    G(x,y) = \sum_{n} \frac{\braket{\psi_{n}}{y}\braket{x}{\psi_{n}}}{\lambda_n - \Lambda} = \sum_{n} \frac{\braket{x}{\psi_{n}}\braket{\psi_{n}}{y}}{\lambda_{n} - \Lambda}
+\end{equation*}
+
+\begin{equation*}
+    = \braket{x|\sum_{n} \frac{\ket{\psi_{n}}\bra{\psi_n}}{\lambda_n - \Lambda}}{y} = \braket{x|\hat{G}}{y}
+\end{equation*}
+
+con $\hat{G} = \sum_{n} \frac{\ket{\psi_{n}}\bra{\psi_{n}}}{\lambda_n - \Lambda}$
+    
+    
+\end{enumerate}
+
+\end{document}

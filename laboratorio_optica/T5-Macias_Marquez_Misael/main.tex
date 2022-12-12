@@ -1,0 +1,214 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item El ángulo de incidencia $\theta$ y el ángulo de refracción $\theta'$, entre dos medios con índices de refracción $n$ y $n'$ respectivamente, se relacionan mediante la formula $6.1$. Linealizar dicha ecuación de la forma más sencilla posible cuando la variable independiente es $\theta$ y la dependiente es $\theta'$. Indicar la pendiente y la ordenada al origen.
+
+\textbf{Sol:}
+
+La ecuación $6.1$ es:
+
+\begin{equation*}
+    n\sin{\theta}=n'\sin{\theta'}
+\end{equation*}
+
+o bien
+
+\begin{equation*}
+    \sin{\theta'}=\frac{n}{n'}\sin{\theta}
+\end{equation*}
+
+donde $y=\sin{\theta'}$, $x=\sin{\theta}$, $m=\frac{n}{n'}$ y $b= 0$.
+
+
+
+%%%2%%%
+
+
+
+
+\item Calcular la fórmula del error para el índice de refracción $n_T$ en la fórmula $6.3$  asumiendo que el medio en el que está inmerso el material es aire ($n_{aire}=1$) y que la incertidumbre del ángulo crítico es $\Delta \theta_C$.
+
+\textbf{Sol:}
+
+La ecuación $6.3$ es:
+
+\begin{equation*}
+    \theta_C = \sin^{-1}{\frac{n_T}{n_I}}
+\end{equation*}
+
+y despejando el índice de refracción $n_I$ y sustituyendo $n_T$:
+
+\begin{equation*}
+    n_I =\frac{n_T}{\sin{\theta_C}}=\frac{n_{aire}}{\sin{\theta_C}} =\frac{1}{\sin{\theta_C}}
+\end{equation*}
+
+propagando la incertidumbre para $n_T$:
+
+\begin{equation*}
+    \Delta n_I= \sqrt{\left(\frac{\partial n_I}{\partial \theta_C}\right)^{2}\Delta \theta_{C}^{2}}= \frac{\cos{\theta_C}\Delta \theta_C}{\sin^{2}{\theta_C}}
+\end{equation*}
+
+
+%%%3%%%
+
+
+
+\item En la fórmula para el método de Pfund (ecuación $6.4$), asumiendo que la placa está rodeada de aire, y que $D$ y $h$ son mediciones con incertidumbres $\Delta D$ y $\Delta h$ respectivamente. Deducir la formula de propagación del error para el índice de refracción $n_p$.
+
+\textbf{Sol:}
+
+La ecuación $6.3$ es:
+
+\begin{equation*}
+    \theta_C = \sin^{-1}{\frac{n_T}{n_I}}
+\end{equation*}
+
+y despejando el índice de refracción $n_P$ y sustituyendo $n_T$:
+
+\begin{equation*}
+    n_P = n_T \frac{\sqrt{D^2 + 16h^2}}{D}= n_{aire} \frac{\sqrt{D^2 + 16h^2}}{D}= \frac{\sqrt{D^2 + 16h^2}}{D}
+\end{equation*}
+
+propagando la incertidumbre para $n_P$:
+
+\begin{equation*}
+    \Delta n_P=\sqrt{\left(\frac{\partial n_P}{\partial D} \Delta D\right)^{2}+ \left(\frac{\partial n_P}{\partial h}\Delta h\right)^{2}}
+\end{equation*}
+
+
+
+%%%4%%%
+
+
+
+
+\item De la ecuación $6.5$, calcular la fórmula de la propagación de error para esta fórmula asumiendo que $r$ y $a$ son mediciones experimentales.
+
+\textbf{Sol:}
+
+La ecuación $6.5$ es:
+
+\begin{equation*}
+    n_I = \frac{r}{a}n_T
+\end{equation*}
+
+propagando la incertidumbre para $n_I$:
+
+\begin{equation*}
+    \Delta n_I = \sqrt{\left(\frac{\partial n_I}{\partial r}\Delta r\right)^{2} + \left(\frac{\partial n_I}{\partial a}\Delta a\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(\frac{n_T\Delta r}{a}\right)^{2} + \left(-\frac{rn_T\Delta a}{a^2}\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{n_T}{a^2}\sqrt{a^2\Delta r^{2}+r^2\Delta a^2}
+\end{equation*}
+
+
+
+%%%5%%%
+
+
+
+\item Calcular la fórmula de propagación para la ecuación $6.7$ tomando $\alpha$ constante.
+
+\textbf{Sol:}
+
+La ecuación $6.7$ es:
+
+\begin{equation*}
+    n= \frac{\sin{\frac{\delta_m + \alpha}{2}}}{\sin{\frac{\alpha}{2}}}
+\end{equation*}
+
+propagando la incertidumbre para $n$:
+
+\begin{equation*}
+    \Delta n = \sqrt{\left(\frac{\partial n}{\partial\delta_m}\Delta \delta_m\right)^{2}} = \left|\frac{\partial n}{\partial \delta_m}\right|\Delta \delta_m
+\end{equation*}
+
+\begin{equation*}
+    = \frac{1}{2}\left|\frac{\cos{\frac{\delta_m + \alpha}{2}}}{\sin{\frac{\alpha}{2}}} \right| \Delta \delta_m
+\end{equation*}
+    
+\end{enumerate}
+
+\end{document}

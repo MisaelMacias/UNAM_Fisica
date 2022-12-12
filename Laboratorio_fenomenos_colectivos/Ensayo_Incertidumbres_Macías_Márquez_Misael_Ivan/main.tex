@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\begin{document}
+
+
+\begin{center}
+\bf{\sc\Huge INCERTIDUMBRES}\\
+\end{center}
+\begin{center}
+\bf{\sc\large Macías Márquez Misael Iván }\\
+\end{center}
+
+
+\section*{Introducción}
+
+ Entendemos por incertidumbres a aquellos rangos de confianza en los que una medida o el resultado de un calculo evaluado con medidas se encuentra, estas pueden surgir tanto por el arreglo experimental como por cuestiones de los instrumentos de medición ya que por más elaborados que sean, no pueden tener una precisión infinitamente alta, y también por errores cometidos por la persona que realiza la medición o por errores que se encuentran completamente fuera del control de la misma.
+
+\section*{Planteamiento}
+
+ Principalmente se tienen 2 diferentes tipos de incertidumbre que son de tipo A y de tipo B. Las incertidumbres de tipo A son aquellas que derivan de un análisis estadístico a causa de lo azarosas que pueden ser las mediciones y que mantienen cierta distribución, en este caso se puede tomar como la incertidumbre relativa a la desviación estándar y como valor central a la media, también hay un valor importante que debe considerarse que es el número óptimo de repeticiones que es aproximadamente $1 + (\frac{\sigma}{\sum_{i}\text{B}})^2$, donde $\sigma$ es la desviación estándar y $\sum_{i}\text{B} $ son las incertidumbres tipo B. Las incertidumbres de tipo B surgen de la interacción del instrumento de medición con el objeto a medir, de limites difusos en la escala de medición del instrumento, descuidos al momento de medir, apreciación de la escala de medición, entre otros.  La incertidumbre absoluta que se debe reportar tiene que considerar las 2 incertidumbres mencionadas anteriormente, para esto se hace uso de la adición en cuadraturas ($\sqrt{(\text{A})^2 + \sum_{i}(\text{B})^2}$).
+
+ Dado que generalmente en las practicas de laboratorio se buscan cantidades que son funciones de mediciones directas, se debe tratar el tema de la propagación de incertidumbres en estas, el método mas general consiste en tomar hasta  primer orden la serie de Taylor resultado de evaluar la función junto con las incertidumbres absolutas, pero por ahora consideremos solo un desarrollo un poco menos general para algunos casos comunes y q se pueden extrapolar a algunas funciones presentes en la física experimental (se omitirá el desarrollo pero este se puede ver en [2] en el capítulo 2).Sean $X = X_0 \pm \delta X$ y $Y = Y_0 \pm \delta Y$ las mediciones obtenidas, entonces:
+
+\textbf{Suma}: Si $Z = X+Y= Z_0 \pm \delta Z$, entonces $Z_0 = X_0 +Y_0$ y $\delta Z = \delta X + \delta Y$
+
+\textbf{Resta}: Si $Z =X-Y = Z_0 \pm \delta Z$, entonces $Z_0 = X_0 - Y_0$ y $\delta Z = \delta X + \delta Y$
+
+\textbf{Multiplicación}: Si $Z= X \cdot Y = Z_0 \pm \delta Z$, entonces $Z_0 = X_0 \cdot Y_0$ y $\delta Z = X_0 \cdot \delta Y + Y_0 \cdot \delta X$
+
+\textbf{División}: Si $Z= X/Y = Z_0 \pm \delta Z$, entonces $Z_0= X_0/Y_0 $ y $\delta Z = \frac{X_0 \delta Y + Y_0 \delta X}{Y_{0}^{2}}$
+
+\textbf{Potenciación}: Si $Z = X^2 = Z \pm Z_0$, entonces $Z_0 = X_{0}^2$ y $\delta Z = 2 X_0 \delta X$
+
+
+
+
+Además de la incertidumbre absoluta existe otra que nos permite determinar la proporción que tiene la incertidumbre absoluta con respecto la medición hecha, esta se llama incertidumbre relativa que es igual al cociente de la incertidumbre absoluta con la medición que corresponde, el valor se puede expresar en porcentaje para ser más ilustrativo.
+
+
+
+
+
+\section*{Conclusión}
+
+ \noindent Las incertidumbres son una parte importante de la experimentación debido a que su estudio nos permite además de tener un rango de certeza, reducir o evitar los problemas que influyen en esto y así tener mejores resultados en el laboratorio.
+
+\vspace{0cm}
+
+\section*{Referencias}
+
+\textbf{[1] B. (1991). Experimentación : Teoría de Mediciones y Diseño de Experimentos. Prentice Hall.}
+
+\vspace{1cm}
+
+\textbf{[2] Noda, B. O. (2005). Introducción al análisis gráfico de datos experimentales. UNAM.}
+
+\vspace{1cm}
+
+
+
+\textbf{[3] (Desconocido). MANEJO DE INCERTIDUMBRES.https://moodle.fciencias.unam.mx/
+cursos/pluginfile.php/150171/mod/rsource/content/1/Manejo\%20de\%20Incertidumbe.pdf}
+
+
+
+ 
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,161 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{verbatim}
+import numpy as np
+import math as mh
+
+temp = "s"
+op = ""
+k = 0
+x = 0.
+y = 0
+z = 0.
+
+sen = 0.
+senr = 0.
+cos = 0.
+cosr = 0.
+epsilon = 0.
+lista = np.zeros([300,])
+
+while ((temp == "S") or (temp == "s")):
+#bucle para mantener el programa corriendo hasta que se requiera
+    op = input("¿Qué función quieres aproximar?(sen/cos) \n")
+    
+    if ((op != "sen") and (op != "cos")) :
+                        
+                        print("Esa opción no está disponible :C")
+                
+    else:
+        
+            try:
+            #excepción para mantener el flujo del programa si se ingresan valores inválidos
+            
+                    k = int(input("¿Cuántos términos quieres?\n"))
+                    #print(type(k))
+                    x = float(input("¿Cuál es el valor a evaluar?(en radianes)\n"))
+                    #print(type(x))
+            
+            except :
+            
+                print("valor inválido :C")
+            
+            else : 
+            
+                    y = mh.floor(x / np.pi)  % 2
+                
+                    if (np.absolute(x) > np.pi):
+                    #declaración para evitar problemas de rango sobre el cálculo de los elementos de la serie 
+                
+                        z = x - (((mh.floor(x / np.pi)) + (y)) * np.pi)
+                    
+                    else :
+                        
+                        z = x
+                    
+                    if (k > 0) :
+                    #declaración para comprobar validez de parámetros
+                
+                        if op == "sen":
+                        #declaración para comprobar validez de la opción elegida
+                    
+                            for i in range(k):
+                            #bucle para producir los elementos de la serie
+                    
+                                sen += (-1)**i/(np.math.factorial(2*i + 1)) * z**(2*i + 1)
+            
+                            senr = np.sin(x)
+            
+                            print("El valor aproximado del seno en " + str(x) + " es : " + str(sen))
+                            #print(lista)
+                            print("El valor \"real\"(obtenido por la función nativa de numpy [np.sin(" + str(x) + ")]) es : " + str(senr))
+                            print("El error porcentual es :" + str(np.abs((senr/sen)-1)))
+                            
+                
+                        elif op == "cos":
+                        #declaración para comprobar validez de la opción elegida
+                    
+                            for i in range(k):
+                            #bucle para producir los elementos de la serie
+                
+                                cos += ((-1)**i/(np.math.factorial(2*i))) * z**(2*i)
+                    
+            
+                            cosr = np.cos(x)
+            
+                            print("El valor aproximado del cos en " + str(x) + " es : " + str(cos))
+                            #print(lista)
+                            print("El valor \"real\"(obtenido por la función nativa de numpy [np.cos(" + str(x) + ")]) es : " + str(cosr))
+                            print("El error porcentual es :" + str(np.abs((cosr/cos) - 1)))
+            
+                        
+                    
+
+    temp = input("¿Quieres intentarlo de nuevo?(S/N) \n")
+    
+
+   
+print("bye C:")
+\end{verbatim}
+
+\end{document}

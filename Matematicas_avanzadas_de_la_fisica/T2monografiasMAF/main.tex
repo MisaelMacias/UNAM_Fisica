@@ -1,0 +1,174 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{table}[t]
+        \begin{center}
+        \begin{tabular}{ | m{4.5cm} | c |}\hline
+            \multicolumn{2}{ |c| }{Polinomios de Laguerre} \\ \hline
+            Problema(s) de la Física & Propagación de ondas electromagnéticas, átomo hidrogenoide  \\ \hline
+            Ecuación diferencial & $xy''(x)+(1-x)y'(x)+ny(x)=0$  \\ \hline
+            Ecuación diferencial (polinomios asociados) & $xy''(x)+(\alpha+1-x)y'(x)+ny(x)=0$ \\ \hline
+            Soluciones & $\sum_{k=0}^{\infty} a_k x^k$; con  $a_{k+1} = \frac{k-n}{(k+1)^2} a_k$ \\ \hline
+            Función generatriz & $\sum_{n=0}^{\infty}L_n(x)t^n=\sum_{n=0}^{\infty}\sum_{k=0}^{n}\frac{(-1)^k}{k!}\left(\frac{n}{k}\right)x^kt^n$  $|t|<1$\\ \hline
+            Función generatriz(polinomios asociados)& $\sum_{n=0}^{\infty}L_n^{\alpha}(x)t^n=\frac{1}{(1-t)^{\alpha+1}}e^{\frac{-xt}{1-t}}$  $|t|<1$ \\ \hline
+            Ortogonalidad & $\int_{0}^{\infty} e^{-x}L_{m}(x)L_{n}(x)dx=\delta_{nm}$ \\ \hline
+            Ortogonalidad(polinomios asociados) & $\int_{0}^{\infty} e^{-x}x^{\alpha}L_{m}^{\alpha}(x)L_{n}^{\alpha}(x)dx=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{nm}$ \\ \hline
+            Relaciones de Recurrencia & $(n+1)L_{n+1}(x)=(2n+1-x)L_n(x)-xL_{n-1}(x)$ \\ \hline
+            Relaciones de recurrencia(polinomios asociados) & $L_n^{\alpha}(x)=L_{n}^{\alpha+1}(x)-L_{n-1}^{\alpha+1}(x)$ \\ 
+             & $\frac{d}{dx}L_n^{\alpha}(x)=-L_{n-1}^{\alpha+1}(x)$ \\
+             & $nL_n^{\alpha}=(n+\alpha)L_{n-1}^{\alpha}(x)-xL_{n-1}^{\alpha+1}(x)$ \\
+             & $(n+1)L_{n+1}^{\alpha}(x)=(2n+\alpha+1-x)L_n^{\alpha}(x)-(n+\alpha)L_{n-1}^{\alpha}(x)$ \\
+             & $x \frac{d}{dx}L_n^{\alpha}(x)=nL_n^{\alpha}(x)-(n+\alpha)L_{n-1}^{\alpha}(x)$ \\ \hline
+        \end{tabular}
+        \end{center}
+\end{table}
+
+\begin{table}[t]
+        \begin{center}
+        \begin{tabular}{ | m{3.5cm} | c |}\hline
+            \multicolumn{2}{ |c| }{Polinomios de Chebychev} \\ \hline
+            Problema(s) de la Física & Análisis numérico, ondas periódicas   \\ \hline
+            Geometría &  Sistema coordenado polar\\ \hline
+            Ecuación diferencial (tipo 1) & $(1-x^2)y''(x)-xy'(x)+\nu^2y(x)=0$  \\ \hline
+            Ecuación diferencial (tipo 2) & $(1-x^2)y''(x)-3xy'(x)+p(p+2)y(x)=0$   \\ \hline
+            Soluciones & $T_n(x)=\cos{(n \cos^{-1}{x})} \hspace{1cm} \nu=n$ \\
+             & $V_n(x)=\sin{(n\cos^{-1}{x})} \hspace{1cm} \nu=n$ \\ \hline
+            Funciones adicionales & $W_n(x)=(1-x^2)^{-1/2}T_{n+1}(x)$ \\ 
+             & $U_n(x)=(1-x^2)^{-1/2}V_{n+1}(x)$ \\ \hline
+            Solución General & $y(x)$=$\left\{ \begin{array}{lcc}
+             c_! T_n(x)+c_2\sqrt{1-x^2}U_{n-1}(x) &   \text{para}  & n=1,2,3,..\\
+             \\ c_1+c_2\sin^{-1}{x} &  \text{para} & n=0 \\
+             \end{array}
+        \right.$ \\ \hline
+            Función generatriz (tipo 1) & $\sum_{n=0}^{\infty} T_n (x) t^n = \frac{1-tx}{1-2tx+t^2}$ \\ \hline
+            Función generatriz (tipo 2) & $\sum_{n=0}^{\infty} U_n(x)t^n = \frac{1}{1-2tx+t^2}$ \\ \hline
+            Ortogonalidad (tipo 1) & $\int_{-1}^{1} T_n(x)T_m(x)\frac{dx}{\sqrt{1-x^2}}= $ $\left\{ \begin{array}{lcc}
+             0 &   si  & n \neq m\\
+             \\ \pi &  si & n=m=0 \\
+             \\ \pi /2  & si & n=m \neq 0  \\
+             \end{array}
+        \right.$ \\ \hline
+            Ortogonalidad (tipo 2) & $\int_{-1}^{1}U_n(x)U_m(x)\sqrt{1-x^2}dx=$ $\left\{ \begin{array}{lcc}
+             0 &   si  & n \neq m\\
+             \\ \pi/2 &  si & n=m \\
+             \end{array}
+        \right.$ \\ \hline
+            Relaciones de Recurrencia (tipo 1) & $T_{n+1}(x)=2xT_n(x)-T_{n-1}(x)$ ;   $T_0(x)= 1 \hspace{0.5cm} T_1(x)=x$ \\ \hline
+            Relaciones de Recurrencia (tipo 2) & $U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)$ ; $U_0(x)= 1 \hspace{0.5cm} U_1(x)=2x$ \\ \hline
+            Relaciones de recurrencia mutua & $T_n(x)=U_n(x)-xU_{n-1}(x)$ \\
+             & $(1-x^2)U_n(x)=xT_{n+1}(x)-T_{n+2}(x)$ \\ \hline
+            Paridad (tipo 1)  &  $T_{2n}(x)= T_{2n}(-x)$ ; $T_{2n+1}(-x)=-T_{2n+1}(x)$ \\ \hline
+            Paridad (tipo 2) & $U_{2n}(x)= U_{2n}(-x)$ ; $U_{2n+1}(-x)=  -U_{2n+1}(x)$ \\ \hline
+            Fórmula de Rodrigues(tipo 1) & $T_n(x)= \left[\frac{(-1)^n \sqrt{\pi}(1-x^2)^{1/2}}{2^n (n-1/2)!}\right]\frac{d^n}{dx^n}(1-x^2)^{n-1/2}$ \\ \hline
+            Fórmula de Rodrigues & $U_n(x)=\left[\frac{(-1)^n \sqrt{\pi}(n+1)}{2^{n+1}(n+1/2)!(1-x^2)^{1/2}}\right]\frac{d^n}{dx^n}(1-x^2)^{n+1/2}$ \\ \hline
+        \end{tabular}
+        \end{center}
+\end{table}
+
+\begin{table}[t]
+        \begin{center}
+        \begin{tabular}{ | m{3.5cm} |  c |}\hline
+            \multicolumn{2}{ |c| }{Polinomios de Legendre} \\ \hline
+            Problema(s) de la Física &  Ecuación de Helmholtz, átomo de hidrógeno, movimiento de planetas \\ 
+             &  propagación de señales y calor \\ \hline
+            Geometría & Sistema coordenado esférico \\ \hline
+            Geometría (Funciones asociadas) & Sistema coordenado polar \\ \hline
+            Ecuación diferencial & $(1-x^2)y''(x)+2xy'(x)+\textit{l(l+1)}y(x)=0$  \\ \hline
+            Ecuación diferencial asociada & $(1-x^2)y''(x)-2xy'(x)+\left[\textit{l(l+1)}- \frac{m^2}{1-x^2}\right]y(x)=0$ \\ \hline
+            Soluciones & $y_1(x)=1-\textit{l}(\textit{l}+1)\frac{x^2}{2!} + (\textit{l}-2)\textit{l}(\textit{l}+1)(\textit{l}+3)\frac{x^4}{4!}- ...$ \\
+             & $y_2(x)=x-(\textit{l}-1)(\textit{l}+2)\frac{x^3}{3!}+(\textit{l}-3)(\textit{l}-1)(\textit{l}+2)(\textit{l}+4)\frac{x^5}{5!}- ...$ \\ \hline
+            Solución General & $y(x)=c_1y_1(x)+c_2y_2(x)$ \\ \hline
+            Soluciones(Funciones asociadas) & $y_1(x)=1-\textit{l}(\textit{l}+1)\frac{x^2}{2!}+(\textit{l}-2)\textit{l}(\textit{l}+1)(\textit{l}+3)\frac{x^4}{4!}- ...$ \\ %\hline
+             & $y_2(x)=x-(\textit{l}-1)(\textit{l}+2)\frac{x^3}{3!}+(\textit{l}-3)(\textit{l}-1)(\textit{l}+1)(\textit{l}+4)\frac{x^5}{5!}-...$ \\ \hline
+            Solución General(Funciones asociadas) & $y(x)=c_1y_1(x)+c_2y_2(x)$  \\ \hline
+            Función generatriz & $\sum_{n=0}^{\infty} P_n(x)h^n$ \\ \hline
+            Función generatriz & $\frac{(2m)(1-x^2)^{m/2}}{2^{m}m!(1-2xh+h^2)^{m+1/2}}= \sum_{n=0}^{\infty}P_{n+m}^{m}(x)h^n$ \\ \hline
+            Ortogonalidad & $\int_{-1}^{1} P_{\textit{l}}(x)P_{k}(x)dx=0 \hspace{1cm} \textit{l}\neq k$   \\ \hline
+            Ortogonalidad (Funciones asociadas) & $\int_{-1}^{1} P_{\textit{l}}^{m}(x)P_{k}^{m}(x)dx=0 \hspace{1cm} \textit{l}\neq k$ \\ \hline
+            Relaciones de Recurrencia & $P'_{n+1}=(n+1)P_n+P'_n$; $\hspace{0.1cm} P'_{n-1}=-nP_n+xP'_n$ \\ 
+             & $(2n+1)P_n=P'_{n+1}-P'_{n-1}$; $\hspace{0.1cm} (1-x^2)P'_{n+1}=n(P_{n-1}-xP_n)$ \\ \hline
+            Relaciones de recurrencia (Funciones asociadas) & $P_{n}^{m+1}=\frac{2mx}{(1-x^2)^{1/2}}P_{n}^{m}+[m(m-1)-n(n+1)]P_{n}^{m-1}$ \\ 
+             & $(2n+1)xP_{n}^{m}=(n+m)P_{n-1}^{m}+(n-m+1)P_{n+1}^{m}$ \\
+              & $(2n+1)(1-x^2)^{1/2}P_{n}^{m}=P_{n+1}^{m+1}-P_{n-1}^{m+1}$ \\ 
+              & $2(1-x^2)^{1/2}(P_{n}^{m})'=P_{n}^{m+1}-(n+m)(n-m+1)P_{n}^{m-1}$ \\ \hline
+            Paridad  & $P_n(-x)=P_n(x) \hspace{0.5cm} \text{n par}; P_n(-x)=-P_n(x) \hspace{0.5cm} \text{n impar}$ \\ \hline
+            Formula de Rodrigues & $P_\textit{l}(x)= \frac{1}{2^{\textit{l}}\textit{l}!} \frac{d^{\textit{l}}}{dx^{\textit{l}}}(x^2-1)^{\textit{l}}$ \\ \hline
+            Armónicos esféricos (Funciones especiales) & $Y_{\textit{l}}^{m}(\theta,\phi)=(-1)^m \left[\frac{2\textit{l}+1(\textit{l}+m)!}{4\pi(\textit{l}-m)!}\right]^{1/2}P_{\textit{l}}^{m}(\cos{\theta}exp(im \phi))$ \\ 
+             & $Y_{\textit{l}}^{-m}(\theta,\phi)=(-1)^{m}[Y_\textit{l}^{m}(\theta,\phi)]^*$ \\ \hline
+        \end{tabular}
+        \end{center}
+\end{table}
+
+\newpage
+
+fuentes:
+
+ https://es.wikipedia.org/wiki/Polinomios\_de\_Chebyshov
+ 
+ https://es.wikipedia.org/wiki/Polinomios\_de\_Legendre
+ 
+ https://es.wikipedia.org/wiki/Polinomios\_de\_Laguerre
+ 
+ Lebedev, N. N., & Silverman, R. A. (1972). Special Functions & Their Applications (Revised ed.). Dover Publications.
+
+
+\end{document}

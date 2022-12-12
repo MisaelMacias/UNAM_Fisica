@@ -1,0 +1,705 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item Una partícula de masa $m$ dentro de un pozo de potencial infinito
+    
+    \begin{equation*}
+        V(x) = \left\{\begin{array}{lcc}
+             \infty  & x < -L \\
+              0 & -L \leq x \leq L\\
+              \infty & x > L
+             \end{array} \right.
+    \end{equation*}
+    
+    al tiempo $t = 0$ se encuentra en el estado 
+    
+    \begin{equation*}
+        \psi(x,0) = \frac{2}{\sqrt{5L}}\left(1-\sin{\frac{\pi x}{2L}}\right)\cos{\frac{\pi x}{2 L}}
+    \end{equation*}
+    
+    \begin{enumerate}
+        \item Calcule la función de onda al tiempo t.
+        
+        \textbf{Sol:}
+        
+        Como se vio en clase las soluciones a la ec. de valores propios para ese potencial son: $\sin{\frac{p x}{\hbar}}$ y $\cos{\frac{p x}{\hbar}}$
+        
+        Ahora obtengamos los coeficientes necesarios para tener a $\psi (x,t)$
+        
+        \begin{equation*}
+            C_N = <\phi_{E_N}, \psi(x,0)> = \int_{-\infty}^{\infty} dx \phi_{E_N} \psi (x,0)
+        \end{equation*}
+        
+        \begin{equation*}
+            C_1 = \int_{-\infty}^{\infty} dx \sin{\frac{p_1 x}{\hbar}} \frac{2}{\sqrt{5L}}\left(1-\sin{\frac{\pi x}{2L}}\right)\cos{\frac{\pi x}{2 L}}
+        \end{equation*}
+        
+        \begin{equation*}
+            =\frac{2}{\sqrt{5L}}\left[ \int_{-L}^{L} dx  \sin{\frac{p_1 x}{\hbar}} \cos{\frac{\pi x}{2 L}} - \int_{-L}^{L} dx \sin{\frac{p_1 x}{\hbar}} \sin{\frac{\pi x}{2L}} \cos{\frac{\pi x}{2L}}\right]
+        \end{equation*}
+        
+        \begin{equation*}
+            =\frac{2}{\sqrt{5L}}\left[ \left(- \frac{\pi(\sin{\frac{p_1 x}{\hbar}} \sin{\frac{\pi x}{2L}} + \frac{p_1}{\hbar} \cos{\frac{p_1 x}{\hbar} \cos{\frac{\pi x}{2L}}} )}{2L(\frac{p_1^2}{\hbar^2} - \frac{\pi^2}{4L^2})}\right)|_{-L}^{L} \right.
+        \end{equation*}
+        
+        \begin{equation*}
+            \left. - \left(\frac{1}{4} (\frac{\sin{(x(\frac{p_1}{\hbar}  - \frac{\pi}{L}) )}}{\frac{p_1}{\hbar}  - \frac{\pi}{L}} - \frac{\sin{(x(\frac{p_1}{\hbar}  + \frac{\pi}{L}))}}{\frac{p_1}{\hbar}  + \frac{\pi}{L}}) \right)|_{-L}^{L}\right]
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{3 \pi^3 \sin{\frac{p_1 L}{\hbar}}}{\sqrt{20L^7}} (\frac{p_1^4}{\hbar^4} - \frac{5 \pi^2 p_1^2}{4 \hbar^2 L^2} + \frac{\pi^4}{4L^4})^{-1}
+        \end{equation*}
+        
+        
+        
+        
+        \begin{equation*}
+            C_2 = <\phi_{E_2}, \psi(x,0)> = \int_{-\infty}^{\infty} dx \phi_{E_2} \psi (x,0)
+        \end{equation*}
+        
+        \begin{equation*}
+            C_2 = \int_{-\infty}^{\infty} dx \cos{\frac{p_2 x}{\hbar}} \frac{2}{\sqrt{5L}}\left(1-\sin{\frac{\pi x}{2L}}\right)\cos{\frac{\pi x}{2 L}}
+        \end{equation*}
+        
+        \begin{equation*}
+            =\frac{2}{\sqrt{5L}}\left[ \int_{-L}^{L} dx \cos{\frac{p_2 x}{\hbar}} \cos{\frac{\pi x}{2 L}} - \int_{-L}^{L} dx \cos{\frac{p_2 x}{\hbar}} \sin{\frac{\pi x}{2L}} \cos{\frac{\pi x}{2L}}\right]
+        \end{equation*}
+        
+        \begin{equation*}
+             = \frac{2}{\sqrt{5L}} \left[\left(\frac{\frac{p_2}{\hbar}\sin{\frac{p_2 x}{\hbar}}\cos{\frac{\pi x}{2L}}- \frac{\pi}{2L}\cos{\frac{p_2 x}{\hbar}}\sin{\frac{\pi x}{2L}}}{\frac{p_2^2}{\hbar^2} - \frac{\pi^2}{4L^2}}\right)|_{-L}^{L} \right.
+        \end{equation*}
+        
+        \begin{equation*}
+            \left.- \left(\frac{1}{4} (\frac{\cos{(x(\frac{p_2}{\hbar}  - \frac{\pi}{L}) )}}{\frac{p_2}{\hbar}  - \frac{\pi}{L}} - \frac{\cos{(x(\frac{p_2}{\hbar}  + \frac{\pi}{L}))}}{\frac{p_2}{\hbar}  + \frac{\pi}{L}}) \right)|_{-L}^{L}\right]
+        \end{equation*}
+        
+        \begin{equation*}
+            =\frac{-2\pi\cos{\frac{p_2 L}{\hbar}}}{\sqrt{5L^3} \left(\frac{p_2^2}{\hbar^2} - \frac{\pi^2}{4L^2}\right)}
+        \end{equation*}
+        
+        
+        entonces
+        
+        \begin{equation*}
+            \psi (x,t) = \sum_{N=1}^{2} C_N  e^{-\frac{iE_N t}{\hbar}} \phi_N 
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{3 \pi^3 \sin{\frac{p_1 L}{\hbar}}}{\sqrt{20L^7}} (\frac{p_1^4}{\hbar^4} - \frac{5 \pi^2 p_1^2}{4 \hbar^2 L^2} + \frac{\pi^4}{4L^4})^{-1} e^{\frac{-iE_2 t}{\hbar}} \sin{\frac{p_1 x}{\hbar}} + \frac{-2\pi\cos{\frac{p_2 L}{\hbar}}}{\sqrt{5L^3} \left(\frac{p_2^2}{\hbar^2} - \frac{\pi^2}{4L^2}\right)} e^{\frac{-iE_2 t}{\hbar}} \cos{\frac{px}{\hbar}}
+        \end{equation*}
+        
+        
+        \item Calcule la energía del sistema al tiempo t.
+        
+        \textbf{Sol:}
+        
+        por la ec. (9)
+        
+        \begin{equation*}
+            <\hat{H}>_\psi = \sum_N |C_N|^2 E_N
+        \end{equation*}
+        
+        \begin{equation*}
+            |\frac{3 \pi^3 \sin{\frac{p_1 L}{\hbar}}}{\sqrt{20L^7}} (\frac{p_1^4}{\hbar^4} - \frac{5 \pi^2 p_1^2}{4 \hbar^2 L^2} + \frac{\pi^4}{4L^4})^{-1}|^2 \frac{\hbar^2 \pi^2}{2mL^2} + |\frac{-2\pi\cos{\frac{p_2 L}{\hbar}}}{\sqrt{5L^3} \left(\frac{p_2^2}{\hbar^2} - \frac{\pi^2}{4L^2}\right)}|^2 \frac{2\hbar^2 \pi^2}{mL^2}
+        \end{equation*}
+        
+    \end{enumerate}
+    
+    
+    
+%%%2%%%
+    
+    
+    
+    \item Considere una partícula de masa $m$ que se mueve en una dimensión sometida a la influencia de un potencial $V(x)=-a\delta(x)$, con $a>0$.
+    
+    \begin{enumerate}
+        \item Encuentre el estado propio ligado $\psi_a$, así como su energía, del hamiltoniano asociado.
+        
+        \textbf{Sol:}
+        
+        Dadas las condiciones, la ecuación a resolver es
+        
+        \begin{equation*}
+            \frac{\hbar^2}{2m} \frac{d^2}{dx^2} \psi_{a} (x) = -|E| \psi_{a}(x)
+        \end{equation*}
+        
+        y como se vio en clase la solución se expresa como
+        
+        \begin{equation*}
+            \psi_{a} = \left\{\begin{array}{lcc}
+             A e^{qx}  & x < 0 \\
+              B e^{-qx} & x \geq 0
+             \end{array} \right.
+        \end{equation*}
+        
+        Con $q = \sqrt{\frac{2m |E|}{\hbar^2}}$, también para cumplir la condición de continuidad, se debe tener que $A= B$
+        
+        Ahora  por la condición de discontinuidad, se debe satisfacer
+        
+        \begin{equation*}
+            \frac{d \psi_{a}(0+)}{d x} - \frac{d \psi_{a}(0-)}{dx} = -\frac{2m}{\hbar^2} \int_{0-\epsilon}^{0+\epsilon} dx a \delta (x) \psi_{a} (x) = -\frac{2ma}{\hbar^2} \sqrt{q}
+        \end{equation*}
+        
+        y evaluando
+        
+        \begin{equation*}
+            -2q^{3/2} = - \frac{2ma}{\hbar^2}\sqrt{q}
+        \end{equation*}
+        
+        \begin{equation*}
+            q = \sqrt{\frac{2m|E|}{\hbar^2}} = -\frac{ma}{\hbar^2} \hspace{1cm} \rightarrow \hspace{1cm} |E| = \frac{ma^2}{2\hbar^2} \hspace{1cm} \rightarrow \hspace{1cm} E = -\frac{ma^2}{2\hbar^2}
+        \end{equation*}
+        
+        que sustituyendo en $\psi_a$
+        
+        \begin{equation*}
+             \psi_{a} = \left\{\begin{array}{lcc}
+             \sqrt{\frac{ma}{\hbar^2}} e^{\frac{max}{\hbar^2}}  & x < 0 \\
+              \sqrt{\frac{ma}{\hbar^2}} e^{-\frac{max}{\hbar^2}} & x \geq 0
+             \end{array} \right.
+        \end{equation*}
+        
+        
+        
+        \item Suponga que la partícula se encuentra en el estado ligado $\psi_a$ y la intensidad del potencial cambia súbitamente de $a$ a $b>0$. ¿Cual es la probabilidad de que la partícula se quede en el estado $\psi_a$?
+        
+        \textbf{Sol:}
+        
+        La probabilidad de que la particula se quede en el estado $\psi_a$ despues del cambio brusco de potencial es
+        
+        \begin{equation*}
+            |<\psi_a, \psi_b>|^2 = \left| \int_{-\infty}^{\infty} dx \psi_{a}^* \psi_b \right|^2 =\left|\int_{-\infty}^{0} \frac{m \sqrt{ab}}{\hbar^2} e^{\frac{max}{\hbar^2}} e^{\frac{mbx}{\hbar^2}} dx + \int_{0}^{\infty} dx\frac{m \sqrt{ab}}{\hbar^2} e^{-\frac{max}{\hbar^2}} e^{-\frac{mbx}{\hbar^2}}\right|^2
+        \end{equation*}
+        
+        \begin{equation*}
+            = \left|\int_{-\infty}^{0} \frac{m \sqrt{ab}}{\hbar^2} e^{\frac{mx}{\hbar^2} (a+b)} dx + \int_{0}^{\infty} dx\frac{m \sqrt{ab}}{\hbar^2} e^{-\frac{mx}{\hbar^2}(a+b)}\right|^2 
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{m^2 ab}{\hbar^4}  \left| \frac{e^{\frac{mx}{\hbar^2} (a+b)}}{\frac{m}{\hbar^2} (a+b)} |_{-\infty}^{0}  +  \frac{e^{-\frac{mx}{\hbar^2}(a+b)}}{-\frac{m}{\hbar^2}(a+b)} |_{0}^{\infty}\right|^2
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{\cancel{m^2} ab}{\cancel{\hbar^4}}  \frac{4\cancel{\hbar^4}}{\cancel{m^2} (a+b)^2 } = \frac{4ab}{(a+b)^2}
+        \end{equation*}
+        
+    \end{enumerate}
+    
+    
+    
+%%%3%%%
+    
+    
+    
+    \item Considere un potencial de tipo escalón 
+    
+    \begin{equation*}
+        V(x) = \left\{\begin{array}{lcc}
+             0  & x < 0 \\
+              V_0 & x \geq 0
+             \end{array} \right.
+    \end{equation*}
+    
+    \begin{enumerate}
+        \item Muestre que la función de onda $\psi(x) = e^{\frac{i}{\hbar} px} + B e^{-\frac{i}{\hbar}px}$ definida para $x<0$, con $B$ constante, tiene  asociada de corriente incidente $j_i$ y otra reflejada $j_r$, sin que exista ningún término de interferencia entre las componentes de la onda incidente y reflejada, es decir
+        
+        \begin{equation*}
+            j = j_i + j_r
+        \end{equation*}
+        
+        \textbf{Sol:}
+        
+        Sea $\psi_{i} = e^{\frac{i}{\hbar}px}$ y $\psi_{r} = B e^{-\frac{i}{\hbar}px}$
+        
+        entonces 
+        
+        \begin{equation*}
+            j = \frac{\hbar}{2 m i} \left(\psi^* \frac{\partial \psi}{\partial x} - \psi \frac{\partial \psi^*}{\partial x}\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{\hbar}{2 m i} \left((e^{-\frac{i}{\hbar} px} - B^* e^{\frac{i}{\hbar}px}) (\frac{i}{\hbar} p e^{\frac{i}{\hbar} px} + \frac{iB}{\hbar}p  e^{-\frac{i}{\hbar}px}) - (e^{\frac{i}{\hbar} px} - B e^{-\frac{i}{\hbar}px}) (-\frac{i}{\hbar}p e^{-\frac{i}{\hbar} px} - \frac{iB^*}{\hbar}p e^{\frac{i}{\hbar}px})\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{p}{2 m } \left( 1 + \cancel{ B  e^{-\frac{2i}{\hbar}px} }-\cancel{ B^* e^{\frac{2i}{\hbar}px}}- |B|^2 + 1 + \cancel{B^* e^{\frac{2i}{\hbar} px}}- \cancel{B e^{- \frac{2i}{\hbar}px}} - |B|^2\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{p}{m} (1 - |B|^2)
+        \end{equation*}
+        ahora para las $\psi_i$ y $\psi_r$ se tiene
+        
+        \begin{equation*}
+            j_i = \frac{\hbar}{2 m i} \left(\psi_i^* \frac{\partial \psi_i}{\partial x} - \psi_i \frac{\partial \psi_i^*}{\partial x}\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            =\frac{\hbar}{2 m i} \left(e^{-\frac{i}{\hbar}px}\frac{i}{\hbar}p e^{\frac{i}{\hbar}px} - e^{\frac{i}{\hbar}px} (-\frac{i}{\hbar}p e^{-\frac{i}{\hbar}px})\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            =\frac{p}{2 m } \cancel{\left(e^{-\frac{i}{\hbar}px} e^{\frac{i}{\hbar}px} + e^{\frac{i}{\hbar}px}  e^{-\frac{i}{\hbar}px}\right)} = \frac{p}{m}
+        \end{equation*}
+        
+        \begin{equation*}
+            j_r = \frac{\hbar}{2 m i} \left(\psi_r^* \frac{\partial \psi_r}{\partial x} - \psi_r \frac{\partial \psi_r^*}{\partial x}\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{\hbar}{2 m i} \left(B^* e^{\frac{i}{\hbar}px} (-\frac{iB}{\hbar}p e^{-\frac{i}{\hbar}px}) - B e^{-\frac{i}{\hbar}px} \frac{i}{\hbar}p B^* e^{\frac{i}{\hbar}px}\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = -\frac{p}{2m} \left(2 |B|^2  \right) = -\frac{p|B|^2}{m}
+        \end{equation*}
+        
+        por lo tanto
+        
+        \begin{equation*}
+            j  = j_i + j_r
+        \end{equation*}
+        
+        
+        \item Suponga que una partícula de masa $m$ y energía $E < V_0$, se propaga desde $-\infty$ hacia el escalón de potencial y está representada por la función de onda anterior con $p =\sqrt{2mE}$, ¿Cuánto vale la corriente de probabilidad transmitida a la región $x>0$?
+        
+        \textbf{Sol:}
+        
+        Dadas las condiciones, la ecuación de valores propios es
+        
+        \begin{equation*}
+            \frac{\hbar^2}{2m} \frac{d^2}{dx} \psi (x) = -|E -V_0| \psi (x)
+        \end{equation*}
+        
+        que tiene como solución
+        
+        \begin{equation*}
+            \psi (x) = T e^{-px}
+        \end{equation*}
+        
+        con $p = \sqrt{\frac{2m |E-V_0|}{\hbar^2}}$
+        
+        Entonces la corriente de probabilidad es
+        
+        \begin{equation*}
+            j = \frac{\hbar}{2mi}\left(\psi^* \frac{\partial \psi}{\partial x} - \psi \frac{\partial \psi^*}{\partial x}\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{\hbar}{2mi}\left(-T^* e^{-px} A p e^{-px} + T e^{-px} A^* p e^{-px}\right)
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{\hbar}{2mi}\left(|T|^2 e^{-2px} - |T|^2 e^{-2px}\right) = 0
+        \end{equation*}
+        
+
+        
+        
+        \item También, muestre que la componente de la función de onda asociada a las partículas reflejadas es de la forma $e^{-i \left(\frac{px}{\hbar} + \theta\right)}$. Encuentre $\theta$ en términos de $E$ y $V_0$
+        
+        \textbf{Sol:}
+        
+        Por la condición de continuidad de la solución del ejercicio anterior, se tiene que
+        
+        \begin{equation*}
+            1+B = T \hspace{2cm} \frac{ip}{\hbar}(1-B) = -p T
+        \end{equation*}
+        
+        o bien
+        
+        \begin{equation*}
+            pT - pT = p +p B - \frac{ip}{\hbar} (1-B) = 0
+        \end{equation*}
+        
+        y despejando $B$
+        
+        \begin{equation*}
+            B = \frac{\frac{ip}{\hbar} - p}{p + \frac{ip}{\hbar}} = \frac{\frac{ip}{\hbar} - p}{p + \frac{ip}{\hbar}} \frac{p - \frac{ip}{\hbar}}{p - \frac{ip}{\hbar}} = \frac{\frac{p^2}{\hbar^2} - 2\frac{ip^2}{\hbar}- p^2}{p^2 +\frac{p^2}{\hbar^2}} = \frac{\frac{1}{\hbar^2}-\frac{2i}{\hbar}-1}{1 + \frac{1}{\hbar^2}}
+        \end{equation*}
+        
+        y ya no supe que hacer
+        
+    \end{enumerate}
+    
+    
+    
+%%%4%%%
+    
+    
+    
+    \item En los problemas de dispersión por potenciales localizados, los elementos $S_{lm}$ de la matriz de dispersión relacionan las amplitudes de las ondas dispersadas con las amplitudes de las ondas incidentes. Para problemas unidimensionales, si el estado  la izquierda del potencial es
+    
+    \begin{equation*}
+        Ae^{\frac{i}{\hbar}px} + B e^{-\frac{i}{\hbar}px}
+    \end{equation*}
+    
+    y a la derecha está descrito por la expresión
+    
+    \begin{equation*}
+        C e^{\frac{i}{\hbar}px} + D e^{-\frac{i}{\hbar}px}
+    \end{equation*}
+    
+    entonces los elementos $S_{lm}$ de la matriz de dispersión se definen por medio de la relación
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right) =  \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)
+    \end{equation*}
+    
+    Muestre que la matriz $S$ es unitaria
+    
+    \textbf{Sol:}
+    
+    Recordemos que si una matriz cumple con $A^{\dagger} = A^{-1}$, entonces es unitaria
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right) =  \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)
+    \end{equation*}
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right)^{\dagger}\left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right) = \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right)^{\dagger} \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)
+    \end{equation*}
+    
+    pero como
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right)^{\dagger} = 
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)^{\dagger}
+        \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)^{\dagger}
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right)^{\dagger}\left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right) = 
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)^{\dagger}
+        \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)^{\dagger} \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)
+    \end{equation*}
+    
+    que por la condición de conservación de normalización
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right)^{\dagger}\left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right) = 
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)^{\dagger}
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)
+    \end{equation*}
+    
+    se tiene
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right)^{\dagger}\left(\begin{matrix}
+         C \\
+         B
+        \end{matrix}\right) = \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)^{\dagger}
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right) = 
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)^{\dagger}
+        \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)^{\dagger} \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)
+        \left(\begin{matrix}
+         A \\
+         D
+        \end{matrix}\right)
+    \end{equation*}
+    
+    
+    
+    ahora como $\dagger$ denota la matriz/operador adjunto, se pude ver que el lado izquierdo de la igualdad anterior es un escalar por lo que debe ser igual en el lado derecho por lo que
+    
+    \begin{equation*}
+        \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right)^{\dagger} \left(\begin{matrix}
+         S_{11} & S_{12} \\
+         S_{21} & S_{22}
+        \end{matrix}\right) =
+        \left(\begin{matrix}
+         1 & 0 \\
+         0 & 1
+        \end{matrix}\right)
+    \end{equation*}
+    
+    por lo tanto $S$ es unitaria
+    
+    
+    
+    
+    
+    
+    
+%%%5%%%
+    
+    
+    
+    \item Considere una partícula de masa $m$ dentro del potencial
+    
+    \begin{equation*}
+        V(x) = \left\{\begin{matrix}
+        \infty & x < 0 \\
+        0 & 0 \leq x \leq a \\
+        V_0 & x>a
+        \end{matrix}\right.
+    \end{equation*}
+    
+    Con $a>0$ y $V_0 > 0$ constantes. Muestre que las energías de los estados ligados se determinan por la ecuación
+    
+    \begin{equation*}
+        \tan{\frac{\sqrt{2mE}a}{\hbar}} = - \sqrt{\frac{E}{V_0 - E}}
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    
+    
+%%%6%%%
+    
+    
+    
+    \item Encuentre la matriz de dispersión para el potencial
+    
+    \begin{equation*}
+        V (x) = v_0 \delta (x-b)
+    \end{equation*}
+    
+    con las constantes $b>0$ y $v_0 < 0$.
+    
+    \textbf{Sol:}
+    
+    Como tenemos un potencial delta de dirac, la solución es
+    
+    \begin{equation*}
+        \phi_E = \left\{\begin{matrix}
+        A e^{ikx} + B e^{-ikx} & x < b \\
+        C e^{ikx} + D e^{-ikx} & x > b 
+        \end{matrix}\right.
+    \end{equation*}
+    
+    entonces la condición de continuidad  y discontinuidad de la derivada en b nos da
+    
+    \begin{equation*}
+        A e^{ikb} + B e^{-ikb} = C e^{ikb} + D e^{-ikb}
+    \end{equation*}
+    
+    \begin{equation*}
+        - \frac{\hbar^2}{2m} ik (Ae^{ikb}- Be^{-ikb}-C e^{ikb}+D e^{-ikb}) = -v_0 (A e^{ikb} +B e^{-ikb})
+    \end{equation*}
+    
+    ahora multiplicando la de continuidad por $\frac{\hbar^2 }{2m}ik + v_0$ y sumando a la de discontinuidad
+    
+    \begin{equation*}
+        (\frac{\hbar^2 }{2m} ik + v_0)(A e^{ikb} + \cancel{B e^{-ikb}}) + \frac{\hbar^2}{2m} ik (Ae^{ikb}- \cancel{Be^{-ikb}}-C e^{ikb}+\cancel{D e^{-ikb}})
+    \end{equation*}
+    
+    \begin{equation*}
+         =(\frac{\hbar^2}{2m}ik + v_0)( C e^{ikb} + \cancel{D e^{-ikb}}) +v_0 (A e^{ikb} +\cancel{B e^{-ikb}})
+    \end{equation*}
+    
+    \begin{equation*}
+        A (\frac{\hbar^2}{m}ik e^{ikb}) - D v_0 e^{-ikb} = C (\frac{\hbar^2}{m}ik + v_0) e^{ikb}
+    \end{equation*}
+    
+    o bien
+    
+    \begin{equation}
+        C = A \frac{\frac{\hbar^2}{m}ik}{(\frac{\hbar^2}{m}ik + v_0)} - D \frac{v_0}{(\frac{\hbar^2}{m}ik + v_0)} e^{-2ikb}
+    \end{equation}
+    
+    ahora desarrollando la ec. de discontinuidad y sumandole la misma
+    
+    \begin{equation*}
+         A(\frac{\hbar^2}{2m}ik -v_0)e^{ikb} + B (-\frac{\hbar^2}{2m} ik - v_0) e^{-ikb} = \frac{\hbar^2}{2m}ik (Ce^{ikb} + D e^{-ikb})
+    \end{equation*}
+    
+    \begin{equation*}
+         A(\frac{\hbar^2}{2m}ik -v_0)e^{ikb} + B (-\frac{\hbar^2}{2m} ik - v_0) e^{-ikb} - \frac{\hbar^2}{2m} ik (Ae^{ikb}- Be^{-ikb}-C e^{ikb}+D e^{-ikb}) 
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{\hbar^2}{2m}ik (Ce^{ikb} + D e^{-ikb}) -v_0 (A e^{ikb} +B e^{-ikb})
+    \end{equation*}
+    
+    \begin{equation*}
+        B(\frac{\hbar^2}{m}ik + v_0) e^{-ikb} =- A v_0 e^{ikb} + \frac{\hbar^2}{m} ik De^{-ikb}   
+    \end{equation*}
+    
+    \begin{equation}
+        B = - A \frac{v_0 e^{2ikb}}{\frac{\hbar^2}{m}ik + v_0} +D \frac{\frac{\hbar^2}{m} ik}{\frac{\hbar^2}{m}ik + v_0}  
+    \end{equation}
+    
+    por lo tanto usando (1) y (2)
+    
+    
+    \begin{equation*}
+        \hspace{1cm} S = \left(\begin{matrix}
+            \frac{\frac{\hbar^2}{m}ik}{(\frac{\hbar^2}{m}ik + v_0)} & -\frac{v_0}{(\frac{\hbar^2}{m}ik + v_0)} e^{-2ikb} \\
+            -\frac{v_0 e^{2ikb}}{\frac{\hbar^2}{m}ik + v_0} & \frac{\frac{\hbar^2}{m} ik}{\frac{\hbar^2}{m}ik + v_0}
+        \end{matrix}\right)
+    \end{equation*}
+    
+\end{enumerate}
+
+\end{document}

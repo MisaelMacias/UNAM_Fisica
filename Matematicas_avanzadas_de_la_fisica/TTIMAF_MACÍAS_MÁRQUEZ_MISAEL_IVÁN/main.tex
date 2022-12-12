@@ -1,0 +1,829 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item \textbf{Calcula las transformadas seno y coseno de Fourier de la función definida por :}
+    
+    \begin{equation*}
+        f(x)= \left\{ \begin{array}{lcc}
+             \sin{x} &   ,  & 0 < x < a\\
+             \\ 0 &  , &  x > a \\
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Sabemos que las funciones $y=\sin{x}$ y $y=0$ son continuas en todo su dominio, así que podemos decir que $f(x)$ es continua a trozos en el intervalo $(0,\infty)$, o bien $f(x) \in P_1(0,\infty)$, ahora veamos que $f(x) \in A_1(R^{+})$
+    
+    \begin{equation*}
+        \int_{0}^{\infty} |f(x)|dx
+    \end{equation*}
+    
+    y por propiedades de la integral
+    
+    \begin{equation*}
+       \int_{0}^{\infty} |f(x)|dx = \int_{0}^{a} |f(x)| dx + \int_{a}^{\infty} |f(x)|dx
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{0}^{a} |\sin{x}| dx + \cancel{\int_{a}^{\infty} 0dx}
+    \end{equation*}
+    
+    pero como $|\sin{x}| \leq 1$, entonces
+    
+    \begin{equation*}
+        = \int_{0}^{a} |\sin{x}| dx \leq \int_{0}^{a} 1 dx = a
+    \end{equation*}
+    
+    \begin{equation*}
+        \rightarrow \int_{0}^{\infty} |f(x)| dx \text{ es finito} \hspace{1cm} \therefore f(x) \in A_1(R^{+})
+    \end{equation*}
+    
+    por lo anterior, podemos aplicar la transformada seno y coseno de Fourier
+    
+    la transformada seno de Fourier es por definición
+    
+    \begin{equation*}
+        F_s[f;x \rightarrow \xi] = \sqrt{\frac{2}{\pi}}\int_{0}^{\infty} f(x)\sin{\xi x} dx
+    \end{equation*}
+    
+    y por propiedades de la integral
+    
+    \begin{equation*}
+        F_s[f;x \rightarrow \xi] = \sqrt{\frac{2}{\pi}}\left[\int_{0}^{a} f(x)\sin{\xi x} dx + \int_{a}^{\infty} f(x) \sin{\xi x} dx\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \sqrt{\frac{2}{\pi}}\left[\int_{0}^{a} \sin{x}\sin{\xi x} dx + \cancel{\int_{a}^{\infty} (0) \sin{\xi x} dx}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\sqrt{\frac{2}{\pi}}\int_{0}^{a} \sin{x}\sin{\xi x} dx
+    \end{equation*}
+    
+    ahora, usemos la identidad trigonométrica $\sin{\alpha} \sin{\beta}= \frac{1}{2}(\cos{(\alpha - \beta)}-\cos{(\alpha+\beta)})$
+    
+    \begin{equation*}
+        F_s[f;x \rightarrow \xi] =\sqrt{\frac{2}{\pi}}\int_{0}^{a} \frac{1}{2}(\cos{(x- \xi x)} - \cos{(x+\xi x)}) dx
+    \end{equation*}
+    
+    \begin{equation*}
+        =\sqrt{\frac{2}{\pi}}\frac{1}{2}\left[\int_{0}^{a}\cos{(x(1- \xi))}  dx - \int_{0}^{a} \cos{(x(1+\xi))} dx \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{\sqrt{2\pi}}\left[\int_{0}^{a}\frac{1-\xi}{1-\xi}\cos{(x(1- \xi))}  dx - \int_{0}^{a}\frac{1+\xi}{1+\xi} \cos{(x(1+\xi))} dx \right]
+    \end{equation*}
+    
+    entonces, sea $u=x(1-\xi)$ y $v=x(1+\xi)$, $du=(1-\xi)dx$; $dv=(1+\xi)dx$(omitiré los limites de integración por un momento solo por comodidad)
+    
+    \begin{equation*}
+        F_s[f;x \rightarrow \xi] =\frac{1}{\sqrt{2\pi}}\left[\frac{1}{u}\int\cos{u}  du -\frac{1}{v} \int \cos{v} dv \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[\frac{1}{1-\xi} \sin{u} | -\frac{1}{1+ \xi} \sin{v} | \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[\frac{1}{1- \xi} \sin{x(1-\xi)} |_{0}^{a} -\frac{1}{1+ \xi} \sin{x(1+\xi)} |_{0}^{a} \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[\frac{1}{1- \xi} (\sin{a(1-\xi)}-\cancel{\sin{0(1-\xi)}}) -\frac{1}{1+ \xi} (\sin{a(1+\xi)} - \cancel{\sin{0(1+\xi)}}) \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{(1+ \xi)\sin{a(1-\xi)}-(1-\xi)\sin{a(1+\xi)}}{(1-\xi^2)\sqrt{2\pi}}=F_s(\xi)
+    \end{equation*}
+    
+    Ahora calculemos la transformada coseno de Fourier, que por definición
+    
+    \begin{equation*}
+        F_c[f;x \rightarrow \xi] =\sqrt{\frac{2}{\pi}}\int_{0}^{\infty} f(x)\cos{\xi x} dx
+    \end{equation*}
+    
+    y por propiedades de la integral
+    
+    
+    \begin{equation*}
+        = \sqrt{\frac{2}{\pi}}\left[\int_{0}^{a} f(x)\cos{\xi x} dx + \int_{a}^{\infty} f(x)\cos{\xi x} dx\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \sqrt{\frac{2}{\pi}}\left[\int_{0}^{a} \sin{x}\cos{\xi x} dx + \cancel{\int_{a}^{\infty} (0)\cos{\xi x} dx}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\sqrt{\frac{2}{\pi}}\left[\int_{0}^{a} \sin{x}\cos{\xi x} dx\right]
+    \end{equation*}
+    
+    ahora, usemos la identidad trigonométrica $\sin{\alpha}\cos{\beta}= \frac{1}{2}(\sin{(\alpha-\beta)}+\sin{(\alpha+\beta)})$
+    
+    \begin{equation*}
+        F_c[f;x \rightarrow \xi] = \sqrt{\frac{2}{\pi}}\frac{1}{2}\left[\int_{0}^{a} \sin{(x-\xi x)}dx+\int_{0}^{a}\sin{(x+\xi x)}dx\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[\int_{0}^{a} \sin{x(1-\xi)}dx+\int_{0}^{a}\sin{x(1+\xi)}dx\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[\int_{0}^{a}\frac{1-\xi}{1- \xi} \sin{x(1-\xi)}dx+\int_{0}^{a}\frac{1+ \xi}{1+ \xi}\sin{x(1+\xi)}dx\right]
+    \end{equation*}
+    
+    entonces, sea $u=x(1-\xi)$ y $v=x(1+\xi)$, $du=(1-\xi)dx$; $dv=(1+\xi)dx$(omitiré los limites de integración por un momento solo por comodidad)
+    
+    \begin{equation*}
+        F_c[f;x \rightarrow \xi] = \frac{1}{\sqrt{2\pi}}\left[ \frac{1}{1- \xi}\int \sin{u}du+\frac{1}{1+ \xi}\int\sin{v}dv\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[ \frac{1}{1- \xi}(-\cos{u})|+\frac{1}{1+ \xi}(-\cos{v})|\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[ \frac{1}{1- \xi}(-\cos{x(1-\xi)})|_{0}^{a}+\frac{1}{1+ \xi}(-\cos{x(1+\xi)})|_{0}^{a}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{\sqrt{2\pi}}\left[ \frac{1}{1- \xi}(\cos{0(1-\xi)}-\cos{a(1-\xi)})+\frac{1}{1+\xi}(\cos{0(1+\xi)}-\cos{a(1+\xi)})\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{(1+\xi)(1-\cos{a(1-\xi)})+(1-\xi)(1-\cos{a(1+\xi)})}{(1-\xi^2)\sqrt{2\pi}} = F_c (\xi)
+    \end{equation*}
+    
+    
+    
+        
+        
+%%%2%%%
+        
+        
+    
+    \item \textbf{Calcula la transformada de Fourier de la función:}
+    
+    \begin{equation*}
+        f(x)= \left\{ \begin{array}{lcc}
+             e^{-ax} &   ,  & x>0,a>0\\
+             \\ -e^{ax} &  , &  x < 0,a>0 \\
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Las funciones $y=e^{-ax}$ y $y=-e^{ax}$ son continuas en todo su dominio, así que podemos decir que $f(x)$ es continua a trozos en el intervalo $(-\infty,\infty)$, o bien $f(x) \in P_1(-\infty,\infty)$, ahora veamos que $f(x) \in A_1(R)$
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} |f(x)|dx
+    \end{equation*}
+    
+    y por propiedades de la integral
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} |f(x)|dx= \int_{-\infty}^{0}|f(x)|dx+ \int_{0}^{\infty}|f(x)|dx
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{-\infty}^{0}|-e^{ax}|dx+ \int_{0}^{\infty}|e^{-ax}|dx
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{-\infty}^{0}e^{ax}dx+ \int_{0}^{\infty}e^{-ax}dx = \frac{1}{a}(e^{0}-e^{-\infty})-\frac{1}{a}(e^{-\infty}-e^{0})=0
+    \end{equation*}
+    
+    \begin{equation*}
+        \rightarrow \int_{-\infty}^{\infty} |f(x)|dx\text{ es finito} \hspace{1cm} \thereforef(x)\in A_1(R)
+    \end{equation*}
+    
+    por lo anterior, podemos aplicar la transformada de Fourier
+    
+    por definición
+    
+    \begin{equation*}
+        F[f;x \rightarrow \xi] = \frac{1}{ \sqrt{2\pi}} \int_{-\infty}^{\infty} f(x)e^{i\xi x} dx
+    \end{equation*}
+    
+    y por propiedades de la integral
+    
+    \begin{equation*}
+        F[f;x \rightarrow \xi] = \frac{1}{ \sqrt{2\pi}} \left[\int_{-\infty}^{0} f(x)e^{i\xi x} dx + \int_{0}^{\infty} f(x)e^{i\xi x} dx \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{ \sqrt{2\pi}} \left[-\int_{-\infty}^{0}e^{ax} e^{i\xi x} dx + \int_{0}^{\infty} e^{-ax}e^{i\xi x} dx \right]
+    \end{equation*}
+    
+    y por propiedades de la exponencial
+    
+    \begin{equation*}
+         F[f;x \rightarrow \xi] = \frac{1}{ \sqrt{2\pi}} \left[-\int_{-\infty}^{0} e^{ax+i\xi x} dx + \int_{0}^{\infty}e^{i\xi x-ax} dx \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{ \sqrt{2\pi}} \left[-\int_{-\infty}^{0} e^{x(a+i\xi)} dx + \int_{0}^{\infty}e^{x(i\xi -a)} dx \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{ \sqrt{2\pi}} \left[-\int_{-\infty}^{0}\frac{a+i\xi}{a+i\xi} e^{x(a+i\xi)} dx + \int_{0}^{\infty}\frac{i\xi -a}{i\xi -a}e^{x(i\xi -a)} dx \right]
+    \end{equation*}
+    
+    sea $u=x(a+i\xi)$ y $v=x(i\xi -a)$, $du=(a+i\xi)dx$,$dv=(i\xi -a)dx$
+    
+    \begin{equation*}
+         F[f;x \rightarrow \xi] =  \frac{1}{ \sqrt{2\pi}} \left[-\frac{1}{a+i\xi}\int e^{u} du + \frac{1}{i\xi -a}\int e^{v} dv \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =  \frac{1}{ \sqrt{2\pi}} \left[-\frac{1}{a+i\xi} e^{u}| + \frac{1}{i\xi -a} e^v | \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =  \frac{1}{ \sqrt{2\pi}} \left[-\frac{1}{a+i\xi} e^{x(a+i\xi)}|_{-\infty}^{0} + \frac{1}{i\xi -a} e^{x(i\xi -a)} |_{0}^{\infty} \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =  \frac{1}{ \sqrt{2\pi}} \left[-\frac{e^{0(a+i\xi)}-\cancel{e^{-\infty(a+i\xi)}}}{a+i\xi} + \frac{e^{\infty(i\xi -a)}-e^{0(i\xi -a)}}{i\xi -a}  \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =  \frac{1}{ \sqrt{2\pi}} \left[-\frac{1}{a+i\xi} + \frac{e^{\infty(i\xi)}\cancel{e^{-a\infty}}-1}{i\xi -a}  \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =  \frac{1}{ \sqrt{2\pi}} \left[-\frac{1}{a+i\xi} + \frac{-1}{i\xi -a}  \right]=\frac{2i\xi}{\sqrt{2\pi}(\xi^2+a^2)} =F(\xi)
+    \end{equation*}
+    
+    
+    
+    
+%%%3%%%
+    
+    
+    
+    \item\textbf{La temperatura $u(x,t)$ de una varilla semiinfinita $0\leq x< \infty$ satisface la ecuación diferencial parcial}
+    
+    \begin{equation*}
+        \frac{\partial u}{\partial t} = \kappa \frac{\partial^2 u}{\partial x^2}
+    \end{equation*}
+    
+    \textbf{sujeta a las condiciones}
+    
+    \begin{equation*}
+        u(x,0)=0, \hspace{2cm} \frac{\partial u}{\partial x}= \lambda \textbf{ una constante, cuando }x=0.t>0
+    \end{equation*}
+    
+    \textbf{Determina la temperatura $u(x,t)$ en la varilla}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Apliquemos la transformada coseno de Fourier
+    
+    \begin{equation*}
+        F_c\left[\frac{\partial u}{\partial t}\right] = F_c\left[\kappa \frac{\partial^2 u}{\partial x^2}\right]
+    \end{equation*}
+    
+    entonces, como la transformadad de coseno de Fourier de una derivada es $F[f'(t)]=-\xi^2F(\xi)-f(0)$
+    
+    \begin{equation*}
+        \frac{\partial U(\xi,t)}{\partial t}=\kappa (-\xi^2 U(\xi,t)-u_x(0,t))
+    \end{equation*}
+    
+    donde $U=F_c(u)$,y por las condiciones de frontera
+    
+    \begin{equation*}
+        \frac{\partial U(\xi,t)}{\partial t}=-\kappa (\xi^2 U(\xi,t)+\lambda)
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{-\kappa \xi^2}{-\kappa \xi^2}\frac{U'}{-\kappa (\xi^2 U(\xi,t)+\lambda)}= 1
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{1}{-\kappa \xi^2}\int\frac{-\kappa \xi^2U'}{-\kappa (\xi^2 U(\xi,t)+\lambda)}dt=\int 1 dt
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\ln{-\kappa (\xi^2 U(\xi,t)+\lambda)}}{-\kappa \xi^2}=t + c
+    \end{equation*}
+    
+    \begin{equation*}
+        -\kappa (\xi^2 U(\xi,t)+\lambda)=e^{-\kappa \xi^2t}  e^{-\kappa \xi^2c}=Ce^{-\kappa \xi^2t}
+    \end{equation*}
+    
+    \begin{equation*}
+        U(\xi,t)=\frac{1}{-\kappa \xi^2}(Ce^{-\kappa \xi^2t}+\kappa\lambda)
+    \end{equation*}
+    
+    por la otra condición inicial se tiene que
+    
+    \begin{equation*}
+        \frac{1+\kappa\lambda}{-\kappa\xi} = 0 \hspace{1cm} \rightarrow \hspace{1cm} \kappa=-1/\lambda
+    \end{equation*}
+    
+    entonces la solución en el espacio transformado es
+    
+    \begin{equation*}
+        U(\xi,t)=\frac{\lambda}{\xi^2}(Ce^{-\kappa \xi^2t}-1)
+    \end{equation*}
+    
+    ahora aplicando la transformada inversa coseno de FOurier
+    
+    \begin{equation*}
+        u(x,t)=\frac{2}{\pi}\int_{0}^{\infty}\frac{\lambda}{\xi^2}(Ce^{-\kappa \xi^2t}-1) \cos{\xi x} d\xi
+    \end{equation*}
+    
+    
+   
+    
+    
+%%%4%%%
+    
+    
+    
+    \item \textbf{La función seno integral se define como:}
+    
+    \begin{equation*}
+        Si(t)= \int_{0}^{t} \frac{\sin{u}}{u} du
+    \end{equation*}
+    
+    \textbf{mientras que la función coseno integral queda definida por:}
+    
+    \begin{equation*}
+        Ci(t)=-\int_{t}^{\infty}\frac{\cos{u}}{u}du
+    \end{equation*}
+    
+    \textbf{Calcula la tranformada de Laplace de $Si(t)$ y de $Ci(t)$}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Primero demostremos que $\frac{d}{dp} L[f(t);t \rightarrow p]=-L[tf(t);t \rightarrow p]$
+    
+    \begin{equation*}
+        \frac{d}{dp} L[f(t);t \rightarrow p]=\frac{d}{dp}\int_{0}^{\infty}f(t)e^{-pt}dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int_{0}^{\infty}\frac{d}{dp}(f(t)e^{-pt})dt=\int_{0}^{\infty}f(t)\frac{d}{dp}(e^{-pt})dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int_{0}^{\infty}f(t)(-t)e^{-pt}dt=-\int_{0}^{\infty}tf(t)e^{-pt}dt=-L[tf(t);t \rightarrow p]
+    \end{equation*}
+    
+    ahora sí, veamos las transformadas de Laplace, por el teorema fundamental del cálculo 
+
+    \begin{equation*}
+        Ci'(t)=-\frac{\cos{t}}{t}
+    \end{equation*}
+    
+    \begin{equation*}
+        tCi'(t)=-\cos{t}
+    \end{equation*}
+    
+    \begin{equation*}
+        L[tCi'(t);t \rightarrow p]=L[-\cos{t};t \rightarrow u]
+    \end{equation*}
+    
+    como la transformada de Laplace es lineal y por lo demostrado anteriormente
+    
+    \begin{equation*}
+        -\frac{d}{dp}L[Ci'(t);t \rightarrow p]=-L[\cos{t};t \rightarrow u]
+    \end{equation*}
+    
+    y por el ejemplo 3.5
+    
+    \begin{equation*}
+        -\frac{d}{dp}L[Ci'(t);t \rightarrow p]=-\frac{u}{u^2+1}
+    \end{equation*}
+    
+    por el teorema 3.5 de las notas
+    
+    \begin{equation*}
+        -\frac{d}{dp}(pL[Ci(t);t \rightarrow p]-\cancel{Ci(0)})=-\frac{u}{u^2+1}
+    \end{equation*}
+    
+    que integrando
+    
+    \begin{equation*}
+        pL[Ci(t);t \rightarrow p]=\int_{0}^{p}\frac{u}{u^2+1} du
+    \end{equation*}
+    
+    sea $w=u^2+1$
+    
+    \begin{equation*}
+        =\frac{1}{2}\int_{1}^{p^2+1}\frac{dw}{w} =\frac{1}{2}(\ln{(p^2+1)}-\cancel{\ln{1}})
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore L[Ci(t);t \rightarrow p]=\frac{\ln{(p^2+1)}}{2p}
+    \end{equation*}
+    
+    ahora para el seno integral
+    
+    \begin{equation*}
+        Si'(t)=-\frac{\sin{t}}{t}
+    \end{equation*}
+    
+    \begin{equation*}
+        tSi'(t)=-\sin{t}
+    \end{equation*}
+    
+    \begin{equation*}
+        L[tSi'(t);t \rightarrow p]=L[-\sin{t};t \rightarrow u]
+    \end{equation*}
+    
+    como la transformada de Laplace es lineal y por lo demostrado anteriormente
+    
+    \begin{equation*}
+        -\frac{d}{dp}L[Si'(t);t \rightarrow p]=-L[\sin{t};t \rightarrow u]
+    \end{equation*}
+    
+    y por el ejemplo 3.5
+    
+    \begin{equation*}
+        -\frac{d}{dp}L[Si'(t);t \rightarrow p]=-\frac{1}{u^2+1}
+    \end{equation*}
+    
+    por el teorema 3.5 de las notas
+    
+    \begin{equation*}
+        -\frac{d}{dp}(pL[Si(t);t \rightarrow p]-\cancel{Si(0)})=-\frac{1}{u^2+1}
+    \end{equation*}
+    
+    que integrando
+    
+    \begin{equation*}
+        pL[Si(t);t \rightarrow p]=\int_{0}^{p}\frac{1}{u^2+1} du
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        =tg^{-1}(p)-\cancel{tg^{-1}(0)}=tg^{-1}(p)
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore L[Si(t);t \rightarrow p]=\frac{tg^{-1}(p)}{p}
+    \end{equation*}
+    
+    
+%%%5%%%
+    
+    
+    
+    \item \textbf{Una función periódica f(t) de periodo $2\pi$ presenta una discontinuidad finita en $t=\pi$, está definida por:}
+    
+    \begin{equation*}
+        f(t)= \left\{ \begin{array}{lcc}
+             \sin{t} &   ,  & 0 \leq t < \pi\\
+             \\ \cos{t} &  , &  \pi < t \leq 2\pi \\
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    \textbf{Evalúa la transformada de Laplace.}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Como $\sin{t}$ y $\cos{t}$ son cotinuas en todo su dominio, f(t) solo tiene discontinuidades en $(2n+1)\pi$, por lo que es continua a tramos, tambien como esas funciones están acotadas por 1, entonces $f(t)$ es de orden exponencial con $M=2,\sigma = 0$ $(|f(t)|<Me^{\sigma t}=2)$, entonces la transformada de Laplace de $f(t)$  existe.
+    
+    Recordando que 
+    
+    \begin{equation*}
+        H(x-a)=\left\{ \begin{array}{lcc}
+             0 &    x-a < 0 &; x < a \\
+             \\ 1 &  x-a > 0 &; x > a\\
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    \begin{equation*}
+        H(x-b)=\left\{ \begin{array}{lcc}
+             0 &    x-b < 0 &; x < b \\
+             \\ 1 &  x-b > 0 &; x > b\\
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    entonces, si $a<b$
+    
+    \begin{equation*}
+        H(x-a)-H(x-b)=\left\{ \begin{array}{lcc}
+             0 & x < a \\
+             \\ 1  & a< x < b\\
+             \\ 1-1=0 & b < x
+             \end{array}
+             \right.
+    \end{equation*}
+    
+    con esto, podemos escribir a f(t) como 
+    
+    \begin{equation*}
+        f(t)= \sin{t}[H(t-2n\pi)-H(t-(2n+1)\pi)] + \cos{t}[H(t-(2n+1)\pi)-H(t-2(n+1)\pi)]
+    \end{equation*}
+    
+    con n natural ($0 \in N$),entonces la transformada de Laplace de $f(t)$ es
+    
+    \begin{equation*}
+        L[f(t);t \rightarrow p]= \int_{0}^{\infty} f(t) e^{-pt} dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int_{0}^{\infty}\{\sin{t}[H(t-2n\pi)-H(t-(2n+1)\pi)] + \cos{t}[H(t-(2n+1)\pi)-H(t-2(n+1)\pi)]\} e^{-pt} dt
+    \end{equation*}
+    
+    por la linealidad de integrales
+    
+    \begin{equation*}
+        =\int_{0}^{\infty}\sin{t}[H(t-2n\pi)-H(t-(2n+1)\pi)] e^{-pt} dt + \int_{0}^{\infty}\cos{t}[H(t-(2n+1)\pi)-H(t-2(n+1)\pi)] e^{-pt} dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int_{0}^{\infty}\sin{t}H(t-2n\pi)e^{-pt} dt-\int_{0}^{\infty}\sin{t}H(t-(2n+1)\pi) e^{-pt} dt + 
+    \end{equation*}
+    
+    \begin{equation*}
+        \int_{0}^{\infty}\cos{t}[H(t-(2n+1)\pi)e^{-pt} dt-\int_{0}^{\infty}\cos{t}H(t-2(n+1)\pi) e^{-pt} dt
+    \end{equation*}
+    
+    y por el ejemplo 3.1 de la notas
+    
+    \begin{equation*}
+        =\int_{2n\pi}^{\infty}\sin{t}e^{-pt} dt-\int_{(2n+1)\pi}^{\infty}\sin{t} e^{-pt} dt + \int_{(2n+1)\pi}^{\infty}\cos{t}e^{-pt} dt-\int_{2(n+1)\pi}^{\infty}\cos{t}e^{-pt} dt
+    \end{equation*}
+    
+    ahora resolvamos las 2 integrales necesarias y luego evaluemos los límites
+
+    
+    \begin{equation*}
+        \int \sin{t}e^{-pt}dt=\int \frac{e^{it}-e^{-it}}{2i}e^{-pt}dt
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int \frac{e^{it-pt}-e^{-it-pt}}{2i}dt= \int \frac{e^{t(i-p)}-e^{-t(i+p)}}{2i}dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{2i}\left[ \int e^{t(i-p)}dt-\int e^{-t(i+p)}dt\right]=\frac{1}{2i}\left[ \int \frac{i-p}{i-p}e^{t(i-p)}dt-\int\frac{-(i+p)}{-(i+p)} e^{-t(i+p)}dt\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{2i}\left[\frac{1}{i-p} \int  e^{t(i-p)}(i-p)dt- \frac{1}{-(i+p)} \int e^{-t(i+p)}[-(i+p)]dt\right]
+    \end{equation*} 
+    
+    sea $u=t(i-p)$ y $dv=-t(i+p)$; $du=(i-p)dt$ $dv= -(i+p)dt$
+    
+    \begin{equation*}
+        =\frac{1}{2i}\left[\frac{1}{i-p} \int  e^{u}du- \frac{1}{-(i+p)} \int e^{v}dv\right]=\frac{1}{2i}\left[\frac{e^{u}}{i-p}- \frac{e^{v}}{-(i+p)}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{2i}\left[\frac{-(i+p)e^{u}-(i-p)e^{v}}{-(i-p)(i+p)}\right]=\frac{(i+p)e^{t(i-p)}+(i-p)e^{-t(i+p)}}{-2i(1+p^2)}
+    \end{equation*}
+    
+    
+    
+    
+    \begin{equation*}
+        \int \cos{t}e^{-pt}dt=\int \frac{e^{it}+e^{-it}}{2}e^{-pt}dt
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int \frac{e^{it-pt}+e^{-it-pt}}{2}dt= \int \frac{e^{t(i-p)}+e^{-t(i+p)}}{2}dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{2}\left[ \int e^{t(i-p)}dt+\int e^{-t(i+p)}dt\right]=\frac{1}{2}\left[ \int \frac{i-p}{i-p}e^{t(i-p)}dt+\int\frac{-(i+p)}{-(i+p)} e^{-t(i+p)}dt\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{2}\left[\frac{1}{i-p} \int  e^{t(i-p)}(i-p)dt+ \frac{1}{-(i+p)} \int e^{-t(i+p)}[-(i+p)]dt\right]
+    \end{equation*} 
+    
+    sea $u=t(i-p)$ y $dv=-t(i+p)$; $du=(i-p)dt$ $dv= -(i+p)dt$
+    
+    \begin{equation*}
+        =\frac{1}{2}\left[\frac{1}{i-p} \int  e^{u}du+ \frac{1}{-(i+p)} \int e^{v}dv\right]=\frac{1}{2}\left[\frac{e^{u}}{i-p}+ \frac{e^{v}}{-(i+p)}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{1}{2}\left[\frac{-(i+p)e^{u}+(i-p)e^{v}}{-(i-p)(i+p)}\right]=\frac{(i-p)e^{-t(i+p)}-(i+p)e^{t(i-p)}}{2(1+p^2)}
+    \end{equation*}
+    
+    ahora si evaluemosy supongamos que Re$(p)>0$
+    
+    \begin{equation*}
+         L[f(t);t \rightarrow p]=\int_{2n\pi}^{\infty}\sin{t}e^{-pt} dt-\int_{(2n+1)\pi}^{\infty}\sin{t} e^{-pt} dt + \int_{(2n+1)\pi}^{\infty}\cos{t}e^{-pt} dt-\int_{2(n+1)\pi}^{\infty}\cos{t}e^{-pt} dt
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        =\left[\frac{(i+p)\cancel{e^{\infty(i-p)}}+(i-p)\cancel{e^{-\infty(i+p)}}}{-2i(1+p^2)}-\frac{(i+p)e^{2n\pi(i-p)}+(i-p)e^{-2n\pi(i+p)}}{-2i(1+p^2)}\right]-
+    \end{equation*}
+    
+    \begin{equation*}
+        \left[\frac{(i+p)\cancel{e^{\infty(i-p)}}+(i-p)\cancel{e^{-\infty(i+p)}}}{-2i(1+p^2)}-\frac{(i+p)e^{(2n+1)\pi(i-p)}+(i-p)e^{-(2n+1)\pi(i+p)}}{-2i(1+p^2)}\right]+
+    \end{equation*}
+    
+    \begin{equation*}
+        \left[\frac{(i-p)\cancel{e^{-\infty(i+p)}}-(i+p)\cancel{e^{\infty(i-p)}}}{2(1+p^2)}-\frac{(i-p)e^{-(2n+1)\pi(i+p)}-(i+p)e^{(2n+1)\pi(i-p)}}{2(1+p^2)}\right]-
+    \end{equation*}
+    
+    \begin{equation*}
+        \left[\frac{(i-p)\cancel{e^{-\infty(i+p)}}-(i+p)\cancel{e^{\infty(i-p)}}}{2(1+p^2)}-\frac{(i-p)e^{-2(n+1)\pi(i+p)}-(i+p)e^{2(n+1)\pi(i-p)}}{2(1+p^2)}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =-\frac{(i+p)e^{2n\pi(i-p)}+(i-p)e^{-2n\pi(i+p)}}{-2i(1+p^2)}-\frac{(i+p)e^{(2n+1)\pi(i-p)}+(i-p)e^{-(2n+1)\pi(i+p)}}{-2i(1+p^2)}-
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{(i-p)e^{-(2n+1)\pi(i+p)}-(i+p)e^{(2n+1)\pi(i-p)}}{2(1+p^2)}-\frac{(i-p)e^{-2(n+1)\pi(i+p)}-(i+p)e^{2(n+1)\pi(i-p)}}{2(1+p^2)}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{-1}{(1+p^2)}\left[\frac{(i+p)e^{\pi(i-p)}+(i-p)e^{-\pi(i+p)}}{2i} -\frac{(i-p)e^{-\pi(i+p)}+(i+p)e^{\pi(i-p)}}{2}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{(i-1)((i+p)e^{\pi(i-p)}+(i-p)e^{\pi(i+p)})}{2i(1+p^2)}
+    \end{equation*}
+    
+    $\vspace{2cm}$
+    
+    también lo hice de otra forma pero creo que la correcta es la anterior, igual la pongo por si acaso
+    
+    \vspace{2cm}
+    
+    integremos por partes, sea $u=\sin{t}$ y $dv=e^{-pt}dt$;$du=\cos{t}dt$ $v=\frac{-e^{-pt}}{p}$
+    
+    \begin{equation*}
+        \int \sin{t}e^{-pt}dt= -\sin{t} \frac{e^{-pt}}{p} + \int \frac{e^{-pt}}{p} \cos{t} dt
+    \end{equation*}
+    
+    ahora sea $u'=\cos{t}$ y mantegamos $dv$
+    
+    \begin{equation*}
+        \int \sin{t}e^{-pt}dt= -\sin{t} \frac{e^{-pt}}{p} +\frac{1}{p}\left[-\cos{t}\frac{e^{-pt}}{p}-\int \frac{e^{-pt}}{p}\sin(t)dt\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \sin{t}e^{-pt}dt= -\sin{t} \frac{e^{-pt}}{p} +\frac{1}{p^2}\left[-\cos{t}e^{-pt}-\int \sin(t)e^{-pt}dt\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \sin{t}e^{-pt}dt+\frac{1}{p^2}\int \sin(t)e^{-pt}dt= -\sin{t} \frac{e^{-pt}}{p} -\frac{1}{p^2}\cos{t}e^{-pt}
+    \end{equation*}
+    
+    \begin{equation*}
+        (\frac{1}{p^2}+1)\int \sin(t)e^{-pt}dt= -\sin{t} \frac{e^{-pt}}{p} -\frac{1}{p^2}\cos{t}e^{-pt}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{p^2+1}{p^2}\int \sin(t)e^{-pt}dt= -\sin{t} \frac{e^{-pt}}{p} -\frac{1}{p^2}\cos{t}e^{-pt}
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \sin(t)e^{-pt}dt= e^{-pt}(-\frac{\sin{t}}{p} -\frac{\cos{t}}{p^2}) \frac{p^2}{p^2 +1}
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \sin(t)e^{-pt}dt= -e^{-pt}\frac{p\sin{t}+\cos{t}}{p^2+1}
+    \end{equation*}
+    
+    Sea $u=\cos{t}$ y $dv=e^{-pt}dt$; $du=-\sin{t}dt$ $v=\frac{-e^{-pt}}{p}$
+    
+    \begin{equation*}
+        \int \cos{t}e^{-pt}dt= \cos{t}\frac{-e^{-pt}}{p} - \frac{1}{p} \int \sin{t}e^{-pt} dt 
+    \end{equation*}
+    
+    ahora sea $u'=\sin{t}$ y mantengamos $dv$
+    
+    \begin{equation*}
+        \int \cos{t}e^{-pt}dt= \cos{t}\frac{-e^{-pt}}{p} - \frac{1}{p} \left[  -\sin{t} \frac{e^{-pt}}{p} + \int \frac{e^{-pt}}{p} \cos{t} dt \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \cos{t}e^{-pt}dt= \cos{t}\frac{-e^{-pt}}{p} + \frac{1}{p^2} \left[\sin{t}e^{-pt} - \int \cos{t} e^{-pt}  dt \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{1}{p^2}\int \cos{t} e^{-pt}  dt +\int \cos{t}e^{-pt}dt= \cos{t}\frac{-e^{-pt}}{p} + \frac{1}{p^2}\sin{t}e^{-pt} 
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{p^2+1}{p^2}\int \cos{t}e^{-pt}dt=e^{-pt}( \frac{-\cos{t}}{p} + \frac{\sin{t}}{p^2} )
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \cos{t}e^{-pt}dt=e^{-pt}( \frac{-\cos{t}}{p} + \frac{\sin{t}}{p^2} )\frac{p^2}{p^2+1}
+    \end{equation*}
+    
+    \begin{equation*}
+        \int \cos{t}e^{-pt}dt=e^{-pt}\frac{\sin{t}-p\cos{t}}{p^2+1}
+    \end{equation*}
+    
+    ahora solo hay que evaluar, supongamos que Re($p$)$>0$ (si Re($p$)$<0$ entonces no está definida)
+    
+    \begin{equation*}
+        L[f(t);t \rightarrow p]= \int_{2n\pi}^{\infty}\sin{t}e^{-pt} dt-\int_{(2n+1)\pi}^{\infty}\sin{t} e^{-pt} dt + \int_{(2n+1)\pi}^{\infty}\cos{t}e^{-pt} dt-\int_{2(n+1)\pi}^{\infty}\cos{t}e^{-pt} dt
+    \end{equation*}
+    
+    \begin{equation*}
+        =-\left[\cancel{-e^{-p\infty}}\frac{p\sin{\infty}+\cos{\infty}}{p^2+1}+e^{-p2n\pi}\frac{p\cancel{\sin{2n\pi}}+\cos{2n\pi}}{p^2+1}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        -\left[\cancel{-e^{-p\infty}}\frac{p\sin{\infty}+\cos{\infty}}{p^2+1}+e^{-p(2n+1)\pi}\frac{p\cancel{\sin{(2n+1)\pi}}+\cos{(2n+1)\pi}}{p^2+1}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        +\left[\cancel{e^{-p\infty}}\frac{\sin{\infty}-p\cos{\infty}}{p^2+1}-e^{-p(2n+1)\pi}\frac{\cancel{\sin{(2n+1)\pi}}-p\cos{(2n+1)\pi}}{p^2+1}\right]
+    \end{equation*}
+    
+    \begin{equation*}
+        -\left[\cancel{e^{-p\infty}}\frac{\sin{\infty}-p\cos{\infty}}{p^2+1}-e^{-p2(n+1)\pi}\frac{\cancel{\sin{2(n+1)\pi}}-p\cos{2(n+1)\pi}}{p^2+1} \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        =e^{-p2n\pi}\frac{p}{p^2+1}+\cancel{e^{-p(2n+1)\pi}\frac{p}{p^2+1}-e^{-p(2n+1)\pi}\frac{p}{p^2+1}}+e^{-p2(n+1)\pi} \frac{p}{p^2+1}
+    \end{equation*}
+    
+    \begin{equation*}
+        =\frac{pe^{-p(2n+2(n+1))\pi}}{p^2+1}=\frac{pe^{-2p(2n+1)\pi}}{p^2+1}
+    \end{equation*}
+    
+    con $Re(p)> 0$
+    
+\end{enumerate}
+
+\end{document}

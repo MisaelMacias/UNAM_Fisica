@@ -1,0 +1,467 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+    \item Pruebe las siguientes propiedades del conmutador
+    
+    \begin{enumerate}
+        \item $[\hat{A} + \hat{B}, \hat{C}] = [\hat{A},\hat{C}] + [\hat{B}, \hat{C}] = -[\hat{C},\hat{A} + \hat{B}]$
+        
+        Por definición tenemos que
+        
+        \begin{equation*}
+            [\hat{A} + \hat{B}, \hat{C}] = (\hat{A} + \hat{B}) \hat{C} - \hat{C}(\hat{A} + \hat{B})
+        \end{equation*}
+        
+        \begin{equation*}
+            =\hat{A}\hat{C} + \hat{B}\hat{C} -\hat{C} \hat{A} - \hat{C} \hat{B} = (\hat{A}\hat{C}-\hat{C} \hat{A}) + (\hat{B}\hat{C} - \hat{C} \hat{B} )
+        \end{equation*}
+        
+        \begin{equation*}
+            =[\hat{A},\hat{C}] + [\hat{B}, \hat{C}] \hspace{2cm} \blacksquare 
+        \end{equation*}
+        
+        \begin{equation*}
+            = (\hat{A} + \hat{B}) \hat{C} - \hat{C}(\hat{A} + \hat{B}) = -(\hat{C}(\hat{A} + \hat{B})-(\hat{A} + \hat{B}) \hat{C}) 
+        \end{equation*}
+        
+        \begin{equation*}
+            = -[\hat{C}, \hat{A} + \hat{B}] \hspace{2.5cm} \blacksquare
+        \end{equation*}
+        
+        \item $[\hat{A}\hat{B},\hat{C}] = \hat{A}[\hat{B},\hat{C}] + [\hat{A}, \hat{C}]\hat{B}$
+        
+        Por definición tenemos que
+        
+        \begin{equation*}
+            [\hat{A}\hat{B},\hat{C}] = \hat{A}\hat{B} \hat{C} - \hat{C}\hat{A}\hat{B} 
+        \end{equation*}
+        
+        \begin{equation*}
+            = \hat{A}\hat{B} \hat{C} - \hat{C}\hat{A}\hat{B} + (\hat{A}\hat{C}\hat{B} - \hat{A}\hat{C}\hat{B})
+        \end{equation*}
+        
+        \begin{equation*}
+            = \hat{A}\hat{B} \hat{C}- \hat{A}\hat{C}\hat{B}+ \hat{A}\hat{C}\hat{B} - \hat{C}\hat{A}\hat{B}  
+        \end{equation*}
+        
+        \begin{equation*}
+            =\hat{A}(\hat{B} \hat{C}-\hat{C}\hat{B})+ (\hat{A}\hat{C} - \hat{C}\hat{A})\hat{B}  
+        \end{equation*}
+        
+        \begin{equation*}
+            = \hat{A}[\hat{B},\hat{C}] + [\hat{A}, \hat{C}]\hat{B} \hspace{2cm} \blacksquare
+        \end{equation*}
+        
+        \item Si $\hat{F}(\hat{p}) = \sum_{j=1}^{\infty} a_j \hat{p}^j$, con $a_j \in \mathbb{C}$, $\forall j$, entonces $[\hat{x},\hat{F}(\hat{p})]= j \hbar \frac{\partial \hat{F}}{\partial \hat{p}}$
+        
+        Por a) 
+        
+        \begin{equation*}
+            [\hat{x}, \hat{F}(\hat{p})] = [\hat{x},\sum_{j=1}^{\infty} a_j \hat{p}^j ] = [\hat{x},(\sum_{j=2}^{\infty} a_j \hat{p}^j) + a_1 \hat{p} ]
+        \end{equation*}
+        
+        \begin{equation*}
+            =[\hat{x},\sum_{j=2}^{\infty} a_j \hat{p}^j] + a_1[\hat{x}, \hat{p}]
+        \end{equation*}
+        
+        y haciendo esto una infinidad de veces llegamos a
+        
+        \begin{equation*}
+            [\hat{x}, \hat{F}(\hat{p})] = \sum_{j=1}^{\infty} a_j [\hat{x}, \hat{p}^j]
+        \end{equation*}
+        
+        ahora demostremos por inducción que $[\hat{x}, \hat{p}^j] = i \hbar j \hat{p}^{j-1} $
+        
+        para $j=1$, sabemos que $[\hat{x}, \hat{p}] = i \hbar = i \hbar (1) \hat{p}^{1-1}$
+        
+        supongamos que, $[\hat{x}, \hat{p}^j] = i \hbar j \hat{p}^{j-1}$
+        
+        entonces por b) y por hipótesis
+        
+        \begin{equation*}
+            [\hat{x}, \hat{p}^{j+1}] = -[\hat{p}\hat{p}^{j},\hat{x}]=-(\hat{p}[\hat{p}^{j}, \hat{x}]+[\hat{p},\hat{x}]\hat{p}^{j})
+        \end{equation*}
+        
+        \begin{equation*}
+            =\hat{p}[\hat{x},\hat{p}^{j}] + [\hat{x}, \hat{p}] \hat{p}^{j}=\hat{p} i \hbar j \hat{p}^{j-1} + i \hbar p^{j}
+        \end{equation*}
+        
+        \begin{equation*}
+            = i \hbar p^{j} (j+1) \hspace{2cm} \blacksquare
+        \end{equation*}
+        
+        entonces ya con esto
+        
+        \begin{equation*}
+            [\hat{x}, \hat{F}(\hat{p})] = \sum_{j=1}^{\infty} a_j [\hat{x}, \hat{p}^j] =    i  \hbar \sum_{j=1}^{\infty} a_j  j \hat{p}^{j-1}
+        \end{equation*}
+        
+        \begin{equation*}
+            =    i  \hbar \sum_{j=1}^{\infty} a_j  \frac{\partial}{\partial \hat{p}} \hat{p}^{j}=    i  \hbar\frac{\partial}{\partial \hat{p}} \sum_{j=1}^{\infty} a_j   \hat{p}^{j}
+        \end{equation*}
+        
+        \begin{equation*}
+            = i  \hbar\frac{\partial}{\partial \hat{p}} \hat{F} (\hat{p}) \hspace{2cm} \blacksquare 
+        \end{equation*}
+        
+        
+        
+        
+        \item Si $\hat{G}(\hat{x}) = \sum_{j=1}^{\infty} b_j \hat{x}^j$, con $b_j \in \mathbb{C}$, $\forall j$, entonces $[\hat{p},\hat{G}(\hat{x})]=- i \hbar \frac{\partial \hat{G}}{\partial \hat{x}}$
+    \end{enumerate}
+    
+    Por a) 
+        
+        \begin{equation*}
+            [\hat{p}, \hat{G}(\hat{x})] = [\hat{p},\sum_{j=1}^{\infty} b_j \hat{x}^j ] = [\hat{p},(\sum_{j=2}^{\infty} b_j \hat{x}^j) + b_1 \hat{x} ]
+        \end{equation*}
+        
+        \begin{equation*}
+            =[\hat{p},\sum_{j=2}^{\infty} b_j \hat{x}^j] + a_1[\hat{p}, \hat{x}]
+        \end{equation*}
+        
+        y haciendo esto una infinidad de veces llegamos a
+        
+        \begin{equation*}
+            [\hat{p}, \hat{G}(\hat{x})] = \sum_{j=1}^{\infty} b_j [\hat{p}, \hat{x}^j]
+        \end{equation*}
+        
+        ahora demostremos por inducción que $[\hat{p}, \hat{x}^j] = -i \hbar j \hat{x}^{j-1} $
+        
+        para $j=1$, sabemos que $[\hat{p}, \hat{x}] = -i \hbar =- i \hbar (1) \hat{x}^{1-1}$
+        
+        supongamos que, $[\hat{p}, \hat{x}^j] = -i \hbar j \hat{x}^{j-1}$
+        
+        entonces por b) y por hipótesis
+        
+        \begin{equation*}
+            [\hat{p}, \hat{x}^{j+1}] = -[\hat{x}\hat{x}^{j},\hat{p}]=-(\hat{x}[\hat{x}^{j}, \hat{p}]+[\hat{x},\hat{p}]\hat{x}^{j})
+        \end{equation*}
+        
+        \begin{equation*}
+            =\hat{x}[\hat{p},\hat{x}^{j}] + [\hat{p}, \hat{x}] \hat{x}^{j}=-\hat{p} i \hbar j \hat{x}^{j-1} - i \hbar \hat{x}^{j}
+        \end{equation*}
+        
+        \begin{equation*}
+            =- i \hbar \hat{x}^{j} (j+1) \hspace{2cm} \blacksquare
+        \end{equation*}
+        
+        entonces ya con esto
+        
+        \begin{equation*}
+            [\hat{p}, \hat{G}(\hat{x})] = \sum_{j=1}^{\infty} b_j [\hat{p}, \hat{x}^j] =    -i  \hbar \sum_{j=1}^{\infty} b_j  j \hat{x}^{j-1}
+        \end{equation*}
+        
+        \begin{equation*}
+            =   - i  \hbar \sum_{j=1}^{\infty} b_j  \frac{\partial}{\partial \hat{x}} \hat{x}^{j}=   - i  \hbar\frac{\partial}{\partial \hat{x}} \sum_{j=1}^{\infty} b_j   \hat{x}^{j}
+        \end{equation*}
+        
+        \begin{equation*}
+            =- i  \hbar\frac{\partial}{\partial \hat{x}} \hat{G} (\hat{x}) \hspace{2cm} \blacksquare 
+        \end{equation*}
+    
+    
+    
+%%%2%%%
+    
+    
+    
+    \item Resuelva la siguiente ecuación de valores propios en la representación de ímpetus
+    
+    \begin{equation*}
+        \hat{p} \tilde{\phi}_{p_0}(p)= p_0\tilde{ \phi}_{p_0}(p)
+    \end{equation*}
+    
+    además muestre que dichas funciones propias cumplen con el teorema de desarrollo
+    
+    \textbf{Sol:}
+    
+    La ecuación anterior en representación de posiciones es
+    
+    \begin{equation*}
+        \frac{\hbar}{i} \frac{\partial}{ \partial x} \phi_{p_0}(x) = p_0 \phi_{p_0}(x)
+    \end{equation*}
+    
+    que resolviendo
+    
+    \begin{equation*}
+        \int dx \frac{\psi_{p_0}'(x)}{\psi_{p_0}(x)} =\int dx \frac{i p_0 }{\hbar}
+    \end{equation*}
+    
+    \begin{equation*}
+        \ln{\psi_{p_0}(x)} =C \frac{i x p_0 }{\hbar} 
+    \end{equation*}
+    
+    \begin{equation*}
+        \psi_{p_0}(x) = C e^{\frac{i x p_0 }{\hbar} }
+    \end{equation*}
+    
+    ahora sustituyendo esto en
+    
+    \begin{equation*}
+        \tilde{\psi}_{p_0}(p) =\frac{1}{\sqrt{2 \pi \hbar}} \int_{-\infty}^{\infty} dx \psi_{p_0}(x) e^{\frac{-ipx}{\hbar}}=\frac{C}{\sqrt{2 \pi \hbar}} \int_{-\infty}^{\infty} dx e^{\frac{ip_0x}{\hbar}} e^{\frac{-ipx}{\hbar}}
+    \end{equation*}
+    
+    Si $C= \frac{1}{\sqrt{2 \pi \hbar}}$ (que es la constante de normalización) entonces
+    
+    \begin{equation*}
+        \tilde{\psi}_{p_0}(p) = \frac{1}{2 \pi \hbar} \int_{-\infty}^{\infty} dx e^{\frac{ix}{\hbar}(p_0 - p)} = \delta(p_0 - p)
+    \end{equation*}
+    
+%%%3%%%
+    
+    
+    
+    \item Use el teorema de desarrollo para probar que si $\psi_{n}(x)$ son funciones propias no degeneradas, normalizadas, del operador hermitiano $\hat{H}$, con valores propios discretos $e_n$, es decir
+    
+    \begin{equation*}
+        \hat{H}\psi_{E_n}(x)=E_n \psi_{E_n}(x)
+    \end{equation*}
+    
+    entonces la función delta de Dirac tiene el desarrollo
+    
+    \begin{equation*}
+        \delta(x-x_0) = \sum_{n} \psi_{E_n}^{*}(x_0) \psi_{E_n}(x)
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Suponiendo que las funciones propias de $\psi_{E_n}$ pertenecen al espacio de Hilbert, entonces
+    
+    \begin{equation*}
+        \psi (x) = \sum_n C_{E_n} \psi_{E_n} (x)
+    \end{equation*}
+    
+    ahora si $\psi(x) = \delta (x - x_0)$ y como $C_{E_n}= <\psi_{E_n}, \psi(x)> = <\psi_{E_n}, \delta (x- x_0)> = \int_{-\infty}^{\infty} dx \psi_{E_n}^{*} \delta (x-x_0) = \psi_{E_n} (x_0)$,
+    
+    \begin{equation*}
+        \delta(x-x_0) = \sum_{n} \psi_{E_n}^{*}(x_0) \psi_{E_n}(x)
+    \end{equation*}
+    
+    
+    
+    
+%%%4%%%
+    
+    
+    
+    \item Suponga que el operador hermitiano $\hat{H}$ tiene funciones propias no degeneradas $\psi_{n}(x)$ con valores propios $E_n$, es decir
+    
+    \begin{equation*}
+        \hat{H}\psi_{E_n}(x) =E_{n}\psi_{E_n}(x)
+    \end{equation*}
+    
+    Muestre que si $\hat{H}$ conmuta con el operador de paridad, entonces las funciones $\psi_{E_n}(x)$ también serán funciones propias del operador de paridad
+    
+    \textbf{Sol:}
+    
+    por hipótesis tenemos que $[\hat{P},\hat{H}] =\hat{P} \hat{H} - \hat{H}\hat{P} = 0$ donde $\hat{P} \psi(x) = \psi(-x) $, ahora aplicando el operador de paridad a la ec. dada
+    
+    \begin{equation*}
+        \hat{P}\hat{H}\psi_{E_n}(x) =E_{n}\hat{P}\psi_{E_n}(x)
+    \end{equation*}
+    
+    \begin{equation*}
+        \hat{H}( \hat{P}\psi_{E_n}(x)) =E_{n}(\hat{P}\psi_{E_n}(x))
+    \end{equation*}
+    
+    o bien $\hat{P}\psi_{E_n}(x)$ son funciones propias no degeneradas con valores propios $E_n$ lo que significa que $\hat{P}\psi_{E_n}(x)$ es proporcional a $\psi_{E_n}(x)$ 
+    
+    Sea $j$ real tal que $\hat{P}\psi_{E_n}(x) = i \psi_{E_n}(x)$, desarrollando esto
+    
+    \begin{equation*}
+        \hat{P}\hat{P}\psi_{E_n}(x) = j\hat{P} \psi_{E_n}(x)
+    \end{equation*}
+    
+    \begin{equation*}
+        \hat{P}\psi_{E_n}(-x) = j(j \psi_{E_n}(x))
+    \end{equation*}
+    
+    \begin{equation*}
+        \psi_{E_n}(x) = j^2 \psi_{E_n}(x)
+    \end{equation*}
+    
+    por lo tanto $j = \pm 1$ y $\psi_{E_n}(x))$ es función propia de $\hat{P}$
+    
+    
+    
+    
+    
+    
+    
+    
+    
+%%%5%%%
+    
+    
+    
+    \item muestre que si se estudia un sistema unidimensional definido en el intervalo $[-\pi,\pi]$, utilizando sólo funciones de onda $\psi(\theta)$, con la restricción $\theta \in [-\pi,\pi]$ y sujetas a la condición de frontera $\psi(\pi)= -\psi(-\pi)$, entonces el operador
+    
+    \begin{equation*}
+        \hat{L} = \frac{\hbar}{i} \frac{d}{d \theta}
+    \end{equation*}
+    
+    es hermitiano
+    
+    \textbf{Sol:}
+    
+    \begin{equation*}
+        <\hat{L}>_\psi = <\psi, \hat{L} \psi> = \int_{-\infty}^{\infty} d\theta \psi^*  \frac{\hbar}{i} \frac{d}{d \theta} \psi
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{-\pi}^{\pi} d \theta \psi^* \frac{\hbar}{i} \frac{d}{d \theta} \psi
+    \end{equation*}
+    
+    y usando la integración por partes con $u = \psi
+    *$ y $dv = \frac{\hbar}{i} \frac{d}{d \theta} \psi$
+    
+    \begin{equation*}
+        <\hat{L}>_\psi = \frac{\hbar}{i} \psi^* \psi |_{-\pi}^{\pi}  - \int_{-\pi}^{\pi} d \theta  \frac{\hbar}{i} \psi \frac{d}{d \theta} \psi^*
+    \end{equation*}
+    
+    pero por las condiciones de frontera ($\psi(\pi) = \psi(-\pi)$, $\psi^*(\pi) = \psi^*(-\pi)$), $\frac{\hbar}{i} \psi^* \psi |_{-\pi}^{\pi} = 0$
+    
+    \begin{equation*}
+        <\hat{L}>_\psi = - \int_{-\pi}^{\pi} d \theta  \frac{\hbar}{i} \psi \frac{d}{d \theta} \psi^* = (\int_{-\pi}^{\pi} d \theta  \frac{\hbar}{i} \psi^* \frac{d}{d \theta} \psi)^* = <\hat{L}>_\psi^*
+    \end{equation*}
+    
+    por lo tanto $\hat{L}$ es hermitiano
+    
+    
+    
+%%%6%%%
+    
+    
+    
+    \item Muestre que $g(\hat{x},\hat{p}) = \sum_{n,m} B_{n,m} \frac{\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n}}{2}$ es un operador hermitiano si todos los coeficientes $B_{n,m}$ son reales
+    
+    \textbf{Sol:}
+    
+    $g(\hat{x},\hat{p})$ es hermitiano si $<g(\hat{x},\hat{p})>_{\psi}^{*} = <g(\hat{x},\hat{p})>_{\psi} $, o bien
+    
+    \begin{equation*}
+        <g(\hat{x},\hat{p})>_{\psi}^{*} = <\psi, g(\hat{x},\hat{p}) \psi>^{*} 
+    \end{equation*}
+    
+    \begin{equation}
+        = <\psi, \sum_{n,m} B_{n,m} \frac{\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n}}{2}\psi>^{*} = \sum_{n,m} \frac{B_{n,m}^{*}}{2} <\psi, (\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n})\psi>^{*}  
+    \end{equation}
+    
+    ahora veamos que $\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n}$ es hermitiano
+    
+    primero demostremos que $\hat{p}^{n}$ y $\hat{x}^{m}$ son hermitianos (por inducción), ya sabemos que $\hat{p}$ y $\hat{x}$ son hermitianos, entonces supongamos que $\hat{p}^{n-1}$ y $\hat{x}^{m-1}$ lo son
+    
+    \begin{equation*}
+        <\psi,\hat{p}^{n} \psi>^* = <\psi,\hat{p}^{n-1}(\hat{p} \psi)>^*
+    \end{equation*}
+    
+    y por la hipotesis de inducción y la proposición 3a
+    
+    \begin{equation*}
+        <\psi,\hat{p}^{n} \psi>^* = <(\hat{p} \psi),\hat{p}^{n-1} \psi>
+    \end{equation*}
+    
+    además como un operador hermitiano es equivalente a un operador autoadjunto en el espacio de Hilbert 
+    
+    \begin{equation*}
+        <\psi,\hat{p}^{n} \psi>^* = <(\hat{p}^{t} \psi),\hat{p}^{n-1} \psi> = < \psi,\hat{p}\hat{p}^{n-1} \psi> = < \psi,\hat{p}^{n} \psi> = <\hat{p}>_{\psi} \hspace{2cm} \blacksquare
+    \end{equation*}
+    
+    para el operador $\hat{x}$ es analogo
+    
+    ahora si, veamos que $\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n}$ es hermitiano
+    
+    \begin{equation*}
+        <\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n}>_{\psi}^* = <\psi,(\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n})\psi>^*
+    \end{equation*}
+    
+    \begin{equation*}
+        = <\psi,\hat{p}^{n}(\hat{x}^{m} \psi)>^* + <\psi, \hat{x}^{m}(\hat{p}^{n}\psi)>^*
+    \end{equation*}
+    
+    pero por lo demostrado anteriormente y la proposición 3a
+    
+    \begin{equation*}
+        = <\hat{x}^{m} \psi,\hat{p}^{n} \psi> + <\hat{p}^{n}\psi, \hat{x}^{m} \psi> = <\hat{x}^{tm}  \psi,\hat{p}^{n} \psi> + <\hat{p}^{tn} \psi, \hat{x}^{m} \psi>
+    \end{equation*}
+    
+    \begin{equation*}
+        = < \psi,\hat{x}^{m} \hat{p}^{n} \psi> + <\psi, \hat{p}^{n} \hat{x}^{m} \psi> =  <\hat{p}^{n}\hat{x}^{m}+ \hat{x}^{m}\hat{p}^{n}>_{\psi}
+    \end{equation*}
+    
+    por lo tanto por la ec. (1), $g(\hat{x}, \hat{p})$ es hermitiano si $B_{n,m} = B_{n,m}^{*} $ o bien si los coeficientes son reales $\hspace{2cm} \blacksquare$
+    
+
+\end{enumerate}
+
+\end{document}

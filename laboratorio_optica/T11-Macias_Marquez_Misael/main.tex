@@ -1,0 +1,142 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Se utiliza luz de $550.5 \text{ nm}$ en un interferómetro de Michelson, el espejo móvil se desplaza $0.18\text{ mm}$. ¿Cuántas franjas obscuras se cuentan?
+
+\textbf{Sol:}
+
+Usando la ecuación 11.7, las franjas negras son:
+
+\begin{equation*}
+    N = \frac{2\Delta }{\lambda}
+\end{equation*}
+
+sustituyendo $\Delta = 0.18 \times 10^{-3} m$ y $\lambda = 550.5 \times 10^{-9} m$:
+
+\begin{equation*}
+    N = \frac{2 \cdot 0.18 \times 10^{-3} m}{550.5 \times 10^{-9} m} \approx 653
+\end{equation*}
+
+
+
+%%%2%%%
+
+
+
+
+\item El espejo móvil de un interferómetro se desplaza una distancia $L$. Durante dicho desplazamiento se cuentan $250$ franjas brillantes. Si se emplea luz de $632.8 \text{ nm}$, ¿Cuál es el valor del desplazamiento $L$?
+
+\textbf{Sol:}
+
+Despejando $\Delta$  de la ecuación 11.7:
+
+\begin{equation*}
+    \Delta = \frac{\lambda N}{2}
+\end{equation*}
+
+sustituyendo $\Delta =L$ , $\lambda = 632.8 \times 10^{-9}m$ y $N =250$:
+
+\begin{equation*}
+    L = \frac{632.8 \times 10^{-9} \cdot 250}{2} = 7.91 \times 10^{-5} m
+\end{equation*}
+
+
+
+%%%3%%%
+
+
+
+\item ¿Cuál es la incertidumbre para la longitud de onda en la ecuación (11.7) si la medición del desplazamiento tiene una incertidumbre $\sigma_{d}$?
+
+\textbf{Sol:}
+
+\begin{equation*}
+    \delta \lambda = \sqrt{\left(\frac{\partial \lambda}{\partial \Delta} \sigma_d \right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{2\sigma_d }{N}
+\end{equation*}
+
+    
+    
+\end{enumerate}
+
+\end{document}

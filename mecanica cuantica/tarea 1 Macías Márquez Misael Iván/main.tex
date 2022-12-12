@@ -1,0 +1,322 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{siunitx}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+Macías Márquez Misael Iván
+
+$1 eV = \num{1.602 e-19} J $ \hspace{1cm} $c = \num{3 e 8} m/s $ \hspace{1cm} $h = \num{6.626 e -34}J \cdot s$
+
+$m_e = \num{9.109 e-31}kg$ \hspace{1cm} $m_p = \num{1.672e-27}kg$ \hspace{1cm} $k = \num{1.381 e -23 }J/K$
+\begin{enumerate}
+ 
+
+%%%1%%%
+
+    \item \begin{enumerate}
+        \item Explique la hipótesis que Planck utilizó para describir el espectro de radiación del cuerpo negro. Diga por qué no es compatible con los principios de la Física Clásica
+        
+        \textbf{Res:}
+        
+        La hipótesis de Planck consiste en suponer que la radiación de cuerpo negro emite radiación en forma de paquetes nombrados como cuantos de energía los cuales están determinados por el producto de la frecuencia de la radiación y por una constante (h) llamada constante de Planck 
+        
+        Esta hipótesis no es compatible con los principios de la física clásica debido a que no contemplaba la cuantización de la energía  
+        
+        \item Explique brevemente en qué consiste el efecto fotoeléctrico
+        
+        \textbf{Res:}
+        
+        El efecto fotoeléctrico es un fenómeno físico que se da sobre una placa en la que incide radiación electromagnética con cierta frecuencia, esta exposición provoca que la placa suelte electrones (llamados fotoelectrones) siempre y cuando la frecuencia de dicha radiación sea mayor a la denominada frecuencia umbral la cual depende de la función de trabajo de la placa que a su vez depende del material de la misma y si se cumple esta condición la fotoemisión es inmediata. Además la magnitud de la corriente de los fotoelectrones es proporcional a la intensidad de la radiación incidente sobre la placa
+    \end{enumerate}
+    
+    
+%%%2%%%
+    
+    
+    \item La energía de los fotoelectrones emitidos por una placa de aluminio es 2.3 eV cuando se usa radiación electromagnética con longitud de onda de 200 nm, y de 0.9 eV cuando la longitud de onda de la radiación es 313 nm. Con estos datos, calcule la constante de Planck y la función de trabajo del aluminio
+    
+    \textbf{Sol:}
+    
+    $K_1 = (2.3 eV)(\num{1.602 e-19} J/eV)= \num{3.685 e-19 }J $ \hspace{1cm}  $\lambda_1 = \num{200 e-9} m$
+    
+    $K_2 = (0.9 eV)(\num{1.602 e-19} J/eV) = \num{1.442 e -19}J$ \hspace{1cm} $\lambda_2 = \num{313 e-9} m $
+    
+    Dado que la energia de los electrones emitidos por una placa con función de trabajo $W$ y por una radiación electromagnetica de frecuencia $\nu$ esta dada por
+    
+    \begin{equation*}
+        K = h\nu - W
+    \end{equation*}
+    
+    y por la relación de la frecuencia $\nu$ y longitud de onda $\lambda$ ($\nu = \frac{c}{\lambda}$), tenemos las siguientes ecuaciones
+    
+    \begin{equation}
+        K_1 = \frac{hc}{\lambda_1} - W
+    \end{equation}
+    
+    \begin{equation}
+        K_2 = \frac{hc}{\lambda_2} - W
+    \end{equation}
+    
+    que sustituyendo en (2) en (1)
+    
+    \begin{equation*}
+        K_1 =\frac{hc}{\lambda_1} - \frac{hc}{\lambda_2} + K_2 \hspace{1cm} \rightarrow  \hspace{1cm} h = \frac{\lambda_2 \lambda_1 (K_1 - K_2)}{c(\lambda_2 - \lambda_1)}
+    \end{equation*}
+    
+    y evaluando, no da el valor correcto aunque sí el orden de magnitud, lo mismo pasa para la función de trabajo del aluminio usando $h$ con su valor correcto, estuve buscando mi error pero no lo encontré 
+    :C
+    
+    
+    
+    
+    
+%%%3%%%
+    
+    
+    \item Un electrón de 5 KeV de energía colisiona con un fotón de 1 eV de energía. ¿Cual es la máxima energía que puede perder el electrón?
+    
+    \textbf{Sol:}
+    
+    pondré el marco de referencia en el electrón, así el fotón chocara con el electrón en reposo, además obtendré la energía que gana el fotón pero como es un choque elástico, sera la misma que pierde el electrón
+    
+    \begin{equation}
+        \triangle \lambda = \lambda' - \lambda = \frac{h}{m_e c} (1- \cos{\theta})
+    \end{equation}
+    
+    como la energía de un fotón con longitud de onda $\lambda$ es $K = \frac{hc}{\lambda}$, podemos escribir a 3 como
+    
+    \begin{equation*}
+        \frac{\lambda'}{hc} - \frac{\lambda}{hc} =\frac{1}{K'}- \frac{1}{K}= \frac{1}{m_e c^2} (1 - \cos{\theta})
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{K-K'}{KK'} = \frac{1}{m_e c^2} (1 - \cos{\theta})
+    \end{equation*}
+    
+    sea $\triangle K = K'-K$ la perdida de energía del fotón, entonces
+    
+    \begin{equation*}
+        \frac{\triangle K}{(K'- \triangle K) K'} = \frac{1}{m_e c^2} (1 - \cos{\theta}) \hspace{0.5cm} \rightarrow \hspace{0.5cm}\frac{\triangle K}{K'^2- \triangle K K'} = \frac{1}{m_e c^2} (1 - \cos{\theta})
+    \end{equation*}
+    
+    \begin{equation*}
+        \triangle K = \frac{K'^2- \triangle K K'}{m_e c^2} (1 - \cos{\theta}) \hspace{0.5cm} \rightarrow \hspace{0.5cm} \triangle K = \frac{K'^2(1 - \cos{\theta})- \triangle K K'(1 - \cos{\theta})}{m_e c^2} 
+    \end{equation*}
+    
+    \begin{equation*}
+        \triangle K + \frac{\triangle K K'(1 - \cos{\theta})}{m_e c^2} = \frac{K'^2(1 - \cos{\theta}) }{m_e c^2} \hspace{0.5cm} \rightarrow \hspace{0.5cm}  \triangle K \frac{ K'(1 - \cos{\theta})+m_e c^2}{\cancel{m_e c^2}} = \frac{K'^2(1 - \cos{\theta}) }{\cancel{m_e c^2}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \triangle K = \frac{K'^2(1 - \cos{\theta})}{ K'(1 - \cos{\theta})+m_e c^2}
+    \end{equation*}
+    
+    donde $K'=1 eV =\num{1.602 e -19}J$ es la energía inicial del fotón, como $\triangle K$ se anula para $\theta = \pm \frac{\pi}{2}$ entonces el máximo debe estar en $\theta \in \{\pi,0\}$, que al evaluar se puede ver que el máximo se da con $\theta = \pi$ con el que se obtiene un valor de
+    
+    \begin{equation*}
+        \triangle K_{max} = \frac{2(\num{1.602 e -19}J)^2}{2 (\num{1.602 e -19}J)+(\num{9.109 e-31}kg) ( \num{3 e 8} m/s)^2} = \num{6.26 e -25} J
+    \end{equation*}
+    
+    
+    
+    
+%%%4%%%
+    
+    
+    \item El estado de movimiento de un rotor rígido con momento de inercia $I$, constreñido a moverse en un plano, se describe por medio de coordenada angular $\theta$ y el ímpetu canónico conjugado asociado. Usando las reglas de cuantización de Bohr-Sommerfeld encuentre los niveles de energía de este sistema 
+    
+    \textbf{Sol:}
+    
+    La energía de este rotor está dada por
+    
+    \begin{equation*}
+        E = \frac{p_\theta^2}{2I} \hspace{1cm} \rightarrow \hspace{1cm} p_\theta = \sqrt{2EI}
+    \end{equation*}
+    
+    y por las reglas de cuantización de Bohr-Sommerfeld
+    
+    \begin{equation*}
+        \oint p_\theta d \theta = nh
+    \end{equation*}
+    
+    que sustituyendo el momento es
+    
+    \begin{equation*}
+        \oint p_\theta d \theta =\oint \sqrt{2EI}  d \theta = 4\sqrt{2EI} \int_{0}^{2\pi} d\theta
+    \end{equation*}
+    
+    \begin{equation*}
+        = 4\sqrt{2EI} 2\pi =nh \hspace{1cm} \rightarrow \hspace{1cm} E_n= \frac{n^2 h^2}{128\pi ^2I}
+    \end{equation*}
+    
+    
+    
+    
+%%%5%%%
+    
+    
+    \item Calcular la longitud de onda de de Broglie de
+    
+    \begin{enumerate}
+        \item Un electrón con energía de 1 eV
+        
+        \textbf{Sol:}
+        
+        $K = (1 eV)((\num{1.602 e-19} J/eV)=\num{1.602 e-19} J$
+        
+        por la relación de dispersión para el electrón 
+        
+        \begin{equation*}
+            p= \sqrt{2 m_e K}
+        \end{equation*}
+        
+        y sustituyendo para la longitud de onda de de Broglie
+        
+        \begin{equation*}
+            \lambda = \frac{h}{p} = \frac{h}{\sqrt{2 m_e K}} = \frac{\num{6.626 e -34}J\cdot s}{\sqrt{2(\num{9.109 e-31}kg)(\num{1.602 e-19} J)}} = \num{1.23e-9}m
+        \end{equation*}
+        
+        
+        
+        \item Un protón con energía de 10 MeV
+        
+        \textbf{Sol:}
+        
+        $K = (\num{10e6} eV)((\num{1.602 e-19} J/eV)=\num{1.602 e-12} J$
+        
+        por la relación de dispersión para el protón
+        
+        \begin{equation*}
+            p= \sqrt{2 m_p K}
+        \end{equation*}
+        
+        y sustituyendo para la longitud de onda de de Broglie
+        
+        \begin{equation*}
+            \lambda = \frac{h}{p} = \frac{h}{\sqrt{2 m_p K}} = \frac{\num{6.626 e -34}J\cdot s}{\sqrt{2(\num{1.672e-27}kg)(\num{1.602 e-12} J)}} = \num{9.05e-15}m
+        \end{equation*}
+        
+        
+        
+        
+        \item Un electrón con energía de 100 MeV
+        
+        \textbf{Sol:}
+        
+        $K = (\num{100e6} eV)((\num{1.602 e-19} J/eV)=\num{1.602 e-11} J$
+        
+         por la relación de dispersión para el electrón 
+        
+        \begin{equation*}
+            p= \sqrt{2 m_e K}
+        \end{equation*}
+        
+        y sustituyendo para la longitud de onda de de Broglie
+        
+        \begin{equation*}
+            \lambda = \frac{h}{p} = \frac{h}{\sqrt{2 m_e K}} = \frac{\num{6.626 e -34}J\cdot s}{\sqrt{2(\num{9.109 e-31}kg)(\num{1.602 e-11} J)}} = \num{1.23e-13}m
+        \end{equation*}
+        
+        
+    \end{enumerate}
+    
+    
+%%%6%%%
+    
+    
+    
+    \item Considere una cavidad que contiene radiación electromagnética en equilibrio termodinámico. Las paredes de la cavidad son impermeables a la radiación, la cual sólo emerge a través de un orificio pequeño en comparación del tamaño de la cavidad. Muestre que la energía emitida por unidad de área por unidad de tiempo, $E$ , y la densidad de energía $u$ de la radiación dentro de la cavidad cumplen la relación
+    
+    \begin{equation*}
+        u = \frac{4}{c} E
+    \end{equation*}
+    
+    donde $c$ es la velocidad de la luz
+    
+    \textbf{Sol:}
+    
+    
+    
+%%%7%%%
+    
+    
+    
+    \item Para observarla condensación de Bose-Einstein, la distancia entre partículas en un gas de átomos no interactuantes debe ser comparable a la longitud de onda asociada de de Broglie. ¿De qué orden de magnitud es la densidad de partículas necesaria para satisfacer esta condición con átomos de numero de masa A = 100, que se encuentran a una temperatura de 50 nK?
+    
+    \textbf{Sol:}
+    
+    sabemos por hipótesis que la distancia entre partículas $L$ es proporcional a la longitud de onda $\lambda$, lo que significa que la densidad de partículas debe ser proporcional al inverso de $\lambda^3$ y así suponiendo que le gas sea ideal y este en equilibrio térmico, por la longitud de onda térmica de de Broglie ($\lambda = \frac{h}{p}$) y la relación de dispersión ($E = \frac{p^2}{2m}$) tenemos
+    
+    \begin{equation*}
+        \rho = \frac{p^3}{h^3} = \frac{(E2m)^{3/2}}{h^3}
+    \end{equation*}
+    
+    ahora como el numero de masa es la suma de protones y neutrones y como estos representan la mayor parte de la masa de los átomos, podemos aproximar a $m$ como $Am_p$, también por el teorema de equipartición tenemos que la energía  es $E = \frac{3}{2}k T$ con $k$ la constante de Boltzmann y así
+    
+    \begin{equation*}
+        \rho = \frac{(\frac{3}{\cancel{2}}\cancel{2}k TA m_p)^{3/2}}{h^3} = \frac{(3(\num{1.381 e -23 }J/K)(\num{50 e-9}K)(100)(\num{1.672 e -27} kg))^{3/2}}{(\num{6.626 e -34}J \cdot s)^{3}}
+    \end{equation*}
+    
+    cuyo valor es del orden de $\num{1 e 17}$
+    
+    
+\end{enumerate}
+
+\end{document}

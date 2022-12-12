@@ -1,0 +1,495 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item El estado de un sistema cuántico está descrito por la función $\Psi(\overline{r},t)$ y su Hamiltoniano es $\hat{H}$. Sea $\hat{G}_{1}$ un operador, asociado con una cantidad física del sistema y que actúa sobre la función de estado. Demuestre que el cambio en el tiempo, del valor esperado de $\hat{G}_{1}$ en el estado $\Psi(\overline{r},t)$ es
+
+\begin{equation*}
+    \frac{d<\hat{G}_{1}>}{dt} = \left(\frac{i}{\hbar
+    }\right) <[\hat{H},\hat{G}_{1}]> + \left<\frac{\partial \hat{G}_{1}}{\partial t}\right>
+\end{equation*}
+
+con 
+
+\begin{equation*}
+    <\hat{G}_{1}> = \int \Psi^{*}(\overline{r},t) \hat{G}_{1} \Psi(\overline{r},t) d\tau
+\end{equation*}
+
+donde $d\tau$ representa el elemento de volumen del sistema en el espacio de configuración y $[\hat{H},\hat{G}_{1}]$ es el conmutador de los operadores.
+
+\textbf{Sol:}
+
+\begin{equation*}
+    \frac{d}{dt} <\hat{G_1}> = \frac{d}{dt} \int \Psi^{*}(\overline{r},t) \hat{G}_{1} \Psi(\overline{r},t) d\tau
+\end{equation*}
+
+o bien
+
+\begin{equation*}
+    = \int \frac{\partial}{\partial t}(\Psi^{*}(\overline{r},t)) \hat{G}_{1} \Psi(\overline{r},t) d\tau + \int \Psi^{*}(\overline{r},t)\frac{\partial}{\partial t}( \hat{G}_{1}) \Psi(\overline{r},t) d\tau + \int \Psi^{*}(\overline{r},t) \hat{G}_{1} \frac{\partial}{\partial t}(\Psi(\overline{r},t)) d\tau
+\end{equation*}
+
+regresando a la notación para valor esperado
+
+\begin{equation*}
+    \frac{d}{dt} <\hat{G_1}> = <\frac{\partial}{\partial t}(\Psi(\overline{r},t))|\hat{G}_1 \Psi(\overline{r},t) > + <\Psi(\overline{r},t)|\hat{G}_1\frac{\partial}{\partial t}(\Psi(\overline{r},t))> +  \left<\frac{\partial \hat{G}_1}{\partial t}\right>
+\end{equation*}
+
+y como $\hat{H}$ es el hamiltoniano de $\Psi(\overline{r},t)$,entonces aplicando la ecuación de Schrodinger
+
+\begin{equation*}
+    \frac{d}{dt} <\hat{G_1}> = <-\frac{i}{\hbar} \hat{H} \Psi(\overline{r},t) |\hat{G}_1 \Psi(\overline{r},t) > + <\Psi(\overline{r},t)|-\frac{i}{\hbar}\hat{G}_1 \hat{H} \Psi(\overline{r},t)> +  \left<\frac{\partial \hat{G}_1}{\partial t}\right>
+\end{equation*}
+
+por propiedades del valor esperado
+
+\begin{equation*}
+    \frac{d}{dt} <\hat{G_1}> = \frac{i}{\hbar}< \hat{H} \Psi(\overline{r},t) |\hat{G}_1 \Psi(\overline{r},t) >  -\frac{i}{\hbar}<\Psi(\overline{r},t)|\hat{G}_1 \hat{H}\Psi(\overline{r},t)> +  \left<\frac{\partial \hat{G}_1}{\partial t}\right>
+\end{equation*}
+
+y como el hamiltoniano es hermitiano
+
+\begin{equation*}
+    \frac{d}{dt} <\hat{G_1}> =\frac{i}{\hbar}\left[<\Psi(\overline{r},t) |\hat{H}\hat{G}_1 \Psi(\overline{r},t) >  -<\Psi(\overline{r},t)|\hat{G}_1 \hat{H}\Psi(\overline{r},t)>\right] +  \left<\frac{\partial \hat{G}_1}{\partial t}\right>
+\end{equation*}
+
+\begin{equation*}
+    =\frac{i}{\hbar} <\hat{H}\hat{G}_1 - \hat{G}_1 \hat{H}> +  \left<\frac{\partial \hat{G}_1}{\partial t}\right>
+\end{equation*}
+
+\begin{equation*}
+    =\frac{i}{\hbar} <[\hat{H},\hat{G}_1]> +  \left<\frac{\partial \hat{G}_1}{\partial t}\right>
+\end{equation*}
+
+$\hspace{16cm} \blacksquare$
+
+
+
+%%%2%%%
+
+
+
+\item Considere un conjunto de $N$ partículas idénticas, descrito por un hamiltoniano que sólo actúa sobre coordenadas espaciales, de la forma
+
+\begin{equation*}
+    \hat{H}(\overline{r}_{1},\overline{r}_{2}, ...,\overline{r}_{j},...,\overline{r}_{k}, ..., \overline{r}_{N}) = \sum_{j =1}^{N} \left(\frac{\hat{p}_{j}^{2}}{2m} + V(\overline{r}_{j})\right) + \frac{1}{2}\sum_{j,k} V(|\overline{r}_{j}-\overline{r}_{k}|)
+\end{equation*}
+
+con $j \neq k$
+
+Sea $\hat{P}_{jk}$ es el operador que intercambia las coordenadas, espaciales y de espín, de las partículas $j$ y $k$, esto es
+
+\begin{equation*}
+    \hat{P}_{jk} \phi(x_1,x_2,...,x_j,x_k,...,x_N) = \phi(x_1,x_2,...,x_k,x_j,...,x_N)
+\end{equation*}
+
+con $x_j = (\overline{r}_{j}, S_{zj})$
+
+Demostrar que 
+
+\begin{enumerate}
+    \item $\hat{P}_{jk}$ es hermitiano.
+    
+    \textbf{Sol:} este operador es hermitiano si
+    
+    \begin{equation*}
+        \braket{\psi}{\hat{P}_{jk} \phi} = \braket{\hat{P}_{jk} \psi}{\phi}
+    \end{equation*}
+    
+    Por definición
+    
+    \begin{equation*}
+        \braket{\psi}{\hat{P}_{jk} \psi} =\int \psi^*(x_1,x_2,...,x_j,x_k,...,x_N) \hat{P}_{jk}\phi(x_1,x_2,...,x_j,x_k,...,x_N) d\tau
+    \end{equation*}
+    
+    ahora aplicando el operador $\hat{P}_{jk}$
+    
+    \begin{equation*}
+        \braket{\psi}{\hat{P}_{jk} \psi} = \int \psi^*(x_1,x_2,...,x_j,x_k,...,x_N)\phi(x_1,x_2,...,x_k,x_j,...,x_N) d\tau
+    \end{equation*}
+    
+    
+    y sustituyendo la definición del operador $\hat{P}_{jk}$ pero aplicando de nuevo el operador ($\cancel{\hat{P}_{jk} \hat{P}_{jk}}\psi^*(x_1,x_2,...,x_j,x_k,...,x_N) = \hat{P}_{jk} \psi^*(x_1,x_2,...,x_k,x_j,...,x_N) $)
+    
+    \begin{equation*}
+       \braket{\psi}{\hat{P}_{jk} \psi}  = \int \hat{P}_{jk} \psi^{*}(x_1,x_2,...,x_k,x_j,...,x_N) \phi(x_1,x_2,...,x_k,x_j,...,x_N)d\tau 
+    \end{equation*}
+    
+    y como se trata de partículas idénticas,el intercambio de 2 partículas no cambia físicamente el sistema por lo tanto
+    
+    \begin{equation*}
+       \braket{\psi}{\hat{P}_{jk} \psi} = \braket{\hat{P}_{jk}\psi}{\phi}
+    \end{equation*}
+    
+    
+    
+    $\hspace{15cm} \blacksquare $
+    
+    
+    
+    \item $\hat{P}_{jk}$ conmuta con el hamiltoniano.
+    
+    \textbf{Sol:}
+    
+    Por definición del conmutador y distribuyendo
+    
+    \begin{equation*}
+        [\hat{P}_{jk}, \hat{H}] \phi(x_1,x_2,...,x_j,x_k,...,x_N) =(\hat{P}_{jk} \hat{H} - \hat{H} \hat{P}_{jk}) \phi(x_1,x_2,...,x_j,x_k,...,x_N)
+    \end{equation*}
+    
+    \begin{equation*}
+        = \hat{P}_{jk} \hat{H}  \phi(x_1,x_2,...,x_j,x_k,...,x_N) - \hat{H} \hat{P}_{jk} \phi(x_1,x_2,...,x_j,x_k,...,x_N)
+    \end{equation*}
+    ahora dado que $i \hbar \frac{\partial}{\partial t} \phi = \hat{H} \phi$ 
+    
+    \begin{equation*}
+        [\hat{P}_{jk}, \hat{H}] \phi(x_1,x_2,...,x_j,x_k,...,x_N) = \hat{P}_{jk} \frac{\partial}{\partial t}  \phi(x_1,x_2,...,x_j,x_k,...,x_N)
+    \end{equation*}
+    
+    \begin{equation*}
+        - \hat{H}\phi(x_1,x_2,...,x_k,x_j,...,x_N)
+    \end{equation*}
+    
+    \begin{equation*}
+        =i \hbar \frac{\partial}{\partial t}  \phi(x_1,x_2,...,x_k,x_j,...,x_N) - i \hbar \frac{\partial}{\partial t} \phi(x_1,x_2,...,x_j,x_k,...,x_N)
+    \end{equation*}
+    
+    \begin{equation*}
+        = i \hbar \frac{\partial}{ \partial t} (\phi(x_1,x_2,...,x_k,x_j,...,x_N) - \phi(x_1,x_2,...,x_k,x_j,...,x_N) ) = 0
+    \end{equation*}
+    
+    por lo tanto $[\hat{P}_{jk}, \hat{H}] = 0$ o bien que $\hat{P}_{jk}$ conmuta con $\hat{H}$
+    
+    $\hspace{15cm} \blacksquare$
+    
+    \item $\frac{d <\hat{P}_{jk}>}{dt} = 0$
+    
+    \textbf{Sol:}
+    
+    Por lo demostrado en el primer ejercicio,
+    
+    \begin{equation*}
+        \frac{d <\hat{P}_{jk}>}{dt} = \frac{i}{ \hbar} <[\hat{H}, \hat{P}_{jk}]> + \left<\frac{\partial \hat{P_{jk}}}{\partial t} \right>
+    \end{equation*}
+    
+    entonces dado que el operador de permutación no depende explícitamente de $t$ y como por el inciso anterior este conmuta con el hamiltoniano, tenemos que
+    
+    \begin{equation*}
+        \frac{d <\hat{P}_{jk}>}{dt} = \frac{i}{ \hbar} <\cancel{[\hat{H}, \hat{P}_{jk}]}> + \left <\cancel{  \frac{\partial \hat{P_{jk}}}{\partial t}  }\right> = 0
+    \end{equation*}
+    
+    $\hspace{15cm} \blacksquare$
+    
+    
+    
+    \item La simetría de la función de estado $\phi(x_1,x_2,...,x_j,x_k,...,x_N)$ es una constante de movimiento. 
+    
+    \textbf{Sol:}
+    
+    por el inciso pasado al tener el operador $\hat{P}_{jk}$ una derivada total nula, podemos decir que es una constante de movimiento.
+    
+\end{enumerate}
+
+
+
+%%%3%%%
+
+
+
+\item Construya una función antisimétrica para un sistema de 3 electrones en un potencial de oscilador armónico.
+
+\textbf{Sol:}
+
+Dado que el sistema está conformado por 3 electrones que a su vez son fermiones, la función antisimétrica descrita por el determinante de Slater es 
+
+\begin{equation*}
+    \Psi(x_1,x_2,x_3) =\frac{1}{\sqrt{3!}} \left|\begin{matrix}
+    \xi_1 (x_1) & \xi_1 (x_2) & \xi_1 (x_3) \\
+    \xi_2 (x_1) & \xi_2 (x_2) & \xi_2 (x_3) \\
+    \xi_{3} (x_1) & \xi_{3} (x_2) & \xi_{3} (x_3) \\
+    \end{matrix}\right|
+\end{equation*}
+
+\begin{equation*}
+    =\frac{1}{\sqrt{3!}}\left[ \xi_1 (x_1) [\xi_2 (x_2) \xi_1 (x_1) - \xi_3 (x_2) \xi_2 (x_3)] - \xi_1 (x_2) [\xi_2(x_1)\xi_3(x_3) - \xi_2(x_3)\xi_3(x_1)] \right.
+\end{equation*}
+
+\begin{equation*}
+    \left. + \xi_1 (x_3) [\xi_2 (x_1) \xi_3 (x_2) - \xi_2(x_2) \xi_3 (x_1)]\right]
+\end{equation*}
+
+y como los electrones están en un potencial de oscilador armónico se tiene que
+
+\begin{equation*}
+    \xi_n (x_i) = \frac{1}{\sqrt{2^n n!}}\left(\frac{a^2}{\pi}\right)^{1/4} e^{-a^2 x_i/2} H_n (ax)
+\end{equation*}
+
+donde $a = \sqrt{\frac{m \omega}{\hbar}}$ y $H_n$ son los polinomios de Hermite
+
+
+
+%%%4%%%
+
+
+
+\item Para un átomo de $N$ electrones, la función de onda tipo Determinante de Slater puede escribirse como
+
+\begin{equation*}
+    \phi(x_1,x_2,...,x_N) = \hat{A}[\xi_1 (x_1)\xi_2(x_2) ... \xi_N (x_N)] = \hat{A} \Pi_{j=1}^{N} \xi_{j} (x_j)
+\end{equation*}
+
+con el operador $\hat{A}$ está definido por
+
+\begin{equation*}
+    \hat{A} = \frac{1}{\sqrt{N!}} \sum_{R =0}^{N!-1}(-1)^{R} \hat{P}_{R}
+\end{equation*}
+
+donde $\hat{P}_{R}$ representa la permutación R-ésima del producto de espín-orbitales de una partícula que intervienen en el desarrollo del Determinante de Slater. Note que $\hat{P}_{R}$ y $\hat{A}$ actúan sólo sobre el orden de las variables $x_j$.
+
+Demostrar que el operador $\hat{A}$ tiene las siguientes propiedades:
+
+\begin{enumerate}
+    \item $\hat{A}^2 = \sqrt{N!}\hat{A}$
+    
+    \textbf{Sol:}
+
+    
+    
+    
+    \item $\hat{A} = \hat{A}^{\dagger}$, es autoadjunto
+    
+    \textbf{Sol:}(pd. $\braket{\phi}{\hat{A}^{\dagger} \psi} = \braket{\hat{A}\phi}{\psi}$)
+    
+   \begin{equation*}
+       \braket{\phi}{\hat{A}^{\dagger} \psi}= \int \phi^* \hat{A}^{\dagger} \psi d\tau =\int \phi^* \frac{1}{\sqrt{N!}} \sum_{R=0}^{N!-1} (-1)^R \hat{P}_{R}^{\dagger} \psi d\tau
+   \end{equation*}
+   
+   
+   
+   como ya se demostró que $\hat{P}_R$ es hermitiano y los operadores hermitianos son equivalentes a los autoadjuntos, entonces
+   
+   \begin{equation*}
+       \braket{\phi}{\hat{A}^{\dagger} \psi}=\int \phi^* \frac{1}{\sqrt{N!}} \sum_{R=0}^{N!-1} (-1)^R \hat{P}_{R}^{*} \psi d\tau=\int \phi^* \hat{A}^* \psi d\tau= \int (\hat{A}\phi)^* \psi d\tau = \braket{\hat{A}\phi}{\psi}
+   \end{equation*}
+   
+   $\hspace{15cm} \blacksquare$
+    
+    \item $\hat{A}\hat{\Omega} = \hat{\Omega} \hat{A}$, donde $\hat{\Omega}$ es un operador simétrico ante el intercambio de coordenadas espin-espaciales de 2 partículas
+    
+    \textbf{Sol:}
+    
+    Empecemos por el lado derecho de la igualdad, dado que
+    
+    \begin{equation*}
+        \phi(x_1,...x_j,...,x_k,...,x_N) = \hat{A} \Pi_{i=1}^{N} \xi_i (x_i)
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \hat{\Omega }\hat{A}  \phi(x_1,...x_j,...,x_k,...,x_N) =\hat{\Omega} \hat{A}  \hat{A} \Pi_{i=1}^{N} \xi_i (x_i) 
+    \end{equation*}
+    
+    aplicando lo demostrado en a)
+    
+    \begin{equation*}
+        \hat{\Omega }\hat{A}  \phi(x_1,...x_j,...,x_k,...,x_N) = \sqrt{N!} \hat{\Omega} \hat{A} \Pi_{i=1}^{N} \xi_{i} (x_i) = \sqrt{N!} \hat{\Omega}  \phi(x_1,...x_j,...,x_k,...,x_N)
+    \end{equation*}
+    
+    y como $\Omega$ es simétrico ante el intercambio de coordenadas espín-espaciales
+    
+    \begin{equation*}
+        \hat{\Omega} \hat{A} \phi(x_1,...x_j,...,x_k,...,x_N) = \sqrt{N!} \phi(x_1,...x_j,...,x_k,...,x_N)
+    \end{equation*}
+    
+    Ahora veamos el lado  izquierdo de la igualdad
+    
+    \begin{equation*}
+        \hat{A} \hat{\Omega} \phi(x_1,...x_j,...,x_k,...,x_N) = \hat{A} \phi(x_1,...x_j,...,x_k,...,x_N)
+    \end{equation*}
+    
+    \begin{equation*}
+        =\hat{A} \hat{A} \Pi_{i=1}^{N} \xi_{i} (x_i) = \sqrt{N!} \hat{A} \Pi_{i=1}^{N} \xi_{i} (x_i) = \sqrt{N!} \phi(x_1,...x_j,...,x_k,...,x_N)
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore \hspace{1cm} \hat{A}\hat{\Omega}\phi(x_1,...x_j,...,x_k,...,x_N) = \hat{\Omega} \hat{A}\phi(x_1,...x_j,...,x_k,...,x_N)
+    \end{equation*}
+    
+    $\hspace{15cm} \blacksquare$
+    
+    
+    
+\end{enumerate}
+
+
+
+
+
+
+%%%5%%%
+
+
+
+\item Revisar y reproducir la deducción, completando los detalles, de las Funciones de distribución Térmico-estadística de Fermi-Dirac y Bose-Einstein de partículas sin interacción entre ellas.
+
+\textbf{Sol:}
+
+\textbf{Distribución de Fermi-Dirac}
+
+Al tratarse de fermiones, un estado del sistema estará definido por el numero de partículas que se encuentren en un determinado estado energéticos con números posibles 0 y 1.$\epsilon_r$ será el estado energético r-ésimo, $n_r$ el número de partículas en el estado r-esimo y $R$ cada una de las posibles combinaciones de números de ocupación. La función de partición es:
+
+\begin{equation*}
+    Z = \sum_{l} e ^{- \beta (E_l - \mu n_l)} = \sum_{R} e^{- \beta \sum_{r}(\epsilon_r n_r - \mu n_r)} = \sum_{R} \Pi_{r}e^{-\beta (\epsilon_r n_r - \mu n_r)} 
+\end{equation*}
+
+La anterior expresión contiene todas las combinaciones posibles de $n_r$ para los valores $0$ y $1$ de forma que puede ser reescrita de la siguiente forma:
+
+\begin{equation*}
+    Z = \Pi_{r} \sum_{n_r = 0}^{1} e^{- \beta(\epsilon_r n_r - \mu n_r)} = \Pi_r 1+ e^{- \beta(\epsilon_r - \mu)}
+\end{equation*}
+
+y como
+
+\begin{equation*}
+    \phi = -k_B T \ln{Z} \hspace{1cm} \text{y} \hspace{1cm} \frac{\partial \psi}{\partial \mu} = -N
+\end{equation*}
+
+entonces
+
+\begin{equation*}
+    \phi = - k_B T \ln{Z} = -k_B T \sum_{r} \ln{(1+ e^{- \beta(\epsilon_r - \mu)})} \hspace{0.3cm} \rightarrow \hspace{0.3cm} \frac{\partial\phi}{\partial \mu} = - N = - \sum_{r} n_r = - \sum_{r} \frac{e^{-\beta(\epsilon_r - \mu)}}{1+ e^{-\beta(\epsilon_r - \mu)}}
+\end{equation*}
+
+de modo que
+
+\begin{equation*}
+    n_r = \frac{1}{e^{\beta(\epsilon_r - \mu)} + 1}
+\end{equation*}
+
+Dado que pueden existir diferentes estados cuánticos con una misma energía el número de partículas con determinada energía vendrá dado por
+
+\begin{equation*}
+    n_\epsilon = \frac{g_\epsilon}{e^{\beta(\epsilon - \mu)} + 1}
+\end{equation*}
+
+con $g_\epsilon$ la degeneración de tal energía.
+
+\textbf{Distribución de Bose-Einstein}
+
+Como se tienen Bosones, el sistema estará definido por el número de partículas que se encuentren en un estado energético. $\epsilon_r$ será el estado energético r-ésimo,$n_r$ el número de partículas en el estado r-esimo  y R cada una de las posibles combinaciones de números de ocupación. La función de partición es:
+
+\begin{equation*}
+    Z = \sum_l e^{- \beta(E_l - \mu n_l)} = \sum_{R} e^{-\beta \sum_{r}(\epsilon_r n_r - \mu \n_r)} = \sum_{R} \pi_{r} e^{- \beta(\epsilon_r n_r - \mu n_r)}
+\end{equation*}
+
+Lo anterior contiene todas las combinaciones posibles de $n_r$ entre 0 e $\infty$ de forma que puede ser reescrita como:
+
+\begin{equation*}
+    Z = \Pi_{r} \sum_{n_r = 0}^{\infty} e^{-\beta(\epsilon_r n_r - \mu n_r)} = \Pi_{r} \frac{1}{1 - e ^{- \beta (\epsilon_r - \mu )}}
+\end{equation*}
+
+Aplicando que :
+
+\begin{equation*}
+    \phi = -k_B T \ln{Z} \hspace{1cm} \text{y} \hspace{1cm} \frac{\partial \psi}{\partial \mu} = -N
+\end{equation*}
+
+
+\begin{equation*}
+    \phi = k_B T \ln{Z} = -k_B T \sum_{r} \ln{(1- e^{-\beta(\epsilon_r - \mu )})}\hspace{0.3cm} \rightarrow \hspace{0.3cm} \frac{\partial \phi}{\partial \mu}= -N  = - \sum_{r} n_r = -\sum_{r} \frac{e^{-\beta(\epsilon_r - \mu)}}{1 - e^{-\beta(\epsilon_r - \mu)}}
+\end{equation*}
+
+y así
+
+\begin{equation*}
+    n_r = \frac{1}{e^{\beta(\epsilon - \mu)} - 1}
+\end{equation*}
+
+Debido a que puede existir diferentes estados cuánticos con una misma energía el número de partículas con una determinada energía vendrá dada por:
+
+\begin{equation*}
+    n_\epsilon = \frac{g_\epsilon}{e^{\beta(\epsilon - \mu)}-1}
+\end{equation*}
+
+siendo $g_E$ la degeneración de tal energía.
+
+    
+    
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,149 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Los lentes en una cámara fotográfica usan refracción para formar imágenes en una película. Una lente de calidad es considerada aquella que hace todos los colores se refracten a un ángulo de desviación muy similar, es decir, que la dispersión sea lo menor posible. De los materiales en la Figura $7.1$, ¿Cuál es el mejor material para construir una lente?, ¿Por qué?
+
+\textbf{Sol:}
+
+Cuarzo fundido porque tiene un menor rango del índice de refracción.
+
+
+
+
+%%%2%%%
+
+
+
+\item Un prisma de vidrio con un ángulo de ápice de $60.0^{\circ}$ tiene un índice de refracción de $n=1.5$ para una  cierta longitud de onda.
+
+\begin{enumerate}
+    \item Si el ángulo de incidencia en la primer superficie es $\theta_{I1} = 48.59^{\circ}$, mostrar que la luz pasará simétricamente a través del prisma.
+    
+    El ángulo de desviación es (ecuación 7.3):
+    
+    \begin{equation*}
+        \delta = \theta_{I1}+ \sin^{-1}{\left(\sin{\alpha}[n^2-\sin^{2}{\theta_{I1}}]^{1/2}-\sin{\theta_{I1}\cos{\alpha}}\right)}-\alpha 
+    \end{equation*}
+    
+    y sustituyendo en 7.2:
+    
+    \begin{equation*}
+         \cancel{\theta_{I1}}+ \sin^{-1}{\left(\sin{\alpha}[n^2-\sin^{2}{\theta_{I1}}]^{1/2}-\sin{\theta_{I1}\cos{\alpha}}\right)}-\cancel{\alpha}= \cancel{\theta_{I1}}+\theta_{T2}-\cancel{\alpha}
+    \end{equation*}
+    
+    \begin{equation*}
+        \theta_{T2} = \sin^{-1}{\left(\sin{\alpha}[n^2-\sin^{2}{\theta_{I1}}]^{1/2}-\sin{\theta_{I1}\cos{\alpha}}\right)}
+    \end{equation*}
+    
+    evaluando $\theta_{I1}$, $\alpha$ y $n$: 
+    
+    \begin{equation*}
+        \theta_{T2} = \sin^{-1}{\left(\sin{60^{\circ}}[(1.5)^2-\sin^{2}{48.59^{\circ}}]^{1/2}-\sin{48.59^{\circ}}\cos{60^{\circ}}\right)} \approx 48.59^{\circ}
+    \end{equation*}
+    
+    \item Encontrar el ángulo de desviación ($\delta$) para $\theta_{I1}=35.6^{\circ}$ y $\theta_{I1}=51.7^{\circ}$
+    
+    Por la ecuación 7.3,
+    
+    \begin{equation*}
+        \delta = \theta_{I1}+ \sin^{-1}{\left(\sin{\alpha}[n^2-\sin^{2}{\theta_{I1}}]^{1/2}-\sin{\theta_{I1}\cos{\alpha}}\right)}-\alpha 
+    \end{equation*}
+    
+    para $\theta_{I1}=35.6^{\circ}$ se tiene:
+    
+    \begin{equation*}
+        \delta = 35.6^{\circ}+ \sin^{-1}{\left(\sin{60^{\circ}}[(1.5)^2-\sin^{2}{35.6^{\circ}}]^{1/2}-\sin{35.6^{\circ}}\cos{60^{\circ}}\right)}-60^{\circ} \approx 40.58^{\circ} 
+    \end{equation*}
+    
+    para $\theta_{I1}=51.7^{\circ}$ se tiene:
+    
+    \begin{equation*}
+        \delta = 51.7^{\circ}+ \sin^{-1}{\left(\sin{60^{\circ}}[(1.5)^2-\sin^{2}{51.7^{\circ}}]^{1/2}-\sin{51.7^{\circ}}\cos{60^{\circ}}\right)}-60^{\circ} \approx 37.32^{\circ} 
+    \end{equation*}
+    
+    
+    
+\end{enumerate}
+
+    
+    
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,462 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+Macías Márquez  Misael Iván
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item Muestre que la longitud de onda de  de Broglie de una partícula relativista de masa m y energía cinética $K$ se escribe
+    
+    \begin{equation*}
+        \lambda = \frac{hc}{\sqrt{K^2 +2mc^2 K}}
+    \end{equation*}
+    
+    con $c$ la velocidad de la luz y $h$ la constante de Planck
+    
+    \textbf{Sol:}
+    
+    primero hay que despejar el momento $p$ de la energía cinética relativista
+    
+    \begin{equation*}
+        K = \sqrt{m^2 c^4 + c^2 p^2} - mc^2 \hspace{1cm} \rightarrow \hspace{1cm} K+mc^2 = \sqrt{m^2 c^4 + c^2 p^2}
+    \end{equation*}
+    
+    \begin{equation*}
+        (K + mc^2)^2 = m^2 c^4 + c^2 p^2 \hspace{1cm} \rightarrow \hspace{1cm} K^2 + 2mc^2K + \cancel{m^2 c^4} = \cancel{m^2 c^4} + c^2 p^2
+    \end{equation*}
+    
+    \begin{equation*}
+        p^2 = \frac{K^2 + 2mc^2 K}{c^2} \hspace{1cm} \rightarrow \hspace{1cm} p = \frac{\sqrt{K^2 + 2mc^2 K}}{c}
+    \end{equation*}
+    
+    que sustituyendo en la longitud de onda de de Broglie
+    
+    \begin{equation*}
+        \lambda = \frac{h}{p} = \frac{hc}{\sqrt{K^2 + 2mc^2 K}}
+    \end{equation*}
+    
+    
+    
+%%%2%%%
+    
+    
+    
+    \item Una partícula libre que se mueve en una dimensión está representada por la función
+    
+    \begin{equation*}
+        \psi (x,t) = \mathbf{A} e^{i(kx-\omega t)}
+    \end{equation*}
+    
+    con $k$, $\omega$ y $\mathbf{A}$ constantes
+    
+    \begin{enumerate}
+        \item Calcule la velocidad de grupo $g$ usando la relación de dispersión no relativista. Muestre que esta equivale a la expresión clásica para la velocidad de la partícula
+        
+        \textbf{Sol:}
+        
+        por definicion se tiene que la velocidad de grupo es:
+        
+        \begin{equation*}
+            g = \frac{\partial \omega}{\partial k}
+        \end{equation*}
+        
+        con $\norm{\mathbf{k}} = k$, ahora si se multiplica por el $1= \frac{\hbar}{\hbar}$ y usando la relación de Einstein-Planck ($E =\hbar \omega$) y la longitud de onda de de Broglie ($p = \hbar k$)
+        
+        \begin{equation*}
+            g= \frac{\hbar}{\hbar} \frac{\partial \omega}{\partial k} = \frac{\partial (\hbar\omega)}{\partial (\hbar k)} = \frac{\partial E}{\partial p}
+        \end{equation*}
+        
+        que por la relación de dispersión no relativista ($E = \frac{p^2}{2m}$)
+        
+        \begin{equation*}
+            g = \frac{\partial E}{\partial p} = \frac{\cancel{2}p}{\cancel{2}m} = v
+        \end{equation*}
+        
+        donde el momento no relativista es $p =mv$
+        
+        \item Muestre que este resultado se mantiene cuando uno utiliza la relación de dispersión relativista
+        
+        \textbf{Sol:}
+        
+        por el inciso anterior y la relación de dispersión relativista ($E^2 = p^2c^2 + m^2 c^4$)
+        
+        \begin{equation*}
+            g = \frac{\partial E}{\partial p} = \frac{\partial}{\partial p} (\sqrt{p^2c^2 + m^2 c^4}) = \frac{\cancel{2}pc^{\cancel{2}}}{\cancel{2c}\sqrt{p^2 + m^2 c^2}} = v'
+        \end{equation*}
+        
+        donde $v'$ es la velocidad relativista
+        
+        \item Muestre que la relación entre la velocidad de fase $u$ y de grupo $g$ es
+        
+        \begin{equation*}
+            u = \frac{g}{2}
+        \end{equation*}
+        
+        para la mecánica no relativista y
+        
+        \textbf{Sol:}
+        
+        La velocidad de fase es:
+        
+        \begin{equation*}
+            u = \frac{\omega}{k}
+        \end{equation*}
+        
+        que multiplicando por el mismo uno y usando las mismas relaciones que en los incisos anteriores, se puede reescribir como:
+        
+        \begin{equation*}
+            u = \frac{E}{p} = \frac{p^{\cancel{2}}}{2\cancel{p}m}
+        \end{equation*}
+        
+         y por el inciso a)
+         
+         \begin{equation*}
+             u= \frac{g}{2}
+         \end{equation*}
+         
+         \vspace{1cm}
+        
+        
+        
+        \begin{equation*}
+            u = \frac{c^2}{g}
+        \end{equation*}
+        
+        para la mecánica relativista, donde $c$ es la velocidad de la luz
+        
+        \textbf{Sol:}
+        
+        por lo mismo
+        
+        \begin{equation*}
+            u = \frac{\omega}{k} = \frac{E}{p} = \frac{\sqrt{p^2 c^2 + m^2 c^4}}{p} = \frac{c^2}{\frac{pc^2}{\sqrt{p^2 c^2 + m^2 c^4}}} = \frac{c^2}{g}
+        \end{equation*}
+        
+    \end{enumerate}
+    \newpage
+
+
+
+%%%3%%%
+    
+    
+    
+    \item La dependencia de la longitud de onda con la frecuencia en una guía de ondas viene dada por la expresión
+    
+    \begin{equation*}
+        \lambda(\nu)= \frac{c}{\sqrt{\nu^2 - \nu_{0}^{2}}}
+    \end{equation*}
+    
+    con $c$ y $\nu_0$ constantes positivas. ¿Cuál es la velocidad de grupo de tales ondas?
+    
+    \textbf{Sol:}
+    
+    Despejando $\nu$
+    
+    \begin{equation*}
+        \nu = \sqrt{\frac{c^2}{\lambda^2} + \nu_ 0}
+    \end{equation*}
+    
+    y como $\frac{2 \pi}{\lambda} = k $ , $\omega = 2 \pi \nu$, entonces
+    
+    \begin{equation*}
+        v_g = \frac{\partial \omega}{\partial k} = \frac{\partial}{\partial k} \left(2\pi \sqrt{\frac{k^2c^2}{4\pi^2}+ \nu_0}\right) = \frac{\cancel{2\pi}}{\cancel{2}\sqrt{\frac{k^2c^2}{4\pi^2}+ \nu_0}} \frac{kc^2}{2 \pi^{\cancel{2}}} = \frac{kc^2}{2\pi \sqrt{\frac{k^2c^2}{4\pi^2}+ \nu_0}}
+    \end{equation*}
+    
+    
+
+
+
+%%%4%%%
+    
+    
+    
+    \item Para las funciones de cuadrado integrable $\psi_1(x)$ y  $\psi_2(x)$, con transformadas de Fourier $\tilde{\psi}_1(p)$ y $\tilde{\psi}_2(p)$, muestre que
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty}dx \psi_{1}^{*}(x)\psi_{2}(x) = \int_{-\infty}^{\infty}dp \tilde{\psi_{1}^{*}}(p)\tilde{\psi_{2}}(p)
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    La definición usada para la transformada inversa de Fourier para una dimensión será
+    
+    \begin{equation*}
+        \psi(x) = \left(\frac{1}{2 \pi \hbar}\right)^{1/2} \int_{-\infty}^{\infty} dp \tilde{\psi}(p) e^{-ipx}
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty}dx \psi_{1}^{*}(x)\psi_{2}(x) = \int_{-\infty}^{\infty}dx \left(\frac{1}{2 \pi \hbar}\right)^{1/2} \int_{-\infty}^{\infty} dp_1 \tilde{\psi}_1^{*}(p_1) e^{ip_1 x}\left(\frac{1}{2 \pi \hbar}\right)^{1/2} \int_{-\infty}^{\infty} dp_2 \tilde{\psi}_2(p_2) e^{-ip_2x}
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx e^{ix(p_1-p_2)} \int_{-\infty}^{\infty} dp_1  \tilde{\psi}_1^{*}(p_1)\int_{-\infty}^{\infty} dp_2 \tilde{\psi}_2(p_2)
+    \end{equation*}
+    
+    ahora la delta de Dirac para una dimensión se definirá como
+    
+    \begin{equation*}
+        \delta(k-k') = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx e^{ix(k-k')}
+    \end{equation*}
+    
+    y asi
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty}dx \psi_{1}^{*}(x)\psi_{2}(x) =  \int_{-\infty}^{\infty} dp_1  \tilde{\psi}_1^{*}(p_1) \delta(p_1 - p_2)\int_{-\infty}^{\infty} dp_2 \tilde{\psi}_2(p_2)
+    \end{equation*}
+    
+    y por definición de la delta de Dirac
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty}dx \psi_{1}^{*}(x)\psi_{2}(x) = \int_{-\infty}^{\infty} dp_2 \tilde{\psi}_1^{*}(p_2) \tilde{\psi}_2(p_2)
+    \end{equation*}
+    
+    
+    
+    
+%%%5%%%
+    
+    
+    
+    \item A partir de la definición de la transformada de Fourier,pruebe que la unicidad de los coeficientes del desarrollo de la función $\psi(x)$ en terminos de ondas planas implica que la función delta de Dirac tiene la representación
+    
+    \begin{equation*}
+        \delta (x-x') = \frac{1}{2 \pi \hbar}\int dp e^{ip(x-x')/ \hbar}
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Ya vimos como es la transformada inversa de Fourier, ahora la no  inversa se define como
+    
+    \begin{equation*}
+        \tilde{\psi}(p) =\left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-\infty}^{\infty} dx \psi(x) e^{ipx}
+    \end{equation*}
+    
+    por lo que podemos escribir a $\psi (x)$ como
+    
+    \begin{equation*}
+        \psi(x') = \left(\frac{1}{2 \pi \hbar}\right)^{1/2} \int_{-\infty}^{\infty} dp \tilde{\psi}(p) e^{-ipx'} = \left(\frac{1}{2 \pi \hbar}\right)^{1/2} \int_{-\infty}^{\infty} dp \left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-\infty}^{\infty} dx \psi(x) e^{ipx} e^{-ipx'} 
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{2 \pi} \int_{-\infty}^{\infty} dp e^{ip(x-x')} \int_{-\infty}^{\infty} dx \psi(x)  
+    \end{equation*}
+    
+    pero sabemos por definición que
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} dx \psi(x) \delta(x-x') =\psi (x')
+    \end{equation*}
+    
+    asi que 
+    
+    \begin{equation*}
+        \frac{1}{2 \pi} \int_{-\infty}^{\infty} dp e^{ip(x-x')} = \delta(x-x')
+    \end{equation*}
+    
+    se me perdieron 2 $\hbar$ :C
+    
+    
+    
+    
+    
+    
+%%%6%%%
+    
+    
+    
+    \item Encuentre la transformada de Fourier de la función unidimensional
+    
+    \begin{equation*}
+        g(k) = \left\{ \begin{array}{lcc}
+             0  & k < -K \\
+              N & -K \leq k \leq K\\
+              0 & K< k
+             \end{array}
+        \right.
+    \end{equation*}
+    
+    con $N$ y $K$ constantes. Tambien encuentre el valor de $N$ para la expresión
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} dx |f(x)|^2 = 1
+    \end{equation*}
+    
+    se satisfaga
+    
+    \textbf{Sol:}
+    
+    \begin{equation*}
+    f(x) =\left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-\infty}^{\infty} dk g(k) e^{ikx}= \left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-K}^{K} dk N e^{ikx} = N\left(\frac{\hbar}{2\pi}\right)^{1/2} \int_{-K}^{K} dk  e^{ikx}
+    \end{equation*}
+    
+    \begin{equation*}
+        = N\left(\frac{\hbar}{2\pi}\right)^{1/2} \left(\frac{e^{iKx}}{ix} - \frac{e^{-iKx}}{ix}\right)=  N\left(\frac{\hbar}{2\pi}\right)^{1/2} \left(\frac{e^{iKx}}{ix} - \frac{e^{-iKx}}{ix}\right)= \left(\frac{\hbar}{2\pi}\right)^{1/2} \frac{N(e^{iKx}- e^{-iKx})}{ix}
+    \end{equation*}
+    
+    y como $\sin{x} = \frac{e^{ix}- e^{-ix}}{2i}$
+    
+    \begin{equation*}
+        f(x) = \left(\frac{2N^2 \hbar}{\pi}\right)^{1/2} \frac{\sin{Kx}}{x}
+    \end{equation*}
+    
+    ahora veamos lo otro
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} dx |f(x)|^2 = \frac{2N^2 K \hbar}{\pi} \int_{-\infty}^{\infty} Kdx \frac{\sin^2(Kx)}{(Kx)^2} 
+    \end{equation*}
+    
+    que haciendo el cambio de variable $\theta = Kx$, entonces $d \theta = Kdx$ y por el resultado de cursos anteriores ($\int_{-\infty}^{\infty} \frac{\sin^2{\theta}}{\theta^2} d\theta= \pi$)
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty} dx |f(x)|^2 = \frac{2N^2 K \hbar}{\cancel{\pi}} \cancel{\int_{-\infty}^{\infty} d\theta \frac{\sin^2(\theta)}{\theta^2}}  = 2N^2K \hbar = 1
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore N= \frac{1}{\sqrt{2K \hbar}}
+    \end{equation*}
+    
+    
+    
+    
+    
+%%%7%%%
+    
+    
+    
+    \item Demuestre las siguientes propiedades de la delta de Dirac
+    
+    \begin{enumerate}
+        \item $\delta (x) = \delta(-x)$ 
+        
+        \textbf{Sol:}
+        
+        Recordando que 
+        
+        \begin{equation*}
+           \delta(k-k') = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx e^{ix(k-k')}
+        \end{equation*}
+        
+        se tiene
+        
+        \begin{equation*}
+            \delta(x) = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx' e^{ix'(x)}
+        \end{equation*}
+        
+        si se  hace el cambio de variable $x' = -x''$ entonces, $dx' = -dx''$, y también los limites de integración se invierten así que
+        
+        \begin{equation*}
+            \delta(x) = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx' e^{ix'(x)} = -\frac{1}{2\pi \hbar} \int_{\infty}^{-\infty} dx'' e^{-ix''(x)} = -\frac{-1}{2\pi \hbar} \int_{-\infty}^{\infty} dx'' e^{ix''(-x)}  = \delta (-x)
+        \end{equation*}
+        
+        \item $\delta (ax) = \frac{\delta(x)}{a}$, con $a>0$
+        
+        \textbf{Sol:}
+        
+        ahora hagamos el cambio de variable $x' = ax''$ entonces, $dx' = adx''$
+        
+        \begin{equation*}
+            \delta(ax) = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx'' e^{ix''(ax)} = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dx'' e^{i(ax'')(x)} = \frac{1}{2a\pi \hbar} \int_{-\infty}^{\infty} dx' e^{ix'(x)}
+        \end{equation*}
+        
+        \begin{equation*}
+            = \frac{1}{a}\left(\frac{1}{2 \pi \hbar} \int_{-\infty}^{\infty} dx' e^{ix'(x)} \right) = \frac{\delta(x)}{a}
+        \end{equation*}
+        
+        \item Suponiendo que $a$ es la única raíz de la función $f(x)$, esto es $f(a)= 0$, entonces $\delta(f)= \frac{\delta(x-a)}{|f'(a )|}$
+        
+        \textbf{Sol:}
+        
+        Supongamos que $|f'(a)| \neq 0$
+        
+        \begin{equation*}
+            \delta (f(x)) = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dp e^{ipf(x)}
+        \end{equation*}
+        
+        ahora si aproximamos a $f(x)$ por los primeros términos de su serie de taylor alrededor de $a$, se tiene
+        
+        \begin{equation*}
+            \delta (f) \approx \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dp e^{ip(\cancel{f(a)}+f'(a) (x-a))} = \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dp e^{ipf'(a) (x-a)}
+        \end{equation*}
+        
+        y haciendo el cambio de variable $pf'(a)=p'$, entonces  $dp = \frac{dp'}{|f'(a)|}$
+        
+        \begin{equation*}
+            \delta (f)  = \frac{1}{|f'(a)|}\left( \frac{1}{2\pi \hbar} \int_{-\infty}^{\infty} dp' e^{ip' (x-a)} \right) = \frac{\delta(x-a)}{|f'(a)|}
+        \end{equation*}
+        
+        
+        
+        
+        
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

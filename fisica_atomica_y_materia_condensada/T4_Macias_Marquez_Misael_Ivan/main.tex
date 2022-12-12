@@ -1,0 +1,300 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%% 
+
+
+
+\item Calcule la energía del primer estado excitado del átomo de helio, usando perturbaciones independientes del tiempo, para estados degenerados.
+
+\textbf{Sol:}
+
+La primera configuración excitada del helio es $1s^{1}2s^{1}$
+
+
+%%%2%%%
+
+
+
+\item Una base de vectores propios para $\hat{J}^{2}= (\hat{J}_1 + \hat{J}_2)^{2}$ y su proyección $\hat{J}_{z}= \hat{J}_{z1} + \hat{J}_{z2}$ puede representarse como $|\ket{jm}$, de modo que $\hat{J}^2|\ket{jm} = j(j+1)|\ket{jm}$ y $\hat{J}_{z} |\ket{jm} =m\hbar |\ket{jm}$. El valor propio máximo de la proyección en unidades de $\hbar$ es $m_{max}=(m_1 + m_2)_{max}=j_1 + j_2$.
+
+\begin{enumerate}
+    \item ¿Cuál es el valor máximo de $j$?
+    
+    \textbf{Sol:}
+    
+    
+    \item Encontrar el valor mínimo de $j$ utilizando el hecho de que el número de estados en la representación de estados propios de $\hat{J}_1$ y $\hat{J}_2$ representado por |$\ket{j_1 m_1}$, $|\ket{j_2 m_2}$ y en la representación $|\ket{jm}$ se conserva; esto es
+    
+    \begin{equation*}
+        \sum_{j_{min}}^{j_{max}}(2j+1)=(2j_1 + 1)(2j_2 +1)
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    
+\end{enumerate}
+
+
+
+%%%3%%%
+
+
+
+\item Deduzca el símbolo de término para el estado base para los siguientes átomos:
+
+\begin{enumerate}
+    \item Zirconio cuya configuración es $[Kr](4d)^2(5s)^2$.
+    
+    \textbf{Sol:}
+    
+    Para el zirconio se tiene la configuración electrónica $nd^2$ y por lo visto en la tarea anterior, el símbolo de término para el estado base es $^{3}F_{2}$.
+    
+    \item Paladio cuya configuración electrónica es $[Kr](4d)^{10}$
+    
+    \textbf{Sol:}
+    
+    Dado que todas las subcapas del paladio están llenas se tiene que el simbolo de termino para el estado base es $^{1}S_{0}$.
+\end{enumerate}
+
+
+
+%%%4%%%
+
+
+
+\item Sugiera justificadamente con qué átomos podría realizarse un experimento que usando efecto Zeeman normal permita determinar la razón $\frac{e}{m}$ para el electrón.
+
+\textbf{Sol:}
+
+Se pueden usar aquellos átomos que cumplan con el efecto Zeeman anómalo o normal como el hidrógeno, zinc y sodio.
+
+
+
+%%%5%%%
+
+
+
+\item En el experimento de Stern-Gerlach, átomos de plata se calientan a $1000K$. Después un haz delgado de dichos átomos se pasan a través de un campo que varía en el espacio con un gradiente de $0.75 Weber/cm$ en una distancia de $10cm$, en la dirección del eje $z$. El haz después de salir del campo viaja $12cm$, antes de golpear una placa fotográfica.
+
+\begin{enumerate}
+    \item Calcule la separación de los dos componentes del haz sobre la pantalla. Use la velocidad promedio del haz de la relación $\frac{1}{2}m <v>^2 = \frac{3}{2}K_{B}T$.
+    
+    \textbf{Sol:}
+    
+    
+    \item Si el experimento se realiza con los siguientes átomos: $Ca(^{1}S_0)$, $Ti(^3F_2)$, $As(^4S_{3/2})$;¿Cuántas líneas o manchas se observan en la pantalla?
+    
+    \textbf{Sol:}
+\end{enumerate}
+
+
+
+
+%%%6%%%
+
+
+
+
+\item Calcule el factor de Landé, $g(L,S,J)$, y el momento magnético $\overline{\mu}_{J}$, de átomos en los estados $^{2}D_{5/2}$, $^{2}D_{3/2}$ y $^{2}F_{7/2}$.
+
+
+\textbf{Sol:}
+
+El factor de Landé es:
+
+\begin{equation*}
+    g_L = 1 + \frac{j(j+1)+s(s+1) - l(l+1)}{2j(j+1)}
+\end{equation*}
+
+y el momento magnético:
+
+\begin{equation*}
+    \overline{\mu}_{J} = \frac{e}{2 m_e} g_L \overline{J}
+\end{equation*}
+
+entonces para $^2D_{5/2}$ ($s=1/2$, $j=5/2$, $l =2$):
+
+\begin{equation*}
+    g_L =1+ \frac{(5/2)(7/2)+ (1/2)(3/2)- (2)(3)}{2(5/2)(7/2)} = \frac{6}{5}
+\end{equation*}
+
+\begin{equation*}
+    \overline{\mu}_{J} = \frac{e}{2 m_e} g_L \overline{J} = \frac{e}{10 m_e} \overline{J} 
+\end{equation*}
+
+para $^2D_{3/2}$ ($s=1/2$, $j=3/2$, $l=1$):
+
+\begin{equation*}
+    g_L =1+ \frac{(3/2)(5/2)+(1/2)(3/2) - (1)(2)}{2(3/2)(5/2)} = \frac{4}{3}
+\end{equation*}
+
+\begin{equation*}
+    \overline{\mu}_{J} = \frac{e}{2 m_e} g_L \overline{J} =\frac{e}{6 m_e} \overline{J}
+\end{equation*}
+
+
+para $^2F_{7/2}$ ($s=1/2$, $j=7/2$, $l=3$):
+
+\begin{equation*}
+    g_L =1+ \frac{(7/2)(9/2)+(1/2)(3/2)-(3)(4)}{2(7/2)(9/2)} = \frac{8}{7}
+\end{equation*}
+
+\begin{equation*}
+    \overline{\mu}_{J} = \frac{e}{2 m_e} g_L \overline{J} =\frac{e}{14 m_e} g_L \overline{J}
+\end{equation*}
+
+
+%%%7%%%
+
+
+
+\item Demuestre que cuando un átomo con momento angular total $\overline{J}$, se coloca en un campo magnético constante $\overline{B}=B_0 \hat{e}_z$, el momento angular precesa alrededor del campo magnético con una frecuencia $\omega = \frac{eB_0}{2m}g(L,S,J)$.
+
+\textbf{Sol:}
+
+
+
+
+%%%8%%%
+
+
+
+
+\item En los siguientes 3 casos el átomo tiene una transición entre 2 estados cuánticos y se encuentra sometido a un campo magnético constante. Encontrar en cada caso, el número de lineas que se observan, en presencia de dicho campo.
+
+\begin{enumerate}
+    \item Cadmio en la transición $^{1}P-^{1}D$ cuya longitud de onda, sin campo es $\lambda=6438.47 angstroms$
+    
+    \textbf{Sol:}
+    
+    \item Doblete del sodio con longitudes de onda $\lambda_1=5889.96 angstroms$ y $\lambda_2 =5895.93 angstronms$, correspondientes a las transiciones $^{2}P_{1/2}-^{2}S_{1/2}$ y $^{2}P_{1/2}-^{2}S_{1/2}$.
+    
+    \textbf{Sol:}
+    
+    \item La línea con $\lambda=4722.16 angstroms$ del zinc correspondiente a la transición $^{3}P_1 - ^{3}S_1$.
+    
+    \textbf{Sol:}
+
+\end{enumerate}
+
+
+
+
+%%%9%%%
+
+
+
+
+\item Determine la separación Zeeman de los niveles de energía que corresponden al término $^{4}F_{5/2}$ y $^{4}G_{7/2}$ en un campo magnético de $1000G(0.1\frac{Weber}{m^2})$, Utilice su respuesta para predecir el efecto de tal campo magnético sobre la línea de $5700 A$ del $Sc$ (escandio).
+
+\textbf{Sol:}
+
+El cambio de energía por el efecto Zeeman es:
+
+\begin{equation*}
+    \Delta E = g_L \mu_B m_j B
+\end{equation*}
+
+entonces
+
+\begin{equation*}
+    g_L = 1+\frac{(5/2)(7/2)+(3/2)(5/2)-(1)(2)}{2(5/2)(7/2)} = \frac{8}{5}
+\end{equation*}
+
+\begin{equation*}
+    \Delta E =  \frac{8}{5} \left(9.27\times 10^{-24}\frac{J}{T}\right) \left(\frac{3}{2}\right) (0.1T) =  2.22 \times 10^{-24} J
+\end{equation*}
+
+
+
+%%%10%%%
+
+
+
+
+\item ¿Cuántos estados están permitidos para tres electrones $p$ equivalentes?
+
+\textbf{Sol:}
+
+$3$ que son $^4S_{3/2}$, $^{2}D_{5/2}$ y $^{2}P_{3/2}$.
+
+
+    
+    
+\end{enumerate}
+
+\end{document}

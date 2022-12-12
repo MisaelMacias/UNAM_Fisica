@@ -1,0 +1,267 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\spanishdecimal{.}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Una fuente luminosa emite luz visible de dos longitudes de onda: $\lambda=430nm$ y $\lambda=510nm$. La fuente se emplea en un experimento de interferencia de doble rendija en el cual $L=1.5m$ y $a=0.025mm$. Encontrar la separación entre la franja brillante de tercer orden de $510nm$ y la de $430nm$.
+
+\textbf{Sol:}
+
+De la ecuación (10.22) se tiene:
+
+\begin{equation*}
+    y_{\text{max}} = \frac{m \lambda L}{a}
+\end{equation*}
+
+sustituyendo $m = \pm 3 $, $L=1.5 m$, $a=0.025 mm$ y $510nm$:
+
+\begin{equation*}
+    y_{\text{max}} = \frac{\pm 3 (510nm) (1.5m)}{0.025mm} = \pm 0.0918 m
+\end{equation*}
+
+y para $430 nm$:
+
+\begin{equation*}
+    y_{\text{max}} = \frac{\pm 3 (430nm) (1.5m)}{0.025 mm} = \pm 0.0774 m
+\end{equation*}
+
+La separación entre las franjas brillantes de tercer orden para $510nm$ y $430nm$ son $18.36cm$ y $15.48cm$ respectivamente.
+
+
+
+%%%2%%%
+
+
+
+\item En un experimento de Young, con luz de $589nm$ y una separación entre la pantalla y la rendija de $2m$, se observa que el mínimo de interferencia de orden 9 está a $7.26mm$ del máximo central. Determinar el espaciamiento entre rendijas.
+
+\textbf{Sol:}
+
+De la ecuación (10.22) y (10.23) se tiene:
+
+\begin{equation*}
+    y_{\text{max}} = \frac{m \lambda L}{a} \hspace{1cm} y_{\text{min}} =  \frac{\lambda L}{a} \left(m \pm \frac{1}{2}\right)
+\end{equation*}
+
+El máximo central para $m=0$ es $y_{text{max}}=0$ y el mínimo de orden 9 es:
+
+\begin{equation*}
+    y_{text{min}} = 0.00726m = \frac{(589nm) (2m)}{a} \left(\pm 9 \pm \frac{1}{2}\right)
+\end{equation*}
+
+y despejando $a$ se tiene un espacio entre las rendijas de:
+
+\begin{equation*}
+    a= 1.54 mm
+\end{equation*}
+
+
+
+%%%3%%%
+
+
+
+\item Luz de $587.4nm$ ilumina una sola rendija de $0.750mm$ de ancho. a)¿a qué distancia de la rendija debe localizarse una pantalla si el primer mínimo en el patrón de difracción va a estar a $0.850mm$ del centro del patrón? b) ¿Cuál es el ancho del máximo central?
+
+\textbf{Sol:}
+
+De la ecuación (10.26) se tiene:
+
+\begin{equation*}
+    y_{\text{min}} = \frac{m\lambda L}{b}
+\end{equation*}
+
+despejando la $L$:
+
+\begin{equation*}
+    L = \frac{y_{\text{min}}b}{m\lambda}
+\end{equation*}
+
+sustituyendo $y_{\text{min}}= 0.850 mm$, $m = 1$, $\lambda = 587.4 nm$ y $b = 0.750mm$:
+
+\begin{equation*}
+    L = \frac{(0.850 mm)(0.750mm)}{587.4nm} = 1.08 m
+\end{equation*}
+
+Como el primer mínimo está a $0.850mm$ del centro entonces el ancho del máximo central es $1.7mm$.
+
+
+
+%%%4%%%
+
+
+
+\item En un experimento de doble rendija de Young, se mide la posición de algún mínimo de irradiancia en la pantalla $y_{min}$ con una incertidumbre nominal $\Delta y_{min}$ en una pantalla a una distancia $L$ con incertidumbre $\Delta L$. a)Si se conoce (sin incertidumbre) el valor de la longitud de onda de la luz que cruza la rendija $\lambda$ ¿Cuál es la formula para la incertidumbre nominal de la separación entre rendijas $a$?,b) Si se conoce (sin incertidumbre) la separación de las rendijas $a$, ¿Cuál es la formula para la incertidumbre nominal de la longitud de onda $\lambda$?
+
+\textbf{Sol:}
+
+Despejando $a$ de la ecuación (10.23):
+
+\begin{equation*}
+    a = \frac{\lambda L}{y_{\text{min}}}\left(m \pm \frac{1}{2}\right)
+\end{equation*}
+
+propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta a = \sqrt{\left(\frac{\partial a}{\partial y_{\text{min}}}\Delta y_{\text{min}}\right)^{2} + \left(\frac{\partial a}{\partial L} \Delta L\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    =\sqrt{\left(\frac{\lambda L \Delta y_{\text{min}}}{y_{\text{min}}^{2}}\left(m \pm \frac{1}{2}\right)\right)^{2}+\left(\frac{\lambda \Delta L}{y_{\text{min}}}\left(m \pm \frac{1}{2}\right)\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{\lambda} {y_{\text{min}}} \left(m \pm \frac{1}{2}\right) \sqrt{\left(\frac{L\Delta y_{\text{min}}}{y_{\text{min}}}\right)^{2}+ \left(\Delta L\right)^{2}}
+\end{equation*}
+
+Despejando $\lambda$ de la ecuación (10.23):
+
+\begin{equation*}
+    \lambda = \frac{a y_{\text{min}}}{L \left(m \pm \frac{1}{2}\right)}
+\end{equation*}
+
+propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta \lambda = \sqrt{\left(\frac{\partial \lambda}{\partial y_{\text{min}}}\Delta y_{\text{min}}\right)^{2} + \left(\frac{\partial \lambda}{\partial L}\Delta L\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(\frac{a \Delta y_{\text{min}}}{L \left(m \pm \frac{1}{2}\right)}\right)^{2} + \left(\frac{a y_{\text{min}}\Delta L}{(L(m\pm\frac{1}{2}))^{2}} \left(m \pm \frac{1}{2}\right)\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{a}{L (m \pm \frac{1}{2})} \sqrt{\left(\Delta y_{\text{min}}\right)^{2} + \left(\frac{y_{\text{min}}\Delta L}{ L}\right)^{2}}
+\end{equation*}
+
+
+
+
+%%%5%%%%
+
+
+
+\item En un experimento de difracción de una sola rendija, se mide la posición de algún mínimo de irradiancia en la pantalla $y_{min}$ con una incertidumbre nominal $\Delta y_{min}$ en una pantalla a una distancia $L$ con incertidumbre $\Delta L$. a) Si se conoce (sin incertidumbre) el valor de la longitud de onda de la luz que cruza la rendija $\lambda$¿Cuál es la formula para la incertidumbre nominal del ancho de la rendija b?, b) Si se conoce (sin incertidumbre) el ancho de las rendijas b,¿Cuál es la formula para la incertidumbre nominal de la longitud de onda $\lambda$?
+
+\textbf{Sol:}
+
+Despejando $b$ de la ecuación (10.26):
+
+\begin{equation*}
+    b = \frac{m \lambda L}{y_{\text{min}}}
+\end{equation*}
+
+propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta b = \sqrt{\left(\frac{\partial b}{\partial y_{\text{min}}}\Delta y_{\text{min}}\right)^{2} + \left(\frac{\partial b}{\partial L} \Delta L\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(\frac{m\lambda L \Delta y_{\text{min}}}{y_{\text{min}}^{2}}\right)^{2} + \left(\frac{m \lambda \Delta L}{y_{\text{min}}}\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{m L\lambda}{y_{\text{min}}} \sqrt{\left(\frac{\Delta y_{\text{min}}}{y_{\text{min}}}\right)^{2} + \left(\frac{\Delta L}{L}\right)^{2}}
+\end{equation*}
+
+Despejando $\lambda$ de la ecuación (10.26):
+
+\begin{equation*}
+    \lambda = \frac{b y_{\text{min}}}{mL }
+\end{equation*}
+
+propagando su incertidumbre:
+
+\begin{equation*}
+    \Delta \lambda = \sqrt{\left(\frac{\partial \lambda}{\partial y_{\text{min}}}\Delta y_{\text{min}}\right)^{2} + \left(\frac{\partial \lambda}{\partial L}\Delta L\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \sqrt{\left(\frac{b \Delta y_{\text{min}}}{mL}\right)^{2} + \left(\frac{bmy_{\text{min}}\Delta L}{(mL)^2}\right)^{2}}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{by_{\text{min}}}{mL} \sqrt{\left(\frac{\Delta y_{\text{min}}}{y_{\text{min}}}\right)^{2} + \left(\frac{\Delta L }{L}\right)^{2}}
+\end{equation*}
+
+    
+\end{enumerate}
+
+\end{document}

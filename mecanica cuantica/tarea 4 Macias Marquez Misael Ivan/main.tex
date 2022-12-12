@@ -1,0 +1,391 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-3pc}
+\setlength{\evensidemargin}{-3pc}
+\setlength{\textwidth}{7 in}
+\setlength{\textheight}{10in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+    \item Antes de publicar la ecuación que lleva su nombre, Schrodinger consideró la ecuación
+    
+    \begin{equation*}
+        \frac{1}{c^2} \frac{\partial^2 \Psi}{\partial t^2} = \frac{\partial^2 \Psi}{\partial x ^2} - \frac{m^2 c^2}{\hbar^2} \Psi
+    \end{equation*}
+    
+    para describir una partícula de masa m. Tomando en cuenta que $\Psi$ es una solución general de dicha ecuación, encuentre la ecuación de conservación de la cantidad
+    
+    \begin{equation*}
+        \varrho = \frac{i}{2} \left(\Psi^* \frac{\partial \Psi}{\partial t} - \Psi \frac{\partial \Psi ^*}{\partial t}\right)
+    \end{equation*}
+    
+    ¿La cantidad $\varrho$ es admisible como densidad de probabilidad de esta teoría? 
+    
+    \textbf{Sol:}
+    
+    \begin{equation*}
+        \frac{\partial \varrho}{\partial t}  = \frac{i}{2} \frac{\partial}{\partial t} \left(\Psi^* \frac{\partial \Psi}{\partial t} - \Psi \frac{ \partial \Psi^*}{\partial t}\right) = \frac{i}{2}\left(\Psi^* \frac{\partial^2 \Psi}{\partial t^2} - \Psi \frac{\partial^2 \Psi^*}{\partial t^2} +\cancel{ \frac{\partial \Psi^*}{\partial t}\frac{\partial \Psi}{\partial t}- \frac{\partial \Psi^*}{\partial t}\frac{\partial \Psi}{\partial t}}\right)
+    \end{equation*}
+    
+    ahora como $\Psi$ es solución general de la ec. mencionada, entonces
+    
+    \begin{equation*}
+        \frac{\partial^2 \Psi}{\partial t^2} = c^2 \frac{\partial^2 \Psi}{\partial x^2} - \frac{m^2 c^4}{\hbar^2} \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial^2 \Psi^*}{\partial t^2} = c^2 \frac{\partial^2 \Psi^*}{\partial x^2} - \frac{m^2 c^4}{\hbar^2} \Psi^*
+    \end{equation*}
+    
+    que sustituyendo
+    
+    \begin{equation*}
+        \frac{\partial \varrho}{\partial t} = \frac{i}{2}\left(\Psi^* \left(c^2 \frac{\partial^2 \Psi}{\partial x^2} -\cancel{ \frac{m^2 c^4}{\hbar^2} \Psi} \right) - \Psi \left(c^2 \frac{\partial^2 \Psi^*}{\partial x^2} -\cancel{ \frac{m^2 c^4}{\hbar^2} \Psi^*} \right) \right)
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{c^2i}{2}\left(\Psi^*  \frac{\partial^2 \Psi}{\partial x^2} - \Psi \frac{\partial^2 \Psi^*}{\partial x^2}  \right)
+    \end{equation*}
+    
+    por regla de la cadena se tiene
+    
+    \begin{equation*}
+        \frac{\partial}{\partial x} \left(\Psi^* \frac{\partial \Psi}{\partial x}\right) = \Psi^* \frac{\partial^2 \Psi}{\partial x^2} + \frac{\partial \Psi}{\partial x} \frac{\partial \Psi^*}{\partial x}
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\partial}{\partial x} \left(\Psi \frac{\partial \Psi^*}{\partial x}\right) = \Psi \frac{\partial^2 \Psi^*}{\partial x^2} + \frac{\partial \Psi^*}{\partial x} \frac{\partial \Psi}{\partial x}
+    \end{equation*}
+    
+    y sustituyendo
+    
+    \begin{equation*}
+        \frac{\partial \varrho}{\partial t} = \frac{c^2i}{2}\left( \frac{\partial}{\partial x} \left(\Psi^* \frac{\partial \Psi}{\partial x}\right) - \frac{\partial}{\partial x} \left(\Psi \frac{\partial \Psi^*}{\partial x}\right) +\cancel{ \frac{\partial \Psi^*}{\partial x} \frac{\partial \Psi}{\partial x}  -  \frac{\partial \Psi^*}{\partial x} \frac{\partial \Psi}{\partial x}} \right)
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{c^2i}{2} \frac{\partial}{\partial x}\left(  \Psi^* \frac{\partial \Psi}{\partial x} - \Psi \frac{\partial \Psi^*}{\partial x} \right) = \frac{\partial}{\partial x} J
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore \hspace{1cm} \frac{\partial \varrho}{\partial t} - \frac{\partial J}{\partial x} = 0
+    \end{equation*}
+    
+    con $J = \frac{c^2i}{2} \left(  \Psi^* \frac{\partial \Psi}{\partial x} - \Psi \frac{\partial \Psi^*}{\partial x} \right)$, $\varrho$ es admisible como densidad de probabilidad siempre y cuando $\Psi$ y $\frac{\partial \Psi}{\partial x}$ tiendan a cero cuando x tiende a $\pm \infty$
+    
+    
+    
+%%%2%%%
+    
+    
+    
+    \item Considerando $\psi_1 , \psi_2 , \phi_1 , \phi_2 \in \mathcal{H}$, $\alpha_1 , \alpha_2 , \beta_1 , \beta_1 \in C$, demuestre la propiedad del producto interior
+    
+    \begin{equation*}
+        <\alpha_1 \psi_1 + \alpha_2 \psi_2, \beta_1 \phi_1 + \beta_2 \phi_2> = \alpha_1^* \beta_1 <\psi_1,\phi_1> + \alpha_1^* \beta_2 <\psi_1,\phi_2> + \alpha_2^* \beta_1 <\psi_2,\phi_1> + \alpha_2^* \beta_2 <\psi_2,\phi_2>
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Recordando que el producto interior que usamos es
+    
+    \begin{equation*}
+        <\psi_1 , \psi_2> = \int_{-\infty}^{\infty} dx  \psi_1^* \psi_2
+    \end{equation*}
+    
+    entonces 
+    
+    \begin{equation*}
+        <\alpha_1 \psi_1 + \alpha_2 \psi_2, \beta_1 \phi_1 + \beta_2 \phi_2> =  \int_{-\infty}^{\infty} dx   (\alpha_1 \psi_1 + \alpha_2 \psi_2)^* (\beta_1 \phi_1 + \beta_2 \phi_2)
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{-\infty}^{\infty} dx   (\alpha_1^* \psi_1^* + \alpha_2^* \psi_2^*) (\beta_1 \phi_1 + \beta_2 \phi_2) = \int_{-\infty}^{\infty}    (\alpha_1^* \psi_1^* \beta_1 \phi_1 +\alpha_1^* \psi_1^* \beta_2 \phi_2 +\alpha_2^* \psi_2^*  \beta_2 \phi_2 + \alpha_2^* \psi_2^* \beta_1 \phi_1)
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int_{-\infty}^{\infty} dx \alpha_1^* \psi_1^* \beta_1 \phi_1 +  \int_{-\infty}^{\infty} dx \alpha_1^* \psi_1^* \beta_2 \phi_2 +  \int_{-\infty}^{\infty} dx \alpha_2^* \psi_2^*  \beta_2 \phi_2 + \int_{-\infty}^{\infty} dx \alpha_2^* \psi_2^* \beta_1 \phi_1
+    \end{equation*}
+    
+    \begin{equation*}
+        = \alpha_1^* \beta_1 \int_{-\infty}^{\infty} dx  \psi_1^*  \phi_1 + \alpha_1^*  \beta_2 \int_{-\infty}^{\infty} dx  \psi_1^*  \phi_2 +  \alpha_2^* \beta_2 \int_{-\infty}^{\infty} dx  \psi_2^*   \phi_2 + \alpha_2^* \beta_1\int_{-\infty}^{\infty} dx  \psi_2^*  \phi_1
+    \end{equation*}
+    
+    \begin{equation*}
+        = \alpha_1^* \beta_1 <\psi_1,  \phi_1> + \alpha_1^*  \beta_2 <\psi_1,  \phi_2> +  \alpha_2^* \beta_2 <\psi_2, \phi_2> + \alpha_2^* \beta_1 <\psi_2,  \phi_1>
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore <\alpha_1 \psi_1 + \alpha_2 \psi_2, \beta_1 \phi_1 + \beta_2 \phi_2 > =  \alpha_1^* \beta_1 <\psi_1,  \phi_1> + \alpha_1^*  \beta_2 <\psi_1,  \phi_2> +  \alpha_2^* \beta_2 <\psi_2, \phi_2> + \alpha_2^* \beta_1 <\psi_2,  \phi_1>
+    \end{equation*}
+    
+    
+    
+%%%3%%%
+    
+    
+    
+    \item Se dice que dos funciones $\psi_1, \psi_2 \in \mathcal{H}$ son ortogonales cuando se cumple
+    
+    \begin{equation*}
+        <\psi_1, \psi_2> = 0
+    \end{equation*}
+    
+    Dadas dos funciones  $\phi_1 , \phi_2 \in \mathcal{H} $ tal que
+    
+    \begin{equation*}
+        <\phi_1, \phi_2> = a \in \mathcal{R}
+    \end{equation*}
+    
+    encuentre combinaciones lineales de $\phi_1$ y $\phi_2$ que sean ortogonales a 
+    
+    
+    Sean $\alpha$, $\beta \in \mathcal{C}$
+    \begin{enumerate}
+    
+        \item $\phi_1$
+        
+        \textbf{Sol:}
+        
+        Suponiendo que $\alpha \phi_1 + \beta \phi_2 $ es ortogonal a $\phi_1$, entonces
+        
+        \begin{equation*}
+            <\phi_1,\alpha \phi_1 + \beta \phi_2> = 0
+        \end{equation*}
+        
+        y por el ejercicio 2 se tiene
+        
+        \begin{equation*}
+            <\phi_1,\alpha \phi_1 + \beta \phi_2> = \alpha<\phi_1,\phi_1> + \beta <\phi_1 , \phi_2>
+        \end{equation*}
+        
+        ahora ya que $\phi_1$ es una función cuadrado integrable, se debe tener que $<\phi_1,\phi_1> = b$ con $b \in \mathcal{R}$, además por hipótesis
+        
+        \begin{equation*}
+            <\phi_1,\alpha \phi_1 + \beta \phi_2> = b \alpha  + \beta a =0 
+        \end{equation*}
+        
+        por lo tanto $\alpha \phi_1 + \beta \phi_2$ es ortogonal a $\phi_1$ si  
+        $\alpha \in \mathcal{C}$ y $\beta = -\frac{b}{a} \alpha = - \frac{<\phi_1,\phi_1>}{<\phi_1,\phi_2>} \alpha$
+        
+        \item $\phi_1 + \phi_2$
+        
+        \textbf{Sol:}
+        
+        Suponiendo lo mismo tenemos que
+        
+        \begin{equation*}
+            <\phi_1 + \phi_2 , \alpha \phi_1 + \beta \phi_2> = 0
+        \end{equation*}
+        
+        y por el ejercicio 2
+        
+        \begin{equation*}
+            <\phi_1 + \phi_2 , \alpha \phi_1 + \beta \phi_2> = \alpha <\phi_1 , \phi_1> + \beta <\phi_1 , \phi_2> + \alpha <\phi_2 , \phi_1> + \beta <\phi_2 , \phi_2>
+        \end{equation*}
+        
+        ahora ya que $\phi_1$ y $\phi_2$ son funciones cuadrado integrables, se debe tener que $<\phi_1,\phi_1> = b$ y $<\phi_2,\phi_2> = c$ con $b,c \in \mathcal{R}$, además por hipótesis y propiedades del producto interior
+        
+        \begin{equation*}
+            <\phi_1 + \phi_2 , \alpha \phi_1 + \beta \phi_2> = b \alpha  + a \beta +a^* \alpha + c \beta = 0 
+        \end{equation*}
+        
+        \begin{equation*}
+            \beta (a+c) + \alpha (a+b) = 0
+        \end{equation*}
+        
+        por lo tanto $\alpha \phi_1 + \beta \phi_2$ es ortogonal a $\phi_1 + \phi_2$ si  
+        $\alpha \in \mathcal{C}$ y $\beta = -\frac{a+b}{a+c} \alpha = - \frac{<\phi_1,\phi_1>+ <\phi_1,\phi_2>}{<\phi_1,\phi_1>+<\phi_2,\phi_2>} \alpha $
+        
+        $\beta = - \frac{<\phi_1, \phi_1> + <\phi_1,\phi_2>}{<\phi_1\phi_2,\phi_1\phi_2>} \alpha$
+        
+        
+        
+    \end{enumerate}
+    
+    
+    
+    
+    
+%%%4%%%
+    
+    
+    
+    \item Para un hamiltoniano $\hat{H }$ de la forma
+    
+    \begin{equation*}
+        \hat{H} = \frac{\hat{p}^2}{2m} + \hat{V}(\hat{x})
+    \end{equation*}
+    
+    Demuestre la expresión
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{x}\hat{p}>_\psi = 2 <\hat{T}>_\psi - \left<\hat{x}\frac{\partial \hat{V}}{\partial \hat{x}}\right>_\psi
+    \end{equation*}
+    
+    donde $\hat{T} = \frac{\hat{p}^2}{2m}$ es el operador de energía cinética en una dimensión. A partir de esta expresión, suponiendo dependencia temporal armónica para el esta $\psi$, deduzca la versión cuántica del teorema del virial
+    
+    \textbf{Sol:}
+    
+    
+    Ya hemos demostrado que 
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{O}>_\Psi = \frac{1}{i \hbar} <[\hat{O},\hat{H}]>_\Psi + <\frac{\partial \hat{O}}{\partial t}>_\Psi
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \frac{d}{dt} <\hat{x}\hat{p}>_\Psi = \frac{1}{i \hbar} <[\hat{x}\hat{p},\hat{H}]>_\Psi + <\cancel{\frac{\partial \hat{x}\hat{p}}{\partial t}}>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{i \hbar} <[\hat{x}\hat{p},\hat{H}]>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{i \hbar} <\hat{x} \hat{p} \hat{H}-\hat{H}\hat{x} \hat{p} + \hat{x} \hat{H} \hat{p} - \hat{x} \hat{H} \hat{p})= \frac{1}{i \hbar} (\hat{x}(\hat{p}\hat{H} - \hat{H}\hat{p})+(\hat{x}\hat{H}- \hat{H}\hat{x})\hat{p}>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{i \hbar} <\hat{x}(\hat{p}(\frac{\hat{p}^2}{2m} + \hat{V}(\hat{x})) - (\frac{\hat{p}^2}{2m} + \hat{V}(\hat{x}))\hat{p})+(\hat{x}(\frac{\hat{p}^2}{2m} + \hat{V}(\hat{x}))- (\frac{\hat{p}^2}{2m} + \hat{V}(\hat{x}))\hat{x})\hat{p}>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+       = \frac{1}{i \hbar} <\cancel{\hat{x}\frac{\hat{p}^3}{2m}} +\hat{x}\hat{p} \hat{V}(\hat{x}) -\cancel{ \hat{x} \frac{\hat{p}^3}{2m}} -\cancel{\hat{x} \hat{V}(\hat{x})\hat{p}
+       }+\hat{x}\frac{\hat{p}^2}{2m}\hat{p} + \cancel{\hat{x} \hat{V}(\hat{x}))\hat{p}}- \frac{\hat{p}^2}{2m}\hat{p}\hat{x} - \cancel{\hat{V}(\hat{x}))\hat{x}\hat{p}}>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{1}{i\hbar} <\hat{x}\hat{p} \hat{V}(\hat{x})+ \frac{\hat{p}}{m}[\hat{x},\hat{p}] \hat{p}>_\Psi =\frac{1}{i\hbar} <\hat{x}\hat{p} \hat{V}(\hat{x})+ \frac{i\hbar\hat{p}}{m} \hat{p}>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        = -\frac{i\hbar}{i\hbar} <\hat{x} \frac{\partial \hat{V}(\hat{x})}{\partial x}>_\Psi + \frac{i\hbar}{i \hbar} 2<\hat{T}>_\Psi= 2<\hat{T}>_\Psi - <\hat{x} \frac{\partial \hat{V}(\hat{x})}{\partial x}>_\Psi
+    \end{equation*}
+    
+    
+    
+    
+%%%5%%%
+    
+    
+    
+    \item Considere el operador
+    
+    \begin{equation*}
+        \hat{f}(\hat{x}) = \sum_{n=1}^{N} A_n \hat{x}^n
+    \end{equation*}
+    
+    Muestre que si alguno de los coeficientes $A_n$ es complejo, entonces $f(\hat{x})$ no es hermitiano
+    
+    \textbf{Sol:}
+    
+    Sea $\Psi \in \mathcal{H}$
+    
+    Supongamos que $\hat{f}(\hat{x})$ es hermitiano ($<\hat{f}(\hat{x})>_\Psi^*=<\hat{f}(\hat{x})>_\Psi$) con $Im(A_i) \neq 0$ para algun $i \in (1, ... , N)$, entonces
+    
+    \begin{equation*}
+        <\hat{f}(\hat{x})>_\Psi^*=<\hat{f}(\hat{x})>_\Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        <\Psi,\hat{f}(\hat{x}) \Psi>^* = <\Psi,\hat{f}(\hat{x}) \Psi>
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        \left(\int_{-\infty}^{\infty}dx \Psi^* \hat{f}(\hat{x}) \Psi \right)^* = \int_{-\infty}^{\infty}dx \Psi^* \hat{f}(\hat{x}) \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty}dx \Psi \hat{f}^*(\hat{x}) \Psi^* = \int_{-\infty}^{\infty}dx \Psi^* \hat{f}(\hat{x}) \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        \int_{-\infty}^{\infty}dx \Psi \sum_{n=1}^{N}A_n^* x^{n*} \Psi^* = \int_{-\infty}^{\infty}dx \Psi^* \sum_{n=1}^{N}A_n x^n \Psi
+    \end{equation*}
+    
+    \begin{equation*}
+        \sum_{n=1}^{N} A_n^*\int_{-\infty}^{\infty}dx   x^{n} \Psi^* \Psi = \sum_{n=1}^{N}A_n \int_{-\infty}^{\infty}dx   x^n \Psi \Psi^*
+    \end{equation*}
+    
+    \begin{equation*}
+        \sum_{n=1}^{N} (A_n^* - A_n) \int_{-\infty}^{\infty}dx   x^{n} |\Psi|^2 = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \therefore  A_n^* - A_n = 0 \hspace{1cm} \forall n \in (1, ... , N)
+    \end{equation*}
+    
+    pero esto es una contradicción por lo tanto $\hat{f}^*(\hat{x})$ mo es hermitiano
+    
+    
+    
+\end{enumerate}
+
+\end{document}

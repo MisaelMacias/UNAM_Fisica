@@ -1,0 +1,1107 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Demuestre que el determinante de Slater para el estado base del helio, puede representarse como el producto de dos funciones: una parte dependiente de coordenadas espaciales, que es simétrica y la otra que depende de coordenadas de espín que es antisimétrica, ante el intercambio de coordenadas espín-espaciales de los dos electrones.
+
+
+\textbf{Sol:}
+
+Para el estado base de helio se tiene:
+
+\begin{equation*}
+    \psi (x_1,x_2) = \frac{1}{\sqrt{2!}} \left|\begin{matrix}
+    1s (1) \alpha(1) & 1s (1) \beta(1)  \\
+    1s(2) \alpha(2) & 1s(2) \beta(2)  \\
+
+    \end{matrix}\right|
+\end{equation*}
+
+\begin{equation*}
+    = \frac{1}{\sqrt{2}} [1s (1) \alpha(1) 1s (2) \beta(2) - 1s (2) \alpha (2) 1s (1) \beta(1)]
+\end{equation*}
+\begin{equation*}
+    =\frac{1}{\sqrt{2}} [\{1s (1) 1s (2)\} \alpha(1)  \beta(2) - \{1s (2)1s (1)\} \alpha (2)  \beta(1)]
+\end{equation*}
+
+y factorizando el término común
+
+\begin{equation*}
+    \psi (x_1,x_2) = \frac{1}{\sqrt{2}}\{1s (1) 1s (2)\}  [\alpha(1)  \beta(2) - \alpha (2)  \beta(1)]
+\end{equation*}
+
+donde una parte depende de las coordenadas espaciales y otra de las coordenadas de espín.
+
+
+%%%2%%%
+
+
+
+\item Cuál es el valor del espín total del átomo de Helio, (a) en el estado base, (b) En un estado excitado.
+
+\textbf{Sol:}
+
+
+
+
+
+
+
+
+
+%%%3%%%
+
+
+
+\item Reproduzca el método de Hartree-Fock en el átomo de helio. Para ello:
+
+\begin{enumerate}
+    \item Utilice un determinante de Slater como función de prueba para el estado base y calcule el valor esperado del Hamiltoniano.
+    
+    \textbf{Sol:}
+    
+    Sea nuestra función de prueba
+    
+    \begin{equation*}
+        \psi (x_1,x_2) = \frac{1}{\sqrt{2}} \left|\begin{matrix}
+    \xi_{1} (x_1) & \xi_1 (x_2)  \\
+    \xi_{2} (x_1) & \xi_{2} (x_2)  \\
+
+    \end{matrix}\right|  =\hat{A} [\xi_1 (x_1) \xi_2 (x_2)]
+    \end{equation*} 
+    
+    y el hamiltoniano
+    
+    \begin{equation*}
+        \hat{H} = \left(\frac{\hat{p}_{1}^{2}}{2m} - \frac{z e^2}{\overline{r}_1}\right) + \left(\frac{\hat{p}_{2}^{2}}{2m} - \frac{z e^2}{\overline{r}_2}\right) + \frac{e^2}{|\overline{r}_1 - \overline{r_2}|} =\hat{h} (\overline{r}_1) + \hat{h} (\overline{r}_2) + \hat{V}(1,2)
+    \end{equation*}
+    
+    entonces el valor esperado es:
+    
+    \begin{equation*}
+        <\hat{H}>_\psi = \int \psi^{*} (x_1,x_2) \hat{H} \psi(x_1,x_2) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int  [\xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)] \hat{A}^{\dagger} \hat{H} \hat{A} [\xi_{1} (x_1) \xi_{2} (x_2)] d x_1 dx_2
+    \end{equation*}
+    
+    ahora como $\hat{A}$ es autoadjunto [$\hat{A}^{\dagger} = \hat{A}$], conmuta con operadores simétricos ante intercambio de coordenadas [$\hat{A}\hat{H} = \hat{H}\hat{A}$] y $\hat{A}^2 = \sqrt{N!} \hat{A}$:
+    
+    \begin{equation*}
+        <\hat{H}>_\psi = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{H} \hat{A}^2  [\xi_{1} (x_1) \xi_{2} (x_2)] d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{H} \sqrt{2}\hat{A}  [\xi_{1} (x_1) \xi_{2} (x_2)] d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{H}\cancel{ \frac{\sqrt{2}
+        }{\sqrt{2}}}(\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)(\hat{h}(\overline{r}_1) + \hat{h}(\overline(r_2)) + \hat{V}(1,2))(\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    o bien
+    
+    \begin{equation*}
+        <\hat{H}>_\psi = I_1 + I_2 + I_3
+    \end{equation*}
+    
+    con 
+    
+    \begin{equation*}
+        I_1 = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_1)(\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        I_2 = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_2) (\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        I_3 = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)(\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    que simplificando
+    
+    \begin{equation*}
+        I_1 = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_1)(\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_1)\xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2 - \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_1)\xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        = \int  \xi_{1}^{*} (x_1) \hat{h}(\overline{r}_1)\xi_{1} (x_1)  d x_1 \cancel{\int \xi_{2}^{*} (x_2) \xi_{2} (x_2) dx_2}(1) - \int  \xi_{1}^{*} (x_1) \hat{h}(\overline{r}_1)\xi_{2} (x_1)  d x_1\cancel{ \int \xi_{2}^{*} (x_2) \xi_{1} (x_2) dx_2}\hspace{-0.1cm}(0)
+    \end{equation*}
+    
+    \begin{equation}
+        I_1= \int  \xi_{1}^{*} (x_1) \hat{h}(\overline{r}_1)\xi_{1} (x_1)  d x_1
+    \end{equation}
+    
+    por la ortonormalidad de los espín-orbitales el segundo término del primer sumando se hace $1$ y el segundo término del segundo sumando se anula ($\int \xi_i(x_k) \xi_j (x_k) dx_k = \delta_{ij}$), de forma análoga con $I_2$ e $I_3$:
+    
+    \begin{equation*}
+        I_2 = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_2) (\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+         = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_2) \xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2 - \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2)\hat{h}(\overline(r_2) \xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+         = \int  \xi_{2}^{*} (x_2) \hat{h}(\overline{r}_2) \xi_{2} (x_2)  d x_2 \cancel{\int \xi_{1}^{*}(x_1) \xi_{1} (x_1)dx_1} - \int  \xi_{2}^{*} (x_2)\hat{h}(\overline{r}_2) \xi_{1} (x_2)  d x_2 \cancel{\int \xi_{1}^{*}(x_1) \xi_{2} (x_1) dx_1}
+    \end{equation*}
+    
+    \begin{equation}
+        I_2 = \int \xi_{2}^{*} (x_2) \hat{h}(\overline{r}_2) \xi_2 (x_2) dx_2
+    \end{equation}
+    
+    \begin{equation*}
+        I_3 = \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)(\xi_{1} (x_1) \xi_{2} (x_2) - \xi_{2} (x_1) \xi_{1} (x_2)) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation}
+        I_3= \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2 - \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2
+    \end{equation}
+    
+    y juntando (1), (2) y (3)
+    
+    \begin{equation*}
+        <\hat{H}>_\psi = \sum_{i=1}^{2} \int \xi_{i}^{*} (x_i) \hat{h}(\overline{r}_i) \xi_{i} (x_i) dx_i  +
+    \end{equation*} 
+    
+    \begin{equation*}
+        \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2 - \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2
+    \end{equation*}
+    
+    
+    \item Construya una funcional para utilizar con el método Hartree-Fock, calculando previamente el valor esperado del hamiltoniano, en forma directa.
+    
+    \textbf{Sol:}
+    
+      Sea la funcional
+    
+    \begin{equation*}
+        F[\xi_j (x_j)] = <\hat{H}>_\psi - \sum \epsilon_j \int\xi_{j}^{*} (x_j) \xi_j (x_j) dx_j
+    \end{equation*}
+    
+    entonces sustituyendo el resultado del ejercicio anterior
+    
+    \begin{equation*}
+        F[\xi_j (x_j)]= \sum_{i=1}^{2} \int \xi_{i}^{*} (x_i) \hat{h}(\overline{r}_i) \xi_{i} (x_i) dx_i  - \sum \epsilon_j \int\xi_{j}^{*} (x_j) \xi_j (x_j) dx_j+
+    \end{equation*}
+    
+    \begin{equation*}
+        \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2 - \int  \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2
+    \end{equation*}
+    
+    
+    
+    \item Tome la variación de la funcional respecto a cada espín-orbital igual a cero
+    
+    \textbf{Sol:}
+    
+    Para esto se debe tener que $\delta F[\xi_{j}^{*}(x_j)] = 0$, o bien usando lo del inciso anterior,
+    
+    
+    \begin{equation*}
+        \delta F[\xi_{j}^{*}(x_j)] =\sum_{i=1}^{2} \int \delta\xi_{i}^{*} (x_i) \hat{h}(\overline{r}_i) \xi_{i} (x_i) dx_i  - \sum \epsilon_j \int\delta\xi_{j}^{*} (x_j) \xi_j (x_j) dx_j+
+    \end{equation*}
+    
+    \begin{equation*}
+        \int  \delta \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2 + \int  \xi_{1}^{*} (x_1) \delta \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{1} (x_1) \xi_{2} (x_2) d x_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+         - \int  \delta \xi_{1}^{*} (x_1) \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2  - \int  \xi_{1}^{*} (x_1) \delta \xi_{2}^{*} (x_2) \hat{V}(1,2)\xi_{2} (x_1) \xi_{1} (x_2) d x_1 dx_2 = 0
+    \end{equation*}
+    
+    que agrupando términos es:
+    
+    \begin{equation*}
+        \hspace{-3cm}\sum_j \int \delta [\xi_{j}^{*}(x_j)]dx_j \left[\hat{h}_{j}\xi_{j}(x_j)+ \int |\xi_{k}(x_k)|^2 V\xi_j (x_j) dx_k - \int \xi_{k}^{*} (x_k) \xi_j (x_k) V\xi_k (x_j) dx_k -\epsilon_j \xi_j (x_j)\right] = 0
+    \end{equation*}
+    
+    con $k \neq j$.
+    
+    
+    \item Escriba las ecuaciones de una partícula que deben resolverse.
+    
+    \textbf{Sol:}
+    
+    Suponiendo que las variaciones de las funciones de prueba son linealmente independientes, se tiene que:
+    
+    \begin{equation*}
+        \hat{h}_{j}\xi_{j}(x_j)+ \int |\xi_{k}(x_k)|^2 V\xi_j (x_j) dx_k - \int \xi_{k}^{*} (x_k) \xi_j (x_k) V\xi_k (x_j) dx_k -\epsilon_j \xi_j (x_j) = 0
+    \end{equation*}
+    
+    o bien para cada $j$,
+    
+    \begin{equation*}
+        \hat{h}_{1}\xi_{1}(x_1)+ \int |\xi_{2}(x_2)|^2 V\xi_1(x_1) dx_2 - \int \xi_{2}^{*} (x_2) \xi_1 (x_2) V\xi_2 (x_1) dx_2 =\epsilon_1 \xi_1 (x_1)
+    \end{equation*}
+    
+    \begin{equation*}
+        \hat{h}_{2}\xi_{2}(x_2)+ \int |\xi_{1}(x_1)|^2 V\xi_2(x_2) dx_1 - \int \xi_{1}^{*} (x_1) \xi_2 (x_1) V\xi_1 (x_2) dx_1 =\epsilon_2 \xi_2 (x_2)
+    \end{equation*}
+
+\end{enumerate}
+
+
+
+%%%4%%%
+
+
+
+\item Determine la energía del estado base del Helio mediante:
+
+\begin{enumerate}
+    \item El método de perturbaciones, realizando los desarrollos con detalle
+    
+    \textbf{Sol:}
+    
+    \item El método variacional, usando la carga del núcleo apantallada como parámetro.
+    Realice las integrales necesarias con el mayor detalle posible.
+    
+    \textbf{Sol:}
+    
+\end{enumerate}
+
+
+
+%%%5%%%
+
+
+
+\item Para el átomo de Litio:
+
+\begin{enumerate}
+    \item Escriba la función de onda del estado base.
+    
+    \textbf{Sol:}
+    
+    Usando un determinante de Slater, la función de onda es:
+    
+    \begin{equation*}
+        \Psi(x_1,x_2,x_3) = \frac{1}{\sqrt{3!}}\left| \begin{matrix}
+        1s(1)\alpha(1) & 1s(1) \beta(1) & 2s(1) \alpha(1) \\
+        1s(2)\alpha (2) & 1s(2) \beta(2) & 2s(2) \alpha(2) \\
+        1s(3) \alpha(3) & 1s(3) \beta (3) & 2s(3) \alpha (3)
+        
+        \end{matrix} \right|
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-2cm}= \frac{1}{\sqrt{6}} \left[1s(1)1s(2)2s(3)\alpha(1)\beta(2)\alpha(3) -1s(1)1s(3)2s(2) \alpha(1) \alpha(2) \beta(3) + 1s(1)1s(2) 2s(3)\beta(1) \alpha(2) \alpha(3) \right.
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-2cm}\left. - 1s(1)2s(2)1s(3) \beta(1) \alpha(2) \alpha(3) + 2s(1)1s(2)1s(3) \alpha(1)\alpha(2) \beta (3) - 2s(1) 1s(2) 1s(3) \alpha(1) \beta(2) \alpha(3) \right]
+    \end{equation*}
+    
+    \item Demuestre que dicha función es función propia del operador proyección $z$ del operador de espín total, $\hat{S}_z = S_{1z} + S_{2z} + S_{3z}$.
+    
+    \textbf{Sol:}
+    
+    Aplicando el operador de proyección z del espín total a la función de onda
+    
+    \begin{equation*}
+        \hat{S}_z \Psi (x_1,x_2,x_3) =  (S_{1z} + S_{2z} + S_{3z}) \Psi 
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-3cm}= \frac{1}{\sqrt{6}} \left[(S_{1z} + S_{2z} + S_{3z})1s(1)1s(2)2s(3)\alpha(1)\beta(2)\alpha(3) -(S_{1z} + S_{2z} + S_{3z})1s(1)1s(3)2s(2) \alpha(1) \alpha(2) \beta(3) \right.
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-3cm}+ (S_{1z} + S_{2z} + S_{3z})1s(1)1s(2) 2s(3)\beta(1) \alpha(2) \alpha(3) - (S_{1z} + S_{2z} + S_{3z})1s(1)2s(2)1s(3) \beta(1) \alpha(2) \alpha(3) 
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-2cm}\left. +(S_{1z} + S_{2z} + S_{3z}) 2s(1)1s(2)1s(3) \alpha(1)\alpha(2) \beta (3) - (S_{1z} + S_{2z} + S_{3z})2s(1) 1s(2) 1s(3) \alpha(1) \beta(2) \alpha(3) \right]
+    \end{equation*}
+    
+    y dado que los operadores solo se aplican en la parte del spín de la siguiente forma $S_{iz} \alpha(i)= \hbar \alpha(i)/2 $ , $S_{iz} \beta(i) = \hbar \beta(i)/2$,entonces
+    
+    \begin{equation*}
+        \hat{S}_z \Psi (x_1,x_2,x_3) =  (S_{1z} + S_{2z} + S_{3z}) \Psi 
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-3cm}= \frac{1}{\sqrt{6}} \left[\left(\frac{\hbar}{2} - \frac{\hbar}{2} + \frac{\hbar}{2}\right)1s(1)1s(2)2s(3)\alpha(1)\beta(2)\alpha(3) -\left(\frac{\hbar}{2} + \frac{\hbar}{2} - \frac{\hbar}{2}\right)1s(1)1s(3)2s(2) \alpha(1) \alpha(2) \beta(3) \right.
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-3cm}+ \left(-\frac{\hbar}{2} + \frac{\hbar}{2} + \frac{\hbar}{2}\right)1s(1)1s(2) 2s(3)\beta(1) \alpha(2) \alpha(3) - \left(-\frac{\hbar}{2} + \frac{\hbar}{2} + \frac{\hbar}{2}\right)1s(1)2s(2)1s(3) \beta(1) \alpha(2) \alpha(3) 
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-2cm}\left. +\left(\frac{\hbar}{2} + \frac{\hbar}{2} - \frac{\hbar}{2}\right) 2s(1)1s(2)1s(3) \alpha(1)\alpha(2) \beta (3) - \left(\frac{\hbar}{2} - \frac{\hbar}{2} + \frac{\hbar}{2}\right)2s(1) 1s(2) 1s(3) \alpha(1) \beta(2) \alpha(3) \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-3cm}= \frac{1}{\sqrt{6}} \left[\frac{\hbar}{2}1s(1)1s(2)2s(3)\alpha(1)\beta(2)\alpha(3) -\frac{\hbar}{2}1s(1)1s(3)2s(2) \alpha(1) \alpha(2) \beta(3) \right.
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-3cm}+ \frac{\hbar}{2}1s(1)1s(2) 2s(3)\beta(1) \alpha(2) \alpha(3) - \frac{\hbar}{2}1s(1)2s(2)1s(3) \beta(1) \alpha(2) \alpha(3) 
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-2cm}\left. +\frac{\hbar}{2} 2s(1)1s(2)1s(3) \alpha(1)\alpha(2) \beta (3) - \frac{\hbar}{2}2s(1) 1s(2) 1s(3) \alpha(1) \beta(2) \alpha(3) \right]
+    \end{equation*}
+    
+    \begin{equation*}
+        = \frac{\hbar}{2} \frac{1}{\sqrt{6}} \left| \begin{matrix}
+        1s(1)\alpha(1) & 1s(1) \beta(1) & 2s(1) \alpha(1) \\
+        1s(2)\alpha (2) & 1s(2) \beta(2) & 2s(2) \alpha(2) \\
+        1s(3) \alpha(3) & 1s(3) \beta (3) & 2s(3) \alpha (3)
+        
+        \end{matrix} \right| = \frac{\hbar}{2} \Psi (x_1,x_2,x_3) 
+    \end{equation*}
+    
+    
+    por lo tanto
+    
+    \begin{equation*}
+        \hat{S}_z \Psi(x_1,x_2,x_3) = \frac{\hbar}{2} \Psi(x_1,x_2,x_3)
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    \item Encuentre los valores propios del operador $\hat{S}_z$ en el estado base.
+    
+    \textbf{Sol:}
+    
+    Como se vió en el inciso anterior los valores propios del operador $\hat{S}_z$ en el estado base son $\frac{\hbar}{2}$.
+    
+\end{enumerate}
+
+
+
+%%%6%%%
+
+
+
+\item Para un sistema de 3 electrones; calcule el valor propio del operador $\hat{S}_z$ en el estado representado por la función de espín
+
+\begin{equation*}
+    \chi = \frac{1}{3!} [\alpha (1) \alpha (2) \beta (3) + \alpha (1) \beta(2) \alpha(3) + \beta(1) \alpha(2) \alpha(3)]
+\end{equation*}
+
+donde $\alpha$ representa el estado con proyección de espín $\frac{\hbar
+}{2}$ y $\beta$ el estado de proyección de espín $- \frac{\hbar}{2}$
+
+\textbf{Sol:}
+
+De forma análoga al ejercicio anterior,
+
+\begin{equation*}
+        \hat{S}_z \chi (x_1,x_2,x_3) =  (S_{1z} + S_{2z} + S_{3z}) \chi 
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        = \frac{1}{3!} [(S_{1z} + S_{2z} + S_{3z})\alpha (1) \alpha (2) \beta (3) + (S_{1z} + S_{2z} + S_{3z})\alpha (1) \beta(2) \alpha(3) +(S_{1z} + S_{2z} + S_{3z}) \beta(1) \alpha(2) \alpha(3)]
+    \end{equation*}
+    
+    
+    y dado que los operadores solo se aplican en la parte del spín de la siguiente forma $S_{iz} \alpha(i)= \hbar \alpha(i)/2 $ , $S_{iz} \beta(i) = \hbar \beta(i)/2$,entonces
+    
+    
+    \begin{equation*}
+        \hspace{-1cm}\hat{S}_z \chi = \frac{1}{3!} \left[\left(\frac{\hbar}{2} + \frac{\hbar}{2} - \frac{\hbar}{2}\right) \alpha (1) \alpha (2) \beta (3) + \left(\frac{\hbar}{2} - \frac{\hbar}{2} + \frac{\hbar}{2}\right) \alpha (1) \beta(2) \alpha(3) +\left(-\frac{\hbar}{2} + \frac{\hbar}{2} + \frac{\hbar}{2}\right) \beta(1) \alpha(2) \alpha(3)\right]
+    \end{equation*}
+    
+    \begin{equation*}
+         = \frac{1}{3!} \left[\frac{\hbar}{2} \alpha (1) \alpha (2) \beta (3) + \frac{\hbar}{2}\alpha (1) \beta(2) \alpha(3) +\frac{\hbar}{2} \beta(1) \alpha(2) \alpha(3)\right] = \frac{\hbar}{2} \chi
+    \end{equation*}
+    
+    por lo que el valor propio es $\frac{\hbar}{2}$.
+
+
+
+%%%7%%%
+
+
+
+\item Para un átomo de 3 electrones:
+
+\begin{enumerate}
+    \item Si exigimos que el determinante de Slater esté normalizado, ¿Qué condiciones deben exigirse a las funciones espín-orbitales? obtenga dicha condición de forma directa.
+    
+    \textbf{Sol:}
+    
+    Sea
+    
+    \begin{equation*}
+        \Psi(x_1,x_2,x_3) = \frac{1}{\sqrt{3!}} \left| \begin{matrix}
+        \xi_1(x_1) & \xi_1 (x_2) & \xi_1 (x_3) \\
+        \xi_2 (x_1) & \xi_2 (x_2) &\xi_2 (x_3) \\
+        \xi_3 (x_1) & \xi_3 (x_2) & \xi_3 (x_3) \\
+        \end{matrix}\right|
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-2cm}= \frac{1}{\sqrt{6}} [\xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3) - \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) + \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3) - \xi_1 (x_2) \xi_2 (x_3) \xi_3 (x_1) + \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2) 
+    \end{equation*}
+    
+    \begin{equation*}
+        - \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)]
+    \end{equation*}
+    
+    para que esto esté normalizado se de cumplir que
+    
+    \begin{equation*}
+        \int \Psi^{*} \Psi = 1
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        \hspace{-4cm}\frac{1}{6}\int [\xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3) - \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2) + \xi_{1}^{*} (x_2) \xi_{2}^{*} (x_1) \xi_{3}^{*} (x_3) - \xi_{1}^{*} (x_2) \xi_{2}^{*} (x_3) \xi_{3}^{*} (x_1) + \xi_{1}^{*} (x_3) \xi_{2}^{*} (x_1) \xi_{3}^{*} (x_2) 
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm}- \xi_{1}^{*} (x_3) \xi_{2}^{*} (x_2) \xi_{3}^{*} (x_1)] [\xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3) - \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) + \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3) - \xi_1 (x_2) \xi_2 (x_3) \xi_3 (x_1)
+    \end{equation*}
+    
+    \begin{equation*}
+         + \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2) - \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3=1
+    \end{equation*}
+    
+    dividiendo esto en 6 integrales
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}I_1 =\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3) \xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3)  \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3) \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3) \xi_1 (x_2) \xi_2 (x_3) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3) \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_3) \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\int \xi_{1}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{2}^{*}(x_2)\xi_2(x_2)dx_2 \int \xi_{3}^{*} (x_3)   \xi_3 (x_3) dx_3 -\int \xi_{1}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{2}^{*}(x_2)\xi_3 (x_2) dx_2\int \xi_{3}^{*} (x_3)   \xi_2(x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_2 (x_1) dx_1 \int \xi_{2}^{*}(x_2) \xi_1 (x_2) dx_2\int \xi_{3}^{*} (x_3)   \xi_3 (x_3)dx_3 -\int \xi_{1}^{*} (x_1) \xi_3 (x_1) dx_1 \int \xi_{2}^{*}(x_2) \xi_1 (x_2) dx_2 \int \xi_{3}^{*} (x_3)  \xi_2 (x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_2 (x_1) dx_1  \int \xi_{2}^{*}(x_2) \xi_3 (x_2) dx_2 \int \xi_{3}^{*} (x_3) \xi_1 (x_3)   dx_3 -\int \xi_{1}^{*} (x_1)\xi_3 (x_1) dx_1 \int \xi_{2}^{*}(x_2) \xi_2 (x_2) dx_2 \int \xi_{3}^{*} (x_3) \xi_1 (x_3)   dx_3
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}-I_2 =\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2) \xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2)  \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2) \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2) \xi_1 (x_2) \xi_2 (x_3) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2) \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_1) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_2) \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\int \xi_{1}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{3}^{*}(x_2)\xi_2(x_2)dx_2 \int \xi_{2}^{*} (x_3)   \xi_3 (x_3) dx_3 -\int \xi_{1}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{3}^{*}(x_2)\xi_3 (x_2) dx_2\int \xi_{2}^{*} (x_3)   \xi_2(x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_2 (x_1) dx_1 \int \xi_{3}^{*}(x_2) \xi_1 (x_2) dx_2\int \xi_{2}^{*} (x_3)   \xi_3 (x_3)dx_3 -\int \xi_{1}^{*} (x_1) \xi_3 (x_1) dx_1 \int \xi_{3}^{*}(x_2) \xi_1 (x_2) dx_2 \int \xi_{2}^{*} (x_3)  \xi_2 (x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_1) \xi_2 (x_1) dx_1  \int \xi_{3}^{*}(x_2) \xi_3 (x_2) dx_2 \int \xi_{2}^{*} (x_3) \xi_1 (x_3)   dx_3 -\int \xi_{1}^{*} (x_1)\xi_3 (x_1) dx_1 \int \xi_{3}^{*}(x_2) \xi_2 (x_2) dx_2 \int \xi_{2}^{*} (x_3) \xi_1 (x_3)   dx_3
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}I_3 =\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_3) \xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_3)  \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_3) \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_3) \xi_1 (x_2) \xi_2 (x_3) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_3) \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_3) \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\int \xi_{2}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{1}^{*}(x_2)\xi_2(x_2)dx_2 \int \xi_{3}^{*} (x_3)   \xi_3 (x_3) dx_3 -\int \xi_{2}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{1}^{*}(x_2)\xi_3 (x_2) dx_2\int \xi_{3}^{*} (x_3)   \xi_2(x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{2}^{*} (x_1) \xi_2 (x_1) dx_1 \int \xi_{1}^{*}(x_2) \xi_1 (x_2) dx_2\int \xi_{3}^{*} (x_3)   \xi_3 (x_3)dx_3 -\int \xi_{2}^{*} (x_1) \xi_3 (x_1) dx_1 \int \xi_{1}^{*}(x_2) \xi_1 (x_2) dx_2 \int \xi_{3}^{*} (x_3)  \xi_2 (x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{2}^{*} (x_1) \xi_2 (x_1) dx_1  \int \xi_{1}^{*}(x_2) \xi_3 (x_2) dx_2 \int \xi_{3}^{*} (x_3) \xi_1 (x_3)   dx_3 -\int \xi_{2}^{*} (x_1)\xi_3 (x_1) dx_1 \int \xi_{1}^{*}(x_2) \xi_2 (x_2) dx_2 \int \xi_{3}^{*} (x_3) \xi_1 (x_3)   dx_3
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}-I_4 =\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_1) \xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_1)  \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_1) \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_1) \xi_1 (x_2) \xi_2 (x_3) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_1) \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_2) \xi_{2}^{*}(x_3) \xi_{3}^{*} (x_1) \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\int \xi_{2}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{3}^{*}(x_2)\xi_2(x_2)dx_2 \int \xi_{1}^{*} (x_3)   \xi_3 (x_3) dx_3 -\int \xi_{2}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{3}^{*}(x_2)\xi_3 (x_2) dx_2\int \xi_{1}^{*} (x_3)   \xi_2(x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{2}^{*} (x_1) \xi_2 (x_1) dx_1 \int \xi_{3}^{*}(x_2) \xi_1 (x_2) dx_2\int \xi_{1}^{*} (x_3)   \xi_3 (x_3)dx_3 -\int \xi_{2}^{*} (x_1) \xi_3 (x_1) dx_1 \int \xi_{3}^{*}(x_2) \xi_1 (x_2) dx_2 \int \xi_{1}^{*} (x_3)  \xi_2 (x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{2}^{*} (x_1) \xi_2 (x_1) dx_1  \int \xi_{3}^{*}(x_2) \xi_3 (x_2) dx_2 \int \xi_{1}^{*} (x_3) \xi_1 (x_3)   dx_3 -\int \xi_{2}^{*} (x_1)\xi_3 (x_1) dx_1 \int \xi_{3}^{*}(x_2) \xi_2 (x_2) dx_2 \int \xi_{1}^{*} (x_3) \xi_1 (x_3)   dx_3
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}I_5 =\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_2) \xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_2)  \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_2) \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_2) \xi_1 (x_2) \xi_2 (x_3) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_2) \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_1) \xi_{3}^{*} (x_2) \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\int \xi_{3}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{1}^{*}(x_2)\xi_2(x_2)dx_2 \int \xi_{2}^{*} (x_3)   \xi_3 (x_3) dx_3 -\int \xi_{3}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{1}^{*}(x_2)\xi_3 (x_2) dx_2\int \xi_{2}^{*} (x_3)   \xi_2(x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{3}^{*} (x_1) \xi_2 (x_1) dx_1 \int \xi_{1}^{*}(x_2) \xi_1 (x_2) dx_2\int \xi_{2}^{*} (x_3)   \xi_3 (x_3)dx_3 -\int \xi_{3}^{*} (x_1) \xi_3 (x_1) dx_1 \int \xi_{1}^{*}(x_2) \xi_1 (x_2) dx_2 \int \xi_{2}^{*} (x_3)  \xi_2 (x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{3}^{*} (x_1) \xi_2 (x_1) dx_1  \int \xi_{1}^{*}(x_2) \xi_3 (x_2) dx_2 \int \xi_{2}^{*} (x_3) \xi_1 (x_3)   dx_3 -\int \xi_{3}^{*} (x_1)\xi_3 (x_1) dx_1 \int \xi_{1}^{*}(x_2) \xi_2 (x_2) dx_2 \int \xi_{2}^{*} (x_3) \xi_1 (x_3)   dx_3
+    \end{equation*}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}-I_6 =\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_1) \xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_1)  \xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_1) \xi_1 (x_2) \xi_2 (x_1) \xi_3 (x_3)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_1) \xi_1 (x_2) \xi_2 (x_3) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_1) \xi_1 (x_3) \xi_2 (x_1) \xi_3 (x_2)dx_1dx_2 dx_3 -\int \xi_{1}^{*} (x_3) \xi_{2}^{*}(x_2) \xi_{3}^{*} (x_1) \xi_1 (x_3) \xi_2 (x_2) \xi_3 (x_1)] dx_1dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\int \xi_{3}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{2}^{*}(x_2)\xi_2(x_2)dx_2 \int \xi_{1}^{*} (x_3)   \xi_3 (x_3) dx_3 -\int \xi_{3}^{*} (x_1)\xi_1 (x_1) dx_1 \int \xi_{2}^{*}(x_2)\xi_3 (x_2) dx_2\int \xi_{1}^{*} (x_3)   \xi_2(x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{3}^{*} (x_1) \xi_2 (x_1) dx_1 \int \xi_{2}^{*}(x_2) \xi_1 (x_2) dx_2\int \xi_{1}^{*} (x_3)   \xi_3 (x_3)dx_3 -\int \xi_{3}^{*} (x_1) \xi_3 (x_1) dx_1 \int \xi_{2}^{*}(x_2) \xi_1 (x_2) dx_2 \int \xi_{1}^{*} (x_3)  \xi_2 (x_3)  dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         \hspace{-4cm}+\int \xi_{3}^{*} (x_1) \xi_2 (x_1) dx_1  \int \xi_{2}^{*}(x_2) \xi_3 (x_2) dx_2 \int \xi_{1}^{*} (x_3) \xi_1 (x_3)   dx_3 -\int \xi_{3}^{*} (x_1)\xi_3 (x_1) dx_1 \int \xi_{2}^{*}(x_2) \xi_2 (x_2) dx_2 \int \xi_{1}^{*} (x_3) \xi_1 (x_3)   dx_3
+    \end{equation*}
+    
+    entonces de todo lo anterior se puede ver que para que 
+    
+    \begin{equation*}
+        \frac{I_1 + I_2 + I_3 + I_4 + I_5 + I_6}{6} = 1
+    \end{equation*}
+    
+    se debe cumplir que
+    
+    \begin{equation*}
+        \int \xi_{i} (x) \xi_j(x) dx = \delta_{ij}
+    \end{equation*}
+    
+    \item Considerando que los espín-orbitales y sus ocupaciones son:
+    \begin{equation*}
+        \xi_1 (x_1) = \xi_1(r_1) \alpha(1) \hspace{0.5cm} \xi_2 (x_2) = \xi_2 (r_2) \beta (2) \hspace{0.5cm} \xi_3(x_3) = \xi_3 (r_3) \alpha(3)
+    \end{equation*}
+    
+    Calcular simbólicamente los valores esperados para cada uno de los estados con hamiltonianos de una partícula, haciendo ver explícitamente el efecto de espín.
+    
+    \textbf{Sol:}
+    
+    
+    Como se vió en clase, para el hamiltoniano de 3 electrones, se tiene el valor esperado con $j \neq k$
+    
+    \begin{equation*}
+       \hspace{-4cm} <\hat{H_1}> = \sum_{j=1}^{3} \int \xi_{j}(x_j) h_j \xi_{j}^{*}(x_j) dx_j 
+        \end{equation*}
+        
+        entonces sustituyendo
+        
+        \begin{equation*}
+            \hspace{-4cm}<\hat{H_1}> = \sum_{m_{s1}}\int \xi_{1}^{*}(r_1) \alpha^{*}(1) h_j \xi_{1}(r_1) \alpha(1) dx_1  + \sum_{m_{s2}} \int \xi_{2}^{*}(r_2) \beta^{*}(2) h_j \xi_{2}(r_2) \beta(2) dx_2+ \sum_{m_{s3}}   \int \xi_{3}^{*}(r_3) \alpha^{*}(3) h_j \xi_{3}(r_3) \alpha(3) dx_3
+        \end{equation*}
+        
+        \begin{equation*}
+            \hspace{-4cm}= \int \xi_{1}^{*}(r_1)  h_j \xi_{1}(r_1)\sum_{m_{s1}} \alpha^*(1)\alpha(1)  + \int \xi_{2}^{*}(r_2) h_j \xi_{2}(r_2)dx_2\sum_{m_{s2}}\alpha^*(2) \beta(2) +   \int \xi_{3}^{*}(r_3)  h_j \xi_{3}(r_3)dx_3 \sum_{m_{s3}} \alpha^*(3)\alpha(3)
+        \end{equation*}
+    
+        
+        como las funciones de espín están normalizadas
+    
+    
+    \begin{equation*}
+            \hspace{-4cm}<\hat{H}>= \int \xi_{1}^{*}(r_1)  h_j \xi_{1}(r_1)  + \int \xi_{2}^{*}(r_2) h_j \xi_{2}(r_2)dx_2 +   \int \xi_{3}^{*}(r_3)  h_j \xi_{3}(r_3)dx_3 
+        \end{equation*}
+    
+    
+    
+    
+    \item Hacer un cálculo similar cada una de las integrales directas y de intercambio.
+    
+    \textbf{Sol:}
+    
+    Para la parte del potencial se tiene
+    
+    \begin{equation*}
+        \hspace{-4cm}<V(1,2)> = \int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) V(1,2) \xi_1(x_1) \xi_2(x_2) dx_1 dx_2 - \int  \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) V(1,2) \xi_1(x_2) \xi_2(x_1) dx_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\sum_{m_{s1}} \sum_{m_{s2}} \int \xi_{1}^{*}(r_1) \alpha^{*}(1)  \xi_{2}^{*}(r_2)\beta^*(2) V(1,2) \xi_1(r_1) \alpha(1) \xi_2(r_2) \beta(2) dx_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+         -\sum_{m_{s1}} \sum_{m_{s2}} \int  \xi_{1}^{*}(r_1) \alpha^*(1) \xi_{2}^{*}(r_2) \beta^*(2) V(1,2) \xi_1(r_2) \alpha(2) \xi_2(r_1) \beta(1) dx_1 dx_2
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} = \int \xi_{1}^{*}(r_1)   \xi_{2}^{*}(r_2) V(1,2) \xi_1(r_1)  \xi_2(r_2)  dx_1 dx_2 \sum_{m_{s1}} \alpha^{*}(1)\alpha(1)\sum_{m_{s2}}\beta^*(2) \beta(2)
+    \end{equation*}
+    
+    \begin{equation*}
+         - \int  \xi_{1}^{*}(r_1)  \xi_{2}^{*}(r_2)  V(1,2) \xi_1(r_2) \xi_2(r_1)  dx_1 dx_2 \sum_{m_{s1}}\alpha^*(1)  \alpha(2) \sum_{m_{s2}} \beta^*(2)\beta(1)
+    \end{equation*}
+    
+    ahora de nuevo como las funciones de espín están normalizadas, el segundo termino del segundo sumando se anula y el segundo termino del primer sumando se hace 1, entonces
+    
+    \begin{equation*}
+        \hspace{-4cm} <V(1,2)> = \int \xi_{1}^{*}(r_1)   \xi_{2}^{*}(r_2) V(1,2) \xi_1(r_1)  \xi_2(r_2)  dx_1 dx_2 
+    \end{equation*}
+    
+    de forma análoga
+    
+    
+    \begin{equation*}
+        \hspace{-4cm}<V(1,3)> = \int \xi_{1}^{*}(x_1) \xi_{3}^{*}(x_3) V(1,3) \xi_1(x_1) \xi_3(x_3) dx_1 dx_3 - \int  \xi_{1}^{*}(x_1) \xi_{3}^{*}(x_3) V(1,3) \xi_1(x_3) \xi_3(x_1) dx_1 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\sum_{m_{s1}} \sum_{m_{s3}} \int \xi_{1}^{*}(r_1) \alpha^{*}(1)  \xi_{3}^{*}(r_3)\beta^*(3) V(1,3) \xi_1(r_1) \alpha(1) \xi_3(r_3) \beta(3) dx_1 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         -\sum_{m_{s1}} \sum_{m_{s3}} \int  \xi_{1}^{*}(r_1) \alpha^*(1) \xi_{3}^{*}(r_3) \beta^*(3) V(1,3) \xi_1(r_3) \alpha(3) \xi_3(r_1) \beta(1) dx_1 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} = \int \xi_{1}^{*}(r_1)   \xi_{3}^{*}(r_3) V(1,3) \xi_1(r_1)  \xi_3(r_3)  dx_1 dx_3 \sum_{m_{s1}} \alpha^{*}(1)\alpha(1)\sum_{m_{s3}}\beta^*(3) \beta(3)
+    \end{equation*}
+    
+    \begin{equation*}
+         - \int  \xi_{1}^{*}(r_1)  \xi_{3}^{*}(r_3)  V(1,3) \xi_1(r_3) \xi_3(r_1)  dx_1 dx_3 \sum_{m_{s1}}\alpha^*(1)  \alpha(3) \sum_{m_{s3}} \beta^*(3)\beta(1)
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} <V(1,3)> = \int \xi_{1}^{*}(r_1)   \xi_{3}^{*}(r_3) V(1,3) \xi_1(r_1)  \xi_3(r_3)  dx_1 dx_3 
+    \end{equation*}
+    
+    y
+    
+    \begin{equation*}
+        \hspace{-4cm}<V(2,3)> = \int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3) V(2,3) \xi_2(x_2) \xi_3(x_3) dx_2 dx_3 - \int  \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3) V(2,3) \xi_2(x_3) \xi_3(x_2) dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} =\sum_{m_{s2}} \sum_{m_{s3}} \int \xi_{2}^{*}(r_2) \alpha^{*}(2)  \xi_{3}^{*}(r_2)\beta^*(3) V(2,3) \xi_2(r_2) \alpha(2) \xi_3(r_3) \beta(3) dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+         -\sum_{m_{s2}} \sum_{m_{s3}} \int  \xi_{2}^{*}(r_2) \alpha^*(2) \xi_{3}^{*}(r_3) \beta^*(3) V(2,3) \xi_2(r_3) \alpha(2) \xi_3(r_2) \beta(1) dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} = \int \xi_{2}^{*}(r_2)   \xi_{3}^{*}(r_3) V(2,3) \xi_2(r_2)  \xi_3(r_3)  dx_2 dx_3 \sum_{m_{s2}} \alpha^{*}(2)\alpha(2)\sum_{m_{s3}}\beta^*(3) \beta(3)
+    \end{equation*}
+    
+    \begin{equation*}
+         - \int  \xi_{2}^{*}(r_2)  \xi_{3}^{*}(r_3)  V(2,3) \xi_2(r_3) \xi_3(r_2)  dx_2 dx_3 \sum_{m_{s2}}\alpha^*(2)  \alpha(3) \sum_{m_{s3}} \beta^*(3)\beta(2)
+    \end{equation*}
+    
+    \begin{equation*}
+        \hspace{-4cm} <V(2,3)> = \int \xi_{2}^{*}(r_2)   \xi_{3}^{*}(r_3) V(2,3) \xi_2(r_2)  \xi_3(r_3)  dx_2 dx_3 
+    \end{equation*}
+    
+    
+    
+\end{enumerate}
+
+
+
+%%%8%%%
+
+
+
+\item En este ejercicio $\alpha$ y $\beta$ representan funciones propias del operador $\hat{S}_z$, mientras que $f$ y $g$ son funciones generales de coordenadas espaciales, delas cuales no se tiene más información. Las etiquetas entre paréntesis indican coordenadas de partículas. Cuáles de las siguientes funciones son
+
+\begin{enumerate}
+    \item Completamente simétricas
+    
+    \textbf{Sol:}
+    
+    Aplicando el operador de paridad
+    
+    \begin{equation*}
+        \hat{P}(f(1)g(2)-g(1)g(2))(\alpha(1) \beta(2) - \beta(1) \alpha(2)) =(f(2)g(1)-g(2)g(1))(\alpha(2) \beta(1) - \beta(2) \alpha(1))
+    \end{equation*}
+    
+    y por la conmutatividad de las coordenadas espín- orbitales 
+    
+    \begin{equation*}
+        \hspace{-3cm}(g(1)f(2)-g(1)g(2))(\beta(1)\alpha(2)  - \alpha(1)\beta(2) ) =(-1)(-1)(f(1)g(2)-g(1)g(2))(\alpha(1) \beta(2) - \beta(1) \alpha(2))
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        \hat{P}r_{12}^{2} exp(-a(r_1 + r_2)) = r_{21}^{2} exp(-a(r_2 + r_1))
+    \end{equation*}
+    
+    y como la distancia de 1 a 2 es igual que la de 2 a 1
+    
+    \begin{equation*}
+        \hat{P}r_{12}^{2} exp(-a(r_1 + r_2)) = r_{12}^{2} exp(-a(r_1 + r_2))
+    \end{equation*}
+    
+    \item Completamente antisimétricas
+    
+    \textbf{Sol:}
+    
+    Aplicando el operador de paridad
+    
+    \begin{equation*}
+        \hat{P}f(1)f(2)(\alpha (1)\beta(2)-\beta(1)\alpha(2))= f(2)f(1)(\alpha (2)\beta(1)-\beta(2)\alpha(1))
+    \end{equation*}
+    
+    y por la conmutatividad de las coordenadas espín- orbitales 
+    
+    \begin{equation*}
+        f(2)f(1)(\alpha (2)\beta(1)-\beta(2)\alpha(1)) = -f(1)f(2)(\alpha(1)\beta(2)-\beta(1)\alpha (2))
+    \end{equation*}
+    
+    \item En cuales falta información para clasificarlas en los términos anteriores
+    
+    \textbf{Sol:}
+    
+    Aplicando el operador de paridad
+    
+    \begin{equation*}
+        \hat{P}f(1)g(2)\alpha(1)\alpha (2) = f(2)g(1)\alpha(2)\alpha (1)
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        \hat{P}f(1)f(2)f(3)\beta(1)\beta(2)\beta(3) = f(2)f(1)f(3)\beta(2)\beta(1)\beta(3)
+    \end{equation*}
+    
+    \begin{equation*}
+        \hat{P}exp(-a(r_1 - r_2))]= exp(-a(r_2 - r_1))] =exp(a(r_1 - r_2))]
+    \end{equation*}
+    
+    
+\end{enumerate}
+
+$[f(1)g(2)\alpha(1)\alpha (2); f(1)f(2)(\alpha (1)\beta(2)-\beta(1)\alpha(2));f(1)f(2)f(3)\beta(1)\beta(2)\beta(3);$
+
+$(f(1)g(2)-g(1)g(2))(\alpha(1) \beta(2) - \beta(1) \alpha(2)); r_{12}^{2} exp(-a(r_1 + r_2)); exp(-a(r_1 - r_2))]$
+
+
+
+%%%9%%%
+
+
+
+\item
+\begin{enumerate}
+    \item Calcule en forma explícita y directa el promedio cuántico del operador $\frac{e^2}{|r_1 - r_3}$ con las funciones espín-orbitales $\hat{A}[\xi_1(x_1) \xi_2 (x_2) \xi_3 (x_3)]$.
+    
+    \textbf{Sol:}
+    
+    Como vimos en el ejercicio 3
+    
+    \begin{equation*}
+        \hspace{-4cm}<\frac{e^2}{|r_2-r_3}> = \int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3) \frac{e^2}{|r_2 -r_3|}(\xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3) - \xi_{1} (x_1) \xi_2(x_3) \xi_3(x_2) + \xi_1(x_2) \xi_2(x_1) \xi_3 (x_3)
+    \end{equation*}
+    
+    \begin{equation*}
+         - \xi_1 (x_2) \xi_2(x_3) \xi_3 (x_1) + \xi_1(x_3) \xi_2(x_1) \xi_3(x_2) - \xi_1(x_3) \xi_2(x_2) \xi_3 (x_1)) dx_1dx_2 dx_3
+    \end{equation*}
+    
+    y dividiendo en varias integrales
+    
+    \begin{equation*}
+        I_1 =\int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|}\xi_1 (x_1) \xi_2(x_2) \xi_3 (x_3) dx_1 dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_2) \xi_3 (x_3)  dx_2 dx_3 \int \xi_{1}^{*}(x_1)\xi_1 (x_1) dx_1
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        -I_2 =\int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|}\xi_1 (x_1) \xi_2(x_3) \xi_3 (x_2) dx_1 dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_3) \xi_3 (x_2)  dx_2 dx_3 \int \xi_{1}^{*}(x_1)\xi_1 (x_1) dx_1
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        I_3 =\int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|}\xi_1 (x_2) \xi_2(x_1) \xi_3 (x_3) dx_1 dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_1(x_2) \xi_3 (x_3)  dx_2 dx_3 \int \xi_{1}^{*}(x_1)\xi_2 (x_1) dx_1
+    \end{equation*}
+    
+    \begin{equation*}
+        -I_4 =\int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|}\xi_1 (x_2) \xi_2(x_3) \xi_3 (x_1) dx_1 dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_3) \xi_1 (x_2)  dx_2 dx_3 \int \xi_{1}^{*}(x_1)\xi_3 (x_1) dx_1
+    \end{equation*}
+    
+    \begin{equation*}
+        I_5 =\int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|}\xi_1 (x_3) \xi_2(x_1) \xi_3 (x_2) dx_1 dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_1(x_3) \xi_3 (x_2)  dx_2 dx_3 \int \xi_{1}^{*}(x_1)\xi_2 (x_1) dx_1
+    \end{equation*}
+    
+    \begin{equation*}
+        -I_6 =\int \xi_{1}^{*}(x_1) \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|}\xi_1 (x_3) \xi_2(x_2) \xi_3 (x_1) dx_1 dx_2 dx_3
+    \end{equation*}
+    
+    \begin{equation*}
+        =\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_2) \xi_1 (x_3)  dx_2 dx_3 \int \xi_{1}^{*}(x_1)\xi_3 (x_1) dx_1
+    \end{equation*}
+    
+    con
+    
+    \begin{equation*}
+        <\frac{e^2}{|r_2 - r_3|}> = I_1 + I_2 + I_3 +I_4 +I_5 +I_6
+    \end{equation*}
+    
+    
+    
+    
+    
+    \item Calcule los términos distintos de cero, del promedio cuántico calculado en el inciso (a).
+    
+    \textbf{Sol:}
+    
+    Por la ortonormalidad de las funciones de prueba, se tiene que
+    
+    \begin{equation*}
+        \int \xi_{i}^{*} (x) \xi_j(x) dx  = \delta_{ij}
+    \end{equation*}
+    
+    entonces
+    
+    
+    
+    \begin{equation*}
+        I_1=\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_2) \xi_3 (x_3)  dx_2 dx_3 \cancel{\int \xi_{1}^{*}(x_1)\xi_1 (x_1) dx_1}1
+    \end{equation*}
+    
+    
+    
+    
+    \begin{equation*}
+        I_2=-\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_3) \xi_3 (x_2)  dx_2 dx_3 \cancel{\int \xi_{1}^{*}(x_1)\xi_1 (x_1) dx_1}1
+    \end{equation*}
+    
+    
+    
+    \begin{equation*}
+        I_3=\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_1(x_2) \xi_3 (x_3)  dx_2 dx_3\cancel{ \int \xi_{1}^{*}(x_1)\xi_2 (x_1) dx_1}0
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        I_4=-\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_3) \xi_1 (x_2)  dx_2 dx_3 \cancel{\int \xi_{1}^{*}(x_1)\xi_3 (x_1) dx_1}0
+    \end{equation*}
+    
+    
+    
+    \begin{equation*}
+        I_5=\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_1(x_3) \xi_3 (x_2)  dx_2 dx_3 \cancel{\int \xi_{1}^{*}(x_1)\xi_2 (x_1) dx_1}0
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        I_6 =-\int \xi_{2}^{*}(x_2) \xi_{3}^{*}(x_3)\frac{e^2}{|r_2 -r_3|} \xi_2(x_2) \xi_1 (x_3)  dx_2 dx_3 \cancel{\int \xi_{1}^{*}(x_1)\xi_3 (x_1) dx_1}0
+    \end{equation*}
+    
+    por lo tanto solo $I_1$ e $I_2$ son distintos de cero.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+\end{enumerate}
+
+    
+    
+\end{enumerate}
+
+\end{document}
