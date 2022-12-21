@@ -1,0 +1,266 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+
+PRIMERA PARTE
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Investiga la interpretación física de $\Delta H$ y $\Delta S$ en un proceso que se lleva a cabo a presión constante.
+
+\textbf{Res:}
+
+$\Delta H $
+
+El cambio de la entalpía $H$ a presión constante se puede interpretar como el intercambio de calor que sucede cuando se tiene una reacción química.
+
+
+$\Delta S$
+
+El cambio de entropía $S$ a presión constante se puede interpretar como el cambio que se tiene en la temperatura del sistema dada su dependencia ($\Delta S \propto \ln{\frac{T_f}{T_i}}$).
+
+
+
+%%%2%%%
+
+
+
+\item Explica el criterio de espontaneidad y equilibrio asociado al potencial de Gibbs $(\Delta G)$ en un proceso que se lleva a cabo a presión y temperatura constante.
+
+\textbf{Res:}
+
+El criterio de espontaneidad dice que si el cambio en la energía de Gibbs es mayor a cero el proceso no será espontáneo mientras que si es menor a cero sí lo será, si el mismo es igual a cero se dice que está en equilibrio, esto es porque el cambio en la energía de Gibbs se puede escribir como $\Delta G = \Delta H - T \Delta S$ por lo que se tiene $\Delta H < \Delta S$ , $\Delta H > \Delta S$ y $ \Delta H = \Delta S$.
+
+
+
+
+%%%3%%%
+
+
+
+\item Todos sabemos que el aire caliente sube. Entonces, la temperatura del aire en la cima de las montañas debería ser mayor que en las faldas. Sin embargo, el caso contrario es más frecuente,¿Por qué sucede esto?
+
+\textbf{Res:}
+
+Creo que el aire caliente sobre la superficie de la tierra se debe al contacto de la superficie con los rayos del sol, entonces el aire en la cima de una montaña tiene una menor temperatura ya que el aire caliente al subir por la diferencia de temperaturas, se va enfriando debido a que no está mas en contacto con la superficie y el resto de aire que lo rodea se encuentra a una temperatura más baja por lo que no se tiene una contradicción con el principio de que el aire caliente es menos denso que el frío.
+
+
+
+    
+    
+\end{enumerate}
+
+SEGUNDA PARTE
+
+\begin{enumerate}
+
+
+%%51%%%
+
+
+
+
+
+\item Como vimos en clase, la entropía es una variable extensiva termodinámica que la mayoría de las ocasiones no es conveniente tenerla explícitamente en expresiones. Reduce las siguientes derivadas, i.e. elimina a la variable entropía de ellas y sustitúyela por alguna otra variable que sea fácilmente medible.
+
+\begin{equation*}
+    \left(\frac{\partial v}{ \partial s}\right)_{p}
+\end{equation*}
+
+\textbf{Sol:}
+
+Dado que
+
+\begin{equation}
+    dh = T ds + vdp 
+\end{equation}
+
+se tiene
+
+\begin{equation}
+    \left(\frac{\partial h}{\partial s}\right)_{p} = T \hspace{1cm} \left(\frac{\partial h}{\partial p}\right)_{s} = v
+\end{equation}
+
+por la conmutación de las parciales
+
+\begin{equation}
+    \frac{\partial}{\partial p} \left(\frac{\partial h}{\partial s}\right)_{p} = \frac{\partial}{\partial s} \left(\frac{\partial h}{\partial p}\right)_{s} \hspace{1cm} \rightarrow \hspace{1cm} \left(\frac{\partial T}{\partial p}\right)_{s}  = \left(\frac{\partial v}{\partial s}\right)_{p} 
+\end{equation}
+
+\begin{equation*}
+    \therefore \hspace{1cm} \left(\frac{\partial v}{ \partial s}\right)_{p} = \left(\frac{\partial T}{\partial p}\right)_{s}
+\end{equation*}
+
+
+
+
+
+
+\begin{equation*}
+    \left(\frac{\partial s}{ \partial f}\right)_{v}
+\end{equation*}
+
+\textbf{Sol}:
+
+Por la relación inversa:
+
+\begin{equation}
+    \left(\frac{\partial s}{ \partial f}\right)_{v} = \frac{1}{\left(\frac{\partial f}{ \partial s}\right)_{v}}
+\end{equation}
+
+y como para $v$ constante $f = -sT$, (4) queda como
+
+\begin{equation}
+    \left(\frac{\partial s}{ \partial f}\right)_{v} = - \frac{1}{T}
+\end{equation}
+
+
+
+
+
+
+
+%%%2%%%
+
+
+
+\item Para un sistema magnético demuestra que:
+
+\begin{equation*}
+    C_{B_{e}} - C_{I} = \frac{\mu_{0}^{2}T}{\chi_{T}^{2}} \left(\frac{\partial I}{\partial T}\right)_{B_{e}}
+\end{equation*}
+
+Donde $C_{B_{e}}$ , $C_{I}$ son las capacidades caloríficas y $\chi_{T}$ es la susceptibilidad magnética a temperatura constante.
+
+\textbf{Sol:}
+
+Por definición tendríamos
+
+\begin{equation}
+    \left(\frac{\partial Q}{\partial T}\right)_{B_{e}} - \left(\frac{\partial Q}{\partial T}\right)_{I} = \frac{\mu_{0}^{2}T}{\left(\frac{\partial M}{\partial H}\right)_{I}^{2}} \left(\frac{\partial I}{\partial T}\right)_{B_{e}}
+\end{equation}
+
+y ya no supe que hacer, supongo que debo usar relaciones de Maxwell pero la verdad no se me ocurre como xc.
+
+
+
+%%%3%%%
+
+
+
+\item Hay potenciales termodinámicos que están relacionados entre ellos de manera natural. Demuestra que:
+
+\begin{equation*}
+    H = G - T \left(\frac{\partial G}{\partial T}\right)_{p}
+\end{equation*}
+
+\textbf{Sol:}
+
+Sabemos que
+
+\begin{equation}
+    G = U - TS + pV \hspace{1cm} \rightarrow \hspace{1cm} \left(\frac{\partial G}{\partial T}\right)_{p} = - S
+\end{equation}
+
+\begin{equation}
+    \therefore \hspace{1cm} G - T \left(\frac{\partial G}{\partial T}\right)_{p} = U - \cancel{TS} + pV -\cancel{ T(-S)} = U + pV = H
+\end{equation}
+
+\begin{equation*}
+    \hspace{15cm}  \blacksquare
+\end{equation*}
+
+
+\end{enumerate}
+
+BONUS
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item ¿Podrías enfriar una cocina dejando abierta la puerta del refrigerador y cerrando la puerta de la cocina, así como sus ventanas? Defiende tu respuesta
+    
+    \textbf{Res:}
+    
+    No, porque un refrigerador solo mueve el calor de aquello que contiene a otra parte, creo que generalmente a su parte trasera o por debajo además de que es un proceso lento (algo que se puede ver cuando metes una computadora al congelador y esta se calienta aún más que en el exterior), así que si hiciéramos eso solo estaríamos moviendo el calor de un lado a otro sin enfriar nada.
+\end{enumerate}
+
+\end{document}

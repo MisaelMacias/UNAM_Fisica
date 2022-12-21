@@ -1,0 +1,317 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+    \item \textbf{Sea $(V,<,>)$ con $x,y \in V$ dados, definimos $T:V \rightarrow V$  $T(v)=<v,x>y$}
+    
+    \begin{enumerate}
+        \item \textbf{Probar que $T \in \mathcal{L} (V)$}
+        
+        \textbf{SOLUCIÓN:}
+        
+        Dado que $\mathcal{L}(V)$ es el espacio de transformaciones lineales de V a V, entonces debemos demostrar que T es una transformación lineal:
+        
+        Sea $v,w \in  V$ y $c \in K$
+        
+        \begin{equation*}
+            \hspace{1cm} T(v+w) := <v+w,x>y
+        \end{equation*}
+        
+        \begin{equation*}
+            \hspace{1cm} T(cv) := <cv,x>y
+        \end{equation*}
+        
+        y por propiedades del producto interno
+        
+        \begin{equation*}
+            T(v+w) := (<v,x> + <w,x>)y = <v,x>y + <w,x>y =: T(v) + T(w)
+        \end{equation*}
+        
+        \begin{equation*}
+            T(cv) := c(<v,x>y) =: c T(v)  
+        \end{equation*}
+        
+        y así T es una transformación lineal en V y por lo tanto $T \in \mathcal{L}(V)$ $\hspace{3cm} \blacksquare$
+        
+        \item \textbf{Demostrar  que $\exists T^{*} \in \mathcal{L}(V)$ y dar explícitamente a $T^{*}$}
+        
+        \textbf{SOLUCIÓN:}
+        
+        Por el teorema 6.9 del Friedberg podemos asegurar que existe la transformación lineal de V a V $T^{*}$ $\hspace{12.5cm} \blacksquare$
+        
+        Tambien nos puede ayudar a encontrar explicitamente $T^{*}$, entonces
+        
+        \begin{equation*}
+            <T(v), w> = <v, T^{*}(w)>
+        \end{equation*}
+        
+        y por definición
+        
+        \begin{equation*}
+            <<v,x>y,w> = <v, T^{*}(w)>
+        \end{equation*}
+        
+        ahora como el producto interno saca escalares
+        
+        \begin{equation*}
+            <v,x><y,w> = <v,T^{*}(w)>
+        \end{equation*}
+        
+        y también los mete en el segundo término pero conjugados
+        
+        \begin{equation*}
+            <v,\overline{<y,w>}x> = <v,T^{*}(w)>
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore  T^{*}(w) = \overline{<y,w>}x
+        \end{equation*}
+    \end{enumerate}
+    
+    
+    
+    \item \textbf{Sean $(V,<,>)$ e.v.p.i finito dimensional, dado $T \in \mathcal{L}(V)$. Probar que}
+    \begin{enumerate}
+        \item $\text{Ker} (T^{*}) = \text{Img}(T)^{\bot}$
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $v,w \in V$, por el teorema 6.9 se tiene que
+        
+        \begin{equation*}
+            <T(v), w> = <v, T^{*}(w)>
+        \end{equation*}
+        
+        ahora. supongamos que $w \in Ker (T^{*})$, entonces 
+        
+        \begin{equation*}
+            <v,T^{*}(w)> = <v,0_V>
+        \end{equation*}
+        
+        y por propiedades del producto interior
+        
+        \begin{equation*}
+            <v,T^{*}(w)> = 0
+        \end{equation*}
+        
+        pero entonces por el teorema 6.9
+        
+        \begin{equation*}
+            <T(v),w> = 0
+        \end{equation*}
+        
+        y así, por definición, $w \in \text{Img}(T)^{\perp}$, o bien $\text{Ker} (T^{*}) \subset \text{Img}(T)^{\bot}$
+        
+        ahora, supongamos que $w \in \text{Img}(T)^{\bot}$, entonces, por definición
+        
+        \begin{equation*}
+            <T(v),w> = 0
+        \end{equation*}
+        
+        pero por el teorema 6.9
+        
+        \begin{equation*}
+            <v,T^{*}(w)>= 0
+        \end{equation*}
+        
+        y como $v$ es arbitrario,necesariamente $T^{*}(w) = 0_V$, o bien $\text{Img}(T)^{\bot} \subset \text{Ker}(T^{*})$
+        
+        \begin{equation*}
+            \therefore  \text{Ker} (T^{*}) = \text{Img}(T)^{\bot}
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        
+        
+        \item $\text{Ker} (T) = \text{Img}(T^{*})^{\bot}$
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $v,w \in V$, por el teorema 6.9 se tiene que
+        
+        \begin{equation*}
+            <T(v), w> = <v, T^{*}(w)>
+        \end{equation*}
+        
+        ahora. supongamos que $v \in Ker (T)$, entonces 
+        
+        \begin{equation*}
+            <T(v),w> = <0_V,w>
+        \end{equation*}
+        
+        y por propiedades del producto interior
+        
+        \begin{equation*}
+            <T(v),w> = 0
+        \end{equation*}
+        
+        pero entonces por el teorema 6.9
+        
+        \begin{equation*}
+            <v,T^{*}(w)> = 0
+        \end{equation*}
+        
+        y así, por definición, $v \in \text{Img}(T^{*})^{\perp}$, o bien $\text{Ker} (T) \subset \text{Img}(T^{*})^{\bot}$
+        
+        ahora, supongamos que $v \in \text{Img}(T^{*})^{\bot}$, entonces, por definición
+        
+        \begin{equation*}
+            <v,T^{*}(w)> = 0
+        \end{equation*}
+        
+        pero por el teorema 6.9
+        
+        \begin{equation*}
+            <T(v),w>= 0
+        \end{equation*}
+        
+        y como $w$ es arbitrario,necesariamente $T(v) = 0_V$, o bien $\text{Img}(T^{*}^{\bot}) \subset \text{Ker}(T)$
+        
+        \begin{equation*}
+            \therefore     \text{Ker} (T) = \text{Img}(T^{*})^{\bot}  
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $\text{Img} (T) = \text{Ker}(T^{*})^{\bot}$
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $v,w \in V$, por el teorema 6.9 se tiene que
+        
+        \begin{equation*}
+            <T(v), w> = <v, T^{*}(w)>
+        \end{equation*}
+        
+        ahora, supongamos que $w \in \text{Ker}(T^{*})$, entonces por el teorema 6.9
+        
+        \begin{equation*}
+            <v,T^{*}(w)> =<v,0_V>=<T(v),w>
+        \end{equation*}
+        
+        y por propiedades del producto interior
+        
+        \begin{equation*}
+            <T(v),w> = 0
+        \end{equation*}
+        
+        entonces $w \in \text{Img}(T)^{\bot}$, o bien $\text{Ker}(T^{*}) \subset \text{Img}(T)^{\bot} \rightarrow \text{Ker}(T^{*})^{\bot} \subset \text{Img}(T)$
+        
+        ahora, supongamos que $w \in \text{Img}(T)^{\bot}$, entonces por el teorema 6.9
+        
+        \begin{equation*}
+            <T(v),w> = <v,T^{*}(w)>= 0
+        \end{equation*}
+        
+        y como $v$ es arbitrario, entonces $T^{*}(w) = 0$, lo que significa $w \in \text{Ker}(T^{*})$
+        
+        o bien $\text{Img}(T)^{\bot} \subset \text{Ker}(T^{*}) \rightarrow \text{Img}(T) \subset \text{Ker}(T^{*})^{\bot}$
+        
+        \begin{equation*}
+            \therefore \text{Img}(T) = \text{Ker}(T^{*})^{\bot}
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $\text{Img} (T^{*}) = \text{Ker}(T)^{\bot}$
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $v,w \in V$, por el teorema 6.9 se tiene que
+        
+        \begin{equation*}
+            <T(v), w> = <v, T^{*}(w)>
+        \end{equation*}
+        
+        ahora. supongamos que $w \in Ker (T)$, entonces por el teorema 6.9
+        
+        \begin{equation*}
+            <T(v),w> = <v,T^{*}(w)> = 0
+        \end{equation*}
+        
+        entonces, $v \in \text{Img}(T^{*})^{\bot}$, o bien 
+        
+        $\text{Ker}(T) \subset \text{Img}(T^{*})^{\bot} \rightarrow \text{Ker}(T)^{\bot} \subset (\text{Img}(T^{*})^{\bot})^{\bot}= \text{Img}(T^{*})$
+        
+
+        
+        ahora, supongamos que $v \in \text{Img}(T^{*})^{\bot}$, entonces por el teorama 6.9
+        
+        \begin{equation*}
+            <v,T^{*}(w)> = <T(v), w> = 0
+        \end{equation*}
+        
+        y como $w$ es arbitrario, entonces $T(v)= 0$, lo que significa $v \in \text{Ker}(T)$,o bien
+        
+        $\text{Img}(T^{*})^{\bot} \subset \text{Ker}(T)$ $\rightarrow$ $\text{Img}(T^{*}) \subset \text{Ker}(T)^{\bot}$
+        
+        \begin{equation*}
+            \therefore  \text{Img} (T^{*}) = \text{Ker}(T)^{\bot}
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

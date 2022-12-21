@@ -1,0 +1,278 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+PRIMERA PARTE
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item En los viejos tiempos era común llevarse objetos calientes a las camas en las noches frías de invierno.¿Cuál de estos objetos sería más efectivo: un bloque de hierro de 10kg o una botella de agua de 10kg a la misma temperatura?, Explica el porqué de tu repuesta.
+
+\textbf{Sol:}
+
+Dado que la capacidad calorífica se define como el calor necesario para cambiar la temperatura de un material, el material con mayor capacidad calorífica será el  más indicado para mantenerse caliente por el mayor tiempo posible, en este caso el agua tiene una capacidad calorífica ($1$ $\frac{kcal}{kg^{\circ} C}$) que el hierro ($0.113$ $\frac{kcal}{kg^{\circ} C}$) , así que el agua será mas efectiva.
+
+
+
+%%%2%%%
+
+
+
+\item Por un momento pensemos microscópicamente para entender la siguiente afirmación: la suma de las energías cinéticas de las moléculas de un recipiente muy grande lleno de agua fría es mayor que la suma de las energías cinéticas moleculares de una taza de té caliente. Supongamos que sumerges parcialmente la taza de té en el agua fría y que el té absorbe 10 Joules de la energía del agua y se calienta. Mientras que el agua por su parte, que ha cedido 10 Joules se enfría, ¿Esta transferencia de energía constituiría una violación a la primera ley de la termodinámica?,¿Sería una violación a la segunda ley?, explica tus respuestas a lo macro.
+
+\textbf{Sol:}
+
+La primera ley podría no violarla siempre y cuando se conserve la energía interna del sistema entero mientras que el segundo enunciado definitivamente lo viola considerando el enunciado de la misma dado por Clausius ya que se esta transfiriendo calor de un cuerpo mas frió a uno mas caliente sin que algún trabajo mecánico lo lleve a cabo.
+
+
+
+
+
+
+
+%%%3%%%
+
+
+
+\item Recuerda lo que sucede en la estructura del material cuando el agua helada se va calentando. Luego entonces, el agua que pones en el congelador pasa a un estado más ordenado molecularmente hablando cuando se congela. ¿Crees que este fenómeno sea una excepción al principio de la entropía?, explica tu respuesta.
+
+\textbf{Sol:}
+
+No creo, ya que la entropía desde una perspectiva molecular describe la probabilidad de los estados de energía sobre los enlaces moleculares como se vió en el video sobre entropía por lo que  tener un estado con la energía molecular menos dispersa en el agua solida no sería algo contrario a la idea molecular de la entropía.
+
+    
+\end{enumerate}
+
+SEGUNDA PARTE
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item Una masa de agua ($m$) de una temperatura $T_1$ es mezclada con otra masa de agua ($m$) a cierta temperatura $T_2$ (ambas masas son iguales en cantidad). El proceso de mezclado se realiza a presión constante y manteniendo adiabáticamente aislado al sistema compuesto. Muestra que el incremento en la entropía del universo termodinámico es:
+    
+    \begin{equation*}
+        \Delta S = 2 m C_p \ln{\frac{T_1 + T_2}{2(T_1 T_2)^{1/2}}} 
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Como tenemos un proceso adiabático, para ambas masas se cumple
+    
+    \begin{equation}
+        Q = m C_p (T_1 - T) + m C_p (T_2 - T) = 0 \hspace{1cm} \rightarrow \hspace{1cm} T = \frac{T_1 + T_2}{2}
+    \end{equation}
+    
+    donde $T$ es la temperatura final de equilibrio, ahora como el proceso se realiza a presión constante y sin cambios en la cantidad molar
+    
+    \begin{equation*}
+        dS = \left(\frac{\partial S}{\partial T}\right)_{P} dT + \left(\frac{\partial S}{\partial P}\right)_{T} \cancel{dP} + \left(\frac{\partial S}{\partial P}\right)_{N} \cancel{dN}  = C_P \frac{dT}{T} 
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation}
+        \Delta S = m C_P \int_{T_1}^{T} \frac{dT}{T} + m C_p \int_{T_2}^{T} \frac{dT}{T} =  m C_P \ln{\left(\frac{T^2}{T_1 T_2}\right)}
+    \end{equation}
+    
+    y sustituyendo (1) en (2)
+    
+    \begin{equation}
+        \Delta S = m C_P \ln{\left(\frac{\left(\frac{T_1 + T_2}{2}\right)^2}{T_1 T_2}\right)} = m C_P \ln{\left(\frac{T_! + T_2}{2 \sqrt{T_1 T_2}}\right)^2} = 2 m C_P \ln{\left(\frac{T_1 + T_2}{2 \sqrt{T_1 T_2}}\right)}
+    \end{equation}
+    
+    
+    
+
+    
+%%%2%%%
+
+
+
+\item Sea la ecuación: $u = u(s,v)= as^2 - bv^2$
+
+\begin{enumerate}
+    \item Prueba que la ecuación es fundamental. Es decir, demuestra que se cumplen los cuatro postulados de Gibbs.
+    
+    \textbf{Sol:}
+    
+    \textbf{Postulado 1} - para el sistema de una sola componente se tiene que $S(U,V,N)=N \sqrt{\frac{b}{a}\left(\frac{V}{N}\right)^2 + \frac{U}{Na}}$ depende de sus variables extensivas $u$y $v$, por lo tanto se cumple el primer postulado.
+    
+    \textbf{Postulado 2} -También se cumple ya que $S(U,V,N)$ y además suponemos que cuando la entropía se hace máxima la energía interna se hace mínima.
+    
+    \textbf{Postulado 3} -
+    
+    \begin{equation*}
+        S(\lambda U, \lambda V, \lambda N) = \lambda N \sqrt{\frac{b}{a}\left(\frac{\cancel{\lambda} V}{\cancel{\lambda} N}\right)^2 + \frac{\cancel{\lambda} U}{\cancel{\lambda} N a}} = \lambda\left( N \sqrt{\frac{b}{a}\left(\frac{ V}{ N}\right)^2 + \frac{ U}{ N a}}\right) = \lambda S(U,V,N)
+    \end{equation*}
+    
+    por lo tanto es una ecuación homogénea de orden 1 y se cumple el tercer postulado.
+    
+    \textbf{Postulado 4} -
+    
+    \begin{equation*}
+        \left(\frac{\partial S}{\partial U}\right)_{V,N} =\frac{\cancel{N}}{\cancel{N}a} \frac{1}{2\sqrt{\frac{b}{a}\left(\frac{V}{N}\right)^2 + \frac{U}{Na}}} > 0
+    \end{equation*}
+    
+    ya que el argumento de la raíz se compone de puros valores positivos por lo que se cumple el cuarto postulado.
+    
+    \item Obtén las tres ecuaciones de estado.
+    
+    \textbf{Sol:}
+    
+    Se sabe que
+    
+    \begin{equation}
+        T = \frac{\partial U}{\partial S} \hspace{1cm} -P = \frac{\partial U}{\partial V} \hspace{1cm} \mu = \frac{\partial U}{\partial N}
+    \end{equation}
+    
+    entonces multiplicando $u(s,v)$ por el número de moles $N$ llegamos a $U(S,V,N) = \frac{aS^2}{N} - \frac{b V^2}{N}$ y sustituyendo esto en (4) obtenemos
+    
+    \begin{equation}
+        T = \frac{2aS}{N}   
+    \end{equation}
+    
+    \begin{equation}
+        P = \frac{2bV}{N}
+    \end{equation}
+    
+    \begin{equation}
+        \mu = - (a\frac{S^2}{N^2} - b \frac{V^2}{N^2})
+    \end{equation}
+    
+    
+    
+    \item Con base en el inciso anterior, demuestra que $\mu = -u$
+    
+    \textbf{Sol:}
+    
+    Usando (7) es claro que
+    
+    \begin{equation}
+        \mu = - (a\frac{S^2}{N^2} - b \frac{V^2}{N^2}) = - (a\left(\frac{S}{N}\right)^2 - b \left(\frac{V}{N}\right)^2) = -(as^2 - bv^2) = -u
+    \end{equation}
+    
+    
+    \item Obtén la ecuación de Gibbs-Duhem, donde se cumpla que: $\mu = \mu (T,P)$.
+    
+    \textbf{Sol:}
+    
+    Sustituyendo las ecuaciones (5) y (6) en (7)
+    
+    \begin{equation}
+        \mu(T,P) = - \left(\frac{T^2}{4a} - \frac{P^2}{4b} \right)
+    \end{equation}
+    
+    
+    \item Demuestra que las ecuaciones de estado anteriores son consistentes con la ecuación de Euler.
+    
+    \begin{equation*}
+        U = TS - PV + \mu N
+    \end{equation*}
+    
+    \textbf{Sol:}
+    
+    Sustituyendo las ecuaciones (5), (6) y (7) en el lado derecho de la ecuación anterior
+    
+    \begin{equation}
+        TS - PV + \mu N = \frac{2aS^2}{N} - \frac{2bV^2}{N} - \left(a\frac{S^2}{N} - b \frac{V^2}{N} \right) = a\frac{S^2}{N} - b \frac{V^2}{N} 
+    \end{equation}
+    
+    que es igual a $U(S,V,N)$ del inciso b) por lo que son consistentes con la ecuación de Euler
+\end{enumerate}
+
+\item Supongamos que un gas ideal mono-atómico se expande para ocupar el volumen de una segunda cámara hasta ahora vacía, por lo que el volumen aumentará desde $V$ hasta $\lambda V$. Considera que las paredes son rígidas y adiabáticas, contesta las siguientes preguntas:
+
+\begin{enumerate}
+    \item ¿Cuál es la razón entre las presiones inicial y final?
+    
+    \textbf{Sol:}
+    
+    \item ¿Cuál es la razón entre las temperaturas inicial y final?
+    
+    \textbf{Sol:}
+    
+    \item ¿Cuál es la diferencia entre la entropía inicial y final?
+    
+    \textbf{Sol:}
+    
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

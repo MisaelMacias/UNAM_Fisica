@@ -1,0 +1,198 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+    \item \textbf{Sea $(V,<,>)$ e.v.p.i finito dimensional. Dado $T \in \mathcal{L}(V)$ normal, demostrar que  $T$ es autoadjunto $\leftrightarrow$ $TT^{*}= T^{*}T$ i.e. $T$ es normal}
+    
+    $\rightarrow)$ por hipótesis $TT = T T^{*}$ y también $TT=T^{*}T$, por lo que $TT^{*}= T^{*}T$ i.e. por definición T es normal  
+    
+    $\leftarrow)$  Supongamos que $T^{2}=T$ y $TT^{*}=T^{*}T$, entonces
+    
+    \begin{equation*}
+        (T-T^{*}T)^{*} (T-T^{*}T)= (T^{*}-T^{*}^{*}T^{*}) (T-T^{*}T) 
+    \end{equation*}
+    
+    \begin{equation*}
+        (T^{*}-TT^{*})(T-T^{*}T) = T^{*}T-T^{*}T^{*}T-TT^{*}T+TT^{*}T^{*}T
+    \end{equation*}
+    
+    \begin{equation*}
+        T^{*}T-T^{*}^{2}T-TT^{*}T+TT^{*}^{2}T
+    \end{equation*}
+    
+    y por hipótesis $T^{2}^{*}=T^{*} \rightarrow T^{*}^{2}=T^{*}$
+    
+    \begin{equation*}
+        T^{*}T-T^{*}^{2}T-TT^{*}T+TT^{*}^{2}T=T^{*}T-T^{*}T-TT^{*}T+TT^{*}T = 0
+    \end{equation*}
+    
+    por lo tanto $T-T^{*}T=0$ o bien, $T=T^{*}T$ y también $T^{*}=T^{*}^{*}T^{*}= TT^{*}=T^{*}T$
+    \begin{equation*}
+        \therefore T=T^{*}
+    \end{equation*}
+    
+    $\hspace{15cm} \blacksquare$
+    
+    \item \textbf{Sea $(V,<,>)$ e.v.p.i finito dimensional. Dado $T \in \mathcal{L}(V)$ normal. Probar que:}
+    \begin{enumerate}
+        \item $\text{Ker}(T)= \text{Ker}(T^{*})$
+        
+        
+        $\subseteq)$ Sea $v \in \text{Ker}(T)$, entonces $T(v)= 0_V$, que en su representación matricial
+        
+        \begin{equation*}
+            Tv = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            T^{*}T v = T^{*}0_V = 0_V
+        \end{equation*}
+        
+        y como T es normal, entonces por definición $TT^{*}= T^{*}T$
+        
+        \begin{equation*}
+            TT^{*} v = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            (T^{-1}T)T^{*}v = T^{-1} 0_V = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            IT^{*}v = T^{*}v = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            T^{*}(v)= 0_V
+        \end{equation*}
+        
+        entonces
+        
+        \begin{equation*}
+            v \in \text{Ker}(T^{*}) \therefore \text{Ker}(T) \subset \text{Ker}(T^{*})
+        \end{equation*}
+        
+$\supseteq)$ Sea $v \in \text{Ker}(T^{*})$, entonces $T^{*}(v)= 0_V$, que en su representación matricial
+
+        \begin{equation*}
+            T^{*}v = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            TT^{*} v = T0_V = 0_V
+        \end{equation*}
+        
+        y como T es normal
+        
+        \begin{equation*}
+            T^{*}T v = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            ((T^{*})^{-1}T^{*})T^v = (T^{*})^{-1} 0_V = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            ITv = Tv = 0_V
+        \end{equation*}
+        
+        \begin{equation*}
+            T(v)= 0_V
+        \end{equation*}
+
+        entonces
+        
+        \begin{equation*}
+            v \in \text{Ker}(T) \therefore \text{Ker}(T^{*}) \subset \text{Ker}(T)
+        \end{equation*}
+        
+        y así, $\text{Ker}(T) = \text{Ker}(T^{*})$ 
+        
+        $\hspace{15cm} \blacksquare$
+        
+        
+        
+        \item $\text{R}(T) = \text{R}(T^{*})$
+        
+        Por el teorema 2.5 y como $T:V \rightarrow V$, $T^{*}:V \rightarrow V$, 
+        
+        \begin{equation*}
+            N(T) + R(T) = \text{dim}(V) = N(T^{*})+R(T^{*})
+        \end{equation*}
+        
+        pero por el inciso anterior
+        
+        \begin{equation*}
+            \text{Ker}(T)= \text{Ker}(T^{*}) \rightarrow N(T)= N(T^{*})
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore R(T)= R(T^{*})
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

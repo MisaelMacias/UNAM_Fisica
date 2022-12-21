@@ -1,0 +1,360 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+    \item \textbf{Sea $(V,<,>)$ e.v.p.i / $C$. Dada $T \in \mathcal{L}(V)$ autoadjunto. Demostrar que:}
+    \begin{enumerate}
+        \item $\norm{u+iTu}=\norm{u-iTu}$  $\forall u \in V$
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $u \in V$
+        
+        \begin{equation*}
+            \norm{u+iTu}^2=<u+iTu,u+iTu>
+        \end{equation*}
+        
+        y por propiedades del producto interno
+        
+        \begin{equation*}
+            \norm{u+iTu}^2=<u,u+iTu>+<iTu,u+iTu>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<u,u>+<u,iTu>+<iTu,u>+<iTu,iTu>
+        \end{equation*}
+        
+        \begin{equation*}
+            =\norm{u}^2+(-i)<u,Tu>+i<Tu,u>+i(-i)\norm{Tu}^2
+        \end{equation*}
+        
+        \begin{equation*}
+            =\norm{u}^2-i<T^*u,u>+i<Tu,u>+\norm{Tu}^2
+        \end{equation*}
+        
+        por hipótesis T es autoadjunto, entonces
+        
+        \begin{equation*}
+            \norm{u+iTu}^2=\norm{u}^2\cancel{-i<Tu,u>+i<Tu,u>}+\norm{Tu}^2
+        \end{equation*}
+        
+        \begin{equation*}
+            =\norm{u}^2+\norm{Tu}^2+i<u,Tu>-i<u,Tu>
+        \end{equation*}
+        
+        \begin{equation*}
+            =\norm{u}^2+\norm{Tu}^2+i<u,Tu>-i<T^*u,u>
+        \end{equation*}
+        
+        \begin{equation*}
+            =\norm{u}^2+\norm{Tu}^2+i<u,Tu>-i<Tu,u>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<u,u>+<-iTu,u>+<u,-iTu>+i(-i)<Tu,Tu>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<u-iTu,u-iTu>=\norm{u-iTu}^2
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore \norm{u+iTu}=\norm{u-iTu}
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $u+iTu=v+iTu$  $\leftrightarrow$  $u=v$
+        
+        \textbf{SOLUCIÓN:}
+        
+        $\leftarrow$) es inmediato que si $u=v$, entonces $u+iTu=v+iTu$
+        
+        $\rightarrow$) $u+iTu=v+iTu$ $\rightarrow$ $u=v+i(Tu-Tu)$ $\rightarrow$ $u=v+i(0)=v$
+        
+        \begin{equation*}
+            \therefore u+iTu=v+iTu \hspace{1cm}  \leftrightarrow  \hspace{1cm} u=v
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $I+iT$ \textbf{es no singular.  obs $T\in \mathcal{L}(V)$ es no singular}
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $u,v \in V$. Supongamos que $I+iT$ es singular, entonces $I+iT$ es no invertible, entonces $(I+iT)(u)$no es inyectiva, entonces $\exists u,v\in V $ tal que si $(I+iT)(u)=(I+iT)(v)$ $\rightarrow$ $u \neq v$ pero por el inciso b) sabemos que eso es falso, por lo tanto $I+iT$ es no singular 
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $I-iT$ \textbf{es no singular}   $\leftrightarrow$  $\text{Ker}(T)={0_V}$
+        
+        \textbf{SOLUCIÓN:}
+        
+        $\rightarrow$) si $I-iT$ es no singular, entonces $I-iT$ es invertible, entonces $I-iT$ es inyectiva y es inyectiva $\leftrightarrow$ $\text{Ker}(I-iT)=0_V$, lo que implica que $\text{Ker}(T)=0_V$
+        
+        $\leftarrow$) $\text{Ker}(T)=0_V$ $\rightarrow$  $T(0_v)=0_v$ $\rightarrow$ $iT(0_V)=0_V$ $\rightarrow$ $0_V-iT(0_V)=0_V$ $\rightarrow$ $(I-iT)(0_V)=0_V$ $\rightarrow$ $\text{Ker}(I-iT)=0_V$ $\leftrightarrow$ $I-iT$ es inyectiva, entonces $I-iT$ es invertible y por lo tanto $I-iT$ es no singular
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item \textbf{Sea $V$ de dimensión finita. Demostrar que $U=(I-iT)(I+iT)^{-1}$ es un operador unitario, llamado la transformación de Cayley de T}
+        
+        \textbf{SOLUCIÓN:} 
+        
+        Primero necesitamos demostrar que $((I+iT)^{-1})^{*}= (I-iT)^{-1}$, así que, sea $u,v \in V$
+        
+        \begin{equation*}
+            <u,((I+iT)^{-1})^{*}(I-iT)v>=<(I+iT)^{-1}u,(I-iT)v>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<(I+iT)^{-1}u,(I-iT^{*})v>=<(I+iT)^{-1}u,(I+iT)^{*}v>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<\cancel{(I+iT)(I+iT)^{-1}}u,v>=<u,v>
+        \end{equation*}
+        
+        ahora si, veamos que U es unitario
+        
+        \begin{equation*}
+            UU^{*}=(I-iT)(I+iT)^{-1}((I-iT)(I+iT)^{-1})^{*}
+        \end{equation*}
+        
+        \begin{equation*}
+            =(I-iT)(I+iT)^{-1}(I-iT)^{*}((I+iT)^{-1})^{*}
+        \end{equation*}
+        
+        \begin{equation*}
+            =(I-iT)\cancel{(I+iT)^{-1}(I+iT)}(I-iT)^{-1}
+        \end{equation*}
+        
+        \begin{equation*}
+            =\cancel{(I-iT)(I-iT)^{-1}}=I
+        \end{equation*}
+        
+        \begin{equation*}
+            U^{*}U=((I-iT)(I+iT)^{-1})^{*}(I-iT)(I+iT)^{-1}
+        \end{equation*}
+        
+        \begin{equation*}
+            =(I-iT)^*((I+iT)^{-1})^{*}(I-iT)(I+iT)^{-1}
+        \end{equation*}
+        
+        \begin{equation*}
+            =(I+iT)\cancel{(I-iT)^{-1}(I-iT)}(I+iT)^{-1}
+        \end{equation*}
+        
+        \begin{equation*}
+            =\cancel{(I+iT)(I+iT)^{-1}}=I
+        \end{equation*}
+        
+        $\therefore$ $U$ es unitario 
+        
+        $\hspace{15cm}$  $\blacksquare$
+        
+         
+    \end{enumerate}
+    
+    \item \textbf{Sea $(V,<,>)$/K  finito dimensional. Probar}
+    
+    \begin{enumerate}
+        \item $H_u:V \rightarrow V$ \textbf{definido por} $H_u(x)=x-2<x,u>u$ \textbf{es lineal} $\forall x \in V$
+        
+        \textbf{SOLUCIÖN:}
+        
+        Para que $H_u$ sea lineal, debemos mostrar que abre sumas y saca escalares, entonces, sea $x,y \in  V$ y $c$ un escalar
+        
+        \begin{equation*}
+            H_u(x+cy)=(x+cy)-2<(x+cy),u>u
+        \end{equation*}
+        
+        que por propiedades del producto interno
+        
+        \begin{equation*}
+            H_u(x+cy):=x+cy-2(<x,u>u+c<y,u>u)
+        \end{equation*}
+        
+        \begin{equation*}
+            =x+cy-2<x,u>u-2c<y,u>u
+        \end{equation*}
+        
+        \begin{equation*}
+            =(x-2<x,u>u)+(cy-2c<y,u>u)
+        \end{equation*}
+        
+        \begin{equation*}
+            =(x-2<x,u>u)+c(y-2<y,u>u)=:H_u(x)+cH_u(y)
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore H_u(x)  \text{ es lineal } \forall x \in V 
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $H_u(x)=x$   $\leftrightarrow$   $x \perp u$
+        
+        \textbf{SOLUCIÓN:}
+        
+        $\rightarrow$) por hipótesis, $H_u(x):=x-2<x,u>u=x$, y entonces, $2<x,u>u=0_V$, o bien, $<x,u>=0$ y por lo tanto $x \perp u$
+        
+        $\leftarrow$) como $x \perp u$ $\rightarrow$ $<x,u>=0$, que a su vez se puede escribir como 
+        
+        \begin{equation*}
+            2<x,u>u=0
+        \end{equation*}
+        
+        \begin{equation*}
+            -2<x,u>u=0
+        \end{equation*}
+        
+        \begin{equation*}
+            H_u(x):=x-2<x,u>u=x
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore \hspace{1cm} H_u(x)=x \hspace{0.1cm}   \leftrightarrow \hspace{0.1cm}   x \perp u
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $H_u(u)=-u$
+        
+        \textbf{SOLUCIÓN:}
+        
+        Supongamos que u es unitario, entonces ($<u,u>=1$)
+        
+        \begin{equation*}
+            H_u(u):= u-2<u,u>u=u-2u=-u
+        \end{equation*}
+        
+        $\hspace{15cm} \blacksquare$
+        
+        \item $H_u^* =H_u$ \textbf{y}  $H_u^2=I$ ($\therefore H$ \textbf{es unitario})
+        
+        \textbf{SOLUCIÓN:}
+        
+        Sea $x,y \in V$
+        
+        \begin{equation*}
+            <y,H_u(x)>= <y,x-2<x,u>u>
+        \end{equation*}
+        
+        que por propiedades del producto interno
+        
+        \begin{equation*}
+            <y,H_u(x)>= <y,x>-2<y,<x,u>u>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<y,x>-2\overline{<x,u>}<y,u>
+        \end{equation*}
+        
+        \begin{equation*}
+            =<y,x>-2<u,x><y,u>
+        \end{equation*}
+        
+        \begin{equation*}
+            <y,x>-2<y,u><u,x>
+        \end{equation*}
+        
+        \begin{equation*}
+            <y-2<y,u>u,x>=<H_u(y),x>=<y,H_u^*(x)>
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore H_u^*(x)=H_u(x)
+        \end{equation*}
+        
+        \begin{equation*}
+            H_u^2(x)=H_u(x-2<x,u>u)
+        \end{equation*}
+        
+        y como $H_u$ es lineal
+        
+        \begin{equation*}
+            H_u^2(x)=H_u(x)-2<x,u>H_u(u)
+        \end{equation*}
+        
+        y por el inciso c)
+        
+        \begin{equation*}
+            H_u^2(x)=(x-2<x,u>u)-2<x,u>(-u)
+        \end{equation*}
+        
+        \begin{equation*}
+            x\cancel{-2<x,u>u+2<x,u>u}=x
+        \end{equation*}
+        
+        por lo que $H_u^2$ es la identidad, de lo demostrado anteriormente, podemos ver que $H_u^2=H_uH_u^*=H_u^*H_u=I$, o bien $H_u$ es unitario
+        
+        $\hspace{15cm} \blacksquare$
+        
+        
+        
+        
+        
+        
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

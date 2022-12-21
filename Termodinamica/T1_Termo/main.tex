@@ -1,0 +1,339 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item Describa y dé un ejemplo, breve y concisamente, de los siguientes conceptos:
+    
+    \begin{enumerate}
+        \item Variable intensiva.
+        
+        Las variables intensivas son aquellas que no dependen de la cantidad de materia y que por lo tanto no son aditivas, por ejemplo, la temperatura que mientras se le añada en equilibrio térmico, la temperatura no cambiará.
+        
+        \item Variable extensiva.
+        
+        Las variables extensivas son las que dependen de la cantidad de materia y que entonces son aditivas, por ejemplo, el volumen ya que si se añade mas materia y se mantienen las condiciones del sistema, el volumen aumentará.
+        
+        \item Sistema aislado y compuesto.
+        
+        Un sistema aislado es aquel que no interacciona de ninguna forma con el ambiente que le rodea, un ejemplo puede ser un termo (ideal) que no permite (aproximadamente) interacción térmico del interior o intercambio de partículas con los alrededores siempre y cuando se encuentre cerrado.
+        
+        Por otro lado un sistema compuesto permite algún tipo de interacción con los alrededores, por ejemplo un envase cualquiera para un liquido que permita la interacción térmica  pero cuyas paredes son impermeables por lo que no permite el intercambio de materia con el ambiente.
+        
+        \item Pared adiabática, diatérmica e impermeable.
+        
+        Las paredes adiabáticas son las que no permiten interacción térmica del sistema con alrededores, las paredes diatérmicas a contrario de las adiabáticas, sí permiten esta interacción, por ejemplo un termo como pared adiabática y un sartén como pared diatérmica
+        
+        Una pared impermeables es aquella que limita la transferencia de materia entre el sistema y los alrededores, por ejemplo un globo inflado.
+    \end{enumerate}
+    
+%%%2%%%
+    
+    \item Se tiene $0.1 kg$ de NaCl y $0.15 kg$ de azúcar ($\mathbf{C}_{12}\mathbf{H}_{22}\mathbf{O}_{11}$) disueltos en $0.5kg$ de agua, el volumen total del sistema es $\num{0.55e-3}m^3$
+    
+    \begin{enumerate}
+        \item ¿Cuál es el número de moles de cada uno de los componentes del sistema?
+        
+        \begin{equation*}
+            m_{sal} = 0.2 kg = 200 g \hspace{0.7cm} m_{sacarosa} = 0.15 kg = 150 g \hspace{0.7cm} m_{agua} = 0.5 kg = 500 g \hspace{0.7cm} 
+        \end{equation*}
+        
+        \begin{equation*}
+            V = \num{0.55e-3}m^3
+        \end{equation*}
+        
+        las masas moleculares de cada componente son:
+        
+        \begin{equation*}
+            M_{sal} = 58.44 \frac{g}{mol} \hspace{1cm} M_{sacarosa}= 342.30 \frac{g}{mol}   \hspace{1cm} M_{agua} = 18.02 \frac{g}{mol}
+        \end{equation*}
+        
+        entonces, la cantidad de moles de cada componente es:
+        
+        \begin{equation*}
+            n_{sal} = \frac{m_{sal}}{M_{sal}} = \frac{200 g}{58.44 \frac{g}{mol}} = 3.42 mol
+        \end{equation*}
+        
+        \begin{equation*}
+            n_{sacarosa} = \frac{m_{sacarosa}}{M_{sacarosa}} = \frac{150 g}{342.30 \frac{g}{mol}} = 0.43 mol
+        \end{equation*}
+        
+        \begin{equation*}
+            n_{agua} = \frac{m_{agua}}{M_{agua}} = \frac{500g}{18.02\frac{g}{mol}} = 27.75 mol
+        \end{equation*}
+        
+        \item ¿Cuáles son las fracciones molares?
+        
+        los moles totales son $n_T = n_{sal}+ n_{sacarosa} + n_{agua} = 31.60 mol$, por lo que las fracciones molares son:
+        
+        \begin{equation*}
+            f_{sal} = \frac{n_{sal}}{n_T} = \frac{3.42 mol}{31.60 mol} = 0.11
+        \end{equation*}
+        
+        \begin{equation*}
+            f_{sacarosa} = \frac{n_{sacarosa}}{n_T}= \frac{0.43mol}{31.60mol} = 0.01
+        \end{equation*}
+        
+        \begin{equation*}
+            f_{agua} = \frac{n_{agua}}{n_T} = \frac{27.75 mol}{31.6 mol} = 0.88
+        \end{equation*}
+        
+        \item ¿Cuál es el volumen molar del sistema?
+        
+        EL volumen molar del sistema es:
+        
+        \begin{equation*}
+            V_m = \frac{V}{n_T} = \frac{\num{0.55e3}m^3}{31.60 mol} = 17.41 \frac{m^3}{mol}
+        \end{equation*}
+    \end{enumerate}
+    
+    
+    
+%%%3%%%
+    
+    
+    
+    \item Suponga que tiene una solución acuosa cuyo soluto no conoce, lo que sí se sabe es que esta solución tiene una masa total $m_T$ y que la fracción molar del soluto es $f_s$, Explique detalladamente como, usando los datos proporcionados, puede averiguar la identidad del soluto
+    
+    Supongamos que solución consiste de un soluto y un ácido, entonces se tiene que $m_T = m_s + m_a$, ahora agreguemos $n'$ moles de ácido (esto implica que conocemos $M_a$) entonces
+    
+    \begin{equation*}
+        f_s = \frac{n_s}{n_T} \hspace{1cm} f'_s  = \frac{n_s}{n_T + n'} 
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{f_s}{f'_s} = \frac{n_T + n'}{n_T}
+    \end{equation*}
+    
+    \begin{equation*}
+        n_T = \frac{f'_s n'}{f_s - f'_s}
+    \end{equation*}
+    
+    y como $n_s = n_T f_S$
+    
+    \begin{equation*}
+        n_s = \frac{f'_s n'}{f_s - f'_s} f_s
+    \end{equation*}
+    
+    ahora ya que $n_T = n_s + n_a$
+    
+    
+    \begin{equation*}
+        n_a = \frac{f'_s n'}{f_s - f'_s} - \frac{f'_s n'}{f_s - f'_s} f_s = \frac{f'_s n'}{f_s - f'_s}(1-f_s)
+    \end{equation*}
+    
+    entonces 
+    
+    \begin{equation*}
+        m_s = m_T -m_a = m_T - n_a M_a
+    \end{equation*}
+    
+    \begin{equation*}
+        m_s = m_T -  \frac{f'_s n'}{f_s - f'_s}(1-f_s) M_a
+    \end{equation*}
+    
+    por lo tanto la masa molar del soluto es
+    
+    \begin{equation*}
+        M_s = \frac{m_s}{n_s} = \frac{\frac{f'_s n'}{f_s - f'_s} f_s}{m_T -  \frac{f'_s n'}{f_s - f'_s}(1-f_s) M_a} 
+    \end{equation*}
+    
+    
+    
+    
+%%%4%%%
+    
+    
+    
+    \item Considere las siguientes ecuaciones de estado
+    
+    \begin{equation*}
+        T = \frac{3AS^2}{NV}
+    \end{equation*}
+    
+    \begin{equation*}
+        P = -\frac{AS^3}{NV^2}
+    \end{equation*}
+    
+    \begin{equation*}
+        \mu = - \frac{AS^3}{N^2V}
+    \end{equation*}
+    
+    con $A$ constante y pensando que $T = T(S,V,N)$, $P = P(S,V,N)$ y $\mu = \mu (S,V,N)$
+    
+    Demuestre que $T$, $P$ y $\mu$ son parámetros intensivos.
+    
+    Los parámetros intensivos son aquellos que no dependen del tamaño de la muestra o bien si $R(S,V,N)$ entonces $R(\lambda S, \lambda V, \lambda N) = R(S,V,N)$ así que
+    
+    \begin{equation*}
+        T(\lambda S, \lambda V, \lambda N) = \frac{2 A (\lambda S)^2}{(\lambda N)(\lambda V)} = \frac{2 A \cancel{\lambda^2} S^2}{\cancel{\lambda^2} N V} = \frac{2AS^2}{NV} = T(S,V,N)
+    \end{equation*}
+    
+    \begin{equation*}
+        P(\lambda S, \lambda V, \lambda N) = -\frac{A (\lambda S)^3}{(\lambda N)(\lambda V)^2} =- \frac{A\cancel{\lambda^3}S^3}{\cancel{\lambda^3}NV^2} =- \frac{AS^3}{NV^2} = P(S,V,N)
+    \end{equation*}
+    
+    \begin{equation*}
+        \mu (\lambda S, \lambda V, \lambda N) =- \frac{A (\lambda S)^3}{(\lambda N)^2(\lambda V)} = - \frac{A \cancel{\lambda^3}S^3}{\cancel{\lambda^3}N^2V} = -\frac{AS^3}{N^2V} = \mu (S,V,N)
+    \end{equation*}
+    
+    por lo tanto $T$, $P$ y $\mu$ son parámetros intensivos.
+    
+    
+    
+%%%5%%%
+    
+    
+    
+    \item Sean $x$, $y$, $z$ tales que se puede considerar
+    
+    \begin{equation*}
+        x=x(y,z) \hspace{1cm} y=y(x,z) \hspace{1cm} z=z(x,y)
+    \end{equation*}
+    
+    Demuestre que:
+    
+    \begin{enumerate}
+        
+    \item \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z = \frac{1}{\frac{\partial y}{\partial x}_z}
+    \end{equation*}
+    
+    Dada las dependencias de las variables $x$, $y$, $z$, las diferenciales de $x$ y $y$ son:
+    
+    \begin{equation*}
+        dx = \left(\frac{\partial x}{\partial y}\right)_z dy + \left(\frac{\partial x}{\partial z}\right)_y dz
+    \end{equation*}
+    
+    
+    \begin{equation*}
+        dy = \left(\frac{\partial y}{ \partial x}\right)_z dx + \left(\frac{\partial y}{\partial z}\right)_x dz
+    \end{equation*}
+    
+    que sustituyendo $dy$ es $dx$ 
+    
+    \begin{equation*}
+        dx = \left(\frac{\partial x}{\partial y}\right)_z \left(\left(\frac{\partial y}{ \partial x}\right)_z dx + \left(\frac{\partial y}{\partial z}\right)_x dz\right) + \left(\frac{\partial x}{\partial z}\right)_y dz
+    \end{equation*}
+    
+    \begin{equation*}
+        dx = \left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{ \partial x}\right)_z dx + \left(\frac{\partial x}{\partial y}\right)_z\left(\frac{\partial y}{\partial z}\right)_x dz + \left(\frac{\partial x}{\partial z}\right)_y dz
+    \end{equation*}
+    
+    
+    \begin{equation}
+        \left[\left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial x}\right)_z -1\right] dx + \left[\left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x + \left(\frac{\partial x}{\partial z}\right)_y\right] dz = 0¨
+    \end{equation}
+    
+    ahora si solo $z$ es constante entonces $dz = 0$ y (1) queda como
+    
+    \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial x}\right)_z -1 = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial x}\right)_z = 1
+    \end{equation*}
+    
+    \begin{equation}
+        \left(\frac{\partial x}{\partial y}\right)_z = \frac{1}{\frac{\partial y}{\partial x}_z}
+    \end{equation}
+    
+    
+    \item
+    
+    \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z\left(\frac{\partial y}{\partial z}\right)_x\left(\frac{\partial z}{\partial x}\right)_y=-1
+    \end{equation*}
+    \end{enumerate}
+    
+    si solo $x$ es constante entonces (1) es 
+    
+    \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x + \left(\frac{\partial x}{\partial z}\right)_y = 0
+    \end{equation*}
+    
+    \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x = - \left(\frac{\partial x}{\partial z}\right)_y
+    \end{equation*}
+    
+    \begin{equation*}
+        \frac{\left(\frac{\partial x}{\partial y}\right)_z \left(\frac{\partial y}{\partial z}\right)_x}{\left(\frac{\partial x}{\partial z}\right)_y} = -1
+    \end{equation*}
+    
+    y por la ecuación (2)
+    
+    \begin{equation*}
+        \left(\frac{\partial x}{\partial y}\right)_z\left(\frac{\partial y}{\partial z}\right)_x\left(\frac{\partial z}{\partial x}\right)_y=-1
+    \end{equation*}
+\end{enumerate}
+
+\end{document}

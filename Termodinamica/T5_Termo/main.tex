@@ -1,0 +1,236 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Dos sistemas, separados por una pared diatérmica, tiene las siguientes ecuaciones de estado:
+
+\begin{equation}
+    \frac{1}{T^{(1)}} = \frac{3}{2}R \frac{N^{(1)}}{U^{(1)}}
+\end{equation}
+
+y
+
+\begin{equation}
+    \frac{1}{T^{(2)}} = \frac{5}{2} R \frac{N^{(2)}}{U^{(2)}}
+\end{equation}
+
+Los respectivos números molares son $N^{(1)}=  2 $ y $N^{(2)} = 3$. Las temperaturas iniciales son $T^{(1)} = 250 K$ y $T^{(2)} = 350 K$. ¿Cúales son los valores de $U^{(1)}$ y $U^{(2)}$ una vez que se ha alcanzado el equilibrio?, ¿Cuál es la temperatura en equilibrio?
+
+\textbf{Sol:}
+
+Despejando las energías internas de (1) , (2) y sustituyendo los valores tenemos
+
+\begin{equation*}
+    U^{(1)} = \frac{3}{2}R N^{(1)} T^{(1)} = 6232.5 J
+\end{equation*}
+
+\begin{equation*}
+    U^{(2)} = \frac{5}{2} R N^{(2)} T^{(2)} = 13088.25 J
+\end{equation*}
+
+y entonces la energía total es $U_T = U^{(1)} + U^{(2)} = 19320.75 J$, ahora en el estado de equilibrio por tener una pared diatérmica la temperatura de los dos sistemas es igual además de que se conserva la energía total, así que
+
+\begin{equation*}
+    R T \left( \frac{3N^{(1)}}{2} + \frac{5 N^{(2)}}{2}\right) = U_T \hspace{1cm} \rightarrow \hspace{1cm} T = \frac{U_T}{R\left( \frac{3N^{(1)}}{2} + \frac{5 N^{(2)}}{2}\right) } = 221.42 K
+\end{equation*}
+
+y sustituyendo esto en las energías internas
+
+\begin{equation*}
+    U^{(1)}_{e} = \frac{3}{2}R N^{(1)} T = 5520 J
+\end{equation*}
+
+\begin{equation*}
+    U^{(2)}_{e} = \frac{5}{2} R N^{(2)} T = 13800 J
+\end{equation*}
+
+
+
+
+
+%%%2%%%
+
+
+
+\item La ecuación fundamental de un sistema de dos componentes es:
+
+\begin{equation}
+    S = NA + NR \ln{\frac{U^{3/2}V}{N^{5/2}}} - N_1 R \ln{\frac{N_1}{N}} - N_2 R \ln{\frac{N_2}{N}}
+\end{equation}
+
+\begin{equation*}
+    N = N_1 + N_2
+\end{equation*}
+
+con $A$ una constante. Considere un cilindro cerrado y rígido con volumen total de 10 litros, una pared diatérmica, rígida, permeable a la primera componente pero impermeable a la segunda divide el cilindro en dos cámaras en la primera se encuentra una muestra del sistema con parámetros iniciales $N_1^{(1)} = 0.5$, $N_2^{(1)} = 0.75$, $V^{(1)} = 5 litros$, y $T^{(1)}=300K$, en la segunda cámara se tienen los parámetros iniciales $N_1 ^{(2)}= 1$, $N_{2}^{(2)}=0.5$, $V^{(2)} = 5 litros$, y $T^{(2)} = 250K$. Una vez que se ha alcanzado el equilibrio, ¿cuáles son los valores de $N_1^{(1)}$, $N_1^{(2)}$, $T$, $P^{(1)}$ y $P^{(2)}$?
+
+\textbf{Sol:}
+
+Por la ecuación (3) y dado que $\frac{1}{T} = \frac{\partial S}{\partial U} = \frac{3}{2}\frac{NR}{U}$, entonces $U = \frac{3}{2}NRT$ y la energía interna total es
+
+\begin{equation*}
+    U = U^{(1)} + U^{(2)} = \frac{3}{2}N^{(1)}RT^{(1)} + \frac{3}{2}N^{(2)}RT^{(2)} = 5236.89 J
+\end{equation*}
+
+despues como esta en equilibrio $dS = 0$ entonces desarrollando la ec. (3) llegué a esto y ya no supe que hacer
+
+\begin{equation*}
+    \frac{1}{2}\left(\frac{3}{2}\right)^{3/2} \left(\frac{N^{(1)7/2}}{(RT)^{3/2}}- \frac{N^{(2)7/2}}{(RT)^{3/2}}\right) = \ln{\frac{N_{1}^{(1)}N^{(1)1/2}}{N_{1}^{(2)}N^{(2)1/2}}}
+\end{equation*}
+
+
+
+
+
+
+
+
+%%%3%%%
+
+
+
+\item Dadas la ecuación fundamental de un sistema $U=U(S,V,N)$ y la ecuación de estado $T=T(S,V,N)$ siempre es posible eliminar $S$ de estas ecuaciones para obtener una relación de la forma
+
+\begin{equation}
+    U = U(T,V,N)
+\end{equation}
+
+¿Esta es una relación fundamental?, argumente su respuesta, sea breve, un par de líneas son suficientes para replicar a esta pregunta.
+
+\textbf{Sol:}
+
+Si porque la dependencia de $S$ está contenida en la de $T$ ya que depende explícitamente de esta por lo que serían equivalentes.
+
+
+
+
+
+%%%4%%%
+
+
+
+\item Un sistema obedece las ecuaciones
+
+\begin{equation}
+    U = \frac{1}{2} PV
+\end{equation}
+
+\begin{equation}
+    T^2 = \frac{AU^{3/2}}{VN^{1/2}}
+\end{equation}
+
+donde $A$ es una constante positiva. Utilice la relación de Gibbs-Duhem para obtener la ecuación fundamental.
+
+
+\textbf{Sol:}
+
+Despejando la ec. dif de Euler
+
+\begin{equation}
+    dU = T dS -PdV \hspace{1cm} \rightarrow \hspace{1cm} dS = \frac{dU}{T} + \frac{P}{T} dv
+\end{equation}
+
+y por (5) y (6)
+
+\begin{equation*}
+    P = \frac{2U}{V} \hspace{2cm} T = \sqrt{\frac{A}{V}} \frac{U^3}{N}
+\end{equation*}
+
+integrando y sustituyendo (7)
+
+\begin{equation*}
+    S(U,V,N) = N \sqrt{\frac{A}{V}} \int \frac{dU}{U^3} + \frac{2N}{\sqrt{A} U^2} \int \frac{dV}{\sqrt{V}}
+\end{equation*}
+
+\begin{equation*}
+    = N \sqrt{\frac{A}{V}} (- \frac{1}{2 U^2}) + \frac{2N}{u^2 \sqrt{A}} 2 \sqrt{V}
+\end{equation*}
+
+\begin{equation*}
+    = \frac{N}{U^2} \left(4 \sqrt{\frac{V}{A}} - \frac{1}{2}\sqrt{\frac{A}{V}}\right)
+\end{equation*}
+
+\begin{equation*}
+    =\frac{N}{2U^2} \left(\frac{8V - A}{\sqrt{AV}}\right)
+\end{equation*}
+
+
+    
+    
+\end{enumerate}
+
+\end{document}

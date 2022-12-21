@@ -1,0 +1,166 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item ¿Qué es una transformada de Legendre y por qué se usa en termodinámica?
+
+\textbf{Res:}
+
+La transformada de Legendre es un método para que cierta función que cumple algunas condiciones cambie su dependencia a otras variables.
+
+En termodinámica se usa para cambiar de las variables extensivas a las intensivas principalmente en los potenciales termodinámicos.
+
+
+
+%%%2%%%
+
+
+
+\item ¿Los potenciales termodinámicos tiene interpretación física o solamente son un artilugio matemático para facilitar algunas cosas?
+
+\textbf{Res:}
+
+Tienen una interpretación física y también son artilugios matemáticos xd, supongo que la interpretación de cada potencial la debo dar en la siguiente pregunta.
+
+
+
+%%%3%%%
+
+
+
+\item Escriba lo que entiende por energía libre de Helmholtz, Entalpía y energía de Gibbs.
+
+\textbf{Res:}
+
+La energía libre de Hemholtz nos da el trabajo útil de un sistema en un proceso iscórico e isotérmico.
+
+La entalpía es el calor que se puede mover en un sistema que sufre un proceso adiabático.
+
+La energía de Gibbs es lo máximo de trabajo que se puede sacar de un proceso químico, además es útil para determinar que tan espontáneo será el proceso.
+
+
+
+%%%4%%%
+
+
+
+\item Las relaciones de Maxwell sientan su principio en un importante teorema sobre segundas derivadas parciales, físicamente ¿qué estamos suponiendo sobre la teoría termodinámica, y sus variable en juego, que nos permite construir estas relaciones?
+
+\textbf{Res:}
+
+Estamos suponiendo que cumplen con el teorema de Schwarz, o bien que la función que se deriva es continua y que por supuesto existen.
+
+
+
+
+
+%%%5%%%
+
+
+
+\item Escriba y explique la Tercera Ley de la Termodinámica
+
+\textbf{Res:}
+
+Existen varios enunciados de la tercera ley de la termodinámica así que solo pondré el dado por Nerst:
+
+'Cerca del cero absoluto, todas las reacciones en un sistema en equilibrio interno tienen lugar sin cambio en la entropía'
+
+Esto quiere decir que cuando la temperatura de un sistema en equilibrio interno tiende a $0 K$ la entropía también tiende a $0$ .
+
+
+
+
+
+
+
+%%%6%%%
+
+
+
+\item La versión popular del principio de incertidumbre de Heisenberg establece que, en un sistema cuántico, es imposible conocer simultáneamente la posición y el momento lineal de un cierto objeto ¿cómo se relaciona este principio con la tercera ley?
+
+\textbf{Res:}
+
+Creo que su relación se puede ver desde el punto de vista de la física estadística donde la entropía se define como $S = k_b \ln{\Omega}$, ya que si la entropía tiende a cero la cantidad de microestados se ve forzada a ser uno lo que estaría determinando por completo nuestro sistema violando así el principio de incertidumbre de Heisenberg.
+
+
+    
+    
+\end{enumerate}
+
+\end{document}

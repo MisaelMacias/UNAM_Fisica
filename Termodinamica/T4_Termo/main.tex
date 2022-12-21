@@ -1,0 +1,213 @@
+ \documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{siunitx}
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dbar}{\mathchar'26\mkern-12mu d}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+Macías Márquez Misael Iván
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+\item Responda breve y concisamente las siguientes preguntas:
+
+\begin{enumerate}
+    \item  ¿Qué entiende por entropía?
+    
+    \textbf{Sol:}
+    
+    Entiendo por entropía a la cantidad que describe la configuración de microestados de un sistema y su relación con las distintas energías posibles del mismo.
+    
+    
+    
+    \item ¿Qué condición debe cumplir un proceso cuasiestático para que se pueda escribir $\dbar Q = T dS$?
+    
+    \textbf{Sol:}
+    
+    Creo que debe ser reversible para poder usar la relación $S = \int \dbar Q/T$
+\end{enumerate}
+
+
+
+%%%2%%%
+
+
+
+\item La entropía molar (s) de una sustancia pura satisface
+
+\begin{equation*}
+    s(u,v) = A u^{1/4}v^{1/2}
+\end{equation*}
+
+donde $A$ es una constante positiva, $u$ y $v$ son la energía interna molar y el volumen molar respectivamente. Considere la expansión libre del gas desde un volumen $v_1$ a un volumen $v_2$, con $v_2 > v_1$. Si la expansión ocurre cuando el sistema está aislado de sus alrededores use la segunda ley de la termodinámica para demostrar que el proceso es irreversible.
+
+\textbf{Sol:}
+
+Por la segunda ley, sabemos que para procesos irreversibles se cumple que $ds > 0$ y como el sistema está aislado ($du = 0$), entonces
+
+\begin{equation*}
+    ds = \frac{\partial s}{\partial u} \cancel{du} + \frac{\partial s}{\partial v} dv = \frac{\partial s}{\partial v} dv 
+\end{equation*}
+
+o bien
+
+\begin{equation*}
+    s = \int ds = \int_{v_1}^{v_2} \frac{\partial s}{\partial v} dv = s(u,v_2) - s(u,v_1) = A u^{1/4} (v_{2}^{1/2} - v_{1}^{1/2}) > 0
+\end{equation*}
+
+ya que $A$, $u$ y $(v_2 - v_1)$ son positivos, y por lo tanto se tiene un proceso irreversible.
+
+
+
+%%%3%%%
+
+
+
+\item Demuestre que la entropía de un gas ideal con capacidades caloríficas constantes satisface:
+
+\begin{equation*}
+    S - S_0 = C_p \ln{\left(\frac{T}{T_0}\right)} - n R \ln{\left(\frac{p}{p_0}\right)}
+\end{equation*}
+
+donde el índice 0 indica un estado de referencia.
+
+\textbf{Sol:}
+
+Sabemos que la entropiía se define como
+
+\begin{equation*}
+    S - S_0 = \int \frac{\dbar Q}{T}
+\end{equation*}
+
+que por la primera ley
+
+\begin{equation*}
+    S - S_0 = \int \frac{dU + p dV }{T} = \int \frac{dU}{T} + \int \frac{p dV}{T}
+\end{equation*}
+
+y como es un gas ideal ($pV = nRT$ , $dU = n c_V dT$)
+
+\begin{equation*}
+    S- S_0 = \int \frac{n c_V dT}{T} + \int \frac{nR dV}{V} = nc_V \int \frac{dT}{T} + nR \int \frac{dV}{V} = nC_V \ln{\frac{T}{T_0}} + nR \ln{\frac{V}{V_0}}
+\end{equation*}
+
+de nuevo por tener un gas ideal, ($p_0 V_0 /T_0 = pV /T$), entonces
+
+\begin{equation*}
+    S - S_0 = n c_V \ln{\frac{T}{T_0}} + nR \ln{\frac{\frac{T}{T_0}}{\frac{p}{p_0}}} = (nc_V + nR) \ln{\frac{T}{T_0}} - nR \ln{\frac{p}{p_0}}
+\end{equation*}
+
+\begin{equation*}
+    = n c_p  \ln{\frac{T}{T_0}} - nR \ln{\frac{p}{p_0}}= C_p \ln{\frac{T}{T_0}} - nR \ln{\frac{p}{p_0}}
+\end{equation*}
+
+
+
+%%%4%%%
+
+
+
+\item Suponga que 1 kg de agua a $10^{\circ}C$ se mezcla con 1kg de agua a $30^{\circ}C$ a presión constante. Una vez que la mezcla ha alcanzado el equilibrio:
+
+\begin{enumerate}
+    \item Considerando $C_p = 2.19 \frac{kJ}{kg K}$ para el agua, calcule el cambio de entropía del sistema.
+    
+    \textbf{Sol:}
+    
+    Usando la ecuación del ejercicio anterior se tiene ($T_0 = 283.15 K$, $T = 303.15 K$)
+    
+    \begin{equation*}
+        \Delta S = C_p \ln{\frac{T}{T_0}} - \cancel{nR \ln{\frac{p}{p_0}}} = 2.19 \frac{kJ}{kg K}\ln{\frac{303.15 K}{283.15 K}} = 0.15 > 0
+    \end{equation*}
+    
+    \item ¿Es la mezcla un proceso irreversible?
+    
+    \textbf{Sol:}
+    
+    Si ya que el cambio de entropía es positivo.
+    
+\end{enumerate}
+
+
+
+%%%5%%%
+
+
+
+\item Explique como la definición de temperatura dada por 
+
+\begin{equation*}
+    T = \left(\frac{\partial U}{\partial S}\right)_{X_1,..., X_n}
+\end{equation*}
+
+está en concordancia con la noción intuitiva que tenemos de temperatura.
+
+\textbf{Sol:}
+
+La definición de temperatura se entiende como el cambio de la energía interna respecto a la entropía con las componentes del sistema constantes por lo que cuando la energía interna aumenta mientras la entropía lo hace, la temperatura es positiva mientras que si se mantiene constante la energía interna la temperatura es nula.
+    
+\end{enumerate}
+
+\end{document}

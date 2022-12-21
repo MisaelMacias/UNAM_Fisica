@@ -1,0 +1,383 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+    
+    %1
+    
+    
+    \item Let V be a vector space over $F$, where $F = R$ or $F = C$, and let W be an inner product space over F with inner product $<\cdot,\cdot>$. If $T:V \rightarrow W$ is linear, prove that $<x,y>' = <\textbf{T}(x), \textbf{T}(y)>$ defines an inner product on V if and only if $\textbf{T}$ is one-to-one
+    
+    $\rightarrow$ ) Por resultados de lineal 1(teorema 2.4), sabemos que una transformación lineal es inyectiva si $Ker(T) = {0_V} $, así, si $T(x) = 0_W$, entonces
+    
+    \begin{equation*}
+        <x,x>' := <T(x), T(x)> = <0_W,0_W>    
+    \end{equation*}
+    
+    y por el teorema 6.1.c y 6.1.d, $<x,x>' = 0_F $, lo que implica  que $x = 0_V$ y por lo tanto $Ker(T) = {0_V}$ (T es uno a uno) $ \hspace{1cm}\blacksquare$
+    
+    $\leftarrow$ ) por la definición 6.1, $<x,y>'$  es un producto interior en V si cumple con las siguientes 4 propiedades.
+    
+    Sea $x,y,z \in V$ y $c \in F$
+    
+    \begin{equation*}
+        \star \hspace{0.5cm} <x+z, y>' := <T(x+z),T(y)>
+    \end{equation*}
+    
+    y por hipótesis, como T es lineal y $<\cdot,\cdot>$ es un producto interior(este argumento se usa en las otras propiedades),
+    
+    \begin{equation*}
+        <T(x) + T(z) , T(y)> = <T(x),T(y)> + <T(z),T(y)> := <x,y>' + <z,y>'
+    \end{equation*}
+    
+    \begin{equation*}
+        \star \hspace{0.5cm} <cx,y>' := <T(cx),T(y)> = <cT(x),T(y)> = c<T(x),T(y)> := c<x,y>'
+    \end{equation*}
+    
+    \begin{equation*}
+        \star \hspace{0.5cm} \overline{<x,y>'} := \overline{<T(x),T(y)>} = <T(y),T(x)> := <y,x>'
+    \end{equation*}
+    
+    \begin{equation*}
+        \star \hspace{0.5cm}<x,x>' := <T(x), T(x)> 
+    \end{equation*}
+    
+    y esto es mayor a $0$ ya que $T$ es uno a uno y entonces por el teorema 2.4, $T(x) = 0_W $ con $x = 0_V$ $ \hspace{1cm}\blacksquare$
+     
+    
+    
+    
+    
+    %2
+    
+    
+    \item Let $V=F^n$, and let $A \in M_{n\times n}(F)$
+    \begin{enumerate}
+        \item Prove that $<x,Ay> = <A^* x,y>$ for all $x,y \in V$
+        
+        Suponiendo que $<\cdot,\cdot>$  sea un producto interior, por definición 
+        
+        \begin{equation*}
+            <x,Ay> = (Ay)^* x = y^* A^* x = <A^* x , y> \hspace{1cm} \blacksquare
+        \end{equation*}
+        
+        
+        \item Suppose that for some $B \in M_{n \times n}(F)$, we have $<x,Ay>=<Bx,y>$ for all $x,y \in V$. Prove that $B = A^*$
+        
+        Por el inciso a) de este ejercicio y por hipótesis, se tiene que :
+        
+        \begin{equation*}
+            <x,Ay> = <A^* x,y> = <Bx,y>
+        \end{equation*}
+        
+        y por el teorema 6.1.e, $A^*x = Bx$ $\forall x \in V$ y por lo tanto $A^* = B \hspace{1cm} \blacksquare$
+        
+        \item Let $\alpha$ be the standard ordered basis for V. For any orthonormal basis $\beta$ for V, let $Q$ be the $n \times n$ matrix whose columns are the vectors in $\beta$. Prove that $Q^* = Q^{-1}$
+        
+        Dado que:
+        
+        \begin{equation*}
+            Q^* Q =\begin{pmatrix}
+            \overline{v_1} \\
+            \overline{v_2} \\
+            . \\
+            . \\
+            . \\
+            \overline{v_n}\\
+            \end{pmatrix}
+            \begin{pmatrix}
+             v_1 & . & . & . & v_1\\
+             \end{pmatrix}
+        \end{equation*}
+        
+        y como  $\beta$ es una base ortonormal
+        
+        \begin{equation*}
+            (Q^* Q)_{ij} = v_i ^* v_j = <v_i, v_j> = \left\{ \begin{array}{lcc}
+             1 &   si  & i = j\\
+             \\ 0 &  si & i \neq j \\
+             \end{array}
+        \right.
+        \end{equation*}
+        
+        y así, $Q^*Q = I$, por lo tanto $Q^*=Q^{-1}$ $\hspace{1cm} \blacksquare$
+        
+        \item Define linear operators T and U on V by $T(x) = Ax$ and $U(x) = A^*x$. Show that $[U]_\beta = [T]_\beta ^*$ for any orthonormal basis $\beta$ for V.
+        
+        Sea $\alpha$ una base ordenada estándar de V  , entonces por definición tenemos, $[T]_\alpha =A$ y $[U]_\alpha = A^*$, ahora, por el teorema 2.23 y el inciso anteiror tomando como $Q =[I]_{\beta}^{\alpha} $:
+        
+        \begin{equation*}
+            [U]_\beta = [I]_{\alpha} ^{\beta} [U]_\alpha  [I]_{\beta}^{\alpha} = Q^{-1} A^* Q =Q^* A^* Q = (Q A Q^*)^* = ([I]_{\alpha} ^{\beta} [T]_\alpha  [I]_{\beta}^{\alpha})^* = [T]_{\beta}^* \hspace{1cm} \blacksquare
+        \end{equation*}
+        
+    \end{enumerate}
+    
+    
+    %3
+    
+    
+    \item Let V be a inner product space, S and $S_0$ be subsets of V, and W be a finite-dimensional subspace of V. Prove the following results.
+    
+    \begin{enumerate}
+        \item $S \subseteq S_0 $ implies that $S^\perp \subseteq S_0^\perp$
+        
+        Sea $x \in S^\perp$, así, por definición x es ortogonal a cualquier elemento de S y a su vez de $S_0$ por hipótesis, lo que significa que $x \in S_0 ^\perp$, y por lo tanto $S^\perp \subseteq S_0^\perp$ $\hspace{1cm} \blacksquare$
+        
+        \item $S \subseteq (S^\perp)^\perp$; so span $(S) \subseteq (S^\perp)^\perp$
+        
+        Sea $x \in S$, entonces x es ortogonal a cualquier elemento de $S^\perp$ por definición, por lo que $x \in (S^\perp)^\perp$ $\hspace{1cm} \blacksquare$
+        
+        Sea $y \in span(S)$ y $z \in S^\perp$, o bien, $y = \sum a_i x_i$ con $x_i \in S$ Y $a_i$ en cual sea el campo de que tenga V, entonces por lo anterior, 
+        
+        \begin{equation*}
+            <y,z> = <\sum a_i x_i,z> = \sum a_i<x_i,z> = \sum a_i (0) = 0
+        \end{equation*}
+        
+        \begin{equation*}
+            \therefore span (S) \subseteq (S^\perp)^\perp \hspace{1cm} \blacksquare
+        \end{equation*}
+        
+        \item $W =(W^\perp)^\perp$. hint: Use excercise 6.
+        
+        Por el teorema 6.7.c y como$W^\perp \subseteq V $ para cualquier $W \subseteq V$,
+        
+        \begin{equation*}
+            dim(V) = dim(W) + dim(W^\perp) = dim(W^\perp) + dim((W^\perp)^\perp)
+        \end{equation*}
+        
+        lo que significa que $dim(W) = dim((W^\perp)^\perp)$ ypor el teorema 1.11 y lo demostrado en el inciso anterior, $W = (W^\perp)^\perp$ $\hspace{1cm} \blacksquare$
+        
+        \item $V = W \oplus W^\perp$. (See the excercises of section 1.3)
+        
+        Sea $x \in W \cap W^\perp$, esto significa que $<x,x> = 0 = \norm{x}^2$ y por lo tanto que $W \cap W^\perp = \{0_v \}$, ahora como por el teorema 6.6 tenemos que $V = W + W^\perp$ se cumple que $V = W \oplus W^\perp $ $ \hspace{1cm} \blacksquare$
+    \end{enumerate}
+    
+    
+    
+    %4
+    
+    
+    
+    
+    \item Let V be a finite-dimensional inner product space over F
+    \begin{enumerate}
+        \item Parseval's identity. Let ${v_1,v_2,...,v_n}$ be an orthonormal basis for V. For any $x,y \in V$ prove that
+        
+        \begin{equation*}
+            <x,y> =  \sum_{i=1}^{n}<x,v_i> \overline{<y,v_i>}
+        \end{equation*}
+        
+        Usando el teorema 6.5 podemos reescribir $x,y$ como:
+        
+        \begin{equation*}
+            x = \sum_{i=1}^{n} <x,v_i>v_i \hspace{2cm}  y = \sum_{j = 1}^{n} <y,v_j>v_j
+        \end{equation*}
+        
+        entonces, por las propiedades del producto interior tenemos:
+        
+        \begin{equation*}
+            <x,y> = <\sum_{i=1}^{n} <x,v_i>v_i, \sum_{j = 1}^{n} <y,v_j>v_j>
+        \end{equation*}
+        
+        \begin{equation*}
+             = \sum_{i = 1}^{n} \sum_{j = 1}^{n} <<x,v_i>v_i, <y,v_j>v_j>
+        \end{equation*}
+        
+        y dado que $v_i$ son elementos de una base ortonormal:
+        
+        \begin{equation*}
+            = \sum_{i = 1}^{n} <x, v_i> \overline{<y, v_i>}<v_i,v_i> =  \sum_{i = 1}^{n} <x, v_i> \overline{<y, v_i>} \hspace{1cm} \blacksquare
+        \end{equation*}
+        
+        \item Use (a) to prove that if $\beta$ is an orthonormal basis for V with inner product $<\cdot,\cdot>$, then for any $x,y \in V$
+        
+        \begin{equation*}
+            <\phi_\beta (x), \phi_\beta (x)>' = <[x]_\beta,[y]_\beta>' =<x,y>
+        \end{equation*}
+        
+        where $<\cdot,\cdot>'$ is the standard inner product on $F^n$
+        
+        Dado que la ultima igualdad del ejercicio anterior es el producto usual en $F^n$, la igualdad de b) se cumple por la de a) usándola al revés $ \hspace{1cm} \blacksquare$
+        
+        
+        
+    \end{enumerate}
+    
+    
+    
+    %5
+    
+    
+    \item   In each of the following parts,find the orthogonal projection of the given vector on the given subspace W of the inner product space V.
+    
+    \begin{enumerate}
+        \item $V = R^2$, $u=(2,6)$,and $W =\{(x,y) : y =4x\}$
+        
+        Usando el teorema 6.6, y tomando como base ortonormal de $W$ a $\{\frac{1}{\sqrt{17}} (1,4)\}$
+        
+        \begin{equation*}
+            <u,\frac{1}{\sqrt{17}}(1,4)> \frac{1}{\sqrt{17}}(1,4) =\frac{1}{17} <(2,6),(1,4)>(1,4) = \frac{2+(6*4)}{17} (1,4) = \frac{26}{17} (1,4)
+        \end{equation*}
+        
+        \item $V = R^3$, $u=(2,1,3)$, and $W = \{(x,y,z):x+3y-2z = 0\}$
+        
+        Usando el teorema 6.6, y tomando como base ortonormal de $W$ a $\{\frac{2}{\sqrt{5}} (1,0, \frac{1}{2}), \frac{2}{\sqrt{13}}(0,1,\frac{3}{2})\}$
+        
+        \begin{equation*}
+            <u,\frac{2}{\sqrt{5}}(1,0, \frac{1}{2})> \frac{2}{\sqrt{5}}(1,0,\frac{1}{2}) =     \frac{4}{5}<(2,1,3),(1,0, \frac{1}{2})> (1,0,\frac{1}{2}) = \frac{4(2+ (3/2))}{5} (1,0, \frac{1}{2}) 
+        \end{equation*}
+        
+        \begin{equation*}
+            =  \frac{14}{5} (1,0,\frac{1}{2})
+        \end{equation*}
+        
+        \begin{equation*}
+            <u,\frac{2}{\sqrt{13}}(0,1, \frac{3}{2})> \frac{2}{\sqrt{13}}(0,1,\frac{3}{2}) =     \frac{4}{13}<(2,1,3),(0,1, \frac{3}{2})> (0,1,\frac{3}{2}) = \frac{4(1+ (6/2))}{13} (0,1, \frac{3}{2})
+        \end{equation*}
+        
+        \begin{equation*}
+             =\frac{16}{13} (0,1,\frac{3}{2}) 
+        \end{equation*}
+        
+        entonces la proyección es:
+        
+        \begin{equation*}
+             \frac{16}{13} (0,1,\frac{3}{2}) + \frac{14}{5} (1,0,\frac{1}{2})= (\frac{14}{5}, \frac{16}{13}, \frac{211}{65})
+        \end{equation*}
+        
+        
+        
+        \item $V = P_2(R)$ with the inner product $<f(x),g(x)>=\int_{0}^{1} f(t) g(t) dt$, $h(x) =4 +3x-2x^2$, and $W = P_1 (R)$
+        
+        Usando el teorema 6.6, y tomando como base ortonormal de $W$ a $\{1, \sqrt{3} x\}$
+        
+        
+        
+        \begin{equation*}
+            <h(x), 1> 1 = <4 +3x-2x^2,1> 1 = \int_{0}^{1} (4 +3t-2t^2) (1) dt = 4 \int_{0}^{1} dt + 3 \int_{0}^{1} tdt - 2 \int_{0}^{1} t^2 dt   
+        \end{equation*}
+        
+        \begin{equation*}
+            = 4+\frac{3}{2} - \frac{2}{3} = \frac{29}{6}
+        \end{equation*}
+        
+        \begin{equation*}
+            <h(x), \sqrt{3}x> = \int_{0}^{1} (4 +3t-2t^2)\sqrt{3}t dt 
+        \end{equation*}
+        
+        \begin{equation*}
+            = \sqrt{3} \left[ 4 \int_{0}^{1} t dt + 3 \int_{0}^{1} t^2 dt - 2 \int_{0}^{1} t^3 dt\right]
+        \end{equation*}
+        
+        \begin{equation*}
+            = \sqrt{3} \left[ \frac{4}{2} + \frac{3}{3} - \frac{2}{4}\right] = \frac{5 \sqrt{3}}{2}
+        \end{equation*}
+        
+        entonces la proyección es:
+        
+        \begin{equation*}
+            \frac{29}{6} + \frac{15}{2} x
+        \end{equation*}
+        
+    \end{enumerate}
+
+    
+    
+    %6
+    
+    
+    
+    
+    \item In each part of excercise 19, find the distance from the given vector to the subspace W
+    
+    Usando las proyecciones del ejercicio anterior podemos medir la distancia entre los vectores dados y su subespacio de la siguiente forma:
+    
+    \begin{equation*}
+        \norm{(2,6) - \frac{26}{17} (1,4)} =\sqrt{<(2,6) - \frac{26}{17}(1,4),(2,6) - \frac{26}{17}(1,4)>} 
+    \end{equation*}
+    
+    \begin{equation*}
+        \sqrt{<(\frac{8}{17}, \frac{-2}{17}),(\frac{8}{17}, \frac{-2}{17})>} =\frac{2}{\sqrt{17}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \norm{(2,1,3) - (\frac{14}{5}, \frac{16}{13},\frac{211}{65})}= \sqrt{<(-\frac{14}{5},-\frac{3}{13}, -\frac{16}{65}),(-\frac{14}{5},-\frac{3}{13}, -\frac{16}{65})>} = \sqrt{\frac{517}{65}}
+    \end{equation*}
+    
+    \begin{equation*}
+        \norm{(-2x^2 +3x+4) - (\frac{29}{6} + \frac{15}{2} x)} 
+    \end{equation*}
+    
+    \begin{equation*}
+        = \left(\frac{5}{6}\right)^2\int_{0}^{1} dt + 2\frac{9}{2}\frac{5}{6} \int_{0}^{1} t dt + (4 \frac{5}{6} + \frac{9}{2}) \int_{0}^{1} t^2 dt + 4 \frac{9}{2} \int_{0}^{1} t^3 dt + 4 \int_{0}^{1} t^4 dt  
+    \end{equation*}
+    
+    \begin{equation*}
+        = \left(\frac{5}{6}\right)^2 + \frac{9}{2}\frac{5}{6} + (4 \frac{5}{18} + \frac{9}{6}) + \frac{9}{2} + \frac{4}{5} = \frac{556}{45}
+    \end{equation*}
+    
+    
+    
+    
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,70 @@
+PROGRAM secante
+!Main program to use the Secant Method to find the root of
+! f(x)=exp(x)*ln(x)-x*x=0.
+!
+REAL*8 :: DL,A,B,DX,X0,H,C
+INTEGER :: ISTEP
+ C = 0.0
+ DL = 1.0D-15
+ A = 1.0
+ B = 2.0
+ DX = (B-A)/10.0
+ X0 = (A+B)/2.0
+ PRINT*,'X0=',X0
+ CALL SECANT (DL,X0,DX,ISTEP)
+ PRINT*, ISTEP,X0,DX
+ DX = (B-A)/10.0
+ CALL FP (A,B,C,DX,DL,ISTEP)
+ PRINT*, ISTEP,C,DX
+END PROGRAM SECANTE
+!
+ SUBROUTINE SECANT (DL,X0,DX,ISTEP)
+!
+! Subroutine for the root of f(x)=0 with the secant method.
+!
+ IMPLICIT NONE
+ INTEGER, INTENT (INOUT) :: ISTEP
+ REAL*8, INTENT (INOUT) :: X0,DX
+ REAL*8 :: X1,X2,D,F,FX
+ REAL*8, INTENT (IN) :: DL
+ PRINT*, 'DX=',DX,'X0=',X0, DL
+ ISTEP = 0
+ X1 = X0 + DX
+ DO WHILE (DX.GT.DL)
+ D = F(X1) - F(X0)
+ X2 = X1 - F(X1)*(X1-X0)/D
+ X0 = X1
+ X1 = X2
+ DX = ABS(X1 - X0)
+ ISTEP = ISTEP + 1
+ ENDDO
+ END SUBROUTINE SECANT
+!
+ SUBROUTINE FP(A,B,C,DX,DL,ISTEP)
+ IMPLICIT NONE
+ INTEGER, INTENT (INOUT) :: ISTEP
+ REAL*8, INTENT (IN) :: A,B,DL
+ REAL*8 :: F,X,Y
+ REAL*8, INTENT (INOUT) :: C,DX
+ X=B
+ Y=A
+ ISTEP=0
+ DO WHILE (DX.GT.DL)
+  ISTEP=ISTEP+1
+  C=(F(X)*Y-F(Y)*X)/(F(X)-F(Y))
+  IF (F(A)*F(C).LT.0) THEN
+   X=C
+   DX=ABS(Y-C)
+  ELSE
+   Y=C
+   DX=ABS(X-C)
+  END IF
+ END DO
+ END SUBROUTINE FP
+!
+ FUNCTION F(X)
+ IMPLICIT NONE
+ REAL*8 :: F 
+ REAL*8, INTENT (IN) :: X
+ F = EXP(X)*LOG(X) - X*X
+ END

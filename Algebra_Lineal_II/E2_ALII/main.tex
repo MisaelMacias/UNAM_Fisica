@@ -1,0 +1,364 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\usepackage{multicol}%Para hacer varias columnas
+\usepackage{multicol,caption}
+\usepackage{multirow}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\oddsidemargin}{-0.3pc}
+\setlength{\evensidemargin}{-0.3pc}
+\setlength{\textwidth}{6.75in}
+\setlength{\textheight}{9.5in}
+\setlength{\parskip}{0.5pc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{expl3,xparse,xcoffins,titling,kantlipsum}
+\usepackage{graphicx}
+\usepackage{xcolor} 
+\usepackage{nopageno}
+\usepackage{lettrine}
+\usepackage{caption}
+\renewcommand{\figurename}{Figura}
+\usepackage{float}
+\renewcommand\refname{Bibliograf\'ia}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[rightcaption]{sidecap}
+\usepackage[spanish]{babel}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+% CABECERA Y PIE DE PÁGINA %%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\begin{document}
+
+\begin{enumerate}
+
+
+
+%%%1%%%
+
+
+
+    \item \textbf{Sean $A,B \in M_{n \times n} (K)$. Demostrar que si $(I-AB)$ es invertible entonces $I-BA$ es invertible (hint:$(I-BA)^{-1} = I + B(I-AB)^{-1} A$).}
+    
+    \textbf{Probar que AB y BA tienen los mismos eigenvalores en K}
+    
+    \textbf{SOLUCIÓN:}
+    
+    Para demostrar que $I-BA$ es invertible, basta con mostrar una matriz que si se multiplica por la derecha o izquierda con $I-BA$ se obtiene la identidad
+    
+    Supongamos que $(I-BA)^{-1} = I + B(I-AB)^{-1} A$(sabemos por hipótesis que $(I-AB)^{-1}$ existe), entonces
+    
+    \begin{equation*}
+        (I-BA)(I-BA)^{-1} = (I-BA)(I + B(I-AB)^{-1} A)
+    \end{equation*}
+    
+    desarrollando el producto
+    
+    \begin{equation*}
+        = I + B(I-AB)^{-1} A -BA -BAB(I-AB)^{-1} A
+    \end{equation*}
+    
+    ahora factorizando la B por la derecha y A por la izquierda
+    
+    \begin{equation*}
+        = I + B((I-AB)^{-1} -I -AB(I-AB)^{-1} )A
+    \end{equation*}
+    
+    despues reordenando terminso y factorizando $(I-AB)^{-1}$
+    
+    \begin{equation*}
+        = I + B(-I + (I-AB)^{-1} -AB(I-AB)^{-1} )A
+    \end{equation*}
+    
+    \begin{equation*}
+        = I + B(-I + \cancel{(I-AB)(I-AB)^{-1}} )A
+    \end{equation*}
+    
+    \begin{equation*}
+        = I +B(-I+I)A
+    \end{equation*}
+    
+    pero como $-I+I$ es la matriz 0, entonces
+    
+    \begin{equation*}
+        = I + B(0)A = I \hspace{1cm} \therefore (I-BA)(I-BA)^{-1} = I
+    \end{equation*}
+    
+    ahora veamos por la izquierda
+    
+    \begin{equation*}
+        (I-BA)^{-1} (I-BA) = (I + B(I-AB)^{-1} A) (I-BA)
+    \end{equation*}
+    
+    que igual desarrollando
+    
+    \begin{equation*}
+        = I -BA + B(I-AB)^{-1} A -BAB(I-AB)^{-1} A
+    \end{equation*}
+    
+    hagamos exactamente lo mismo que en el caso anterior
+    
+    \begin{equation*}
+        = I+ B(-I + (I-AB)^{-1} -AB(I-AB)^{-1} )A
+    \end{equation*}
+    
+    \begin{equation*}
+        = I+ B(-I + \cancel{(I-AB)(I-AB)^{-1}})A
+    \end{equation*}
+    
+    \begin{equation*}
+        = I+ B(-I + I)A = I+B(0)A = I \hspace{1cm} \therefore (I-BA)^{-1} (I-BA) = I
+    \end{equation*}
+    
+    y así confirmamos que existe una inversa y por lo tanto $I-BA$ es invertible bajo el supuesto de que $I-AB$ lo sea $\hspace{13cm} \blacksquare$
+    
+    Sea $\lambda$ un valor propio de $AB$, con vector propio $v$, entonces
+    
+    \begin{equation*}
+        AB v= \lambda v
+    \end{equation*}
+    
+    \begin{equation*}
+        BAB v = B \lambda v
+    \end{equation*}
+    
+    \begin{equation*}
+        BA(Bv) = \lambda (Bv)
+    \end{equation*}
+    
+    sea $v' = Bv$
+    
+    \begin{equation*}
+        BAv' = \lambda v'
+    \end{equation*}
+    
+    entonces, $\lambda$ es un valor propio de $BA$ 
+    $\hspace{8cm}\blacksquare$
+    
+    
+    
+    
+    
+%%%2%%%
+
+
+
+    \item \textbf{Sea $T:R^3 \rightarrow R^3$ el operador lineal dado por }
+    
+    \begin{equation*}
+        T ([x, y, z]) = [2x-y-z,x-z,-x+y+2z]
+    \end{equation*}
+    
+    \textbf{Hallar una base de $R^3$ con relación a la cual la matriz de  T sea diagonal}
+    
+    \textbf{SOLUCIÓN:}
+    
+    La matriz de dicha transformación es
+    
+    \begin{equation*}
+        [T]_\beta =\left( \begin{array}{lcc}
+            2 & -1 & -1 \\
+            \\ 1 & 0 & -1 \\
+            \\ -1 & 1 & 2 \\
+        \end{array}
+        \right)
+    \end{equation*}
+    
+    Con $\beta$ como la base canónica de $R^3$
+    
+    Ahora calculemos los valores y vectores propios para encontrar una base que diagonalize la matriz de la transformación 
+    
+    \begin{equation*}
+        \text{det}([T]_\beta - \lambda I) = \left|\begin{array}{lcc}
+             2- \lambda & -1 & -1 \\
+             1 & -\lambda & -1 \\
+             -1 & 1 & 2-\lambda \\
+        \end{array}
+        \right| = (2-\lambda)(-\lambda(2-\lambda)+1)+((2-\lambda)-1) -(1-\lambda)
+    \end{equation*}
+    
+    \begin{equation*}
+        = (2-\lambda)(-2\lambda+\lambda^2+1)-\lambda+1 +\lambda-1 =-4\lambda+2\lambda^2+2 +2\lambda^2 -\lambda^3- \lambda 
+    \end{equation*}
+    
+    \begin{equation*}
+        =-\lambda^3+4\lambda^2-5\lambda +2 = -(\lambda-1)^2(\lambda-2) = 0
+    \end{equation*}
+    
+    por lo que los valores propios son $\lambda_1 =1$ con multiplicidad 2 y $\lambda_2 = 2$, que sustituyendo
+    
+    \begin{equation*}
+        ([T]_\beta - \lambda_1 I)v = \left(\begin{array}{lcc}
+             2- 1 & -1 & -1 \\
+             1 & -1 & -1 \\
+             -1 & 1 & 2-1 \\
+        \end{array}\right)\left(\begin{array}{lcc}
+             x  \\
+             y \\
+             z \\
+        \end{array}\right) = \left(\begin{array}{lcc}
+             x-y-z \\
+             x-y-z \\
+             -x+y+z \\
+        \end{array}\right) =\left(\begin{array}{lcc}
+             0  \\
+             0 \\
+             0 \\
+        \end{array} \right)
+    \end{equation*}
+    
+    \begin{equation*}
+        \longrightarrow  \left\{\begin{array}{cc}
+             x-y-z = 0  \\
+             x-y-z = 0 \\
+             -x+y+z = 0 \\
+        \end{array}\right. \longrightarrow
+        \left\{\begin{array}{cc}
+             x = y+z  \\
+             y = x-z \\
+        \end{array}\right.
+    \end{equation*}
+    
+    que de aquí podemos sacar los vectores propios $\left(\begin{array}{cc}
+         1  \\
+         1 \\
+         0 \\
+    \end{array}\right)$ y $\left(\begin{array}{cc}
+         1 \\
+         0 \\
+         1 \\
+    \end{array}\right)$
+    
+    ahora para $\lambda_2$
+    
+    \begin{equation*}
+        ([T]_\beta - \lambda_2 I)v = \left(\begin{array}{lcc}
+             2- 2 & -1 & -1 \\
+             1 & -2 & -1 \\
+             -1 & 1 & 2-2 \\
+        \end{array}\right)\left(\begin{array}{lcc}
+             x  \\
+             y \\
+             z \\
+        \end{array}\right) = \left(\begin{array}{lcc}
+             -y-z \\
+             x-2y-z \\
+             -x+y \\
+        \end{array}\right) =\left(\begin{array}{lcc}
+             0  \\
+             0 \\
+             0 \\
+        \end{array} \right)
+    \end{equation*}
+    
+    \begin{equation*}
+        \longrightarrow  \left\{\begin{array}{cc}
+             -y-z = 0  \\
+             x-2y-z = 0 \\
+             -x+y = 0 \\
+        \end{array}\right. \longrightarrow
+        \left\{\begin{array}{cc}
+             y = -z  \\
+             z = -2y+x \\
+             x = y \\
+        \end{array}\right. \longrightarrow  \left\{\begin{array}{cc}
+             y = -z  \\
+             z = -y \\
+             x = y \\
+        \end{array}\right.
+    \end{equation*}
+    
+    y así, en la base $\beta' =\left\{ \left(\begin{array}{cc}
+         1  \\
+         1 \\
+         0 \\
+    \end{array}\right),\left(\begin{array}{cc}
+         1 \\
+         0 \\
+         1 \\
+    \end{array}\right),\left(\begin{array}{cc}
+         -1 \\
+         -1 \\
+         1 \\
+    \end{array}\right)\right\}$
+    
+    comprobemos que la matriz $[T]_{\beta'}$ es diagonal
+    
+    Sea 
+    
+    \begin{equation*}
+        Q = \left(\begin{array}{lcc}
+            1 & 1 & -1 \\
+            1 & 0 & -1 \\
+            0 & 1 & 1 \\
+        \end{array}\right)
+    \end{equation*}
+    
+    \begin{equation*}
+        Q^{-1} = \left(\begin{array}{rcc}
+            -1 & 2 & 1 \\
+            1&-1 & 0 \\
+            -1 & 1 & 1 \\
+        \end{array}\right)
+    \end{equation*}
+    
+    entonces
+    
+    \begin{equation*}
+        [T]_{\beta'} = Q^{-1}[T]_\beta Q =\left(\begin{array}{rcc}
+            -1 & 2 & 1 \\
+            1&-1 & 0 \\
+            -1 & 1 & 1 \\
+        \end{array}\right)\left( \begin{array}{lcc}
+            2 & -1 & -1 \\
+            \\ 1 & 0 & -1 \\
+            \\ -1 & 1 & 2 \\
+        \end{array}
+        \right)\left(\begin{array}{lcc}
+            1 & 1 & -1 \\
+            1 & 0 & -1 \\
+            0 & 1 & 1 \\
+        \end{array}\right) 
+    \end{equation*} 
+    
+    \begin{equation*}
+        =\left( \begin{array}{lcc}
+            1 & 0 & 0 \\
+            \\ 0 & 1 & 0 \\
+            \\ 0 & 0 & 2 \\
+        \end{array}
+        \right)
+    \end{equation*}
+\end{enumerate}
+
+
+\end{document}
